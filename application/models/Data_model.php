@@ -69,8 +69,38 @@ class Data_model extends CI_Model {
           'detail_eau'=>'Des solutions pour l\'accès à l\'eau potable : Nous proposons des projets d\'Eau, Assainissement et Hygiène (EAH), des forages d\'eau et des solutions durables pour garantir un accès fiable à l\'eau potable.',
           'detail_infrastructure'=>'Bâtir un avenir solide : Nous concevons et réalisons des aménagements hydrauliques, des travaux publics et des infrastructures adaptées, pour un développement harmonieux des territoires.',
           'detail_env'=>'Protéger et préserver :Nous assurons des études d\'impact environnemental,géosciences, et gestion des risques pour préserver les ressources naturelles et promouvoir un avenir durable.'
-        )
-      );
+      ),
+      'header_en' => array(
+        'item1' => 'Home',
+        'item2' => 'Our references',
+        'item3' => 'Our achievements',
+        'item3' => 'Blog',
+        'item4' => 'Contact Us',
+        'item5' => 'Customer Area'
+      ),
+      'header_fr' => array(
+          'item1' => 'Accueil',
+          'item2' => 'Nos Références',
+          'item3' => 'Nos Réalisations',
+          'item3' => 'Blog',
+          'item4' => 'Nous Contacter',
+          'item5' => 'Espace Client'
+      ),
+      'footer_en' => array(
+          'item1'=> 'For your ambitious water, infrastructure and environmental projects, HYDROCAMP GROUP is your trusted partner. Together, towards a sustainable future.',
+          'button_devis' => 'Ask for a quote',
+          'item2' => 'HYDROCAMP GROUP is a company specializing in sustainable development and engineering.',
+          'item3'=> 'Pages',
+          'item4' => 'Subscribe to our newsletter to keep up to date with all our news!'
+      ),
+      'footer_fr' => array(
+          'item1'=> 'Pour vos projets ambitieux en eau,infrastructure et environnement, HYDROCAMP GROUP est votre partenaire de confiance. Ensemble, vers un avenir durable.',
+          'button_devis' => 'Demander un devis',
+          'item2' => 'HYDROCAMP GROUP est une société spécialisée dans le développement durable et l\'ingénierie',
+          'item3'=> 'Pages',
+          'item4' => 'Inscrivez-vous à notre newsletter pour rester informé de toutes nos actualités !'
+      )
+    );
       return $data;
   }
 
