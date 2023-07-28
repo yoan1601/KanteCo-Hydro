@@ -33,3 +33,6 @@ user_guide_src/cilexer/pycilexer.egg-info/*
 
 # config
 application/config/config.php
+
+#database (noho ilay mot de passe)
+application/config/database.php
