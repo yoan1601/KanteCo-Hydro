@@ -4,7 +4,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 /**
  *
- * Controller SessionSecure
+ * Controller Reference
  *
  * This controller for ...
  *
@@ -18,20 +18,23 @@ defined('BASEPATH') or exit('No direct script access allowed');
  *
  */
 
-class SessionSecure extends CI_Controller
+class Reference extends CI_Controller
 {
     
   public function __construct()
   {
     parent::__construct();
-    // if( $this->session->has_userdata('userid') == false ) {
-    //   redirect('welcome');
-    // }
   }
+
 
   public function index()
   {
-    // 
+    $data = $this->compagnie->findAll();
+    echo json_encode($data);
   }
 
 }
+
+
+/* End of file Reference.php */
+/* Location: ./application/controllers/Reference.php */

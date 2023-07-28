@@ -99,6 +99,14 @@ class Data_model extends CI_Model {
           'item2' => 'HYDROCAMP GROUP est une société spécialisée dans le développement durable et l\'ingénierie',
           'item3'=> 'Pages',
           'item4' => 'Inscrivez-vous à notre newsletter pour rester informé de toutes nos actualités !'
+      ),
+      'reference_en' => array(
+          'item1' =>'Our references',
+          'item2' => 'Discover our references. Sustainable projects that have made a difference.'
+      ),
+      'reference_fr' => array(
+          'item1' =>'Nos références',
+          'item2' => 'Découvrez nos références. Des projets durables qui ont fait la différence'
       )
     );
       return $data;
