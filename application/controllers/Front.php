@@ -6,4 +6,9 @@ class Front extends CI_Controller {
 	public function index() {
 		$this->load->view('pages/home');
 	}
+
+	public function reference() {
+		$this->load->view('pages/reference');
+	}
+
 }

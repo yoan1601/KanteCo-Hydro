@@ -216,6 +216,11 @@
     background-size: cover;
 }
 
+.page-header-reference {
+    background: linear-gradient(rgba(0, 0, 0, .1), rgba(0, 0, 0, .1)), url(../img/pageRefHeader.jpg) center center no-repeat;
+    background-size: cover;
+}
+
 .breadcrumb-item + .breadcrumb-item::before {
     color: var(--light);
 }

@@ -74,8 +74,8 @@
 			</button>
 			<div class="collapse navbar-collapse" id="navbarCollapse">
 				<div class="navbar-nav ms-auto p-4 p-lg-0">
-					<a href="" class="nav-item nav-link active">Accueil</a>
-					<a href="" class="nav-item nav-link">Nos référeneces</a>
+					<a href="<?= site_url('front'); ?>" class="nav-item nav-link active">Accueil</a>
+					<a href="<?= site_url('front/reference'); ?>" class="nav-item nav-link">Nos référeneces</a>
 					<a href="" class="nav-item nav-link">Nos réalisations</a>
 					<a href="" class="nav-item nav-link">Blog</a>
 					<a href="contact.html" class="nav-item nav-link">Nous contacter</a>
