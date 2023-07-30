@@ -79,11 +79,20 @@
 					<a href="" class="nav-item nav-link">Nos réalisations</a>
 					<a href="" class="nav-item nav-link">Blog</a>
 					<a href="contact.html" class="nav-item nav-link">Nous contacter</a>
-					<a href="contact.html" class="nav-item nav-link">EN</a>
+					<a href="contact.html" class="nav-item nav-link d-flex gap-2">
+						<span>FR</span>
+						<span class="d-flex">
+							<img src="<?= base_url("assets/")?>svg/france-flag-icon.svg" alt="" width="25">
+						</span>
+						<!-- <span>EN</span>
+						<span class="d-flex">
+							<img src="<?= base_url("assets/")?>svg/united-states-flag-icon.svg" alt="" width="25">
+						</span> -->
+					</a>
 				</div>
 				<a
 					href=""
-					class="btn btn-primary rounded-0 py-4 px-lg-5 d-none d-lg-block"
+					class="btn btn-primary rounded-0 py-4 px-lg-5 d-none d-lg-block ms-3"
 					>Se connecter<i class="fa fa-arrow-right ms-3"></i
 				></a>
 			</div>
