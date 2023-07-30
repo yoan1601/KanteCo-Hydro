@@ -75,10 +75,10 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'localhost',
-	'username' => 'root',
-	'password' => '',
-	'database' => 'hydro',
+	'hostname' => 'mysql-hydro.alwaysdata.net',
+	'username' => 'hydro',
+	'password' => 'hydroCamp1234',
+	'database' => 'hydro_hydro',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
