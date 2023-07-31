@@ -26,13 +26,13 @@
 </style>
 <div class="container-xxl py-5">
     <div class="container">
-        <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px; visibility: visible; animation-delay: 0.1s; animation-name: fadeInUp;">
-            <h6 class="text-primary">Nos réferences</h6>
-            <h1 class="mb-4">Découvrez nos références. Des projets durables qui ont fait la différence.
-            </h1>
+        <div class="text-center mx-auto mb-2 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px; visibility: visible; animation-delay: 0.1s; animation-name: fadeInUp;">
+            <h1 class="text-primary"><?= $data['reference_'.$data['lang']]['item1'] ?></h6>
+            <span class="mb-4"><?= $data['reference_'.$data['lang']]['item2'] ?>
+            </span>
         </div>
         <div class="row g-0 mx-lg-0">
-            <div class="col-lg-12 feature-text py-5 wow fadeIn" data-wow-delay="0.1s" style="visibility: visible; animation-delay: 0.1s; animation-name: fadeIn;">
+            <div class="col-lg-12 feature-text py-0 wow fadeIn" data-wow-delay="0.1s" style="visibility: visible; animation-delay: 0.1s; animation-name: fadeIn;">
                 <div class="p-lg-5 ps-lg-0">
                     <div class="row g-4">
                         <?php for ($i=0; $i < 9; $i++) { ?>
