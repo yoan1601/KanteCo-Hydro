@@ -49,17 +49,18 @@
     <!-- Carousel End -->
 
     <!-- About Start -->
-    <div class="container-xxl py-5">
-        <div class="container">
-            <div class="text-left mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
-                <h6 class="text-primary">Qui sommes-nous ?</h6>
-                <h1 class="mb-4">Votre partenaire expert pour un développement durable</h1>
-            </div>
-            <div class="row g-4">
-                <div class="col-md-6 col-lg-8 wow fadeInUp" data-wow-delay="0.1s">
+    <div class="container-xxl">
+        <div class="row g-0 mx-lg-0">
+            <div class="col-lg-6 about-text wow fadeIn" data-wow-delay="0.5s">
+                <div class="p-lg-5 pe-lg-0">
+                    <h6 class="text-primary">Qui sommes-nous ?</h6>
+                    <h1 class="mb-4">Votre partenaire expert pour un développement durable</h1>
                     <p>HYDROCAMP GROUP est une société spécialisée dans le développement durable et l'ingénierie.</p>
                     <p>Experts en ingénierie et environnement, concevant des infrastructures durables pour répondre aux besoins des populations et favoriser un avenir meilleur.</p>
                 </div>
+            </div>
+            <div class="col-lg-6 ps-lg-0 d-flex align-item-center justify-content-center wow fadeIn" data-wow-delay="0.5s">
+                <img class="" src="<?= base_url("assets/") ?>img/HYDROCAMP LOGO FINAL.PNG" style="object-fit: contain; width: 350px;" alt="">
             </div>
         </div>
     </div>
@@ -89,8 +90,8 @@
     <div class="container-xxl py-5">
         <div class="container">
             <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
-                <h6 class="text-primary">Nos services</h6>
-                <h1 class="mb-4">Votre avenir durable, notre expertise. Solutions novatrices pour un futur prospère</h1>
+                <h1 class="text-primary">Nos services</h1>
+                <p class="mb-4">Votre avenir durable, notre expertise. Solutions novatrices pour un futur prospère</p>
             </div>
             <div class="row g-4">
                 <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.1s">
@@ -101,7 +102,7 @@
                                 <i class="fas fa-tint fa-3x"></i>
                             </div>
                             <h4 class="mb-3">Eau</h4>
-                            <p>Des solutions pour l'accès à l'eau potable : Nous proposons des projets ...</p>
+                            <p class="service-text">Des solutions pour l'accès à l'eau potable : Nous proposons des projets d'Eau, Assainissement et Hygiène (EAH), des forages d'eau et des solutions durables pour garantir un accès fiable à l'eau potable.</p>
                             <a class="small fw-medium" href="">En savoir plus<i class="fa fa-arrow-right ms-2"></i></a>
                         </div>
                     </div>
@@ -114,7 +115,7 @@
                                 <i class="fas fa-network-wired fa-3x"></i>
                             </div>
                             <h4 class="mb-3">Infrastructure</h4>
-                            <p>Bâtir un avenir solide : Nous concevons et réalisons des ...</p>
+                            <p class="service-text">Bâtir un avenir solide : Nous concevons et réalisons des aménagements hydrauliques, des travaux publics et des infrastructures adaptées, pour un développement harmonieux des territoires.</p>
                             <a class="small fw-medium" href="">En savoir plus<i class="fa fa-arrow-right ms-2"></i></a>
                         </div>
                     </div>
@@ -127,7 +128,7 @@
                                 <i class="fab fa-envira fa-3x"></i>
                             </div>
                             <h4 class="mb-3">Environnement</h4>
-                            <p>Protéger et préserver : Nous assurons des études d'impact environnemental, ...</p>
+                            <p class="service-text">Protéger et préserver : Nous assurons des études d'impact environnemental, géosciences, et gestion des risques pour préserver les ressources naturelles et promouvoir un avenir durable.</p>
                             <a class="small fw-medium" href="">En savoir plus<i class="fa fa-arrow-right ms-2"></i></a>
                         </div>
                     </div>
@@ -140,4 +141,18 @@
     <div class="container-xxl">
 
     </div>
+
+<script>
+    function couperTexte(texte, longueurMax = 75) {
+        if (texte.length <= longueurMax) {
+            return texte;
+        } else {
+            return texte.slice(0, longueurMax) + "...";
+        }
+    }
+    const serviceText = document.querySelectorAll("p.service-text");
+    serviceText.forEach(item => {
+        item.textContent = couperTexte(item.textContent);
+    });
+</script>
 <?php $this->load->view("templates/footer"); ?>
