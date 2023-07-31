@@ -3,7 +3,7 @@
   <div class="container py-5">
       <div class="row g-5">
           <div class="col-lg-4 col-md-6">
-              <h5 class="text-white mb-4">Adresse</h5>
+              <h5 class="text-white mb-4"><?= $data['footer_'.$data['lang']]['address'] ?></h5>
               <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>101 Antananarivo, Madagascar</p>
               <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+261 34 00 000 00</p>
               <p class="mb-2"><i class="fa fa-envelope me-3"></i>contact@hydrocamp.com</p>
@@ -15,28 +15,28 @@
               </div>
           </div>
           <div class="col-lg-5 col-md-6">
-              <h5 class="text-white mb-4">Pages</h5>
+              <h5 class="text-white mb-4"><?= $data['footer_'.$data['lang']]['item3'] ?></h5>
 
               <div class="row">
                 <div class="col-lg-6">
-                    <a class="btn btn-link" href="">Accueil</a>
-                    <a class="btn btn-link" href="">Nos réferences</a>
-                    <a class="btn btn-link" href="">Nos réalisations</a>
+                    <a class="btn btn-link" href=""><?= $data['header_'.$data['lang']]['item1'] ?></a>
+                    <a class="btn btn-link" href=""><?= $data['header_'.$data['lang']]['item2'] ?></a>
+                    <a class="btn btn-link" href=""><?= $data['header_'.$data['lang']]['item3'] ?></a>
                 </div>
                 <div class="col-lg-6">
-                    <a class="btn btn-link" href="">Blog</a>
-                    <a class="btn btn-link" href="">Devis</a>
-                    <a class="btn btn-link" href="">Nous contacter</a>
+                    <a class="btn btn-link" href=""><?= $data['header_'.$data['lang']]['item4'] ?></a>
+                    <a class="btn btn-link" href=""><?= $data['header_'.$data['lang']]['item5'] ?></a>
+                    <a class="btn btn-link" href=""><?= $data['header_'.$data['lang']]['item6'] ?></a>
                 </div>
               </div>
 
           </div>
           <div class="col-lg-3 col-md-6">
               <h5 class="text-white mb-4">Newsletter</h5>
-              <p>Inscrivez-vous à notre newsletter pour rester informé de toutes nos actualités !</p>
+              <p><?= $data['footer_'.$data['lang']]['item4'] ?></p>
               <div class="position-relative mx-auto" style="max-width: 400px;">
-                  <input class="form-control border-0 w-100 py-3 ps-4 pe-5" type="text" placeholder="Votre e-mail">
-                  <button type="button" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">S'inscrire</button>
+                  <input class="form-control border-0 w-100 py-3 ps-4 pe-5" type="text" placeholder="<?= $data['footer_'.$data['lang']]['mail'] ?>">
+                  <button type="button" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2"><?= $data['footer_'.$data['lang']]['inscription'] ?></button>
               </div>
           </div>
       </div>
