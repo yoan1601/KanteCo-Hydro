@@ -49,17 +49,18 @@
     <!-- Carousel End -->
 
     <!-- About Start -->
-    <div class="container-xxl py-5">
-        <div class="container">
-            <div class="text-left mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
-                <h6 class="text-primary"><?= $data['accueil_'.$data['lang']]['who'] ?></h6>
-                <h1 class="mb-4"><?= $data['accueil_'.$data['lang']]['answer'] ?></h1>
-            </div>
-            <div class="row g-4">
-                <div class="col-md-6 col-lg-8 wow fadeInUp" data-wow-delay="0.1s">
+    <div class="container-xxl">
+        <div class="row g-0 mx-lg-0">
+            <div class="col-lg-6 about-text wow fadeIn" data-wow-delay="0.5s">
+                <div class="p-lg-5 pe-lg-0">
+                    <h6 class="text-primary"><?= $data['accueil_'.$data['lang']]['who'] ?></h6>
+                    <h1 class="mb-4"><?= $data['accueil_'.$data['lang']]['answer'] ?></h1>
                     <p><?= $data['accueil_'.$data['lang']]['accueil_droite1'] ?></p>
                     <p><?= $data['accueil_'.$data['lang']]['accueil_droite2'] ?></p>
                 </div>
+            </div>
+            <div class="col-lg-6 ps-lg-0 d-flex align-item-center justify-content-center wow fadeIn" data-wow-delay="0.5s">
+                <img class="" src="<?= base_url("assets/") ?>img/HYDROCAMP LOGO FINAL.PNG" style="object-fit: contain; width: 350px;" alt="">
             </div>
         </div>
     </div>
@@ -89,8 +90,8 @@
     <div class="container-xxl py-5">
         <div class="container">
             <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
-                <h6 class="text-primary"><?= $data['accueil_'.$data['lang']]['titre'] ?></h6>
-                <h1 class="mb-4"><?= $data['accueil_'.$data['lang']]['apres titre'] ?></h1>
+                <h1 class="text-primary"><?= $data['accueil_'.$data['lang']]['titre'] ?></h1>
+                <p class="mb-4"><?= $data['accueil_'.$data['lang']]['apres titre'] ?></p>
             </div>
             <div class="row g-4">
                 <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.1s">
@@ -101,7 +102,7 @@
                                 <i class="fas fa-tint fa-3x"></i>
                             </div>
                             <h4 class="mb-3"><?= $data['accueil_'.$data['lang']]['eau'] ?></h4>
-                            <p><?= $data['accueil_'.$data['lang']]['detail_eau'] ?></p>
+                            <p class="service-text"><?= $data['accueil_'.$data['lang']]['detail_eau'] ?></p>
                             <a class="small fw-medium" href=""><?= $data['accueil_'.$data['lang']]['button2'] ?><i class="fa fa-arrow-right ms-2"></i></a>
                         </div>
                     </div>
@@ -114,7 +115,7 @@
                                 <i class="fas fa-network-wired fa-3x"></i>
                             </div>
                             <h4 class="mb-3"><?= $data['accueil_'.$data['lang']]['infrastructure'] ?></h4>
-                            <p><?= $data['accueil_'.$data['lang']]['detail_infrastructure'] ?></p>
+                            <p class="service-text"><?= $data['accueil_'.$data['lang']]['detail_infrastructure'] ?></p>
                             <a class="small fw-medium" href=""><?= $data['accueil_'.$data['lang']]['button2'] ?><i class="fa fa-arrow-right ms-2"></i></a>
                         </div>
                     </div>
@@ -127,7 +128,7 @@
                                 <i class="fab fa-envira fa-3x"></i>
                             </div>
                             <h4 class="mb-3"><?= $data['accueil_'.$data['lang']]['env'] ?></h4>
-                            <p><?= $data['accueil_'.$data['lang']]['detail_env'] ?></p>
+                            <p class="service-text"><?= $data['accueil_'.$data['lang']]['detail_env'] ?></p>
                             <a class="small fw-medium" href=""><?= $data['accueil_'.$data['lang']]['button2'] ?><i class="fa fa-arrow-right ms-2"></i></a>
                         </div>
                     </div>
@@ -140,4 +141,18 @@
     <div class="container-xxl">
 
     </div>
+
+<script>
+    function couperTexte(texte, longueurMax = 75) {
+        if (texte.length <= longueurMax) {
+            return texte;
+        } else {
+            return texte.slice(0, longueurMax) + "...";
+        }
+    }
+    const serviceText = document.querySelectorAll("p.service-text");
+    serviceText.forEach(item => {
+        item.textContent = couperTexte(item.textContent);
+    });
+</script>
 <?php $this->load->view("templates/footer"); ?>
