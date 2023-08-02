@@ -39,7 +39,7 @@
                         <div class="mb-5 col-4">
                             <div class="d-flex flex-column align-items-center">
                                 <div class="btn-lg-square bg-primary company">
-                                    <img src="<?= base_url("assets/") ?>img/ministere.jpg" alt="">
+                                    <img src="<?= base_url("assets/") ?>img/unido.jpg" alt="">
                                 </div>
                                 <div class="text-center">
                                     <h5 class="mt-sm-4">Entreprise</h5>
