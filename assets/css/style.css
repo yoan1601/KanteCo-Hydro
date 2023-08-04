@@ -220,6 +220,12 @@
 	background-size: cover;
 }
 
+.page-header-achievements {
+	background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
+		url(../img/pexels-anamul-rezwan-1216589.jpg) center -25em no-repeat;
+	background-size: cover;
+}
+
 .breadcrumb-item + .breadcrumb-item::before {
 	color: var(--light);
 }
