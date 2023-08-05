@@ -14,17 +14,17 @@
             <div class="col-lg-12 feature-text py-2 wow fadeIn" data-wow-delay="0.1s" style="visibility: visible; animation-delay: 0.1s; animation-name: fadeIn;">
                 <div class="py-lg-5 ps-lg-0">
                     <div class="row g-4">
-                        <?php for ($i=0; $i < 9; $i++) { ?>
+                        <?php for ($i=0; $i < count($data['compagnies']); $i++) { ?>
                         <?php
                             $delay = 0.1 + (0.2 * $i);
                         ?>
                         <div class="mb-2 col-lg-3">
                             <div class="d-flex flex-column align-items-center wow fadeInUp" data-wow-delay="<?= $delay ?>s">
-                                <div class="">
-                                    <img class="img-fluid" src="<?= base_url("assets/") ?>img/reference.jpg" alt="">
+                                <div class="" style="height: 20vh;">
+                                    <img class="img-fluid" style="height: 100%; width:100%;" src="<?= base_url("assets/") ?>img/<?= $data['compagnies'][$i]->logo ?>" alt="">
                                 </div>
                                 <div class="text-center">
-                                    <h4 class="mt-3">Entreprise</h4>
+                                    <h4 class="mt-5"><?= $data['compagnies'][$i]->nom ?></h4>
                                 </div>
                             </div>
                         </div>

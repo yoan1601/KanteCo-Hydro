@@ -1,44 +1,44 @@
 <?php $this->load->view("templates/header"); ?>
 <!-- Carousel Start -->
-<div class="container-fluid p-0 pb-5 wow fadeIn" data-wow-delay="0.1s">
-    <div class="owl-carousel header-carousel position-relative">
+<div class="container-fluid p-0 pb-5 wow fadeIn" data-wow-delay="0.1s" >
+    <div class="owl-carousel header-carousel position-relative"> 
         <div class="owl-carousel-item position-relative" data-dot="<img src='<?= base_url("assets/") ?>img/carousel-1.jpg'>">
-            <img class="img-fluid" src="<?= base_url("assets/") ?>img/carousel-1.jpg" alt="">
+            <img class="img-fluid mh-100" style="height: 90vh;" src="<?= base_url("assets/") ?>img/carousel-1.jpg" alt="">
             <div class="owl-carousel-inner">
                 <div class="container">
                     <div class="row justify-content-start">
                         <div class="col-10 col-lg-8">
                             <h1 class="display-2 text-white animated slideInDown"><?= $data['accueil_' . $data['lang']]['caroussel1_titre'] ?></h1>
                             <p class="fs-5 fw-medium text-white mb-4 pb-3"><?= $data['accueil_' . $data['lang']]['caroussel1_p'] ?></p>
-                            <a href="" class="btn btn-primary rounded-pill py-3 px-5 animated slideInLeft"><?= $data['accueil_' . $data['lang']]['button'] ?></a>
+                            <div class="btn btn-primary rounded-pill py-3 px-5 animated slideInLeft"><span class="m-3"><?= $data['accueil_' . $data['lang']]['button'] ?></span><i class="fa fa-arrow-down ms-2"></i></div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
         <div class="owl-carousel-item position-relative" data-dot="<img src='<?= base_url("assets/") ?>img/carousel-2.jpg'>">
-            <img class="img-fluid" src="<?= base_url("assets/") ?>img/carousel-2.jpg" alt="">
+            <img class="img-fluid mh-100" style="height: 90vh;" src="<?= base_url("assets/") ?>img/carousel-2.jpg" alt="">
             <div class="owl-carousel-inner">
                 <div class="container">
                     <div class="row justify-content-start">
                         <div class="col-10 col-lg-8">
                             <h1 class="display-2 text-white animated slideInDown"><?= $data['accueil_' . $data['lang']]['caroussel2_titre'] ?></h1>
                             <p class="fs-5 fw-medium text-white mb-4 pb-3"><?= $data['accueil_' . $data['lang']]['caroussel2_p'] ?></p>
-                            <a href="" class="btn btn-primary rounded-pill py-3 px-5 animated slideInLeft"><?= $data['accueil_' . $data['lang']]['button'] ?></a>
+                            <div class="btn btn-primary rounded-pill py-3 px-5 animated slideInLeft"><span class="m-3"><?= $data['accueil_' . $data['lang']]['button'] ?></span><i class="fa fa-arrow-down ms-2"></i></div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
         <div class="owl-carousel-item position-relative" data-dot="<img src='<?= base_url("assets/") ?>img/carousel-3.jpg'>">
-            <img class="img-fluid" src="<?= base_url("assets/") ?>img/carousel-3.jpg" alt="">
+            <img class="img-fluid mh-100" style="height: 90vh;" src="<?= base_url("assets/") ?>img/carousel-3.jpg" alt="">
             <div class="owl-carousel-inner">
                 <div class="container">
                     <div class="row justify-content-start">
                         <div class="col-10 col-lg-8">
                             <h1 class="display-2 text-white animated slideInDown"><?= $data['accueil_' . $data['lang']]['caroussel3_titre'] ?></h1>
                             <p class="fs-5 fw-medium text-white mb-4 pb-3"><?= $data['accueil_' . $data['lang']]['caroussel3_p'] ?></p>
-                            <a href="" class="btn btn-primary rounded-pill py-3 px-5 animated slideInLeft"><?= $data['accueil_' . $data['lang']]['button'] ?></a>
+                            <div class="btn btn-primary rounded-pill py-3 px-5 animated slideInLeft"><span class="m-3"><?= $data['accueil_' . $data['lang']]['button'] ?></span><i class="fa fa-arrow-down ms-2"></i></div>
                         </div>
                     </div>
                 </div>
@@ -53,7 +53,7 @@
     <div class="row g-0 mx-lg-0">
         <div class="col-lg-6 d-flex align-items-center about-text wow fadeIn mb-4" data-wow-delay="0.5s">
             <div class="p-lg-5 pe-lg-0">
-                <h6 class="text-primary"><?= $data['accueil_' . $data['lang']]['who'] ?></h6>
+                <p class="text-primary font-weight-light" style="font-size: xx-large;"><?= $data['accueil_' . $data['lang']]['who'] ?></p>
                 <h1 class="mb-4"><?= $data['accueil_' . $data['lang']]['answer'] ?></h1>
                 <p><?= $data['accueil_' . $data['lang']]['accueil_droite1'] ?></p>
                 <p><?= $data['accueil_' . $data['lang']]['accueil_droite2'] ?></p>
@@ -120,10 +120,10 @@
             </div>
             <div class="col-lg-6 about-text py-5 wow fadeIn" data-wow-delay="0.5s">
                 <div class="p-lg-5 pe-lg-0">
-                    <h6 class="text-primary"><?= $data['accueil_' . $data['lang']]['propos'] ?></h6>
+                    <p class="text-primary font-weight-light" style="font-size: xx-large;"><?= $data['accueil_' . $data['lang']]['propos'] ?></p>
                     <h1 class="mb-4"><?= $data['accueil_' . $data['lang']]['combien1'] ?> <?= $data['accueil_' . $data['lang']]['expert_permanent'] ?> & <?= $data['accueil_' . $data['lang']]['combien2'] ?> <?= $data['accueil_' . $data['lang']]['consultant'] ?></h1>
                     <p><?= $data['accueil_' . $data['lang']]['accueil_droite3'] ?></p>
-                    <a href="" class="btn btn-primary rounded-pill py-3 px-5 mt-3"><?= $data['accueil_' . $data['lang']]['button2'] ?></a>
+                    <a href="" class="btn btn-primary rounded-pill py-3 px-5 mt-3"><span class="m-3"><?= $data['accueil_' . $data['lang']]['button2'] ?></span> <i class="fa fa-arrow-right ms-2"></i></a>
                 </div>
             </div>
         </div>
@@ -134,9 +134,9 @@
 <!-- Service Start -->
 <div class="container-xxl py-5">
     <div class="container">
-        <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
+        <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 615px;">
             <h1 class="text-primary"><?= $data['accueil_' . $data['lang']]['titre'] ?></h1>
-            <p class="mb-4"><?= $data['accueil_' . $data['lang']]['apres titre'] ?></p>
+            <p class="mb-4" style="width:fit-content;"><?= $data['accueil_' . $data['lang']]['apres titre'] ?></p>
         </div>
         <div class="row g-4">
             <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.1s">
@@ -160,9 +160,9 @@
                                     </div>
 
                                     <!-- Contenu du modal -->
-                                    <div class="modal-body">
+                                    <!-- <div class="modal-body">
                                         <img class="img-fluid" src="<?= base_url("assets/") ?>img/eau.jpg" alt="">
-                                    </div>
+                                    </div> -->
 
                                     <!-- Contenu du modal -->
                                     <div class="modal-body">
@@ -196,9 +196,9 @@
                                     </div>
 
                                     <!-- Contenu du modal -->
-                                    <div class="modal-body">
+                                    <!-- <div class="modal-body">
                                         <img class="img-fluid" src="<?= base_url("assets/") ?>img/infra.jpg" alt="">
-                                    </div>
+                                    </div> -->
 
                                     <!-- Contenu du modal -->
                                     <div class="modal-body">
@@ -231,9 +231,9 @@
                                     </div>
 
                                     <!-- Contenu du modal -->
-                                    <div class="modal-body">
+                                    <!-- <div class="modal-body">
                                         <img class="img-fluid" src="<?= base_url("assets/") ?>img/env.jpg" alt="">
-                                    </div>
+                                    </div> -->
 
                                     <!-- Contenu du modal -->
                                     <div class="modal-body">
