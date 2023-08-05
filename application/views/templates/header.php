@@ -2,7 +2,7 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
-		<title>Hydro</title>
+		<title>HydroCamp</title>
 		<meta content="width=device-width, initial-scale=1.0" name="viewport" />
 		<meta content="" name="keywords" />
 		<meta content="" name="description" />
@@ -38,6 +38,10 @@
 
 		<!-- Template Stylesheet -->
 		<link href="<?= base_url("assets/") ?>css/style.css" rel="stylesheet" />
+
+		<!-- icone onglet -->
+		<link rel="icon" href="<?= base_url("assets/") ?>img/HYDROCAMP LOGO FINAL.PNG">
+
 	</head>
 
 	<body>
@@ -74,11 +78,11 @@
 			</button>
 			<div class="collapse navbar-collapse" id="navbarCollapse">
 				<div class="navbar-nav ms-auto p-4 p-lg-0">
-					<a href="<?= site_url('front'); ?>" class="nav-item nav-link active"><?= $data['header_'.$data['lang']]['item1'] ?></a>
-					<a href="<?= site_url('front/reference'); ?>" class="nav-item nav-link"><?= $data['header_'.$data['lang']]['item2'] ?></a>
-					<a href="" class="nav-item nav-link"><?= $data['header_'.$data['lang']]['item3'] ?></a>
-					<a href="" class="nav-item nav-link"><?= $data['header_'.$data['lang']]['item4'] ?></a>
-					<a href="contact.html" class="nav-item nav-link"><?= $data['header_'.$data['lang']]['item5'] ?></a>
+					<a href="<?= site_url('front'); ?>" class="nav-item nav-link <?php if($data['page'] === 'home') echo 'active'; ?>"><?= $data['header_'.$data['lang']]['item1'] ?></a>
+					<a href="<?= site_url('front/reference'); ?>" class="nav-item nav-link <?php if($data['page'] === 'reference') echo 'active'; ?>"><?= $data['header_'.$data['lang']]['item2'] ?></a>
+					<a href="<?= site_url('front/achievements'); ?>" class="nav-item nav-link <?php if($data['page'] === 'achievements') echo 'active'; ?>"><?= $data['header_'.$data['lang']]['item3'] ?></a>
+					<a href="" class="nav-item nav-link <?php if($data['page'] === 'blog') echo 'active'; ?>"><?= $data['header_'.$data['lang']]['item4'] ?></a>
+					<a href="<?= site_url('front/contact'); ?>" class="nav-item nav-link <?php if($data['page'] === 'contact') echo 'active'; ?>"><?= $data['header_'.$data['lang']]['item5'] ?></a>
 					<?php if($data['lang'] === 'en') { ?>
 					<a href="<?= site_url('language/index/fr/'.$data['page']); ?>" class="nav-item nav-link d-flex gap-2">
 						<span>FR</span>

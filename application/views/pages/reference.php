@@ -1,48 +1,30 @@
 <?php $this->load->view("templates/header"); ?>
 <div class="container-fluid page-header-reference py-5 mb-5">
     <div class="container py-5">
-        <h1 class="display-3 text-white mb-3 animated slideInDown">References</h1>
-        <!-- <nav aria-label="breadcrumb animated slideInDown">
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a class="text-white" href="#">Accueil</a></li>
-                    <li class="breadcrumb-item"><a class="text-white" href="#">Pages</a></li>
-                    <li class="breadcrumb-item text-white active" aria-current="page">Projects</li>
-                </ol>
-            </nav> -->
+        <h1 class="display-3 text-white mb-3 animated slideInDown"></h1>
     </div>
 </div>
-<style>
-    .company {
-        height: 20vh;
-        width: 10vw;
-    }
-    
-    .company img {
-        width: 100%;
-        height: 100%;
-        background-position: center;
-        background-repeat: no-repeat;
-    }
-</style>
 <div class="container-xxl py-5">
     <div class="container">
-        <div class="text-center mx-auto mb-2 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px; visibility: visible; animation-delay: 0.1s; animation-name: fadeInUp;">
-            <h1 class="text-primary"><?= $data['reference_'.$data['lang']]['item1'] ?></h6>
-            <span class="mb-4"><?= $data['reference_'.$data['lang']]['item2'] ?>
-            </span>
+        <div class="text-center mx-auto wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px; visibility: visible; animation-delay: 0.1s; animation-name: fadeInUp;">
+            <h1 class="text-primary"><?= $data['reference_'.$data['lang']]['item1'] ?></h1>
+            <p class="mb-4"><?= $data['reference_'.$data['lang']]['item2'] ?></p>
         </div>
         <div class="row g-0 mx-lg-0">
-            <div class="col-lg-12 feature-text py-0 wow fadeIn" data-wow-delay="0.1s" style="visibility: visible; animation-delay: 0.1s; animation-name: fadeIn;">
-                <div class="p-lg-5 ps-lg-0">
+            <div class="col-lg-12 feature-text py-2 wow fadeIn" data-wow-delay="0.1s" style="visibility: visible; animation-delay: 0.1s; animation-name: fadeIn;">
+                <div class="py-lg-5 ps-lg-0">
                     <div class="row g-4">
-                        <?php for ($i=0; $i < 9; $i++) { ?>
-                        <div class="mb-5 col-4">
-                            <div class="d-flex flex-column align-items-center">
-                                <div class="btn-lg-square bg-primary company">
-                                    <img src="<?= base_url("assets/") ?>img/unido.jpg" alt="">
+                        <?php for ($i=0; $i < count($data['compagnies']); $i++) { ?>
+                        <?php
+                            $delay = 0.1 + (0.2 * $i);
+                        ?>
+                        <div class="mb-2 col-lg-3">
+                            <div class="d-flex flex-column align-items-center wow fadeInUp" data-wow-delay="<?= $delay ?>s">
+                                <div class="" style="height: 20vh;">
+                                    <img class="img-fluid" style="height: 100%; width:100%;" src="<?= base_url("assets/") ?>img/<?= $data['compagnies'][$i]->logo ?>" alt="">
                                 </div>
                                 <div class="text-center">
-                                    <h5 class="mt-sm-4">Entreprise</h5>
+                                    <h4 class="mt-5"><?= $data['compagnies'][$i]->nom ?></h4>
                                 </div>
                             </div>
                         </div>

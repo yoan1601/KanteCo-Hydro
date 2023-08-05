@@ -48,7 +48,13 @@ class Data_model extends CI_Model {
           'detail_eau'=>'Solutions for access to drinking water: We offer Water, Sanitation and Hygiene (WASH) projects,water boreholes and water wells and sustainable sustainable solutions to guarantee reliable access to drinking water.',
           'detail_infrastructure'=>'Building a solid future: We design and realize developments hydraulic engineering and infrastructure,for harmonious development.',
           'detail_env'=>'Protecting and preserving: We provide environmental impact studies, geosciences, and risk management to preserve natural resources resources and promote a sustainable future.',
-          'propos' => 'About us'
+          'propos' => 'About us',
+          'caroussel1_titre' => 'Building the Green Future',
+          'caroussel1_p' => 'Find out how Hydrocamp Group is positioning itself as a major player in sustainable development and green engineering.',
+          'caroussel2_titre' => 'Pioneers of Ecological Progress',
+          'caroussel2_p' => 'Find out how Hydrocamp Group is leading the way towards significant ecological progress.',
+          'caroussel3_titre' => 'Sustainable Engineering',
+          'caroussel3_p' => 'Explore the world of sustainable engineering with Hydrocamp Group, the essential partner for the future.'
         ),
       'accueil_fr' => array(
           'button' => 'Découvrez-nous',
@@ -70,7 +76,13 @@ class Data_model extends CI_Model {
           'detail_eau'=>'Des solutions pour l\'accès à l\'eau potable : Nous proposons des projets d\'Eau, Assainissement et Hygiène (EAH), des forages d\'eau et des solutions durables pour garantir un accès fiable à l\'eau potable.',
           'detail_infrastructure'=>'Bâtir un avenir solide : Nous concevons et réalisons des aménagements hydrauliques, des travaux publics et des infrastructures adaptées, pour un développement harmonieux des territoires.',
           'detail_env'=>'Protéger et préserver :Nous assurons des études d\'impact environnemental,géosciences, et gestion des risques pour préserver les ressources naturelles et promouvoir un avenir durable.',
-          'propos' => 'A propos de nous'
+          'propos' => 'A propos de nous',
+          'caroussel1_titre' => 'Construire l\'Avenir Vert',
+          'caroussel1_p' => 'Découvrez comment Hydrocamp Group se positionne en tant qu\'acteur majeur du développement durable et de l\'ingénierie verte.',
+          'caroussel2_titre' => 'Pionniers du Progrès Écologique',
+          'caroussel2_p' => 'Découvrez comment Hydrocamp Group a pris la tête du mouvement pour un progrès écologique significatif.',
+          'caroussel3_titre' => 'Ingénierie Durable',
+          'caroussel3_p' => 'Explorez le monde de l\'ingénierie durable avec Hydrocamp Group, le partenaire incontournable pour l\'avenir.'
       ),
       'header_en' => array(
         'item1' => 'Home',
