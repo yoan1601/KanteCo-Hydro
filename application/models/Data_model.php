@@ -129,7 +129,42 @@ class Data_model extends CI_Model {
       'reference_fr' => array(
           'item1' =>'Nos références',
           'item2' => 'Découvrez nos références. Des projets durables qui ont fait la différence'
-      )
+      ),
+      'contact_en' => array(
+          'item1' =>'Contact',
+          'item2' =>'Message',
+          'item3' => 'Votre Email',
+          'item4' => 'Envoyer',
+          'item5' => "Nos services étudient et interviennent à la réalisation, en intégrant les normes liées au respect de l'environnement, dans les domaines liés à",
+          'item6' => "Eau, Assainissement et Hygiène (EAH)",
+          'item7' => "Aménagement hydraulique (Hydro-agricole, bassin versant, barrage, aménagement du territoire …)",
+          'item8' => "Adduction en eau potable (FPMH, AEPS, AEPG)",
+          'item9' => "Forage deau et puits moderne",
+          'item10' => "Energie renouvelable",
+          'item11' => "Bâtiment et travaux public",
+          'item12' => "Géosciences (Hydrogéologie, Géophysique, géotechnique, mines, environnement, SIG et télédétection)",
+          'item13' => "Etude d' impact environnemental",
+          'item14' => "Gestion des risques et catastrophes naturelles",
+          'item15' => "Ainsi, toutes activités pouvant rattachés directement ou indirectement à lobjet social."
+      ),
+      'contact_fr' => array(
+        'item1' =>'Contact',
+        'item2' =>'Message',
+        'item3' => 'Your Email',
+        'item4' => 'Send',
+        'item5' => "Our services include design and implementation of environmentally-friendly solutions in the fields of",
+        'item6' => "Water, Sanitation and Hygiene (WASH)",
+        'item7' => "Hydraulic engineering (Hydro-agricultural, watershed, dam, land use development ...)",
+        'item8' => "Drinking water supplies (FPMH, AEPS, AEPG)",
+        'item9' => "Water drilling and modern wells",
+        'item10' => "Renewable energy",
+        'item11' => "Building and civil engineering",
+        'item12' => "Geosciences (hydrogeology, geophysics, geotechnics, mining, environment, GIS and remote sensing)",
+        'item13' => "Environmental impact study",
+        'item14' => "Risk and disaster management",
+        'item15' => "All activities directly or indirectly related to the corporate purpose."
+      ),
+      
     );
       return $data;
   }
