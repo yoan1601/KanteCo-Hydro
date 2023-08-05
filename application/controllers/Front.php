@@ -31,8 +31,11 @@ class Front extends CI_Controller {
 
 		$data = $this->data->getData();
 
+		$data['compagnies'] = $this->compagnie->findAll();
+
 		$data['lang'] = $lang;
-		$data['page'] = 'reference'; 
+		$data['page'] = 'reference';
+
 		$this->load->view('pages/reference', ['data' => $data]);
 	}
 
