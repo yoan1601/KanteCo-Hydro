@@ -50,4 +50,18 @@ class Front extends CI_Controller {
 		$this->load->view('pages/achievements', ['data' => $data]);
 	}
 
+	public function contact() {
+		if($this->session->has_userdata('lang') == false) {
+			$this->session->set_userdata('lang', 'fr');
+		}
+		
+		$lang = $this->session->lang;
+
+		$data = $this->data->getData();
+
+		$data['lang'] = $lang;
+		$data['page'] = 'contact'; 
+		$this->load->view('pages/contact', ['data' => $data]);
+	}
+
 }
