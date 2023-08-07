@@ -25,6 +25,13 @@ class Realisation_model extends CI_Model {
     parent::__construct();
   }
 
+  public function setAllImages($achievements) {
+    foreach ($achievements as $key => $a) {
+      $this->db->where('idAchievement', $a['id']);
+      $a['images'] = json_decode(json_encode($this->db->get("achievements_images")), true);
+    }
+  }
+
   public function findAllPagination($numero_page = 1,$nombre_resultat_affiche = 2){
     $calcul_limite = ($numero_page-1)*$nombre_resultat_affiche;
     $this->db->limit($nombre_resultat_affiche,$calcul_limite);

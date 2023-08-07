@@ -32,9 +32,12 @@
                     <div class="portfolio-img rounded overflow-hidden">
                         <div class="couverture" style="height: 36vh; width: 26vw;">
                         <img class="img-fluid" style="height: 100%; width: 100%;object-fit: cover;" src="<?= base_url("assets/") ?>img/<?= $data['achievements'][$i]['image_couverture']; ?>" alt="">
+                        <?php foreach ($data['achievements'][$i]['images'] as $key => $image) { ?>
+                            <img class="img-fluid" style="height: 100%; width: 100%;object-fit: cover;" src="<?= base_url("assets/") ?>img/<?= $image ?>" alt="">
+                        <?php } ?>
                         </div>
                         <div class="portfolio-btn">
-                            <a class="btn btn-lg-square btn-outline-light rounded-circle mx-1" href="<?= base_url("assets/") ?>img/img-600x400-6.jpg" data-lightbox="portfolio"><i class="fa fa-eye"></i></a>
+                            <a class="btn btn-lg-square btn-outline-light rounded-circle mx-1" href="<?= base_url("assets/") ?>img/<?= $data['achievements'][$i]['image_couverture']; ?>" data-lightbox="portfolio"><i class="fa fa-eye"></i></a>
                             <a class="btn btn-lg-square btn-outline-light rounded-circle mx-1" href=""><i class="fa fa-arrow-right"></i></a>
                         </div>
                     </div>
@@ -76,7 +79,7 @@
                     <?php if($data['page_en_cours'] < $data['nbPages']) { ?>
                     <li class="page-item"><a class="page-link" href="<?= site_url('front/achievements/'.$data['is_search'].'/'.$data['page_en_cours'] + 1); ?>"><?= $data['page_en_cours'] + 1 ?></a></li>
                     <li class="page-item">
-                        <a class="page-link" href="<?= $data['page_en_cours'] + 1 ?>" aria-label="Next">
+                        <a class="page-link" href="<?= site_url('front/achievements/'.$data['is_search'].'/'.$data['page_en_cours'] + 1); ?>" aria-label="Next">
                             <span aria-hidden="true">&raquo;</span>
                             <span class="sr-only">Next</span>
                         </a>
