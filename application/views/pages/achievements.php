@@ -7,17 +7,17 @@
 <div class="container-xxl py-5">
     <div class="container">
         <div class="text-center mx-auto mb-3 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px; visibility: visible; animation-delay: 0.1s; animation-name: fadeInUp;">
-            <h1 class="text-primary">Nos réalisations</h1>
-            <p class="mb-4">Explorez nos réalisations. Des projets durables qui font la différence</p>
+            <h1 class="text-primary"><?= $data['header_'.$data['lang']]['item3'] ?></h1>
+            <p class="mb-4"><?= $data['realisation_'.$data['lang']]['item1'] ?></p>
         </div>
         <div class="row mt-n2 wow fadeInUp" data-wow-delay="0.3s">
             <form class="row g-3">
                 <div class="col-lg-3 col-12 offset-lg-3">
-                    <input type="text" class="form-control" placeholder="Mot clé" style="height: 55px;">
+                    <input type="text" class="form-control" placeholder="<?= $data['realisation_'.$data['lang']]['item2'] ?>" style="height: 55px;">
                 </div>
                 <div class="col-lg-3 col-12">
                     <select class="form-select" style="height: 55px;">
-                        <option selected>Année</option>
+                        <option selected><?= $data['realisation_'.$data['lang']]['item3'] ?></option>
                         <option value="">2023</option>
                         <option value="">2022</option>
                         <option value="">2021</option>
