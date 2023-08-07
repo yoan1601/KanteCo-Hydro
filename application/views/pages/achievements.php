@@ -48,7 +48,7 @@
                         </p>
                         <div>
                             <span class="fw-bold text-dark"><?= $data['realisation_'.$data['lang']]['item6'] ?> : </span>
-                            <?= $data['achievements'][$i]['nom_'.(strtoupper($data['lang']))]; ?>
+                            <?= $data['achievements'][$i]['nom_pays_'.(strtoupper($data['lang']))]; ?>
                         </div>
                         <div>
                             <span class="fw-bold text-dark"><?= $data['realisation_'.$data['lang']]['item7'] ?> : </span>
