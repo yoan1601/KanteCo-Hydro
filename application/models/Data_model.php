@@ -225,6 +225,42 @@ class Data_model extends CI_Model {
       'detail_achievements_en' => array(
         'item1'=> 'released on:',
         'item2' => '#team #environment #approach'
+      ),
+      'blog_en' => array (
+        'item1' => "Explore our news blogs. Keep up to date with the latest developments and discover our articles.",
+        'item2' => "Category"
+      ),
+      'blog_fr' => array(
+        'item1' => "Explorez nos blogs d'actualités. Restez informé des dernières avancées et découvrez nos articles.",
+        'item2' => "catégorie"
+      ),
+      'devis_fr' => array(
+        'item1'=> 'Laissez-nous prendre en charge votre projet, nous nous occupons de tout le reste.',
+        'item2' => ' Ensemble, vers un avenir durable !',
+        'item3' => 'Contactez-nous et Demandez votre devis sur-mesure !',
+        'item4' => 'Présentez-nous votre projet et vos besoins, nous vous répondrons avec un devis personnalisé',
+        'item5' => 'Devis sur-mesure - À vous de jouer !',
+        'item6' => 'Recevez notre proposition détaillée, adaptée spécialement à vos exigences et à votre budget.',
+        'item7' => 'Laissez-nous réaliser votre projet',
+        'item8' => 'Une fois le devis validé, notre équipe d\' experts se mettra en action pour concrétiser votre projet avec passion et professionnalisme.',
+        'item9' => 'Type de projet (*)',
+        'item10' => 'Description brève du projet (*)',
+        'item11' => 'Montant estimé',
+        'item12' => 'Valider'
+      ),
+      'devis_en' => array(
+        'item1'=> "Let us take care of your project, and we'll take care of the rest.",
+        'item2' => 'Together, towards a sustainable future!',
+        'item3' => 'Contact us and ask for your customized quote!',
+        'item4' => "Tell us about your project and your needs, and we'll give you a personalized quote.",
+        'item5' => "Customized quotations - It's up to you!",
+        'item6' => 'Receive our detailed proposal, specially tailored to your requirements and budget.',
+        'item7' => 'Let us take care of your project',
+        'item8' => 'Once the estimate has been validated, our team of experts will set to work to bring your project to fruition with passion and professionalism.',
+        'item9' => 'Type of project (*)',
+        'item10' => 'Brief description of the project (*)',
+        'item11' => 'Estimated value',
+        'item12' => 'Validate'
       )
     );
       return $data;
