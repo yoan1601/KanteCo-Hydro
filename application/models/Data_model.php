@@ -218,7 +218,14 @@ class Data_model extends CI_Model {
         'item6' => "I already have an account. ",
         'item7' => "Log in"
       ),
-      
+      'detail_achievements_fr' => array(
+        'item1' =>'publié le:',
+        'item2' => '#équipe #environnement #approche'
+      ),
+      'detail_achievements_en' => array(
+        'item1'=> 'released on:',
+        'item2' => '#team #environment #approach'
+      )
     );
       return $data;
   }
