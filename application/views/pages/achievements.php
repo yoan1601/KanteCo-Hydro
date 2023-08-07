@@ -37,7 +37,7 @@
                     </div>
                     <div class="pt-3">
                         <p>
-                            <span class="fw-bold text-dark">Nom de la mission : <br /></span>
+                            <span class="fw-bold text-dark"><?= $data['realisation_'.$data['lang']]['item5'] ?> : <br /></span>
                             TRAVAUX DE
                             REALISATION DE 06 FORAGES MECANIQUES
                             EQUIPES DE POMPES A MOTRICITE HUMAINE
@@ -45,10 +45,10 @@
                             D’AMBOASARY, COMMUNE BEHARA ET IFOTAKA
                         </p>
                         <div>
-                            <span class="fw-bold text-dark">Pays : </span> Madagascar
+                            <span class="fw-bold text-dark"><?= $data['realisation_'.$data['lang']]['item6'] ?> : </span> Madagascar
                         </div>
                         <div>
-                            <span class="fw-bold text-dark">Année : </span> 2023
+                            <span class="fw-bold text-dark"><?= $data['realisation_'.$data['lang']]['item7'] ?> : </span> 2023
                         </div>
                     </div>
                 </div>
@@ -77,7 +77,7 @@
                     </li>
                 </ul>
             </nav>
-            <p class="fw-bold text-center">Résultats : 12</p>
+            <p class="fw-bold text-center"><?= $data['realisation_'.$data['lang']]['item4'] ?> : 12</p>
         </div>
     </div>
 </div>
