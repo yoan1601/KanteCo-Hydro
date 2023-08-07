@@ -100,6 +100,11 @@ public function search($numero_page = 1,$nombre_resultat_affiche = 3, $keyword =
     return ceil($rows/$nombre_resultat_affiche);
   }
 
+  public function getNombrePageSearch($nbResultat_total, $nombre_resultat_affiche = 2){
+    $rows = $nbResultat_total;
+    return ceil($rows/$nombre_resultat_affiche);
+  }
+
   public function findAll(){
     $query = $this->db->get("v_realisations");
     return $query->result();

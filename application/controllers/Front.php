@@ -59,7 +59,8 @@ class Front extends CI_Controller {
 		$data['achievements'] = $this->realisation->findAllPagination($numero_page = $num_page,$nombre_resultat_affiche = $nbAffiche);
 		// objet -> tableau
 		$data['achievements'] = json_decode(json_encode($data['achievements']), true);
-		
+		$data['nbPages'] = $this->realisation->getNombrePage($nombre_resultat_affiche = $nbAffiche);
+
 		if($is_search == 1) {
 			$keyword = $this->input->get('keyword');
 			$year = $this->input->get('year');
@@ -67,13 +68,14 @@ class Front extends CI_Controller {
 			$data['achievements'] = $this->realisation->search($numero_page = $num_page,$nombre_resultat_affiche = $nbAffiche, $keyword = $keyword, $year = $year);
 			// objet -> tableau
 			$data['achievements'] = json_decode(json_encode($data['achievements']), true);
+			$data['nbPages'] = $this->realisation->getNombrePageSearch($data['nb_resultat'] ,$nombre_resultat_affiche = $nbAffiche);
 		}
 		
 		//set all images 
 		$this->realisation->setAllImages($data['achievements']);
 		$data['is_search'] = $is_search;
 		$data['allYears'] = $this->realisation->getAllYears();
-		$data['nbPages'] = $this->realisation->getNombrePage($nombre_resultat_affiche = $nbAffiche);
+		
 
 		$this->load->view('pages/achievements', ['data' => $data]);
 	}
