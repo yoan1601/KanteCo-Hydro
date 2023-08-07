@@ -142,4 +142,19 @@ class Front extends CI_Controller
 		$data['page'] = 'achievements';
 		$this->load->view('pages/detail_achievements', ['data' => $data]);
 	}
+
+	public function devis()
+	{
+		if ($this->session->has_userdata('lang') == false) {
+			$this->session->set_userdata('lang', 'fr');
+		}
+
+		$lang = $this->session->lang;
+
+		$data = $this->data->getData();
+
+		$data['lang'] = $lang;
+		$data['page'] = 'devis';
+		$this->load->view('pages/devis', ['data' => $data]);
+	}
 }
