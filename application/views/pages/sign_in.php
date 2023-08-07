@@ -41,30 +41,24 @@
         <div class="card login-form">
             <div class="card-body">
                 <div class="text-center mx-auto" style="max-width: 600px;">
-                    <h1 class="text-primary mb-4 text-dark">Connexion</h1>
+                    <h1 class="text-primary mb-4 text-dark"><?= $data['sign_in_' . $data['lang']]['item1'] ?></h1>
                 </div>
                 <div class="card-text">
 
-                    <form class="mb-4" action="#">
+                    <form action="<?= site_url("utilisateur/login")?>" class="mb-4" action="#" method="POST">
                         <div class="row g-3">
                             <div class="col-12">
                                 <div class="form-floating">
-                                    <input type="email" class="form-control" placeholder="example@gmail.com">
-                                    <label for="">Votre email</label>
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <div class="form-floating">
-                                    <input type="password" class="form-control" placeholder="Mot de passe">
-                                    <label for="">Mot de passe</label>
+                                    <input type="email" class="form-control" name="email" placeholder="example@gmail.com">
+                                    <label for=""><?= $data['sign_in_' . $data['lang']]['item2'] ?></label>
                                 </div>
                             </div>
                             <div class="col-12 d-flex justify-content-center">
-                                <button class="btn btn-primary py-3 px-5 w-100" type="submit">Se connecter</button>
+                                <button class="btn btn-primary py-3 px-5 w-100" type="submit"><?= $data['sign_in_' . $data['lang']]['item3'] ?></button>
                             </div>
                         </div>
                     </form>
-                    <p>J'ai pas encore de compte. <a class="" href="<?= site_url('front/sign_up'); ?>">S'inscrire ?</a></p>
+                    <p><?= $data['sign_in_' . $data['lang']]['item4'] ?> <a class="" href="<?= site_url('front/sign_up'); ?>"><?= $data['sign_in_' . $data['lang']]['item5'] ?></a></p>
                 </div>
             </div>
         </div>

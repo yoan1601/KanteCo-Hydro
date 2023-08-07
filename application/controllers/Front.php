@@ -14,13 +14,19 @@ class Front extends CI_Controller
 		if ($this->session->has_userdata('lang') == false) {
 			$this->session->set_userdata('lang', 'fr');
 		}
-
+		
 		$lang = $this->session->lang;
 
 		$data = $this->data->getData();
 
 		$data['lang'] = $lang;
 		$data['page'] = 'home';
+		if ($this->session->has_userdata('user') == false){
+			$data['session']= false;
+		}
+		else{
+			$data['session'] = $this->session->user;
+		}
 
 		$this->load->view('pages/home', ['data' => $data]);
 	}
@@ -30,6 +36,7 @@ class Front extends CI_Controller
 		if ($this->session->has_userdata('lang') == false) {
 			$this->session->set_userdata('lang', 'fr');
 		}
+		
 
 		$lang = $this->session->lang;
 
@@ -40,6 +47,13 @@ class Front extends CI_Controller
 		$data['lang'] = $lang;
 		$data['page'] = 'reference';
 
+		if ($this->session->has_userdata('user') == false){
+			$data['session']= false;
+		}
+		else{
+			$data['session'] = $this->session->user;
+		}
+
 		$this->load->view('pages/reference', ['data' => $data]);
 	}
 
@@ -48,6 +62,7 @@ class Front extends CI_Controller
 		if ($this->session->has_userdata('lang') == false) {
 			$this->session->set_userdata('lang', 'fr');
 		}
+		
 
 		$lang = $this->session->lang;
 
@@ -55,6 +70,13 @@ class Front extends CI_Controller
 
 		$data['lang'] = $lang;
 		$data['page'] = 'achievements';
+
+		if ($this->session->has_userdata('user') == false){
+			$data['session']= false;
+		}
+		else{
+			$data['session'] = $this->session->user;
+		}
 
 
 		$nbAffiche = 3;
@@ -90,13 +112,20 @@ class Front extends CI_Controller
 		if ($this->session->has_userdata('lang') == false) {
 			$this->session->set_userdata('lang', 'fr');
 		}
-
+		
 		$lang = $this->session->lang;
 
 		$data = $this->data->getData();
 
 		$data['lang'] = $lang;
 		$data['page'] = 'contact';
+
+		if ($this->session->has_userdata('user') == false){
+			$data['session']= false;
+		}
+		else{
+			$data['session'] = $this->session->user;
+		}
 		$this->load->view('pages/contact', ['data' => $data]);
 	}
 
@@ -105,13 +134,19 @@ class Front extends CI_Controller
 		if ($this->session->has_userdata('lang') == false) {
 			$this->session->set_userdata('lang', 'fr');
 		}
-
+		
 		$lang = $this->session->lang;
 
 		$data = $this->data->getData();
 
 		$data['lang'] = $lang;
 		$data['page'] = 'sign_in';
+		if ($this->session->has_userdata('user') == false){
+			$data['session']= false;
+		}
+		else{
+			$data['session'] = $this->session->user;
+		}
 		$this->load->view('pages/sign_in', ['data' => $data]);
 	}
 

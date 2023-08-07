@@ -91,7 +91,8 @@ class Data_model extends CI_Model {
         'item4' => 'Blog',
         'item5' => 'Contact Us',
         'item6' => 'Customer Area',
-        'item7' => 'Log In'
+        'item7' => 'Log In',
+        'item8' => 'Log Out'
       ),
       'header_fr' => array(
           'item1' => 'Accueil',
@@ -100,7 +101,8 @@ class Data_model extends CI_Model {
           'item4' => 'Blog',
           'item5' => 'Nous Contacter',
           'item6' => 'Espace Client',
-          'item7' => 'Se connecter'
+          'item7' => 'Se connecter',
+          'item8' => 'Se déconnecter'
       ),
       'footer_en' => array(
           'item1'=> 'For your ambitious water, infrastructure and environmental projects, HYDROCAMP GROUP is your trusted partner. Together, towards a sustainable future.',
@@ -183,7 +185,39 @@ class Data_model extends CI_Model {
         'item5' => 'Mission name',
         'item6' => 'Country',
         'item7' => 'Year'
-      )
+      ),
+      'sign_in_fr' => array(
+        'item1' => 'Connexion',
+        'item2' => 'Votre email',
+        'item3' => 'Se connecter',
+        'item4' => "J'ai pas encore de compte. ",
+        'item5' => "S'inscrire?"
+      ),
+      'sign_in_en' => array(
+        'item1' => 'Login',
+        'item2' => 'Your e-mail',
+        'item3' => 'Connect',
+        'item4' => "I don't have an account yet. ",
+        'item5' => "Join us?"
+      ),
+      'sign_up_fr' => array(
+        'item1' => 'Inscription',
+        'item2' => 'Nom',
+        'item3' => 'Email',
+        'item4' => "Numéro de téléphone",
+        'item5' => "S'inscrire gratuitement",
+        'item6' => "J'ai déjà un compte. ",
+        'item7' => "Se connecter"
+      ),
+      'sign_up_en' => array(
+        'item1' => 'Register',
+        'item2' => 'Name',
+        'item3' => 'E-mail',
+        'item4' => "Phone number",
+        'item5' => "Register for free",
+        'item6' => "I already have an account. ",
+        'item7' => "Log in"
+      ),
       
     );
       return $data;
