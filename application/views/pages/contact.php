@@ -5,14 +5,15 @@
     </div>
 </div>
 <div class="text-center mx-auto mb-3 wow fadeInUp pt-5" data-wow-delay="0.1s" style="max-width: 600px; visibility: visible; animation-delay: 0.1s; animation-name: fadeInUp;">
-    <h1 class="text-primary">Contact-nous!</h1>
+    <h1 class="text-primary">Contactez-nous!</h1>
     <p class="mb-4">Laissez-nous prendre en charge votre projet, nous nous occupons de tout le reste.</p>
 </div>
-<div class="container-fluid bg-light overflow-hidden px-lg-0" style="margin: 6rem 0;">
+<div class="container-fluid bg-light overflow-hidden px-lg-0 my-5">
     <div class="container contact px-lg-0">
         <div class="row g-0 mx-lg-0">
             <div class="col-lg-6 contact-text py-5 wow fadeIn" data-wow-delay="0.5s">
                 <div class="p-lg-5 ps-lg-0">
+                    <h1 class="text-dark mb-5">N'hésitez pas à nous contacter !</h1>
                     <form action="#">
                         <div class="row g-3">
                             <div class="col-12">
@@ -33,8 +34,8 @@
                                     <label for="message">Message</label>
                                 </div>
                             </div>
-                            <div class="col-12 d-flex justify-content-end">
-                                <button class="btn btn-primary py-3 px-5" type="submit">Envoyer</button>
+                            <div class="col-12 d-flex">
+                                <button class="btn btn-primary rounded-pill py-3 px-5" type="submit">Envoyer le message</button>
                             </div>
                         </div>
                     </form>
@@ -43,6 +44,85 @@
             <div class="col-lg-6 pe-lg-0" style="min-height: 400px;">
                 <div class="position-relative h-100">
                     <iframe class="position-absolute w-100 h-100" style="object-fit: cover;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3001156.4288297426!2d-78.01371936852176!3d42.72876761954724!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4ccc4bf0f123a5a9%3A0xddcfc6c1de189567!2sNew%20York%2C%20USA!5e0!3m2!1sen!2sbd!4v1603794290143!5m2!1sen!2sbd" frameborder="0" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-xxl py-5">
+    <div class="container">
+        <div class="text-center mx-auto wow fadeInUp mb-5" data-wow-delay="0.1s" style="max-width: 1000px; visibility: visible; animation-delay: 0.1s; animation-name: fadeInUp;">
+            <h4 class="text-primary">Nos services étudient et interviennent à la réalisation, en intégrant les normes
+                liées au respect de l’environnement, dans les domaines liés à</h4>
+        </div>
+        <div class="row pt-5 wow fadeInUp" data-wow-delay="0.5s">
+            <div class="col-lg-5 offset-lg-1 col-12">
+                <div class="d-flex align-items-center mb-5">
+                    <span class="me-3 text-dark">
+                        <i class="fas fa-check-circle fa-3x"></i>
+                    </span>
+                    <p class="m-0 fs-5 text-dark">Eau, Assainissement et Hygiène (EAH)</p>
+                </div>
+                <div class="d-flex align-items-center mb-5">
+                    <span class="me-3 text-dark">
+                        <i class="fas fa-check-circle fa-3x"></i>
+                    </span>
+                    <p class="m-0 fs-5 text-dark">Aménagement hydraulique (Hydro-agricole,
+                        bassin versant, barrage, aménagement du
+                        territoire …)</p>
+                </div>
+                <div class="d-flex align-items-center mb-5">
+                    <span class="me-3 text-dark">
+                        <i class="fas fa-check-circle fa-3x"></i>
+                    </span>
+                    <p class="m-0 fs-5 text-dark">Adduction en eau potable (FPMH, AEPS, AEPG)</p>
+                </div>
+                <div class="d-flex align-items-center mb-5">
+                    <span class="me-3 text-dark">
+                        <i class="fas fa-check-circle fa-3x"></i>
+                    </span>
+                    <p class="m-0 fs-5 text-dark">Forage deau et puits moderne</p>
+                </div>
+                <div class="d-flex align-items-center mb-5">
+                    <span class="me-3 text-dark">
+                        <i class="fas fa-check-circle fa-3x"></i>
+                    </span>
+                    <p class="m-0 fs-5 text-dark">Energie renouvelable</p>
+                </div>
+            </div>
+            <div class="col-lg-5 col-12">
+                <div class="d-flex align-items-center mb-5">
+                    <span class="me-3 text-dark">
+                        <i class="fas fa-check-circle fa-3x"></i>
+                    </span>
+                    <p class="m-0 fs-5 text-dark">Bâtiment et travaux public</p>
+                </div>
+                <div class="d-flex align-items-center mb-5">
+                    <span class="me-3 text-dark">
+                        <i class="fas fa-check-circle fa-3x"></i>
+                    </span>
+                    <p class="m-0 fs-5 text-dark">Géosciences (Hydrogéologie, Géophysique,
+                        géotechnique, mines, environnement, SIG et
+                        télédétection)</p>
+                </div>
+                <div class="d-flex align-items-center mb-5">
+                    <span class="me-3 text-dark">
+                        <i class="fas fa-check-circle fa-3x"></i>
+                    </span>
+                    <p class="m-0 fs-5 text-dark">Etude d impact environnementale</p>
+                </div>
+                <div class="d-flex align-items-center mb-5">
+                    <span class="me-3 text-dark">
+                        <i class="fas fa-check-circle fa-3x"></i>
+                    </span>
+                    <p class="m-0 fs-5 text-dark">Gestion des risques et catastrophes naturelles</p>
+                </div>
+                <div class="d-flex align-items-center mb-5">
+                    <span class="me-3 text-dark">
+                        <i class="fas fa-check-circle fa-3x"></i>
+                    </span>
+                    <p class="m-0 fs-5 text-dark">Ainsi, toutes activités pouvant rattachés
+                        directement ou indirectement à lobjet social.</p>
                 </div>
             </div>
         </div>
