@@ -164,6 +164,24 @@ class Data_model extends CI_Model {
         'item14' => "Risk and disaster management",
         'item15' => "All activities directly or indirectly related to the corporate purpose."
       ),
+      'realisation_fr' => array(
+        'item1' =>'Explorez nos réalisations . Des projets durables qui font la différence.',
+        'item2' => 'Mot clé',
+        'item3' => 'année',
+        'item4' => 'Résultats',
+        'item5' => 'Nom de la mission',
+        'item6' => 'Pays',
+        'item7' => 'Année'
+      ),
+      'realisation_en' => array(
+        'item1' =>'Explore our achievements . Sustainable projects that make a difference.',
+        'item2' => 'KeyWord',
+        'item3' => 'year',
+        'item4' => 'Results',
+        'item5' => 'Mission name',
+        'item6' => 'Country',
+        'item7' => 'Year'
+      )
       
     );
       return $data;

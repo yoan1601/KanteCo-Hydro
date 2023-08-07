@@ -211,4 +211,21 @@ VALUES
      "Protecting endangered species is a priority to preserve biological diversity. Conservation efforts are crucial to save threatened animals and plants from extinction. Species protection actions can have a positive impact on the entire ecosystem, as each species plays an important role in maintaining the natural balance. By raising awareness and taking active conservation measures, we can contribute to the preservation of life on Earth.",
      '2023-09-25', 'Daniel Lee', 1);
 
+insert into achievements_images values
+    (default,1,'achiev1.jpg'),
+    (default,1,'achiev2.jpg'),
+    (default,1,'achiev3.jpg'),
+    (default,1,'achiev4.jpg'),
+    (default,2,'achiev2_1.jpg'),
+    (default,2,'achiev2_2.jpg'),
+    (default,2,'achiev2_3.jpg'),
+    (default,3,'achiev3_1.jpg'),
+    (default,3,'achiev3_2.jpg'),
+    (default,4,'achiev4_1.jpg'),
+    (default,4,'achiev4_2.jpg'),
+    (default,4,'achiev4_3.jpg'),
+    (default,4,'achiev4_4.jpg'),
+    (default,5,'achiev5_1.jpg');
+
+
 
