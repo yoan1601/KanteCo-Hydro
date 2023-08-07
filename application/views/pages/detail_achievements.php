@@ -13,11 +13,11 @@
     <div class="container">
         <div class="d-flex fs-5 mb-5">
             <p>
-                <span class="fw-bold text-dark">Publié le </span>
+                <span class="fw-bold text-dark"><?= $data['detail_achievements_' . $data['lang']]['item1'] ?> </span>
                 22 Juillet 2023
             </p>
             <p class="ms-auto">
-                <span class="fw-bold text-dark">Par :</span>
+                <span class="fw-bold text-dark"><?= $data['detail_achievements_' . $data['lang']]['item3'] ?>  :</span>
                 Monja Manonjosoa
             </p>
         </div>
@@ -80,7 +80,7 @@
                     <br />
                     <br />
 
-                    <b>#équipe #environnement #approche</b>
+                    <b><?= $data['detail_achievements_' . $data['lang']]['item2'] ?> </b>
                 </p>
             </div>
         </div>

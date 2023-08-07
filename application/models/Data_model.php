@@ -219,12 +219,14 @@ class Data_model extends CI_Model {
         'item7' => "Log in"
       ),
       'detail_achievements_fr' => array(
-        'item1' =>'publié le:',
-        'item2' => '#équipe #environnement #approche'
+        'item1' =>'Publié le:',
+        'item2' => '#équipe #environnement #approche',
+        'item3' => 'Par'
       ),
       'detail_achievements_en' => array(
-        'item1'=> 'released on:',
-        'item2' => '#team #environment #approach'
+        'item1'=> 'Released on:',
+        'item2' => '#team #environment #approach',
+        'item3' => 'By'
       ),
       'blog_en' => array (
         'item1' => "Explore our news blogs. Keep up to date with the latest developments and discover our articles.",
