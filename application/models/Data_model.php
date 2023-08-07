@@ -130,7 +130,7 @@ class Data_model extends CI_Model {
           'item1' =>'Nos références',
           'item2' => 'Découvrez nos références. Des projets durables qui ont fait la différence'
       ),
-      'contact_en' => array(
+      'contact_fr' => array(
           'item1' =>'Contact',
           'item2' =>'Message',
           'item3' => 'Votre Email',
@@ -145,9 +145,10 @@ class Data_model extends CI_Model {
           'item12' => "Géosciences (Hydrogéologie, Géophysique, géotechnique, mines, environnement, SIG et télédétection)",
           'item13' => "Etude d' impact environnemental",
           'item14' => "Gestion des risques et catastrophes naturelles",
-          'item15' => "Ainsi, toutes activités pouvant rattachés directement ou indirectement à lobjet social."
+          'item15' => "Ainsi, toutes activités pouvant rattachés directement ou indirectement à lobjet social.",
+          'item16' => "Laissez-nous prendre en charge votre projet, nous nous occupons de tout le reste."
       ),
-      'contact_fr' => array(
+      'contact_en' => array(
         'item1' =>'Contact',
         'item2' =>'Message',
         'item3' => 'Your Email',
@@ -162,7 +163,8 @@ class Data_model extends CI_Model {
         'item12' => "Geosciences (hydrogeology, geophysics, geotechnics, mining, environment, GIS and remote sensing)",
         'item13' => "Environmental impact study",
         'item14' => "Risk and disaster management",
-        'item15' => "All activities directly or indirectly related to the corporate purpose."
+        'item15' => "All activities directly or indirectly related to the corporate purpose.",
+        'item16' => "Let us take care of your project, and we'll take care of the rest."
       ),
       'realisation_fr' => array(
         'item1' =>'Explorez nos réalisations . Des projets durables qui font la différence.',

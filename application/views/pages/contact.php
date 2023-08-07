@@ -5,8 +5,8 @@
     </div>
 </div>
 <div class="text-center mx-auto mb-3 wow fadeInUp pt-5" data-wow-delay="0.1s" style="max-width: 600px; visibility: visible; animation-delay: 0.1s; animation-name: fadeInUp;">
-    <h1 class="text-primary">Contact-nous!</h1>
-    <p class="mb-4">Laissez-nous prendre en charge votre projet, nous nous occupons de tout le reste.</p>
+    <h1 class="text-primary"><?= $data['header_'.$data['lang']]['item5'] ?></h1>
+    <p class="mb-4"><?= $data['contact_'.$data['lang']]['item16'] ?></p>
 </div>
 <div class="container-fluid bg-light overflow-hidden px-lg-0" style="margin: 6rem 0;">
     <div class="container contact px-lg-0">
@@ -18,23 +18,23 @@
                             <div class="col-12">
                                 <div class="form-floating">
                                     <input type="text" class="form-control" id="contact" placeholder="+261 34 00 000 00">
-                                    <label for="name">Contact</label>
+                                    <label for="name"><?= $data['contact_'.$data['lang']]['item1'] ?></label>
                                 </div>
                             </div>
                             <div class="col-12">
                                 <div class="form-floating">
                                     <input type="email" class="form-control" id="email" placeholder="example@example.com">
-                                    <label for="email">Votre mail</label>
+                                    <label for="email"><?= $data['contact_'.$data['lang']]['item3'] ?></label>
                                 </div>
                             </div>
                             <div class="col-12">
                                 <div class="form-floating">
                                     <textarea class="form-control" placeholder="Lorem ipsum" id="message" style="height: 150px"></textarea>
-                                    <label for="message">Message</label>
+                                    <label for="message"><?= $data['contact_'.$data['lang']]['item2'] ?></label>
                                 </div>
                             </div>
                             <div class="col-12 d-flex justify-content-center">
-                                <button class="btn btn-primary rounded-pill py-3 px-5" type="submit">Envoyer</button>
+                                <button class="btn btn-primary rounded-pill py-3 px-5" type="submit"><?= $data['contact_'.$data['lang']]['item4'] ?></button>
                             </div>
                         </div>
                     </form>
