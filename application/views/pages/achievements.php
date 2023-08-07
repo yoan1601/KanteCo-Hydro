@@ -26,7 +26,7 @@
             </form>
         </div>
         <div class="row g-5 py-5 ps-lg-0 portfolio-container wow fadeInUp" data-wow-delay="0.5s">
-            <?php for ($i = 0; $i < 6; $i++) { ?>
+            <?php for ($i = 0; $i < count($data['achievements']); $i++) { ?>
                 <div class="col-lg-4 col-md-6 portfolio-item">
                     <div class="portfolio-img rounded overflow-hidden">
                         <img class="img-fluid" src="<?= base_url("assets/") ?>img/img-600x400-6.jpg" alt="">

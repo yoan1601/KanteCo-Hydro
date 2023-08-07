@@ -50,6 +50,8 @@ class Front extends CI_Controller {
 
 		$data['lang'] = $lang;
 		$data['page'] = 'achievements'; 
+		$data['achievements'] = $this->realisation->findAll();
+
 		$this->load->view('pages/achievements', ['data' => $data]);
 	}
 

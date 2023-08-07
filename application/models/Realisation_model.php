@@ -26,7 +26,7 @@ class Realisation_model extends CI_Model {
   }
 
   public function findAll(){
-    $query = $this->db->get("achievements");
+    $query = $this->db->get("v_realisations");
     return $query->result();
   }
 
