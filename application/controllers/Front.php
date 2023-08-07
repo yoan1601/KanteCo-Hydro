@@ -129,7 +129,7 @@ class Front extends CI_Controller
 		$this->load->view('pages/contact', ['data' => $data]);
 	}
 
-	public function sign_in()
+	public function sign_in($error = 0)
 	{
 		if ($this->session->has_userdata('lang') == false) {
 			$this->session->set_userdata('lang', 'fr');
@@ -146,6 +146,10 @@ class Front extends CI_Controller
 		}
 		else{
 			$data['session'] = $this->session->user;
+		}
+
+		if($error != 0) {
+			$data['error'] = 'email error';
 		}
 		$this->load->view('pages/sign_in', ['data' => $data]);
 	}
