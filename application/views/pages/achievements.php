@@ -39,7 +39,7 @@
                         </div>
                         <div class="portfolio-btn">
                             <a class="btn btn-lg-square btn-outline-light rounded-circle mx-1" href="<?= base_url("assets/") ?>img/<?= $data['achievements'][$i]['image_couverture']; ?>" data-lightbox="portfolio"><i class="fa fa-eye"></i></a>
-                            <a class="btn btn-lg-square btn-outline-light rounded-circle mx-1" href="<?= site_url("front/detail_achievements") ?>"><i class="fa fa-arrow-right"></i></a>
+                            <a class="btn btn-lg-square btn-outline-light rounded-circle mx-1" href="<?= site_url("front/detail_achievements/". $data['achievements'][$i]['id']) ?>"><i class="fa fa-arrow-right"></i></a>
                         </div>
                     </div>
                     <div class="pt-3">
