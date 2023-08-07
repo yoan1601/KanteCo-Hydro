@@ -48,6 +48,9 @@
                     <form action="<?= site_url("utilisateur/login")?>" class="mb-4" action="#" method="POST">
                         <div class="row g-3">
                             <div class="col-12">
+                                <?php if(isset($data['error'])) { ?>
+                                <p style="color:red;"><?= $data['error'] ?></p>
+                                <?php } ?>
                                 <div class="form-floating">
                                     <input type="email" class="form-control" name="email" placeholder="example@gmail.com">
                                     <label for=""><?= $data['sign_in_' . $data['lang']]['item2'] ?></label>

@@ -64,7 +64,8 @@ class Utilisateur extends CI_Controller
       $this->session->set_userdata('user', $object);
       redirect('front/home');
     }
-    redirect('front/sign_in');
+    $data['error'] = 'email error';
+    redirect('front/sign_in/1');
     
   }
 

@@ -79,7 +79,7 @@
 			<?php if (!$data['session']){ ?>
 				<a href="<?= site_url("front/sign_in") ?>" class="btn btn-primary rounded-0 py-4 px-lg-5 d-none d-lg-block ms-3"><?= $data['header_' . $data['lang']]['item7'] ?><i class="fa fa-arrow-right ms-3"></i></a>
 			<?php } else { ?>
-				<a href="<?= site_url("utilisateur/log_out") ?>" class="btn btn-danger rounded-0 py-4 px-lg-5 d-none d-lg-block ms-3"><?= $data['header_' . $data['lang']]['item8'] ?><i class="fa fa-arrow-right ms-3"></i></a>
+				<a href="<?= site_url("utilisateur/log_out") ?>" class="btn btn-warning rounded-0 py-4 px-lg-5 d-none d-lg-block ms-3"><?= $data['header_' . $data['lang']]['item8'] ?><i class="fa fa-arrow-right ms-3"></i></a>
 			<?php } ?>
 		</div>
 	</nav>
