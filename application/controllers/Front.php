@@ -74,6 +74,8 @@ class Front extends CI_Controller
 			$data['achievements'] = json_decode(json_encode($data['achievements']), true);
 		}
 
+		//set all images 
+		$this->realisation->setAllImages($data['achievements']);
 		$data['is_search'] = $is_search;
 		$data['allYears'] = $this->realisation->getAllYears();
 		$data['nbPages'] = $this->realisation->getNombrePage($nombre_resultat_affiche = $nbAffiche);
