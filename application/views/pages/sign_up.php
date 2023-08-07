@@ -41,7 +41,7 @@
         <div class="card login-form">
             <div class="card-body">
                 <div class="text-center mx-auto" style="max-width: 600px;">
-                    <h1 class="text-primary mb-4 text-dark">Connexion</h1>
+                    <h1 class="text-primary mb-4 text-dark">Inscription</h1>
                 </div>
                 <div class="card-text">
 
@@ -60,11 +60,10 @@
                                 </div>
                             </div>
                             <div class="col-12 d-flex justify-content-center">
-                                <button class="btn btn-primary py-3 px-5 w-100" type="submit">Se connecter</button>
+                                <button class="btn btn-primary py-3 px-5 w-100" type="submit">S'inscrire gratuitement</button>
                             </div>
                         </div>
                     </form>
-                    <p>J'ai pas encore de compte. <a class="" href="<?= site_url('front/sign_up'); ?>">S'inscrire ?</a></p>
                 </div>
             </div>
         </div>
