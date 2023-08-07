@@ -44,6 +44,11 @@ class Realisation_model extends CI_Model {
     return $query->result();
   }
 
+  public function getAllYears() {
+    $query = $this->db->get("v_realisations_all_year");
+    return $query->result();
+  }
+
   public function index()
   {
     // 

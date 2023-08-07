@@ -11,18 +11,19 @@
             <p class="mb-4"><?= $data['realisation_'.$data['lang']]['item1'] ?></p>
         </div>
         <div class="row mt-n2 wow fadeInUp" data-wow-delay="0.3s">
-            <form class="row g-3">
+            <form class="row g-3" action="<?= site_url('front/achievements/1'); ?>">
                 <div class="col-lg-3 col-12 offset-lg-3">
-                    <input type="text" class="form-control" placeholder="<?= $data['realisation_'.$data['lang']]['item2'] ?>" style="height: 55px;">
+                    <input type="text" class="form-control" name="keyword" placeholder="<?= $data['realisation_'.$data['lang']]['item2'] ?>" style="height: 55px;" required>
                 </div>
                 <div class="col-lg-3 col-12">
-                    <select class="form-select" style="height: 55px;">
+                    <select class="form-select" style="height: 55px;" name="year" required>
                         <option selected><?= $data['realisation_'.$data['lang']]['item3'] ?></option>
-                        <option value="">2023</option>
-                        <option value="">2022</option>
-                        <option value="">2021</option>
+                        <?php for($i = 0; $i < count($data['allYears']); $i++) { ?>
+                        <option value=""><?= $data['allYears'][$i]->annee_demarrage ?></option>
+                        <?php } ?>
                     </select>
                 </div>
+                <button class="btn btn-lg btn-primary btn-lg-square rounded-circle"><i class="bi bi-search"></i></button>
             </form>
         </div>
         <div class="row g-5 py-5 ps-lg-0 portfolio-container wow fadeInUp" data-wow-delay="0.5s">
@@ -67,13 +68,13 @@
                             <span class="sr-only">Previous</span>
                         </a>
                     </li>
-                    <li class="page-item"><a class="page-link" href="<?= site_url('front/achievements/'.$data['page_en_cours'] - 1); ?>"><?= $data['page_en_cours'] - 1 ?></a></li>
+                    <li class="page-item"><a class="page-link" href="<?= site_url('front/achievements/'.$data['is_search'].'/'.$data['page_en_cours'] - 1); ?>"><?= $data['page_en_cours'] - 1 ?></a></li>
                     <?php } ?>
                     
-                    <li class="page-item"><a class="page-link" style="color:white; background-color:#32c36c;" href="<?= site_url('front/achievements/'.$data['page_en_cours']); ?>"><?= $data['page_en_cours'] ?></a></li>
+                    <li class="page-item"><button class="page-link" style="color:white; background-color:#32c36c;"><?= $data['page_en_cours'] ?></button></li>
                     
                     <?php if($data['page_en_cours'] < $data['nbPages']) { ?>
-                    <li class="page-item"><a class="page-link" href="<?= site_url('front/achievements/'.$data['page_en_cours'] + 1); ?>"><?= $data['page_en_cours'] + 1 ?></a></li>
+                    <li class="page-item"><a class="page-link" href="<?= site_url('front/achievements/'.$data['is_search'].'/'.$data['page_en_cours'] + 1); ?>"><?= $data['page_en_cours'] + 1 ?></a></li>
                     <li class="page-item">
                         <a class="page-link" href="<?= $data['page_en_cours'] + 1 ?>" aria-label="Next">
                             <span aria-hidden="true">&raquo;</span>
