@@ -43,14 +43,28 @@
                 <div class="text-center mx-auto" style="max-width: 600px;">
                     <h1 class="text-primary mb-4 text-dark">Inscription</h1>
                 </div>
+                <!-- nom text not null,
+    telephone text not null,
+    mail -->
                 <div class="card-text">
-
                     <form class="mb-4" action="#">
                         <div class="row g-3">
                             <div class="col-12">
                                 <div class="form-floating">
+                                    <input type="text" class="form-control" placeholder="Rakoto">
+                                    <label for="">Nom</label>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-floating">
                                     <input type="email" class="form-control" placeholder="example@gmail.com">
-                                    <label for="">Votre email</label>
+                                    <label for="">Email</label>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control" placeholder="+261 34 00 000 00">
+                                    <label for="">Numéro de téléphone</label>
                                 </div>
                             </div>
                             <div class="col-12">
@@ -62,6 +76,7 @@
                             <div class="col-12 d-flex justify-content-center">
                                 <button class="btn btn-primary py-3 px-5 w-100" type="submit">S'inscrire gratuitement</button>
                             </div>
+                            <p>J'ai déjà un compte. <a class="" href="<?= site_url('front/sign_in'); ?>">Se connecter.</a></p>
                         </div>
                     </form>
                 </div>
