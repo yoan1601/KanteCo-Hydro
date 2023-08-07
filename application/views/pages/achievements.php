@@ -13,13 +13,13 @@
         <div class="row mt-n2 wow fadeInUp" data-wow-delay="0.3s">
             <form class="row g-3" action="<?= site_url('front/achievements/1'); ?>">
                 <div class="col-lg-3 col-12 offset-lg-3">
-                    <input type="text" class="form-control" name="keyword" placeholder="<?= $data['realisation_'.$data['lang']]['item2'] ?>" style="height: 55px;" required>
+                    <input type="text" class="form-control" name="keyword" placeholder="<?= $data['realisation_'.$data['lang']]['item2'] ?>" style="height: 55px;">
                 </div>
                 <div class="col-lg-3 col-12">
                     <select class="form-select" style="height: 55px;" name="year" required>
                         <option selected><?= $data['realisation_'.$data['lang']]['item3'] ?></option>
                         <?php for($i = 0; $i < count($data['allYears']); $i++) { ?>
-                        <option value=""><?= $data['allYears'][$i]->annee_demarrage ?></option>
+                        <option value="<?= $data['allYears'][$i]->annee_demarrage ?>"><?= $data['allYears'][$i]->annee_demarrage ?></option>
                         <?php } ?>
                     </select>
                 </div>

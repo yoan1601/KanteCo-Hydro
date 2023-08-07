@@ -61,8 +61,8 @@ class Front extends CI_Controller {
 		$data['achievements'] = json_decode(json_encode($data['achievements']), true);
 		
 		if($is_search == 1) {
-			$keyword = $this->form->get('keyword');
-			$year = $this->form->get('year');
+			$keyword = $this->input->get('keyword');
+			$year = $this->input->get('year');
 			$data['nb_resultat'] = count($this->realisation->all_resultat_search($keyword, $year));
 			$data['achievements'] = $this->realisation->search($numero_page = $num_page,$nombre_resultat_affiche = $nbAffiche, $keyword = $keyword, $year = $year);
 			// objet -> tableau
