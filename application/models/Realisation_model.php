@@ -25,16 +25,16 @@ class Realisation_model extends CI_Model {
     parent::__construct();
   }
 
-  public function findAllPagination($numero_page,$nombre_resultat_affiche){
+  public function findAllPagination($numero_page = 1,$nombre_resultat_affiche = 2){
     $calcul_limite = ($numero_page-1)*$nombre_resultat_affiche;
     $this->db->limit($nombre_resultat_affiche,$calcul_limite);
     // $this->db->order_by("id");
-    $query = $this->db->get("achievements");
+    $query = $this->db->get("v_realisations");
     return $query->result();
   }
 
-  public function getNombrePage($nombre_resultat_affiche){
-    $query = $this->db->get('achievements');
+  public function getNombrePage($nombre_resultat_affiche = 2){
+    $query = $this->db->get('v_realisations');
     $rows = count(($query->result()));
     return ceil($rows/$nombre_resultat_affiche);
   }

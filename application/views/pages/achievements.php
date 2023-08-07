@@ -29,7 +29,9 @@
             <?php for ($i = 0; $i < count($data['achievements']); $i++) { ?>
                 <div class="col-lg-4 col-md-6 portfolio-item">
                     <div class="portfolio-img rounded overflow-hidden">
-                        <img class="img-fluid" src="<?= base_url("assets/") ?>img/img-600x400-6.jpg" alt="">
+                        <div class="couverture" style="height: 36vh; width: 26vw;">
+                        <img class="img-fluid" style="height: 100%; width: 100%;object-fit: cover;" src="<?= base_url("assets/") ?>img/<?= $data['achievements'][$i]['image_couverture']; ?>" alt="">
+                        </div>
                         <div class="portfolio-btn">
                             <a class="btn btn-lg-square btn-outline-light rounded-circle mx-1" href="<?= base_url("assets/") ?>img/img-600x400-6.jpg" data-lightbox="portfolio"><i class="fa fa-eye"></i></a>
                             <a class="btn btn-lg-square btn-outline-light rounded-circle mx-1" href=""><i class="fa fa-arrow-right"></i></a>
@@ -38,17 +40,15 @@
                     <div class="pt-3">
                         <p>
                             <span class="fw-bold text-dark"><?= $data['realisation_'.$data['lang']]['item5'] ?> : <br /></span>
-                            TRAVAUX DE
-                            REALISATION DE 06 FORAGES MECANIQUES
-                            EQUIPES DE POMPES A MOTRICITE HUMAINE
-                            DANS LA REGION ANOSY, DISTRICT
-                            D’AMBOASARY, COMMUNE BEHARA ET IFOTAKA
+                            <?= $data['achievements'][$i]['nom_mission_'.(strtoupper($data['lang']))]; ?>
                         </p>
                         <div>
-                            <span class="fw-bold text-dark"><?= $data['realisation_'.$data['lang']]['item6'] ?> : </span> Madagascar
+                            <span class="fw-bold text-dark"><?= $data['realisation_'.$data['lang']]['item6'] ?> : </span>
+                            <?= $data['achievements'][$i]['nom_'.(strtoupper($data['lang']))]; ?>
                         </div>
                         <div>
-                            <span class="fw-bold text-dark"><?= $data['realisation_'.$data['lang']]['item7'] ?> : </span> 2023
+                            <span class="fw-bold text-dark"><?= $data['realisation_'.$data['lang']]['item7'] ?> : </span>
+                            <?= $data['achievements'][$i]['annee_demarrage']; ?>
                         </div>
                     </div>
                 </div>
@@ -60,24 +60,30 @@
         <div class="row mt-5">
             <nav>
                 <ul class="pagination justify-content-center pagination-lg">
+                    <?php if($data['page_en_cours'] > 1) { ?>
                     <li class="page-item">
-                        <a class="page-link" href="#" aria-label="Previous">
+                        <a class="page-link" href="<?= $data['page_en_cours'] - 1 ?>" aria-label="Previous">
                             <span aria-hidden="true">&laquo;</span>
                             <span class="sr-only">Previous</span>
                         </a>
                     </li>
-                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item"><a class="page-link" href="<?= site_url('front/achievements/'.$data['page_en_cours'] - 1); ?>"><?= $data['page_en_cours'] - 1 ?></a></li>
+                    <?php } ?>
+                    
+                    <li class="page-item"><a class="page-link" style="color:white; background-color:#32c36c;" href="<?= site_url('front/achievements/'.$data['page_en_cours']); ?>"><?= $data['page_en_cours'] ?></a></li>
+                    
+                    <?php if($data['page_en_cours'] < $data['nbPages']) { ?>
+                    <li class="page-item"><a class="page-link" href="<?= site_url('front/achievements/'.$data['page_en_cours'] + 1); ?>"><?= $data['page_en_cours'] + 1 ?></a></li>
                     <li class="page-item">
-                        <a class="page-link" href="#" aria-label="Next">
+                        <a class="page-link" href="<?= $data['page_en_cours'] + 1 ?>" aria-label="Next">
                             <span aria-hidden="true">&raquo;</span>
                             <span class="sr-only">Next</span>
                         </a>
                     </li>
+                    <?php } ?>
                 </ul>
             </nav>
-            <p class="fw-bold text-center"><?= $data['realisation_'.$data['lang']]['item4'] ?> : 12</p>
+            <p class="fw-bold text-center"><?= $data['realisation_'.$data['lang']]['item4'] ?> : <?= $data['nb_resultat'] ?></p>
         </div>
     </div>
 </div>

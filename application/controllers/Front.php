@@ -39,7 +39,7 @@ class Front extends CI_Controller {
 		$this->load->view('pages/reference', ['data' => $data]);
 	}
 
-	public function achievements() {
+	public function achievements($num_page = 1) {
 		if($this->session->has_userdata('lang') == false) {
 			$this->session->set_userdata('lang', 'fr');
 		}
@@ -50,7 +50,15 @@ class Front extends CI_Controller {
 
 		$data['lang'] = $lang;
 		$data['page'] = 'achievements'; 
-		$data['achievements'] = $this->realisation->findAll();
+
+
+		$nbAffiche = 3;
+		$data['page_en_cours'] = $num_page;
+		$data['nb_resultat'] = count($this->realisation->findAll());
+		$data['achievements'] = $this->realisation->findAllPagination($numero_page = $num_page,$nombre_resultat_affiche = $nbAffiche);
+		// objet -> tableau
+		$data['achievements'] = json_decode(json_encode($data['achievements']), true);
+		$data['nbPages'] = $this->realisation->getNombrePage($nombre_resultat_affiche = $nbAffiche);
 
 		$this->load->view('pages/achievements', ['data' => $data]);
 	}
