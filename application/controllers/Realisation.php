@@ -33,7 +33,7 @@ class Realisation extends CI_Controller
 
   public function search() {
       // echo json_encode($this->realisation->get_all_column_text());
-      echo json_encode($this->realisation->search());
+      echo json_encode($this->realisation->all_resultat_search("","2023"));
   }
 
 }

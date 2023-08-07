@@ -25,14 +25,16 @@ class Realisation_model extends CI_Model {
     parent::__construct();
   }
 
-    public function setAllImages($achievements) {
-      foreach ($achievements as $key => $a) {
-        $this->db->where('idAchievement', $a['id']);
-        $a['images'] = json_decode(json_encode($this->db->get("achievements_images")), true);
-      }
-    }
+public function setAllImages($achievements) {
+  foreach ($achievements as $key => $a) {
+    $this->db->where('idAchievement', $a['id']);
+    $a['images'] = json_decode(json_encode($this->db->get("achievements_images")), true);
+  }
+}  
 
-    public function search($numero_page = 1,$nombre_resultat_affiche = 3, $keyword = '', $year = ''){
+public function search($numero_page = 1,$nombre_resultat_affiche = 3, $keyword = '', $year = ''){
+      $year = trim($year);
+      $keyword = trim($keyword);
       $calcul_limite = ($numero_page-1)*$nombre_resultat_affiche;
       $this->db->limit($nombre_resultat_affiche,$calcul_limite);
       if ($year != ''){
@@ -40,6 +42,31 @@ class Realisation_model extends CI_Model {
       }
       $columns = $this->get_all_column_text();
       $i = 0;
+      if ($keyword != ''){
+        foreach($columns as $column){
+          if ($i == 0){
+            $this->db->like($column->Field, $keyword, 'both');
+          }
+          else{
+            $this->db->or_like($column->Field, $keyword, 'both');
+          }
+          $i+=1;
+        }
+      }
+      
+      $query = $this->db->get('v_realisations');
+      return $query->result();
+  }
+
+  public function all_resultat_search($keyword = '', $year = ''){
+    $year = trim($year);
+    $keyword = trim($keyword);
+    if ($year != ''){
+      $this->db->where("annee_demarrage", $year);
+    }
+    $columns = $this->get_all_column_text();
+    $i = 0;
+    if ($keyword != ''){
       foreach($columns as $column){
         if ($i == 0){
           $this->db->like($column->Field, $keyword, 'both');
@@ -49,24 +76,6 @@ class Realisation_model extends CI_Model {
         }
         $i+=1;
       }
-      $query = $this->db->get('v_realisations');
-      return $query->result();
-  }
-
-  public function all_resultat_search($keyword = '', $year = ''){
-    if ($year != ''){
-      $this->db->where("annee_demarrage", $year);
-    }
-    $columns = $this->get_all_column_text();
-    $i = 0;
-    foreach($columns as $column){
-      if ($i == 0){
-        $this->db->like($column->Field, $keyword, 'both');
-      }
-      else{
-        $this->db->or_like($column->Field, $keyword, 'both');
-      }
-      $i+=1;
     }
     $query = $this->db->get('v_realisations');
     return $query->result();
