@@ -25,6 +25,10 @@ class Realisation_model extends CI_Model {
     parent::__construct();
   }
 
+  public function all_resultat_search($keyword, $year){
+    
+  }
+
   public function findAllPagination($numero_page,$nombre_resultat_affiche){
     $calcul_limite = ($numero_page-1)*$nombre_resultat_affiche;
     $this->db->limit($nombre_resultat_affiche,$calcul_limite);
