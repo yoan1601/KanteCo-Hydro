@@ -25,14 +25,59 @@ class Realisation_model extends CI_Model {
     parent::__construct();
   }
 
-  public function setAllImages($achievements) {
-    foreach ($achievements as $key => $a) {
-      $this->db->where('idAchievement', $a['id']);
-      $a['images'] = json_decode(json_encode($this->db->get("achievements_images")), true);
+    public function setAllImages($achievements) {
+      foreach ($achievements as $key => $a) {
+        $this->db->where('idAchievement', $a['id']);
+        $a['images'] = json_decode(json_encode($this->db->get("achievements_images")), true);
+      }
     }
+
+    public function search($numero_page = 1,$nombre_resultat_affiche = 3, $keyword = '', $year = ''){
+      $calcul_limite = ($numero_page-1)*$nombre_resultat_affiche;
+      $this->db->limit($nombre_resultat_affiche,$calcul_limite);
+      if ($year != ''){
+        $this->db->where("annee_demarrage", $year);
+      }
+      $columns = $this->get_all_column_text();
+      $i = 0;
+      foreach($columns as $column){
+        if ($i == 0){
+          $this->db->like($column->Field, $keyword, 'both');
+        }
+        else{
+          $this->db->or_like($column->Field, $keyword, 'both');
+        }
+        $i+=1;
+      }
+      $query = $this->db->get('v_realisations');
+      return $query->result();
   }
 
-  public function findAllPagination($numero_page = 1,$nombre_resultat_affiche = 2){
+  public function all_resultat_search($keyword = '', $year = ''){
+    if ($year != ''){
+      $this->db->where("annee_demarrage", $year);
+    }
+    $columns = $this->get_all_column_text();
+    $i = 0;
+    foreach($columns as $column){
+      if ($i == 0){
+        $this->db->like($column->Field, $keyword, 'both');
+      }
+      else{
+        $this->db->or_like($column->Field, $keyword, 'both');
+      }
+      $i+=1;
+    }
+    $query = $this->db->get('v_realisations');
+    return $query->result();
+  }
+
+  public function get_all_column_text(){
+    $query = $this->db->query("SHOW COLUMNS FROM v_realisations WHERE Type = 'text'");
+    return $query->result();
+  }
+
+  public function findAllPagination($numero_page,$nombre_resultat_affiche){
     $calcul_limite = ($numero_page-1)*$nombre_resultat_affiche;
     $this->db->limit($nombre_resultat_affiche,$calcul_limite);
     // $this->db->order_by("id");
