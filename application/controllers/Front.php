@@ -164,4 +164,19 @@ class Front extends CI_Controller
 		$data['page'] = 'sign_up';
 		$this->load->view('pages/sign_up', ['data' => $data]);
 	}
+
+	public function detail_achievements()
+	{
+		if ($this->session->has_userdata('lang') == false) {
+			$this->session->set_userdata('lang', 'fr');
+		}
+
+		$lang = $this->session->lang;
+
+		$data = $this->data->getData();
+
+		$data['lang'] = $lang;
+		$data['page'] = 'achievements';
+		$this->load->view('pages/detail_achievements', ['data' => $data]);
+	}
 }

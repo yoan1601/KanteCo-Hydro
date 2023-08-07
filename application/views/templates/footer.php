@@ -4,12 +4,11 @@
             <div class="col-lg-9 d-flex align-items-center" style="gap: 2rem;">
                 <i class="fas fa-comments-dollar fa-6x" style="color: #32c36c;"></i>
                 <h4 style="font-weight: lighter;">
-                <?= $data['footer_' . $data['lang']]['item1'] ?>
+                    <?= $data['footer_' . $data['lang']]['item1'] ?>
                 </h4>
             </div>
             <div class="col-lg-3">
-                <button class="btn btn-primary py-3 px-5" type="submit"><?= $data['footer_' . $data['lang']]['button_devis'] ?><i class="fa fa-arrow-right ms-3"></i
-				></button>
+                <button class="btn btn-primary py-3 px-5" type="submit"><?= $data['footer_' . $data['lang']]['button_devis'] ?><i class="fa fa-arrow-right ms-3"></i></button>
             </div>
         </div>
     </div>
@@ -35,14 +34,14 @@
 
                 <div class="row">
                     <div class="col-lg-6">
-                        <a class="btn btn-link" href=""><?= $data['header_' . $data['lang']]['item1'] ?></a>
-                        <a class="btn btn-link" href=""><?= $data['header_' . $data['lang']]['item2'] ?></a>
-                        <a class="btn btn-link" href=""><?= $data['header_' . $data['lang']]['item3'] ?></a>
+                        <a class="btn btn-link" href="<?= site_url('front'); ?>"><?= $data['header_' . $data['lang']]['item1'] ?></a>
+                        <a class="btn btn-link" href="<?= site_url('front/reference'); ?>"><?= $data['header_' . $data['lang']]['item2'] ?></a>
+                        <a class="btn btn-link" href="<?= site_url('front/achievements'); ?>"><?= $data['header_' . $data['lang']]['item3'] ?></a>
                     </div>
                     <div class="col-lg-6">
-                        <a class="btn btn-link" href=""><?= $data['header_' . $data['lang']]['item4'] ?></a>
-                        <a class="btn btn-link" href=""><?= $data['header_' . $data['lang']]['item5'] ?></a>
-                        <a class="btn btn-link" href=""><?= $data['header_' . $data['lang']]['item6'] ?></a>
+                        <a class="btn btn-link" href="<?= site_url('front/'); ?>"><?= $data['header_' . $data['lang']]['item4'] ?></a>
+                        <a class="btn btn-link" href="<?= site_url('front/contact'); ?>"><?= $data['header_' . $data['lang']]['item5'] ?></a>
+                        <a class="btn btn-link" href="<?= site_url('front/sign_in'); ?>"><?= $data['header_' . $data['lang']]['item6'] ?></a>
                     </div>
                 </div>
 
