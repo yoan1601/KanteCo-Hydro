@@ -200,6 +200,13 @@ class Front extends CI_Controller
 
 		$data = $this->data->getData();
 
+		if ($this->session->has_userdata('user') == false){
+			$data['session']= false;
+		}
+		else{
+			$data['session'] = $this->session->user;
+		}
+
 		$data['lang'] = $lang;
 		$data['page'] = 'devis';
 		$this->load->view('pages/devis', ['data' => $data]);
