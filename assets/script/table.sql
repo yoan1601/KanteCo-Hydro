@@ -36,6 +36,7 @@ create table blogs(
     detail_FR text not null,
     detail_EN text not null,
     date_publication date not null,
+    image_couverture text not null,
     auteur text not null,
     etat integer not null
 );
