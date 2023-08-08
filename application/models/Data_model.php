@@ -191,14 +191,16 @@ class Data_model extends CI_Model {
         'item2' => 'Votre email',
         'item3' => 'Se connecter',
         'item4' => "J'ai pas encore de compte. ",
-        'item5' => "S'inscrire?"
+        'item5' => "S'inscrire?",
+        'item6' => 'Mot de passe'
       ),
       'sign_in_en' => array(
         'item1' => 'Login',
         'item2' => 'Your e-mail',
         'item3' => 'Connect',
         'item4' => "I don't have an account yet. ",
-        'item5' => "Join us?"
+        'item5' => "Join us?",
+        'item6' => 'Password'
       ),
       'sign_up_fr' => array(
         'item1' => 'Inscription',
