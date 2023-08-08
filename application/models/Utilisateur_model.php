@@ -25,18 +25,19 @@ class Utilisateur_model extends CI_Model {
     parent::__construct();
   }
 
-  public function insert($nom ,$telephone, $email){
+  public function insert($nom ,$telephone, $email, $password){
     $this->db->insert('users',[
       "nom" => $nom,
       "telephone" => $telephone,
       "mail" => $email,
+      "mot_de_passe" => md5($password),
       "is_admin" => 1,
       "etat"=> 1
     ]);
   }
 
-  public function check_login($email){
-    $this->db->where(["mail" => trim($email)]);
+  public function check_login($email, $password){
+    $this->db->where(["mail" => trim($email), "mot_de_passe" => md5($password)]);
     $query = $this->db->get("users");
     if (count($query->result()) <= 0) return false;
     else return $query->result()[0];
