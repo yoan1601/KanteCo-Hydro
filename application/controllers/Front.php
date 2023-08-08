@@ -57,7 +57,7 @@ class Front extends CI_Controller
 		$this->load->view('pages/reference', ['data' => $data]);
 	}
 
-	public function blog($is_search = 0, $num_page = 1)
+	public function blogs($is_search = 0, $num_page = 1)
 	{
 		if ($this->session->has_userdata('lang') == false) {
 			$this->session->set_userdata('lang', 'fr');
@@ -69,7 +69,7 @@ class Front extends CI_Controller
 		$data = $this->data->getData();
 
 		$data['lang'] = $lang;
-		$data['page'] = 'achievements';
+		$data['page'] = 'blogs';
 
 		if ($this->session->has_userdata('user') == false){
 			$data['session']= false;
@@ -82,29 +82,31 @@ class Front extends CI_Controller
 		$nbAffiche = 3;
 		$data['page_en_cours'] = $num_page;
 
-		$data['nb_resultat'] = count($this->realisation->findAll());
-		$data['achievements'] = $this->realisation->findAllPagination($numero_page = $num_page, $nombre_resultat_affiche = $nbAffiche);
+		$data['nb_resultat'] = count($this->blog->findAll());
+		$data['blogs'] = $this->blog->findAllPagination($numero_page = $num_page, $nombre_resultat_affiche = $nbAffiche);
 		// objet -> tableau
-		$data['achievements'] = json_decode(json_encode($data['achievements']), true);
-		$data['nbPages'] = $this->realisation->getNombrePage($nombre_resultat_affiche = $nbAffiche);
+		$data['blogs'] = json_decode(json_encode($data['blogs']), true);
+		$data['nbPages'] = $this->blog->getNombrePage($nombre_resultat_affiche = $nbAffiche);
 
 		if($is_search == 1) {
 			$keyword = $this->input->get('keyword');
 			$year = $this->input->get('year');
-			$data['nb_resultat'] = count($this->realisation->all_resultat_search($keyword, $year));
-			$data['achievements'] = $this->realisation->search($numero_page = $num_page, $nombre_resultat_affiche = $nbAffiche, $keyword = $keyword, $year = $year);
+			$data['nb_resultat'] = count($this->blog->all_resultat_search($keyword, $year));
+			$data['blogs'] = $this->blog->search($numero_page = $num_page, $nombre_resultat_affiche = $nbAffiche, $keyword = $keyword, $year = $year);
 			// objet -> tableau
-			$data['achievements'] = json_decode(json_encode($data['achievements']), true);
-			$data['nbPages'] = $this->realisation->getNombrePageSearch($data['nb_resultat'] ,$nombre_resultat_affiche = $nbAffiche);
+			$data['blogs'] = json_decode(json_encode($data['blogs']), true);
+			$data['nbPages'] = $this->blog->getNombrePageSearch($data['nb_resultat'] ,$nombre_resultat_affiche = $nbAffiche);
 		}
 
 		//set all images 
-		$this->realisation->setAllImages($data['achievements']);
+		$this->blog->setAllImages($data['blogs']);
 		$data['is_search'] = $is_search;
-		$data['allYears'] = $this->realisation->getAllYears();
+		$data['allYears'] = $this->blog->getAllYears();
+
+		$data['blogs']= $this->blog->format_to_full_date($data['blogs']);
 		
 
-		$this->load->view('pages/achievements', ['data' => $data]);
+		$this->load->view('pages/blog', ['data' => $data]);
 	}
 
 	public function achievements($is_search = 0, $num_page = 1)
@@ -262,18 +264,18 @@ class Front extends CI_Controller
 		$this->load->view('pages/devis', ['data' => $data]);
 	}
 
-	public function blog()
-	{
-		if ($this->session->has_userdata('lang') == false) {
-			$this->session->set_userdata('lang', 'fr');
-		}
+	// public function blog()
+	// {
+	// 	if ($this->session->has_userdata('lang') == false) {
+	// 		$this->session->set_userdata('lang', 'fr');
+	// 	}
 
-		$lang = $this->session->lang;
+	// 	$lang = $this->session->lang;
 
-		$data = $this->data->getData();
+	// 	$data = $this->data->getData();
 
-		$data['lang'] = $lang;
-		$data['page'] = 'blog';
-		$this->load->view('pages/blog', ['data' => $data]);
-	}
+	// 	$data['lang'] = $lang;
+	// 	$data['page'] = 'blog';
+	// 	$this->load->view('pages/blog', ['data' => $data]);
+	// }
 }

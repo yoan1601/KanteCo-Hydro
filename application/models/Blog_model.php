@@ -25,6 +25,39 @@ class Blog_model extends CI_Model {
     parent::__construct();
   }
 
+  public function format_to_full_date($data){
+    for ($i=0; $i < count($data) ; $i++) { 
+      // Date au format '2023-07-01' depuis MySQL
+      $mysql_date = $data[$i]['date_publication'];
+
+      // Créer un objet DateTime à partir de la date MySQL
+      $date = new DateTime($mysql_date);
+
+      // Formater la date dans le format '01 juillet 2023'
+      $formatted_date = $date->format('d F Y');
+
+      $data[$i]['date_publication_en'] = $formatted_date;
+
+      // Définir la locale en français
+      $locale = 'fr_FR';
+
+      // Créer un objet IntlDateFormatter pour formater la date en français
+      $dateFormatter = new IntlDateFormatter($locale, IntlDateFormatter::LONG, IntlDateFormatter::NONE);
+
+      // Formater la date
+      $formatted_date_FR = $dateFormatter->format($date);
+
+      $data[$i]['date_publication_fr'] = $formatted_date_FR;
+    }
+    return $data;
+  }
+
+  public function setAllImages($blogs) {
+    foreach ($blogs as $key => $a) {
+      $this->db->where('idBlog', $a['id']);
+      $a['images'] = json_decode(json_encode($this->db->get("blogs_images")), true);
+    }
+  }  
 
   public function search($numero_page = 1,$nombre_resultat_affiche = 3, $keyword = '', $year = ''){
     $year = trim($year);
@@ -48,7 +81,7 @@ class Blog_model extends CI_Model {
       }
     }
     
-    $query = $this->db->get('v_realisations');
+    $query = $this->db->get('v_blogs');
     return $query->result();
 }
 
@@ -71,7 +104,7 @@ class Blog_model extends CI_Model {
         $i+=1;
       }
     }
-    $query = $this->db->get('v_realisations');
+    $query = $this->db->get('v_blogs');
     return $query->result();
   }
 
@@ -101,6 +134,11 @@ class Blog_model extends CI_Model {
 
   public function findAll(){
     $query = $this->db->get("v_blogs");
+    return $query->result();
+  }
+
+  public function getAllYears() {
+    $query = $this->db->get("v_blogs_all_year");
     return $query->result();
   }
 

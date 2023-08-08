@@ -169,47 +169,47 @@ INSERT INTO achievements values
     "",
     1);
 
-INSERT INTO blogs (idUser, titre_FR, titre_EN, detail_FR, detail_EN, date_publication, auteur, etat)
+INSERT INTO blogs (idUser, titre_FR, titre_EN, detail_FR, detail_EN, date_publication,image_couverture, auteur, etat)
 VALUES
     (2, "L'importance de la biodiversité", "The Importance of Biodiversity",
      "La biodiversité est essentielle pour maintenir l'équilibre des écosystèmes. Elle permet de préserver la variété des espèces et de garantir la survie de nombreuses formes de vie. La perte de biodiversité peut avoir des conséquences graves sur la santé de notre planète et sur notre propre bien-être. Il est impératif de prendre des mesures pour protéger et restaurer la biodiversité, en prévenant la disparition d'espèces et en préservant les habitats naturels.",
      "Biodiversity is crucial for maintaining ecosystem balance. It helps preserve species variety and ensures the survival of many forms of life. The loss of biodiversity can have serious consequences for the health of our planet and our own well-being. It is imperative to take action to protect and restore biodiversity, preventing species extinction and preserving natural habitats.",
-     '2023-07-01', 'Jane Doe', 1),
+     '2023-07-01','achiev4_2.jpg', 'Jane Doe', 1),
 
     (2, "Les énergies renouvelables", "Renewable Energies",
      "Les énergies renouvelables, telles que l'énergie solaire et éolienne, sont des solutions durables pour réduire notre dépendance aux combustibles fossiles et réduire les émissions de gaz à effet de serre. La transition vers les énergies renouvelables est cruciale pour atténuer les effets du changement climatique et assurer un avenir durable pour les générations futures. Investir dans les énergies propres est un choix éclairé pour préserver notre planète.",
      "Renewable energies, such as solar and wind energy, are sustainable solutions to reduce our dependence on fossil fuels and decrease greenhouse gas emissions. The transition to renewable energies is crucial to mitigate the effects of climate change and ensure a sustainable future for generations to come. Investing in clean energies is an enlightened choice to preserve our planet.",
-     '2023-07-15', 'John Smith', 1),
+     '2023-07-15','achiev4_2.jpg', 'John Smith', 1),
 
     (3, "Gestion responsable des déchets", "Responsible Waste Management",
      "Une gestion responsable des déchets est essentielle pour préserver notre environnement. Le recyclage et la réduction des déchets sont des pratiques clés pour minimiser notre impact sur la planète. En adoptant des habitudes responsables, nous pouvons contribuer à la réduction de la pollution et à la préservation des ressources naturelles.",
      "Responsible waste management is crucial for preserving our environment. Recycling and waste reduction are key practices to minimize our impact on the planet. By adopting responsible habits, we can contribute to reducing pollution and preserving natural resources.",
-     '2023-08-01', 'Alice Johnson', 1),
+     '2023-08-01','achiev4_2.jpg', 'Alice Johnson', 1),
 
     (4, "Conservation des ressources en eau", "Conservation of Water Resources",
      "La conservation des ressources en eau est cruciale alors que les pénuries d'eau deviennent de plus en plus fréquentes. Des gestes simples, tels que la réparation des fuites et la réduction de la consommation, peuvent faire une grande différence. En préservant l'eau, nous contribuons à la durabilité de notre planète et à la préservation de cet élément essentiel à la vie.",
      "Conserving water resources is crucial as water shortages become increasingly common. Simple actions, such as fixing leaks and reducing consumption, can make a significant difference. By preserving water, we contribute to the sustainability of our planet and the preservation of this essential element for life.",
-     '2023-08-10', 'Michael Brown', 1),
+     '2023-08-10','achiev4_2.jpg', 'Michael Brown', 1),
 
     (5, "L'importance des forêts", "The Importance of Forests",
      "Les forêts jouent un rôle vital dans la régulation du climat, la préservation de la biodiversité et la fourniture d'habitats pour de nombreuses espèces. Il est essentiel de les protéger et de les gérer durablement. En adoptant des pratiques de foresterie responsable, nous pouvons maintenir l'équilibre entre les besoins humains et la conservation de la nature.",
      "Forests play a vital role in climate regulation, preserving biodiversity, and providing habitats for many species. It is crucial to protect and sustainably manage them. By adopting responsible forestry practices, we can maintain the balance between human needs and nature conservation.",
-     '2023-08-20', 'Emily Davis', 1),
+     '2023-08-20','achiev4_2.jpg', 'Emily Davis', 1),
 
     (6, "Réduction de l'utilisation des plastiques", "Reducing Plastic Usage",
      "La réduction de l'utilisation des plastiques est essentielle pour lutter contre la pollution plastique dans nos océans et écosystèmes. Opter pour des alternatives durables peut aider à préserver notre environnement. En privilégiant les matériaux biodégradables et en évitant les plastiques à usage unique, nous contribuons à réduire notre empreinte écologique.",
      "Reducing plastic usage is essential to combat plastic pollution in our oceans and ecosystems. Opting for sustainable alternatives can help preserve our environment. By favoring biodegradable materials and avoiding single-use plastics, we contribute to reducing our ecological footprint.",
-     '2023-09-05', 'David Wilson', 1),
+     '2023-09-05','achiev4_2.jpg', 'David Wilson', 1),
 
     (4, "L'importance de l'éducation environnementale", "The Importance of Environmental Education",
      "L'éducation environnementale joue un rôle crucial dans la sensibilisation aux enjeux environnementaux et dans la promotion de pratiques durables. Elle aide à former des citoyens responsables et conscients de leur impact sur la planète. En enseignant aux jeunes générations l'importance de préserver l'environnement, nous investissons dans un avenir meilleur.",
      "Environmental education plays a crucial role in raising awareness about environmental issues and promoting sustainable practices. It helps shape responsible citizens who are aware of their impact on the planet. By teaching younger generations the importance of preserving the environment, we invest in a better future.",
-     '2023-09-15', 'Sophia Martinez', 1),
+     '2023-09-15','achiev4_2.jpg', 'Sophia Martinez', 1),
 
     (2, "Protection des espèces en voie de disparition", "Protection of Endangered Species",
      "La protection des espèces en voie de disparition est une priorité pour préserver la diversité biologique. Les efforts de conservation sont essentiels pour sauver des animaux et des plantes menacés d'extinction. Les actions de protection des espèces peuvent avoir un impact positif sur l'ensemble de l'écosystème, car chaque espèce joue un rôle important dans le maintien de l'équilibre naturel. En sensibilisant le public et en prenant des mesures de conservation actives, nous pouvons contribuer à la préservation de la vie sur Terre.",
      "Protecting endangered species is a priority to preserve biological diversity. Conservation efforts are crucial to save threatened animals and plants from extinction. Species protection actions can have a positive impact on the entire ecosystem, as each species plays an important role in maintaining the natural balance. By raising awareness and taking active conservation measures, we can contribute to the preservation of life on Earth.",
-     '2023-09-25', 'Daniel Lee', 1);
+     '2023-09-25','achiev4_2.jpg', 'Daniel Lee', 1);
 
 insert into achievements_images values
     (default,1,'achiev1.jpg'),
