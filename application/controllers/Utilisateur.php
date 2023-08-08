@@ -27,9 +27,9 @@ class Utilisateur extends CI_Controller
   }
 
   public function inscription(){
-    $nom = "mirija";
-    $telephone = "3456666";
-    $email = "Marc@gmail.com";
+    $nom = $this->input->post("nom");
+    $telephone = $this->input->post("telephone");
+    $email = $this->input->post("email");
 
     require APPPATH.'constant\validation_msg.php';
     $this->validation->set_rules(
@@ -47,12 +47,37 @@ class Utilisateur extends CI_Controller
       'trim|required',
       $error_msg
     );
-    // $this->user->insert("mirija","3456666","Marc@gmail.com");
+    $this->db->insert("users",[
+      "nom" => $nom,
+      "telephone"=> $telephone,
+      "mail" => $email,
+      "is_admin" => 1,
+      "etat" => 1
+    ]);
+    redirect('front/sign_in');
+  }
+
+  public function login(){
+    $email = $this->input->post("email");
+    $object = $this->user->check_login($email);
+    if ($object != false){
+      $this->session->set_userdata('user', $object);
+      redirect('front/home');
+    }
+    $data['error'] = 'email error';
+    redirect('front/sign_in/1');
+    
+  }
+
+  public function log_out(){
+    $this->session->unset_userdata('user');
+    redirect('front/home');
   }
 
   public function index()
   {
-    var_dump($this->user->check_login("root@root.com"));
+
+    
   }
 
 }

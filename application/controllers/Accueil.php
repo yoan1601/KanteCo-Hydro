@@ -33,4 +33,8 @@ class Accueil extends CI_Controller
     echo json_encode($data);
   }
 
+  public function pagination(){
+    echo json_encode($this->realisation->findAllPagination(2,3));
+  }
+
 }
