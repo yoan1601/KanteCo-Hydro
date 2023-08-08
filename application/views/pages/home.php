@@ -67,42 +67,42 @@
                 <div class="col-md-6 col-lg-6 wow fadeIn mb-5 " data-wow-delay="0.5s">
                     <div class="d-flex align-items-center mb-4">
                         <div class="btn-lg-square bg-primary rounded-circle me-3">
-                            <i class="fa fa-award text-white"></i>
+                            <i class="fa fa-users text-white"></i>
                         </div>
-                        <h1 class="mb-0" data-toggle="counter-up">3123</h1>
+                        <h1 class="mb-0" data-toggle=""></h1>
                     </div>
-                    <h5 class="mb-3">Awards Win</h5>
-                    <span>Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit</span>
+                    <h5 class="mb-3"><?= $data['accueil_' . $data['lang']]['propos_droite_UL_titre'] ?></h5>
+                    <span><?= $data['accueil_' . $data['lang']]['propos_droite_UL_detail'] ?></span>
                 </div>
                 <div class="col-md-6 col-lg-6 wow fadeIn mb-5 " data-wow-delay="0.7s">
                     <div class="d-flex align-items-center mb-4">
                         <div class="btn-lg-square bg-primary rounded-circle me-3">
                             <i class="fa fa-users-cog text-white"></i>
                         </div>
-                        <h1 class="mb-0" data-toggle="counter-up">1831</h1>
+                        <h1 class="mb-0" data-toggle=""></h1>
                     </div>
-                    <h5 class="mb-3">Expert Workers</h5>
-                    <span>Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit</span>
+                    <h5 class="mb-3"><?= $data['accueil_' . $data['lang']]['propos_droite_UR_titre'] ?></h5>
+                    <span><?= $data['accueil_' . $data['lang']]['propos_droite_UR_detail'] ?></span>
                 </div>
                 <div class="col-md-6 col-lg-6 wow fadeIn mb-2 " data-wow-delay="0.5s">
                     <div class="d-flex align-items-center mb-4">
                         <div class="btn-lg-square bg-primary rounded-circle me-3">
                             <i class="fa fa-award text-white"></i>
                         </div>
-                        <h1 class="mb-0" data-toggle="counter-up">3123</h1>
+                        <h1 class="mb-0" data-toggle=""></h1>
                     </div>
-                    <h5 class="mb-3">Awards Win</h5>
-                    <span>Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit</span>
+                    <h5 class="mb-3"><?= $data['accueil_' . $data['lang']]['propos_droite_DL_titre'] ?></h5>
+                    <span><?= $data['accueil_' . $data['lang']]['propos_droite_DL_detail'] ?></span>
                 </div>
                 <div class="col-md-6 col-lg-6 wow fadeIn mb-2 " data-wow-delay="0.7s">
                     <div class="d-flex align-items-center mb-4">
                         <div class="btn-lg-square bg-primary rounded-circle me-3">
                             <i class="fa fa-users-cog text-white"></i>
                         </div>
-                        <h1 class="mb-0" data-toggle="counter-up">1831</h1>
+                        <h1 class="mb-0" data-toggle=""></h1>
                     </div>
-                    <h5 class="mb-3">Expert Workers</h5>
-                    <span>Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit</span>
+                    <h5 class="mb-3"><?= $data['accueil_' . $data['lang']]['propos_droite_DR_titre'] ?></h5>
+                    <span><?= $data['accueil_' . $data['lang']]['propos_droite_DR_detail'] ?></span>
                 </div>
             </div>
 
@@ -121,9 +121,9 @@
             <div class="col-lg-6 about-text py-5 wow fadeIn" data-wow-delay="0.5s">
                 <div class="p-lg-5 pe-lg-0">
                     <p class="text-primary font-weight-light" style="font-size: xx-large;"><?= $data['accueil_' . $data['lang']]['propos'] ?></p>
-                    <h1 class="mb-4"><?= $data['accueil_' . $data['lang']]['combien1'] ?> <?= $data['accueil_' . $data['lang']]['expert_permanent'] ?> & <?= $data['accueil_' . $data['lang']]['combien2'] ?> <?= $data['accueil_' . $data['lang']]['consultant'] ?></h1>
+                    <h1 class="mb-4"><?= $data['accueil_' . $data['lang']]['engagement'] ?></h1>
                     <p><?= $data['accueil_' . $data['lang']]['accueil_droite3'] ?></p>
-                    <a href="" class="btn btn-primary rounded-pill py-3 px-5 mt-3"><span class="m-3"><?= $data['accueil_' . $data['lang']]['button2'] ?></span> <i class="fa fa-arrow-right ms-2"></i></a>
+                    <a href="<?= site_url('front/achievements'); ?>" class="btn btn-primary rounded-pill py-3 px-5 mt-3"><span class="m-3"><?= $data['accueil_' . $data['lang']]['button2'] ?></span> <i class="fa fa-arrow-right ms-2"></i></a>
                 </div>
             </div>
         </div>

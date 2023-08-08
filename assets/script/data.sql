@@ -8,13 +8,13 @@ insert into compagnies values
     (default,'BNI Madagascar', 'bni.jpg', 1),
     (default,"Ministère de l'environnement et du développement durable", 'ministere.jpg', 1);
 
-INSERT INTO users (nom, telephone, mail, is_admin, etat) VALUES
-    ('root', '+261 34 10 240 00', 'root@root.com', 111, 1),
-    ('John Doe', '+261 34 10 240 00', 'john.doe@example.com', 11, 1),
-    ('Jane Smith', '+261 34 10 250 00', 'jane.smith@example.com', 11, 1),
-    ('Alice Johnson', '+261 33 10 234 00', 'alice.johnson@example.com', 1, 1),
-    ('Bob Brown', '+261 32 10 123 00', 'bob.brown@example.com', 1, 1),
-    ('Eve White', '+261 38 10 124 00', 'eve.white@example.com', 1, 0);
+INSERT INTO users (nom, telephone, mail,mot_de_passe, is_admin, etat) VALUES
+    ('root', '+261 34 10 240 00', 'root@root.com', md5('root') , 111, 1),
+    ('John Doe', '+261 34 10 240 00', 'john.doe@example.com', md5('john') , 11, 1),
+    ('Jane Smith', '+261 34 10 250 00', 'jane.smith@example.com',md5('jane'), 11, 1),
+    ('Alice Johnson', '+261 33 10 234 00', 'alice.johnson@example.com',md5('alice'), 1, 1),
+    ('Bob Brown', '+261 32 10 123 00', 'bob.brown@example.com',md5('bob'), 1, 1),
+    ('Eve White', '+261 38 10 124 00', 'eve.white@example.com',md5('eve'), 1, 0);
 
 INSERT INTO achievements values
     (null,
