@@ -13,7 +13,7 @@
         <div class="row g-0 mx-lg-0">
             <div class="col-lg-6 contact-text py-5 wow fadeIn" data-wow-delay="0.5s">
                 <div class="p-lg-5 ps-lg-0">
-                    <h1 class="text-dark mb-5">N'hésitez pas à nous contacter !</h1>
+                    <h1 class="text-dark mb-5"><?= $data['contact_'.$data['lang']]['item17'] ?></h1>
                     <form action="#">
                         <div class="row g-3">
                             <div class="col-12">
