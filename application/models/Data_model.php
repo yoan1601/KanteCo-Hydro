@@ -148,7 +148,8 @@ class Data_model extends CI_Model {
           'item13' => "Etude d' impact environnemental",
           'item14' => "Gestion des risques et catastrophes naturelles",
           'item15' => "Ainsi, toutes activités pouvant rattachés directement ou indirectement à lobjet social.",
-          'item16' => "Laissez-nous prendre en charge votre projet, nous nous occupons de tout le reste."
+          'item16' => "Laissez-nous prendre en charge votre projet, nous nous occupons de tout le reste.",
+          'item17' => "Contactez-nous"
       ),
       'contact_en' => array(
         'item1' =>'Contact',
@@ -166,7 +167,8 @@ class Data_model extends CI_Model {
         'item13' => "Environmental impact study",
         'item14' => "Risk and disaster management",
         'item15' => "All activities directly or indirectly related to the corporate purpose.",
-        'item16' => "Let us take care of your project, and we'll take care of the rest."
+        'item16' => "Let us take care of your project, and we'll take care of the rest.",
+        'item17' => "Contact us"
       ),
       'realisation_fr' => array(
         'item1' =>'Explorez nos réalisations . Des projets durables qui font la différence.',
