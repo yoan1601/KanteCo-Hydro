@@ -8,7 +8,11 @@
                 </h4>
             </div>
             <div class="col-lg-3">
-                <a href="<?= site_url('front/devis'); ?>" class="btn btn-primary py-3 px-5" type="submit"><?= $data['footer_' . $data['lang']]['button_devis'] ?><i class="fa fa-arrow-right ms-3"></i></a>
+                <?php if ($data['session']!=false){ ?>
+                    <a href="<?= site_url("front/devis") ?>" class="btn btn-primary py-3 px-5"><?= $data['footer_' . $data['lang']]['button_devis'] ?><i class="fa fa-arrow-right ms-3"></i></a>
+                <?php }else{ ?>
+                    <a href="<?= site_url("front/sign_in") ?>" class="btn btn-primary py-3 px-5"><?= $data['footer_' . $data['lang']]['button_devis'] ?><i class="fa fa-arrow-right ms-3"></i></a>
+                <?php } ?>
             </div>
         </div>
     </div>
