@@ -67,6 +67,12 @@
                                     <label for=""><?= $data['sign_up_' . $data['lang']]['item4'] ?></label>
                                 </div>
                             </div>
+                            <div class="col-12">
+                                <div class="form-floating">
+                                    <input type="password" class="form-control" name="password" placeholder="<?= $data['sign_in_' . $data['lang']]['item6'] ?>">
+                                    <label for=""><?= $data['sign_in_' . $data['lang']]['item6'] ?></label>
+                                </div>
+                            </div>
                             <div class="col-12 d-flex justify-content-center">
                                 <button class="btn btn-primary py-3 px-5 w-100" type="submit"><?= $data['sign_up_' . $data['lang']]['item5'] ?></button>
                             </div>
