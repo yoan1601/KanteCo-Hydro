@@ -31,7 +31,7 @@ class Language extends CI_Controller
   {
     
     $this->session->set_userdata('lang', $language);
-
+    $page = str_replace('-', '/', $page);
     redirect('front/'.$page);
   }
 
