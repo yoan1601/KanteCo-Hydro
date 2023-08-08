@@ -52,8 +52,7 @@
 <div class="container-xxl py-5">
     <div class="container">
         <div class="text-center mx-auto wow fadeInUp mb-5" data-wow-delay="0.1s" style="max-width: 1000px; visibility: visible; animation-delay: 0.1s; animation-name: fadeInUp;">
-            <h4 class="text-primary">Nos services étudient et interviennent à la réalisation, en intégrant les normes
-                liées au respect de l’environnement, dans les domaines liés à</h4>
+            <h4 class="text-primary"><?= $data['contact_'.$data['lang']]['item5'] ?></h4>
         </div>
         <div class="row pt-5 wow fadeInUp" data-wow-delay="0.5s">
             <div class="col-lg-5 offset-lg-1 col-12">
@@ -61,33 +60,31 @@
                     <span class="me-3 text-dark">
                         <i class="fas fa-check-circle fa-3x"></i>
                     </span>
-                    <p class="m-0 fs-5 text-dark">Eau, Assainissement et Hygiène (EAH)</p>
+                    <p class="m-0 fs-5 text-dark"><?= $data['contact_'.$data['lang']]['item6'] ?></p>
                 </div>
                 <div class="d-flex align-items-center mb-5">
                     <span class="me-3 text-dark">
                         <i class="fas fa-check-circle fa-3x"></i>
                     </span>
-                    <p class="m-0 fs-5 text-dark">Aménagement hydraulique (Hydro-agricole,
-                        bassin versant, barrage, aménagement du
-                        territoire …)</p>
+                    <p class="m-0 fs-5 text-dark"><?= $data['contact_'.$data['lang']]['item7'] ?></p>
                 </div>
                 <div class="d-flex align-items-center mb-5">
                     <span class="me-3 text-dark">
                         <i class="fas fa-check-circle fa-3x"></i>
                     </span>
-                    <p class="m-0 fs-5 text-dark">Adduction en eau potable (FPMH, AEPS, AEPG)</p>
+                    <p class="m-0 fs-5 text-dark"><?= $data['contact_'.$data['lang']]['item8'] ?></p>
                 </div>
                 <div class="d-flex align-items-center mb-5">
                     <span class="me-3 text-dark">
                         <i class="fas fa-check-circle fa-3x"></i>
                     </span>
-                    <p class="m-0 fs-5 text-dark">Forage deau et puits moderne</p>
+                    <p class="m-0 fs-5 text-dark"><?= $data['contact_'.$data['lang']]['item9'] ?></p>
                 </div>
                 <div class="d-flex align-items-center mb-5">
                     <span class="me-3 text-dark">
                         <i class="fas fa-check-circle fa-3x"></i>
                     </span>
-                    <p class="m-0 fs-5 text-dark">Energie renouvelable</p>
+                    <p class="m-0 fs-5 text-dark"><?= $data['contact_'.$data['lang']]['item10'] ?></p>
                 </div>
             </div>
             <div class="col-lg-5 col-12">
@@ -95,34 +92,31 @@
                     <span class="me-3 text-dark">
                         <i class="fas fa-check-circle fa-3x"></i>
                     </span>
-                    <p class="m-0 fs-5 text-dark">Bâtiment et travaux public</p>
+                    <p class="m-0 fs-5 text-dark"><?= $data['contact_'.$data['lang']]['item11'] ?></p>
                 </div>
                 <div class="d-flex align-items-center mb-5">
                     <span class="me-3 text-dark">
                         <i class="fas fa-check-circle fa-3x"></i>
                     </span>
-                    <p class="m-0 fs-5 text-dark">Géosciences (Hydrogéologie, Géophysique,
-                        géotechnique, mines, environnement, SIG et
-                        télédétection)</p>
+                    <p class="m-0 fs-5 text-dark"><?= $data['contact_'.$data['lang']]['item12'] ?></p>
                 </div>
                 <div class="d-flex align-items-center mb-5">
                     <span class="me-3 text-dark">
                         <i class="fas fa-check-circle fa-3x"></i>
                     </span>
-                    <p class="m-0 fs-5 text-dark">Etude d impact environnementale</p>
+                    <p class="m-0 fs-5 text-dark"><?= $data['contact_'.$data['lang']]['item13'] ?>e</p>
                 </div>
                 <div class="d-flex align-items-center mb-5">
                     <span class="me-3 text-dark">
                         <i class="fas fa-check-circle fa-3x"></i>
                     </span>
-                    <p class="m-0 fs-5 text-dark">Gestion des risques et catastrophes naturelles</p>
+                    <p class="m-0 fs-5 text-dark"><?= $data['contact_'.$data['lang']]['item14'] ?></p>
                 </div>
                 <div class="d-flex align-items-center mb-5">
                     <span class="me-3 text-dark">
                         <i class="fas fa-check-circle fa-3x"></i>
                     </span>
-                    <p class="m-0 fs-5 text-dark">Ainsi, toutes activités pouvant rattachés
-                        directement ou indirectement à lobjet social.</p>
+                    <p class="m-0 fs-5 text-dark"><?= $data['contact_'.$data['lang']]['item15'] ?></p>
                 </div>
             </div>
         </div>
