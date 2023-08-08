@@ -30,6 +30,7 @@ class Utilisateur extends CI_Controller
     $nom = $this->input->post("nom");
     $telephone = $this->input->post("telephone");
     $email = $this->input->post("email");
+    $mot_de_passe = $this->input->post("password");
 
     require APPPATH.'constant\validation_msg.php';
     $this->validation->set_rules(
@@ -47,19 +48,19 @@ class Utilisateur extends CI_Controller
       'trim|required',
       $error_msg
     );
-    $this->db->insert("users",[
-      "nom" => $nom,
-      "telephone"=> $telephone,
-      "mail" => $email,
-      "is_admin" => 1,
-      "etat" => 1
-    ]);
+    $this->validation->set_rules(
+      "password", "mot de passe",
+      'required|min_length[6]',
+      $error_msg
+    );
+    $this->user->insert($nom, $telephone, $email, $mot_de_passe);
     redirect('front/sign_in');
   }
 
   public function login(){
     $email = $this->input->post("email");
-    $object = $this->user->check_login($email);
+    $mot_de_passe= $this->input->post("password");
+    $object = $this->user->check_login($email, $mot_de_passe);
     if ($object != false){
       $this->session->set_userdata('user', $object);
       redirect('front/home');

@@ -180,7 +180,33 @@ class Front extends CI_Controller
 		$data = $this->data->getData();
 
 		$data['lang'] = $lang;
-		$data['page'] = 'detail_achievements';
+		
+		$data['realisation'] = $this->realisation->getById($id);
+		$data['realisation'] = $this->realisation->setAllImages_oneAchievement($data['realisation']);
+
+		// ========== FORMATTAGE DATE ==========
+		// Créer un objet DateTime à partir de la date MySQL
+		$date = new DateTime($data['realisation']['date_publication']);
+
+		// Formater la date dans le format '01 juillet 2023'
+		$formatted_date_EN = $date->format('d F Y');
+
+		$data['realisation']['date_publication_formatted_EN'] = $formatted_date_EN;
+		
+		// Définir la locale en français
+		$locale = 'fr_FR';
+
+		// Créer un objet IntlDateFormatter pour formater la date en français
+		$dateFormatter = new IntlDateFormatter($locale, IntlDateFormatter::LONG, IntlDateFormatter::NONE);
+
+		// Formater la date
+		$formatted_date_FR = $dateFormatter->format($date);
+
+		$data['realisation']['date_publication_formatted_FR'] = $formatted_date_FR;
+
+		// ========== FIN FORMATTAGE DATE ==========
+
+		$data['page'] = 'detail_achievements-'.$id;
 		if ($this->session->has_userdata('user') == false){
 			$data['session']= false;
 		}
@@ -188,5 +214,27 @@ class Front extends CI_Controller
 			$data['session'] = $this->session->user;
 		}
 		$this->load->view('pages/detail_achievements', ['data' => $data]);
+	}
+
+	public function devis()
+	{
+		if ($this->session->has_userdata('lang') == false) {
+			$this->session->set_userdata('lang', 'fr');
+		}
+
+		$lang = $this->session->lang;
+
+		$data = $this->data->getData();
+
+		if ($this->session->has_userdata('user') == false){
+			$data['session']= false;
+		}
+		else{
+			$data['session'] = $this->session->user;
+		}
+
+		$data['lang'] = $lang;
+		$data['page'] = 'devis';
+		$this->load->view('pages/devis', ['data' => $data]);
 	}
 }

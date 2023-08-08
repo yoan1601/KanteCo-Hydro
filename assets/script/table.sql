@@ -15,8 +15,9 @@ create table users(
     nom text not null,
     telephone text not null,
     mail text not null,
-    is_admin integer not null, -- 1: tsotra ,  11: admin , 111: super admin
-    etat integer not null --1: mbola ao,  --0: niala
+    mot_de_passe text not null,
+    is_admin integer not null,
+    etat integer not null
 );
 
 create table devis(
