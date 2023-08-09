@@ -1,5 +1,5 @@
 <?php $this->load->view("templates/header"); ?>
-<div class="container-fluid page-header-achievements py-5 mb-5">
+<div class="container-fluid page-header-blogs py-5 mb-5">
     <div class="container py-5">
         <h1 class="display-3 text-white mb-3 animated slideInDown"></h1>
     </div>
