@@ -104,6 +104,8 @@ class Front extends CI_Controller
 		$data['allYears'] = $this->blog->getAllYears();
 
 		$data['blogs']= $this->blog->format_to_full_date($data['blogs']);
+
+		// var_dump($data['blogs']);
 		
 
 		$this->load->view('pages/blog', ['data' => $data]);
