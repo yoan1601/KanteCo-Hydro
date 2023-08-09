@@ -220,9 +220,15 @@
 	background-size: cover;
 }
 
+.page-header-blogs {
+	background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
+		url(../img/blog_bg.jpg) center center no-repeat;
+	background-size: cover;
+}
+
 .page-header-achievements {
 	background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
-		url(../img/pexels-anamul-rezwan-1216589.jpg) center -25em no-repeat;
+		url(../img/achievements_bg.jpg) center -25em no-repeat;
 	background-size: cover;
 }
 
