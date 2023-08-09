@@ -32,7 +32,7 @@ class Utilisateur extends CI_Controller
     $email = $this->input->post("email");
     $mot_de_passe = $this->input->post("password");
 
-    require APPPATH.'constant\validation_msg.php';
+    require APPPATH.'constant/validation_msg.php';
     $this->validation->set_rules(
       "nom", "nom de l'utilisateur",
       'trim|required',

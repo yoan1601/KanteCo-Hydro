@@ -57,6 +57,60 @@ class Front extends CI_Controller
 		$this->load->view('pages/reference', ['data' => $data]);
 	}
 
+	public function blogs($is_search = 0, $num_page = 1)
+	{
+		if ($this->session->has_userdata('lang') == false) {
+			$this->session->set_userdata('lang', 'fr');
+		}
+		
+
+		$lang = $this->session->lang;
+
+		$data = $this->data->getData();
+
+		$data['lang'] = $lang;
+		$data['page'] = 'blogs';
+
+		if ($this->session->has_userdata('user') == false){
+			$data['session']= false;
+		}
+		else{
+			$data['session'] = $this->session->user;
+		}
+
+
+		$nbAffiche = 3;
+		$data['page_en_cours'] = $num_page;
+
+		$data['nb_resultat'] = count($this->blog->findAll());
+		$data['blogs'] = $this->blog->findAllPagination($numero_page = $num_page, $nombre_resultat_affiche = $nbAffiche);
+		// objet -> tableau
+		$data['blogs'] = json_decode(json_encode($data['blogs']), true);
+		$data['nbPages'] = $this->blog->getNombrePage($nombre_resultat_affiche = $nbAffiche);
+
+		if($is_search == 1) {
+			$keyword = $this->input->get('keyword');
+			$year = $this->input->get('year');
+			$data['nb_resultat'] = count($this->blog->all_resultat_search($keyword, $year));
+			$data['blogs'] = $this->blog->search($numero_page = $num_page, $nombre_resultat_affiche = $nbAffiche, $keyword = $keyword, $year = $year);
+			// objet -> tableau
+			$data['blogs'] = json_decode(json_encode($data['blogs']), true);
+			$data['nbPages'] = $this->blog->getNombrePageSearch($data['nb_resultat'] ,$nombre_resultat_affiche = $nbAffiche);
+		}
+
+		//set all images 
+		$this->blog->setAllImages($data['blogs']);
+		$data['is_search'] = $is_search;
+		$data['allYears'] = $this->blog->getAllYears();
+
+		$data['blogs']= $this->blog->format_to_full_date($data['blogs']);
+
+		// var_dump($data['blogs']);
+		
+
+		$this->load->view('pages/blog', ['data' => $data]);
+	}
+
 	public function achievements($is_search = 0, $num_page = 1)
 	{
 		if ($this->session->has_userdata('lang') == false) {
@@ -237,4 +291,19 @@ class Front extends CI_Controller
 		$data['page'] = 'devis';
 		$this->load->view('pages/devis', ['data' => $data]);
 	}
+
+	// public function blog()
+	// {
+	// 	if ($this->session->has_userdata('lang') == false) {
+	// 		$this->session->set_userdata('lang', 'fr');
+	// 	}
+
+	// 	$lang = $this->session->lang;
+
+	// 	$data = $this->data->getData();
+
+	// 	$data['lang'] = $lang;
+	// 	$data['page'] = 'blog';
+	// 	$this->load->view('pages/blog', ['data' => $data]);
+	// }
 }
