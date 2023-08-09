@@ -25,6 +25,12 @@ class Utilisateur_model extends CI_Model {
     parent::__construct();
   }
 
+  public function insert_email($email){
+    $this->db->insert('emails',[
+      "mail" => $email
+    ]);
+  }
+
   public function insert($nom ,$telephone, $email, $password){
     $this->db->insert('users',[
       "nom" => $nom,
