@@ -4,7 +4,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 /**
  *
- * Controller Contact
+ * Controller Devis
  *
  * This controller for ...
  *
@@ -18,7 +18,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
  *
  */
 
-class Contact extends CI_Controller
+class Devis extends CI_Controller
 {
     
   public function __construct()
@@ -26,29 +26,31 @@ class Contact extends CI_Controller
     parent::__construct();
   }
 
-  public function send_contact(){
-    $contact= $this->input->post('contact');
-    $message = $this->input->post('message');
-    $mail = $this->input->post('mail');
-
+  public function send_devis(){
+    $user = $this->session->user;
+    $type_projet = $this->input->post('type_projet');
+    $description_projet = $this->input->post('description_projet');
+    $montant = $this->input->post('montant');
     require APPPATH.'constant/validation_msg.php';
     $this->validation->set_rules(
-      "contact", "contact",
+      "type_projet", "type de projet",
       'trim|required',
       $error_msg
     );
     $this->validation->set_rules(
-      "message", "message",
+      "description_projet", "description du projet",
       'trim|required',
       $error_msg
     );
     $this->validation->set_rules(
-      "email", "adresse email",
-      'trim|required',
+      "montant", "montant estimé",
+      'required|greater_than[0]',
       $error_msg
     );
-    $this->contact->insert($contact, $message, $mail);
-    redirect('front/contact');
+    $this->devis->insert($user->id, $type_projet, $description_projet, $montant);
+    redirect('front/devis');
+
+    
   }
 
   public function index()
@@ -59,5 +61,5 @@ class Contact extends CI_Controller
 }
 
 
-/* End of file Contact.php */
-/* Location: ./application/controllers/Contact.php */
+/* End of file Devis.php */
+/* Location: ./application/controllers/Devis.php */

@@ -14,23 +14,23 @@
             <div class="col-lg-6 contact-text py-5 wow fadeIn" data-wow-delay="0.5s">
                 <div class="p-lg-5 ps-lg-0">
                     <h1 class="text-dark mb-5"><?= $data['contact_'.$data['lang']]['item17'] ?></h1>
-                    <form action="#">
+                    <form action="<?= site_url("contact/send_contact") ?>" method="POST">
                         <div class="row g-3">
                             <div class="col-12">
                                 <div class="form-floating">
-                                    <input type="text" class="form-control" id="contact" placeholder="+261 34 00 000 00">
+                                    <input type="text" class="form-control" id="contact" name="contact" placeholder="+261 34 00 000 00">
                                     <label for="name"><?= $data['contact_'.$data['lang']]['item1'] ?></label>
                                 </div>
                             </div>
                             <div class="col-12">
                                 <div class="form-floating">
-                                    <input type="email" class="form-control" id="email" placeholder="example@example.com">
+                                    <input type="email" class="form-control" id="email" name="mail" placeholder="example@example.com">
                                     <label for="email"><?= $data['contact_'.$data['lang']]['item3'] ?></label>
                                 </div>
                             </div>
                             <div class="col-12">
                                 <div class="form-floating">
-                                    <textarea class="form-control" placeholder="Lorem ipsum" id="message" style="height: 150px"></textarea>
+                                    <textarea class="form-control" placeholder="Lorem ipsum" id="message" name="message" style="height: 150px"></textarea>
                                     <label for="message"><?= $data['contact_'.$data['lang']]['item2'] ?></label>
                                 </div>
                             </div>

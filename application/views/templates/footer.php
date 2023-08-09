@@ -54,8 +54,10 @@
                 <h5 class="text-white mb-4">Newsletter</h5>
                 <p><?= $data['footer_' . $data['lang']]['item4'] ?></p>
                 <div class="position-relative mx-auto" style="max-width: 400px;">
-                    <input class="form-control border-0 w-100 py-3 ps-4 pe-5" type="text" placeholder="<?= $data['footer_' . $data['lang']]['mail'] ?>">
-                    <button type="button" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2"><?= $data['footer_' . $data['lang']]['inscription'] ?></button>
+                    <form action="<?= site_url("utilisateur/send_news_letter") ?>" method="post">
+                        <input class="form-control border-0 w-100 py-3 ps-4 pe-5" type="text" name="email" placeholder="<?= $data['footer_' . $data['lang']]['mail'] ?>">
+                        <button type="submit" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2"><?= $data['footer_' . $data['lang']]['inscription'] ?></button>
+                    </form>
                 </div>
             </div>
         </div>
