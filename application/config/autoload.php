@@ -138,5 +138,6 @@ $autoload['model'] = array(
     'Compagnie_model' => 'compagnie',
     'Realisation_model' => 'realisation',
     'Utilisateur_model' => 'user',
-    'Contact_model' => 'contact'
+    'Contact_model' => 'contact',
+    'Blog_model' => 'blog'
 );

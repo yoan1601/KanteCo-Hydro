@@ -43,7 +43,7 @@
                         <a class="btn btn-link" href="<?= site_url('front/achievements'); ?>"><?= $data['header_' . $data['lang']]['item3'] ?></a>
                     </div>
                     <div class="col-lg-6">
-                        <a class="btn btn-link" href="<?= site_url('front/'); ?>"><?= $data['header_' . $data['lang']]['item4'] ?></a>
+                        <a class="btn btn-link" href="<?= site_url('front/blog'); ?>"><?= $data['header_' . $data['lang']]['item4'] ?></a>
                         <a class="btn btn-link" href="<?= site_url('front/contact'); ?>"><?= $data['header_' . $data['lang']]['item5'] ?></a>
                         <a class="btn btn-link" href="<?= site_url('front/sign_in'); ?>"><?= $data['header_' . $data['lang']]['item6'] ?></a>
                     </div>

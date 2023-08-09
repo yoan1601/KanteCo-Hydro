@@ -1,0 +1,1 @@
+UPDATE users set mot_de_passe = md5(nom);
