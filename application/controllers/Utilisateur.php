@@ -26,13 +26,25 @@ class Utilisateur extends CI_Controller
     parent::__construct();
   }
 
+  public function send_news_letter(){
+    $email = $this->input->post('email');
+    require APPPATH.'constant/validation_msg.php';
+    $this->validation->set_rules(
+      "email", "adresse email",
+      'trim|required',
+      $error_msg
+    );
+    $this->user->insert_email($email);
+    redirect('front');
+  }
+
   public function inscription(){
     $nom = $this->input->post("nom");
     $telephone = $this->input->post("telephone");
     $email = $this->input->post("email");
     $mot_de_passe = $this->input->post("password");
 
-    require APPPATH.'constant\validation_msg.php';
+    require APPPATH.'constant/validation_msg.php';
     $this->validation->set_rules(
       "nom", "nom de l'utilisateur",
       'trim|required',
