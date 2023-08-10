@@ -34,8 +34,17 @@ class Utilisateur extends CI_Controller
       'trim|required',
       $error_msg
     );
-    $this->user->insert_email($email);
-    redirect('front');
+    if ($this->validation->run() == false){
+      $errors =array();
+      foreach ($this->input->post() as $key => $value) {
+        $errors[$key]= form_error($key);
+      }
+      var_dump(validation_errors());
+    }else{
+      $this->user->insert_email($email);
+      redirect('front');
+    }
+    
   }
 
   public function inscription(){
