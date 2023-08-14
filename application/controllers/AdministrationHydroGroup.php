@@ -25,11 +25,19 @@ class AdministrationHydroGroup extends CI_Controller
 
     public function devis()
     {
-        $this->load->view("admin/devis");
+        $data["page"] = "devis";
+        $this->load->view("admin/devis", ['data' => $data]);
     }
 
     public function contact()
     {
-        $this->load->view("admin/contact");
+        $data["page"] = "contact";
+        $this->load->view("admin/contact", ['data' => $data]);
+    }
+
+    public function mails()
+    {
+        $data["page"] = "mails";
+        $this->load->view("admin/mails", ['data' => $data]);
     }
 }

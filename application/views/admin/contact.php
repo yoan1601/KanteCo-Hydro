@@ -1,10 +1,10 @@
 <?php $this->load->view("templates/header_admin"); ?>
-<div class="container-xxl py-5">
+<div class="container-xxl py-5 wow fadeIn" data-wow-delay="0.1s">
     <div class="container">
-        <div class="mb-3 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px; visibility: visible; animation-delay: 0.1s; animation-name: fadeInUp;">
+        <div class="mb-3" style="max-width: 600px; visibility: visible; animation-delay: 0.1s; animation-name: fadeInUp;">
             <h1 class="text-secondary">Liste contact</h1>
         </div>
-        <div class="row mt-n2 wow fadeInUp" data-wow-delay="0.3s">
+        <div class="row mt-n2">
             <form class="row g-3" action="<?= site_url(''); ?>">
                 <div class="col-lg-3 col-12">
                     <input type="text" class="form-control" name="keyword" placeholder="Mot clé" style="height: 55px;" required>
@@ -16,16 +16,19 @@
             <table class="table align-middle mb-0 bg-white">
                 <thead class="bg-light">
                     <tr>
-                        <th class="py-3">Contact</th>
-                        <th class="py-3">Email</th>
-                        <th class="py-3">Actions</th>
+                        <th class="py-3 fs-5">Date</th>
+                        <th class="py-3 fs-5">Contact</th>
+                        <th class="py-3 fs-5">Email</th>
+                        <th class="py-3 fs-5">Actions</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php for ($i = 0; $i < 5; $i++) { ?>
                         <tr>
                             <td class="py-3">
-
+                                <p class="fw-normal fs-5 mb-0">14/08/2023</p>
+                            </td>
+                            <td class="py-3">
                                 <p class="fw-normal fs-5 mb-0">034 05 960 00</p>
                             </td>
                             <td class="py-3">
@@ -44,8 +47,6 @@
                 </tbody>
             </table>
         </div>
-
-        <hr />
 
         <div class="row mt-5">
             <nav>

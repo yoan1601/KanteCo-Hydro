@@ -2,7 +2,7 @@
 <div class="container-xxl py-5 wow fadeIn" data-wow-delay="0.1s">
     <div class="container">
         <div class="mb-3" style="max-width: 600px; visibility: visible; animation-delay: 0.1s; animation-name: fadeInUp;">
-            <h1 class="text-secondary">Liste devis</h1>
+            <h1 class="text-secondary">Liste mails</h1>
         </div>
         <div class="row mt-n2">
             <form class="row g-3" action="<?= site_url(''); ?>">
@@ -16,25 +16,21 @@
             <table class="table align-middle mb-0 bg-white">
                 <thead class="bg-light">
                     <tr>
-                        <th class="py-3">Type du projet</th>
-                        <th class="py-3">Montant estimé</th>
-                        <th class="py-3">Actions</th>
+                        <th class="py-3 fs-5">Date</th>
+                        <th class="py-3 fs-5">Mails</th>
+                        <th class="py-3 fs-5">Actions</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php for ($i = 0; $i < 5; $i++) { ?>
                         <tr>
                             <td class="py-3">
-
-                                <p class="fw-normal fs-5 mb-0">Forrage</p>
+                                <p class="fw-normal fs-5 mb-0">14/08/2023</p>
                             </td>
                             <td class="py-3">
-                                <p class="fw-normal fs-5 mb-0">125.000 Ar</p>
+                                <p class="fw-normal fs-5 mb-0">rjtoky@kanteco.com</p>
                             </td>
                             <td class="py-3">
-                                <a href="" class="me-4">
-                                    <i class="fas fa-info-circle text-info" style="font-size: 1.5em"></i>
-                                </a>
                                 <a href="" class="ms-4">
                                     <i class="fas fa-trash text-danger" style="font-size: 1.5em"></i>
                                 </a>
