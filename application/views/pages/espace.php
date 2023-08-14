@@ -73,15 +73,15 @@
                                 <span class="sr-only">Previous</span>
                             </a>
                         </li>
-                        <li class="page-item"><a class="page-link" href="<?= site_url('administrationHydroGroup/devis/' . $data['is_search'] . '/' . $data['page_en_cours'] - 1); ?>"><?= $data['page_en_cours'] - 1 ?></a></li>
+                        <li class="page-item"><a class="page-link" href="<?= site_url('front/espace/' . $data['is_search'] . '/' . $data['page_en_cours'] - 1); ?>"><?= $data['page_en_cours'] - 1 ?></a></li>
                     <?php } ?>
 
                     <li class="page-item"><button class="page-link" style="color:white; background-color:#32c36c;"><?= $data['page_en_cours'] ?></button></li>
 
                     <?php if ($data['page_en_cours'] < $data['nbPages']) { ?>
-                        <li class="page-item"><a class="page-link" href="<?= site_url('administrationHydroGroup/devis/' . $data['is_search'] . '/' . $data['page_en_cours'] + 1); ?>"><?= $data['page_en_cours'] + 1 ?></a></li>
+                        <li class="page-item"><a class="page-link" href="<?= site_url('front/espace/' . $data['is_search'] . '/' . $data['page_en_cours'] + 1); ?>"><?= $data['page_en_cours'] + 1 ?></a></li>
                         <li class="page-item">
-                            <a class="page-link" href="<?= site_url('administrationHydroGroup/devis/' . $data['is_search'] . '/' . $data['page_en_cours'] + 1); ?>" aria-label="Next">
+                            <a class="page-link" href="<?= site_url('front/espace/' . $data['is_search'] . '/' . $data['page_en_cours'] + 1); ?>" aria-label="Next">
                                 <span aria-hidden="true">&raquo;</span>
                                 <span class="sr-only">Next</span>
                             </a>
