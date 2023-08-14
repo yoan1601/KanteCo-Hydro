@@ -34,29 +34,7 @@
                                 <a href="" class="me-4" data-bs-toggle="modal" data-bs-target="#ModalInfo">
                                     <i class="fas fa-info-circle text-info" style="font-size: 1.5em"></i>
                                 </a>
-                                <a href="" data-bs-toggle="modal" data-bs-target="#monModal" class="ms-4">
-                                    <i class="fas fa-trash text-danger" style="font-size: 1.5em"></i>
-                                </a>
                             </td>
-                            <!-- Modal Supp -->
-                            <div class="modal fade" id="monModal">
-                                <div class="modal-dialog modal-md">
-                                    <div class="modal-content position-relative">
-                                        <!-- En-tête du modal -->
-                                        <div class="modal-header">
-                                            <h4 class="modal-title">Voulez-vous vraiment supprimer ce devis ?</h4>
-                                        </div>
-
-                                        <!-- Contenu du modal -->
-                                        <div class="modal-body">
-                                            <div class="d-flex align-items-center justify-content-center gap-3">
-                                                <a href="<?= site_url('') ?>" class="btn btn-danger px-4" style="padding-top: 0.75em;padding-bottom: 0.75em;">OUI</a>
-                                                <a href="" class="btn btn-primary px-4" data-bs-dismiss="modal" style="padding-top: 0.75em;padding-bottom: 0.75em;">NON</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
 
                             <!-- Modal Info -->
                             <div class="modal fade" id="ModalInfo">
