@@ -27,4 +27,9 @@ class AdministrationHydroGroup extends CI_Controller
     {
         $this->load->view("admin/devis");
     }
+
+    public function contact()
+    {
+        $this->load->view("admin/contact");
+    }
 }

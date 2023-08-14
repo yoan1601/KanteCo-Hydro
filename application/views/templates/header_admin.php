@@ -61,8 +61,8 @@
                 <a href="<?= site_url(''); ?>" class="nav-item nav-link">Realisations</a>
                 <a href="<?= site_url(''); ?>" class="nav-item nav-link">Blog</a>
                 <a href="<?= site_url(''); ?>" class="nav-item nav-link">Mails</a>
-                <a href="<?= site_url(''); ?>" class="nav-item nav-link">Contact</a>
-                <a href="<?= site_url(''); ?>" class="nav-item nav-link">Devis</a>
+                <a href="<?= site_url('AdministrationHydroGroup/contact'); ?>" class="nav-item nav-link">Contact</a>
+                <a href="<?= site_url('AdministrationHydroGroup/devis'); ?>" class="nav-item nav-link">Devis</a>
             </div>
             <a href="<?= site_url("") ?>" class="btn btn-warning rounded-0 py-4 px-lg-5 d-none d-lg-block ms-3">Se déconnecter<i class="fa fa-arrow-right ms-3"></i></a>
         </div>
