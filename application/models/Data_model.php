@@ -260,6 +260,7 @@ class Data_model extends CI_Model {
         'item2' => "catégorie"
       ),
       'devis_fr' => array(
+        'titre' => 'Demander un devis',
         'item1'=> 'Laissez-nous prendre en charge votre projet, nous nous occupons de tout le reste.',
         'item2' => ' Ensemble, vers un avenir durable !',
         'item3' => 'Contactez-nous et Demandez votre devis sur-mesure !',
@@ -274,6 +275,7 @@ class Data_model extends CI_Model {
         'item12' => 'Valider'
       ),
       'devis_en' => array(
+        'titre' => 'Demander un devis',
         'item1'=> "Let us take care of your project, and we'll take care of the rest.",
         'item2' => 'Together, towards a sustainable future !',
         'item3' => 'Contact us and ask for your customized quote !',

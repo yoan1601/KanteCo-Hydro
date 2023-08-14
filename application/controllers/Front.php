@@ -14,17 +14,16 @@ class Front extends CI_Controller
 		if ($this->session->has_userdata('lang') == false) {
 			$this->session->set_userdata('lang', 'fr');
 		}
-		
+
 		$lang = $this->session->lang;
 
 		$data = $this->data->getData();
 
 		$data['lang'] = $lang;
 		$data['page'] = 'home';
-		if ($this->session->has_userdata('user') == false){
-			$data['session']= false;
-		}
-		else{
+		if ($this->session->has_userdata('user') == false) {
+			$data['session'] = false;
+		} else {
 			$data['session'] = $this->session->user;
 		}
 
@@ -36,7 +35,7 @@ class Front extends CI_Controller
 		if ($this->session->has_userdata('lang') == false) {
 			$this->session->set_userdata('lang', 'fr');
 		}
-		
+
 
 		$lang = $this->session->lang;
 
@@ -47,10 +46,9 @@ class Front extends CI_Controller
 		$data['lang'] = $lang;
 		$data['page'] = 'reference';
 
-		if ($this->session->has_userdata('user') == false){
-			$data['session']= false;
-		}
-		else{
+		if ($this->session->has_userdata('user') == false) {
+			$data['session'] = false;
+		} else {
 			$data['session'] = $this->session->user;
 		}
 
@@ -62,19 +60,18 @@ class Front extends CI_Controller
 		if ($this->session->has_userdata('lang') == false) {
 			$this->session->set_userdata('lang', 'fr');
 		}
-		
+
 
 		$lang = $this->session->lang;
 
 		$data = $this->data->getData();
 
 		$data['lang'] = $lang;
-		$data['page'] = 'blogs';
+		$data['page'] = 'blog';
 
-		if ($this->session->has_userdata('user') == false){
-			$data['session']= false;
-		}
-		else{
+		if ($this->session->has_userdata('user') == false) {
+			$data['session'] = false;
+		} else {
 			$data['session'] = $this->session->user;
 		}
 
@@ -88,14 +85,14 @@ class Front extends CI_Controller
 		$data['blogs'] = json_decode(json_encode($data['blogs']), true);
 		$data['nbPages'] = $this->blog->getNombrePage($nombre_resultat_affiche = $nbAffiche);
 
-		if($is_search == 1) {
+		if ($is_search == 1) {
 			$keyword = $this->input->get('keyword');
 			$year = $this->input->get('year');
 			$data['nb_resultat'] = count($this->blog->all_resultat_search($keyword, $year));
 			$data['blogs'] = $this->blog->search($numero_page = $num_page, $nombre_resultat_affiche = $nbAffiche, $keyword = $keyword, $year = $year);
 			// objet -> tableau
 			$data['blogs'] = json_decode(json_encode($data['blogs']), true);
-			$data['nbPages'] = $this->blog->getNombrePageSearch($data['nb_resultat'] ,$nombre_resultat_affiche = $nbAffiche);
+			$data['nbPages'] = $this->blog->getNombrePageSearch($data['nb_resultat'], $nombre_resultat_affiche = $nbAffiche);
 		}
 
 		//set all images 
@@ -103,8 +100,10 @@ class Front extends CI_Controller
 		$data['is_search'] = $is_search;
 		$data['allYears'] = $this->blog->getAllYears();
 
-		$data['blogs']= $this->blog->format_to_full_date($data['blogs']);
-		
+		$data['blogs'] = $this->blog->format_to_full_date($data['blogs']);
+
+		// var_dump($data['blogs']);
+
 
 		$this->load->view('pages/blog', ['data' => $data]);
 	}
@@ -114,7 +113,7 @@ class Front extends CI_Controller
 		if ($this->session->has_userdata('lang') == false) {
 			$this->session->set_userdata('lang', 'fr');
 		}
-		
+
 
 		$lang = $this->session->lang;
 
@@ -123,10 +122,9 @@ class Front extends CI_Controller
 		$data['lang'] = $lang;
 		$data['page'] = 'achievements';
 
-		if ($this->session->has_userdata('user') == false){
-			$data['session']= false;
-		}
-		else{
+		if ($this->session->has_userdata('user') == false) {
+			$data['session'] = false;
+		} else {
 			$data['session'] = $this->session->user;
 		}
 
@@ -140,21 +138,21 @@ class Front extends CI_Controller
 		$data['achievements'] = json_decode(json_encode($data['achievements']), true);
 		$data['nbPages'] = $this->realisation->getNombrePage($nombre_resultat_affiche = $nbAffiche);
 
-		if($is_search == 1) {
+		if ($is_search == 1) {
 			$keyword = $this->input->get('keyword');
 			$year = $this->input->get('year');
 			$data['nb_resultat'] = count($this->realisation->all_resultat_search($keyword, $year));
 			$data['achievements'] = $this->realisation->search($numero_page = $num_page, $nombre_resultat_affiche = $nbAffiche, $keyword = $keyword, $year = $year);
 			// objet -> tableau
 			$data['achievements'] = json_decode(json_encode($data['achievements']), true);
-			$data['nbPages'] = $this->realisation->getNombrePageSearch($data['nb_resultat'] ,$nombre_resultat_affiche = $nbAffiche);
+			$data['nbPages'] = $this->realisation->getNombrePageSearch($data['nb_resultat'], $nombre_resultat_affiche = $nbAffiche);
 		}
 
 		//set all images 
 		$this->realisation->setAllImages($data['achievements']);
 		$data['is_search'] = $is_search;
 		$data['allYears'] = $this->realisation->getAllYears();
-		
+
 
 		$this->load->view('pages/achievements', ['data' => $data]);
 	}
@@ -164,7 +162,7 @@ class Front extends CI_Controller
 		if ($this->session->has_userdata('lang') == false) {
 			$this->session->set_userdata('lang', 'fr');
 		}
-		
+
 		$lang = $this->session->lang;
 
 		$data = $this->data->getData();
@@ -172,10 +170,9 @@ class Front extends CI_Controller
 		$data['lang'] = $lang;
 		$data['page'] = 'contact';
 
-		if ($this->session->has_userdata('user') == false){
-			$data['session']= false;
-		}
-		else{
+		if ($this->session->has_userdata('user') == false) {
+			$data['session'] = false;
+		} else {
 			$data['session'] = $this->session->user;
 		}
 		$this->load->view('pages/contact', ['data' => $data]);
@@ -186,21 +183,20 @@ class Front extends CI_Controller
 		if ($this->session->has_userdata('lang') == false) {
 			$this->session->set_userdata('lang', 'fr');
 		}
-		
+
 		$lang = $this->session->lang;
 
 		$data = $this->data->getData();
 
 		$data['lang'] = $lang;
 		$data['page'] = 'sign_in';
-		if ($this->session->has_userdata('user') == false){
-			$data['session']= false;
-		}
-		else{
+		if ($this->session->has_userdata('user') == false) {
+			$data['session'] = false;
+		} else {
 			$data['session'] = $this->session->user;
 		}
 
-		if($error != 0) {
+		if ($error != 0) {
 			$data['error'] = 'email error';
 		}
 		$this->load->view('pages/sign_in', ['data' => $data]);
@@ -232,11 +228,36 @@ class Front extends CI_Controller
 		$data = $this->data->getData();
 
 		$data['lang'] = $lang;
-		$data['page'] = 'detail_achievements';
-		if ($this->session->has_userdata('user') == false){
-			$data['session']= false;
-		}
-		else{
+
+		$data['realisation'] = $this->realisation->getById($id);
+		$data['realisation'] = $this->realisation->setAllImages_oneAchievement($data['realisation']);
+
+		// ========== FORMATTAGE DATE ==========
+		// Créer un objet DateTime à partir de la date MySQL
+		$date = new DateTime($data['realisation']['date_publication']);
+
+		// Formater la date dans le format '01 juillet 2023'
+		$formatted_date_EN = $date->format('d F Y');
+
+		$data['realisation']['date_publication_formatted_EN'] = $formatted_date_EN;
+
+		// Définir la locale en français
+		$locale = 'fr_FR';
+
+		// Créer un objet IntlDateFormatter pour formater la date en français
+		$dateFormatter = new IntlDateFormatter($locale, IntlDateFormatter::LONG, IntlDateFormatter::NONE);
+
+		// Formater la date
+		$formatted_date_FR = $dateFormatter->format($date);
+
+		$data['realisation']['date_publication_formatted_FR'] = $formatted_date_FR;
+
+		// ========== FIN FORMATTAGE DATE ==========
+
+		$data['page'] = 'detail_achievements-' . $id;
+		if ($this->session->has_userdata('user') == false) {
+			$data['session'] = false;
+		} else {
 			$data['session'] = $this->session->user;
 		}
 		$this->load->view('pages/detail_achievements', ['data' => $data]);
@@ -252,10 +273,9 @@ class Front extends CI_Controller
 
 		$data = $this->data->getData();
 
-		if ($this->session->has_userdata('user') == false){
-			$data['session']= false;
-		}
-		else{
+		if ($this->session->has_userdata('user') == false) {
+			$data['session'] = false;
+		} else {
 			$data['session'] = $this->session->user;
 		}
 
@@ -264,18 +284,24 @@ class Front extends CI_Controller
 		$this->load->view('pages/devis', ['data' => $data]);
 	}
 
-	// public function blog()
-	// {
-	// 	if ($this->session->has_userdata('lang') == false) {
-	// 		$this->session->set_userdata('lang', 'fr');
-	// 	}
+	public function detail_blog()
+	{
+		if ($this->session->has_userdata('lang') == false) {
+			$this->session->set_userdata('lang', 'fr');
+		}
 
-	// 	$lang = $this->session->lang;
+		$lang = $this->session->lang;
 
-	// 	$data = $this->data->getData();
+		$data = $this->data->getData();
 
-	// 	$data['lang'] = $lang;
-	// 	$data['page'] = 'blog';
-	// 	$this->load->view('pages/blog', ['data' => $data]);
-	// }
+		$data['lang'] = $lang;
+		$data['page'] = 'blog';
+
+		if ($this->session->has_userdata('user') == false) {
+			$data['session'] = false;
+		} else {
+			$data['session'] = $this->session->user;
+		}
+		$this->load->view('pages/detail_blog', ['data' => $data]);
+	}
 }

@@ -9,12 +9,12 @@ insert into compagnies values
     (default,"Ministère de l'environnement et du développement durable", 'ministere.jpg', 1);
 
 INSERT INTO users (nom, telephone, mail,mot_de_passe, is_admin, etat) VALUES
-    ('root', '+261 34 10 240 00', 'root@root.com','63a9f0ea7bb98050796b649e85481845', 111, 1),
-    ('John Doe', '+261 34 10 240 00', 'john.doe@example.com','527bd5b5d689e2c32ae974c6229ff785', 11, 1),
-    ('Jane Smith', '+261 34 10 250 00', 'jane.smith@example.com','5844a15e76563fedd11840fd6f40ea7b', 11, 1),
-    ('Alice Johnson', '+261 33 10 234 00', 'alice.johnson@example.com','6384e2b2184bcbf58eccf10ca7a6563c', 1, 1),
-    ('Bob Brown', '+261 32 10 123 00', 'bob.brown@example.com','9f9d51bc70ef21ca5c14f307980a29d8', 1, 1),
-    ('Eve White', '+261 38 10 124 00', 'eve.white@example.com','fa6a91ef9baa242de0b354a212e8cf82', 1, 0);
+    ('root', '+261 34 10 240 00', 'root@root.com', md5('root') , 111, 1),
+    ('John Doe', '+261 34 10 240 00', 'john.doe@example.com', md5('john') , 11, 1),
+    ('Jane Smith', '+261 34 10 250 00', 'jane.smith@example.com',md5('jane'), 11, 1),
+    ('Alice Johnson', '+261 33 10 234 00', 'alice.johnson@example.com',md5('alice'), 1, 1),
+    ('Bob Brown', '+261 32 10 123 00', 'bob.brown@example.com',md5('bob'), 1, 1),
+    ('Eve White', '+261 38 10 124 00', 'eve.white@example.com',md5('eve'), 1, 0);
 
 INSERT INTO achievements values
     (null,

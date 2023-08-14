@@ -25,6 +25,19 @@ class Realisation_model extends CI_Model {
     parent::__construct();
   }
 
+public function getById($id = 1) {
+  $this->db->where('id', $id); 
+  $query = $this->db->get("v_realisations");
+  $tab = json_decode(json_encode($query->result()), true);
+  return $tab[0];
+}
+
+public function setAllImages_oneAchievement($achievement) {
+  $this->db->where('idAchievement', $achievement['id']);
+  $achievement['images'] = json_decode(json_encode($this->db->get("achievements_images")->result()), true);
+  return $achievement;
+}
+
 public function setAllImages($achievements) {
   foreach ($achievements as $key => $a) {
     $this->db->where('idAchievement', $a['id']);

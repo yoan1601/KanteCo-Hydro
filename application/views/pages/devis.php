@@ -40,7 +40,7 @@
                     </form>
                 </div>
             </div>
-            <div class="col-lg-6 py-5">
+            <div class="col-lg-6 py-5 wow fadeIn" data-wow-delay="0.5s">
                 <div class="p-lg-5 ps-lg-0">
                     <h2 class="text-dark mb-5"><?= $data['devis_'.$data['lang']]['item2'] ?></h2>
                     <div class="d-flex mb-4">
