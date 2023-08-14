@@ -47,8 +47,16 @@ class Contact extends CI_Controller
       'trim|required',
       $error_msg
     );
-    $this->contact->insert($contact, $message, $mail);
-    redirect('front/contact');
+    if ($this->validation->run() == false){
+      $errors =array();
+      foreach ($this->input->post() as $key => $value) {
+        $errors[$key]= form_error($key);
+      }
+      var_dump(validation_errors());
+    }else{
+      $this->contact->insert($contact, $message, $mail);
+      redirect('front/contact');
+    }
   }
 
   public function index()

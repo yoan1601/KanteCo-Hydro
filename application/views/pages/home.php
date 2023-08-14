@@ -3,7 +3,7 @@
 <div class="container-fluid p-0 pb-5 wow fadeIn" data-wow-delay="0.1s">
     <div class="owl-carousel header-carousel position-relative">
         <div class="owl-carousel-item position-relative" data-dot="<img src='<?= base_url("assets/") ?>img/carousel-1.jpg'>">
-            <img class="img-fluid mh-100" style="height: 100vh;" src="<?= base_url("assets/") ?>img/carousel-1.jpg" alt="">
+            <img class="img-fluid mh-100" style="height: 100vh; object-fit: cover;" src="<?= base_url("assets/") ?>img/carousel-1.jpg" alt="">
             <div class="owl-carousel-inner">
                 <div class="container">
                     <div class="row justify-content-start">
@@ -17,7 +17,7 @@
             </div>
         </div>
         <div class="owl-carousel-item position-relative" data-dot="<img src='<?= base_url("assets/") ?>img/carousel-2.jpg'>">
-            <img class="img-fluid mh-100" style="height: 100vh;" src="<?= base_url("assets/") ?>img/carousel-2.jpg" alt="">
+            <img class="img-fluid mh-100" style="height: 100vh; object-fit: cover;" src="<?= base_url("assets/") ?>img/carousel-2.jpg" alt="">
             <div class="owl-carousel-inner">
                 <div class="container">
                     <div class="row justify-content-start">
@@ -31,7 +31,7 @@
             </div>
         </div>
         <div class="owl-carousel-item position-relative" data-dot="<img src='<?= base_url("assets/") ?>img/carousel-3.jpg'>">
-            <img class="img-fluid mh-100" style="height: 100vh;" src="<?= base_url("assets/") ?>img/carousel-3.jpg" alt="">
+            <img class="img-fluid mh-100" style="height: 100vh; object-fit: cover;" src="<?= base_url("assets/") ?>img/carousel-3.jpg" alt="">
             <div class="owl-carousel-inner">
                 <div class="container">
                     <div class="row justify-content-start">
@@ -113,7 +113,7 @@
 <div class="container-xxl py-5">
     <div class="container">
         <div class="text-center mx-auto wow fadeInUp mb-5" data-wow-delay="0.1s" style="max-width: 1000px; visibility: visible; animation-delay: 0.1s; animation-name: fadeInUp;">
-            <h4 class="text-primary"><?= $data['contact_'.$data['lang']]['item5'] ?></h4>
+            <h4 class="text-primary"><?= $data['contact_' . $data['lang']]['item5'] ?></h4>
         </div>
         <div class="row pt-5 wow fadeInUp" data-wow-delay="0.5s">
             <div class="col-lg-5 offset-lg-1 col-12">
@@ -121,31 +121,31 @@
                     <span class="me-3 text-dark">
                         <i class="fas fa-check-circle fa-3x"></i>
                     </span>
-                    <p class="m-0 fs-5 text-dark"><?= $data['contact_'.$data['lang']]['item6'] ?></p>
+                    <p class="m-0 fs-5 text-dark"><?= $data['contact_' . $data['lang']]['item6'] ?></p>
                 </div>
                 <div class="d-flex align-items-center mb-5">
                     <span class="me-3 text-dark">
                         <i class="fas fa-check-circle fa-3x"></i>
                     </span>
-                    <p class="m-0 fs-5 text-dark"><?= $data['contact_'.$data['lang']]['item7'] ?></p>
+                    <p class="m-0 fs-5 text-dark"><?= $data['contact_' . $data['lang']]['item7'] ?></p>
                 </div>
                 <div class="d-flex align-items-center mb-5">
                     <span class="me-3 text-dark">
                         <i class="fas fa-check-circle fa-3x"></i>
                     </span>
-                    <p class="m-0 fs-5 text-dark"><?= $data['contact_'.$data['lang']]['item8'] ?></p>
+                    <p class="m-0 fs-5 text-dark"><?= $data['contact_' . $data['lang']]['item8'] ?></p>
                 </div>
                 <div class="d-flex align-items-center mb-5">
                     <span class="me-3 text-dark">
                         <i class="fas fa-check-circle fa-3x"></i>
                     </span>
-                    <p class="m-0 fs-5 text-dark"><?= $data['contact_'.$data['lang']]['item9'] ?></p>
+                    <p class="m-0 fs-5 text-dark"><?= $data['contact_' . $data['lang']]['item9'] ?></p>
                 </div>
                 <div class="d-flex align-items-center mb-5">
                     <span class="me-3 text-dark">
                         <i class="fas fa-check-circle fa-3x"></i>
                     </span>
-                    <p class="m-0 fs-5 text-dark"><?= $data['contact_'.$data['lang']]['item10'] ?></p>
+                    <p class="m-0 fs-5 text-dark"><?= $data['contact_' . $data['lang']]['item10'] ?></p>
                 </div>
             </div>
             <div class="col-lg-5 col-12">
@@ -153,31 +153,31 @@
                     <span class="me-3 text-dark">
                         <i class="fas fa-check-circle fa-3x"></i>
                     </span>
-                    <p class="m-0 fs-5 text-dark"><?= $data['contact_'.$data['lang']]['item11'] ?></p>
+                    <p class="m-0 fs-5 text-dark"><?= $data['contact_' . $data['lang']]['item11'] ?></p>
                 </div>
                 <div class="d-flex align-items-center mb-5">
                     <span class="me-3 text-dark">
                         <i class="fas fa-check-circle fa-3x"></i>
                     </span>
-                    <p class="m-0 fs-5 text-dark"><?= $data['contact_'.$data['lang']]['item12'] ?></p>
+                    <p class="m-0 fs-5 text-dark"><?= $data['contact_' . $data['lang']]['item12'] ?></p>
                 </div>
                 <div class="d-flex align-items-center mb-5">
                     <span class="me-3 text-dark">
                         <i class="fas fa-check-circle fa-3x"></i>
                     </span>
-                    <p class="m-0 fs-5 text-dark"><?= $data['contact_'.$data['lang']]['item13'] ?>e</p>
+                    <p class="m-0 fs-5 text-dark"><?= $data['contact_' . $data['lang']]['item13'] ?>e</p>
                 </div>
                 <div class="d-flex align-items-center mb-5">
                     <span class="me-3 text-dark">
                         <i class="fas fa-check-circle fa-3x"></i>
                     </span>
-                    <p class="m-0 fs-5 text-dark"><?= $data['contact_'.$data['lang']]['item14'] ?></p>
+                    <p class="m-0 fs-5 text-dark"><?= $data['contact_' . $data['lang']]['item14'] ?></p>
                 </div>
                 <div class="d-flex align-items-center mb-5">
                     <span class="me-3 text-dark">
                         <i class="fas fa-check-circle fa-3x"></i>
                     </span>
-                    <p class="m-0 fs-5 text-dark"><?= $data['contact_'.$data['lang']]['item15'] ?></p>
+                    <p class="m-0 fs-5 text-dark"><?= $data['contact_' . $data['lang']]['item15'] ?></p>
                 </div>
             </div>
         </div>

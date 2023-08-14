@@ -47,8 +47,16 @@ class Devis extends CI_Controller
       'required|greater_than[0]',
       $error_msg
     );
-    $this->devis->insert($user->id, $type_projet, $description_projet, $montant);
-    redirect('front/devis');
+    if ($this->validation->run() == false){
+      $errors =array();
+      foreach ($this->input->post() as $key => $value) {
+        $errors[$key]= form_error($key);
+      }
+      var_dump(validation_errors());
+    }else{
+      $this->devis->insert($user->id, $type_projet, $description_projet, $montant);
+      redirect('front/devis');
+    }
 
     
   }

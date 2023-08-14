@@ -11,7 +11,7 @@ CREATE OR REPLACE VIEW v_realisations_all_year AS (
     select annee_demarrage from v_realisations group by annee_demarrage
 );
 
---blogs
+-- blogs
 CREATE OR REPLACE VIEW v_blogs AS (
     select b.*, u.nom nom_user, u.telephone, u.mail ,EXTRACT(YEAR FROM b.date_publication) as annee_publication from blogs b
     JOIN users u ON b.idUser =u.id
