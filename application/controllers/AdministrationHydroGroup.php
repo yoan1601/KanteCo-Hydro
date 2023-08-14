@@ -32,4 +32,15 @@ class AdministrationHydroGroup extends CI_Controller
         }
         redirect('AdministrationHydroGroup/login/1');
     }
+
+    
+    public function achievements()
+    {
+        $this->load->view("admin/achievements");
+    }
+
+    public function devis()
+    {
+        $this->load->view("admin/devis");
+    }
 }
