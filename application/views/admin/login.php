@@ -45,7 +45,7 @@
                 </div>
                 <div class="card-text">
 
-                    <form action="<?= site_url("AdministrationHydroGroup/") ?>" class="mb-4" action="#" method="POST">
+                    <form action="<?= site_url("AdministrationHydroGroup/check_login") ?>" class="mb-4"  method="POST">
                         <div class="row g-3">
                             <div class="col-12">
                                 <!-- <?php if (isset($data['error'])) { ?>

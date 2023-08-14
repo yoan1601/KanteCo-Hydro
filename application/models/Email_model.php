@@ -3,7 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 /**
  *
- * Model Admin_model
+ * Model Email_model
  *
  * This Model for ...
  * 
@@ -16,7 +16,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  *
  */
 
-class Admin_model extends CI_Model {
+class Email_model extends CI_Model {
 
   // ------------------------------------------------------------------------
 
@@ -25,22 +25,10 @@ class Admin_model extends CI_Model {
     parent::__construct();
   }
 
-  public function find_all_mails(){
-    $query = $this->db->get('emails');
-    return $query->result();
-  }
-
-  
-
-  public function check_login($email, $password){
-      $this->db->where(["mail" => trim($email), "mot_de_passe" => md5($password)]);
-      $this->db->where("is_admin !=", 1);
-      $query = $this->db->get("users");
-      if (count($query->result()) <= 0) return false;
-      else return $query->result()[0];
-  }
+  // ------------------------------------------------------------------------
 
 
+  // ------------------------------------------------------------------------
   public function index()
   {
     // 
@@ -50,5 +38,5 @@ class Admin_model extends CI_Model {
 
 }
 
-/* End of file Admin_model.php */
-/* Location: ./application/models/Admin_model.php */
+/* End of file Email_model.php */
+/* Location: ./application/models/Email_model.php */

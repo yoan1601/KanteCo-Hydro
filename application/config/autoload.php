@@ -140,5 +140,7 @@ $autoload['model'] = array(
     'Utilisateur_model' => 'user',
     'Contact_model' => 'contact',
     'Blog_model' => 'blog',
-    'Devis_model' => 'devis'
+    'Devis_model' => 'devis',
+    'Admin_model' => 'admin',
+    'Email_model' => 'email'
 );

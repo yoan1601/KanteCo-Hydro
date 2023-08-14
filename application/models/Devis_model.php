@@ -25,6 +25,10 @@ class Devis_model extends CI_Model {
     parent::__construct();
   }
 
+  public function delete($id){
+    $this->db->where
+  }
+
   public function insert($idUser,$type_projet, $description_projet, $montant){
     $this->db->insert('devis',[
       "idUser" => $idUser,
