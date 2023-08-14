@@ -27,11 +27,11 @@ class Contact extends CI_Controller
   }
 
   public function send_contact(){
-    $contact= "0341040539";
-    $message = "Voici un message";
-    $mail = "mirija@gmai.com";
+    $contact= $this->input->post('contact');
+    $message = $this->input->post('message');
+    $mail = $this->input->post('mail');
 
-    require APPPATH.'constant\validation_msg.php';
+    require APPPATH.'constant/validation_msg.php';
     $this->validation->set_rules(
       "contact", "contact",
       'trim|required',
@@ -47,7 +47,16 @@ class Contact extends CI_Controller
       'trim|required',
       $error_msg
     );
-    // $this->contact->insert($contact, $message, $mail);
+    if ($this->validation->run() == false){
+      $errors =array();
+      foreach ($this->input->post() as $key => $value) {
+        $errors[$key]= form_error($key);
+      }
+      var_dump(validation_errors());
+    }else{
+      $this->contact->insert($contact, $message, $mail);
+      redirect('front/contact');
+    }
   }
 
   public function index()

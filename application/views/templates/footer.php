@@ -23,9 +23,10 @@
         <div class="row g-5">
             <div class="col-lg-4 col-md-6">
                 <h5 class="text-white mb-4"><?= $data['footer_' . $data['lang']]['address'] ?></h5>
-                <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>101 Antananarivo, Madagascar</p>
-                <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+261 34 00 000 00</p>
-                <p class="mb-2"><i class="fa fa-envelope me-3"></i>contact@hydrocamp.com</p>
+                <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>Antananarivo I-Région Analamanga</p>
+                <p class="mb-2"><i class="fas fa-building me-3"></i>2103 Bis 67 Ha Avaratra-Antsinana</p>
+                <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+261 34 97 802 31 / +261 34 59 708 76</p>
+                <p class="mb-2"><i class="fa fa-envelope me-3"></i>hydrocampgroup@gmail.com</p>
                 <div class="d-flex pt-2">
                     <a class="btn btn-square btn-outline-light btn-social" href=""><i class="fab fa-facebook-f"></i></a>
                     <a class="btn btn-square btn-outline-light btn-social" href=""><i class="fab fa-instagram"></i></a>
@@ -54,8 +55,10 @@
                 <h5 class="text-white mb-4">Newsletter</h5>
                 <p><?= $data['footer_' . $data['lang']]['item4'] ?></p>
                 <div class="position-relative mx-auto" style="max-width: 400px;">
-                    <input class="form-control border-0 w-100 py-3 ps-4 pe-5" type="text" placeholder="<?= $data['footer_' . $data['lang']]['mail'] ?>">
-                    <button type="button" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2"><?= $data['footer_' . $data['lang']]['inscription'] ?></button>
+                    <form action="<?= site_url("utilisateur/send_news_letter") ?>" method="post">
+                        <input class="form-control border-0 w-100 py-3 ps-4 pe-5" type="text" name="email" placeholder="<?= $data['footer_' . $data['lang']]['mail'] ?>">
+                        <button type="submit" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2"><?= $data['footer_' . $data['lang']]['inscription'] ?></button>
+                    </form>
                 </div>
             </div>
         </div>

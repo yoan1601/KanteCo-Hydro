@@ -26,6 +26,27 @@ class Utilisateur extends CI_Controller
     parent::__construct();
   }
 
+  public function send_news_letter(){
+    $email = $this->input->post('email');
+    require APPPATH.'constant/validation_msg.php';
+    $this->validation->set_rules(
+      "email", "adresse email",
+      'trim|required',
+      $error_msg
+    );
+    if ($this->validation->run() == false){
+      $errors =array();
+      foreach ($this->input->post() as $key => $value) {
+        $errors[$key]= form_error($key);
+      }
+      var_dump(validation_errors());
+    }else{
+      $this->user->insert_email($email);
+      redirect('front');
+    }
+    
+  }
+
   public function inscription(){
     $nom = $this->input->post("nom");
     $telephone = $this->input->post("telephone");
@@ -53,8 +74,16 @@ class Utilisateur extends CI_Controller
       'required|min_length[6]',
       $error_msg
     );
-    $this->user->insert($nom, $telephone, $email, $mot_de_passe);
-    redirect('front/sign_in');
+    if ($this->validation->run() == false){
+      $errors =array();
+      foreach ($this->input->post() as $key => $value) {
+        $errors[$key]= form_error($key);
+      }
+      var_dump(validation_errors());
+    }else{
+      $this->user->insert($nom, $telephone, $email, $mot_de_passe);
+      redirect('front/sign_in');
+    }
   }
 
   public function login(){
