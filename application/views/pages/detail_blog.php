@@ -4,7 +4,7 @@
 			url(<?= base_url("assets/") ?>img/<?= $data['blog']['image_couverture']; ?>) center center no-repeat;background-size: cover;">
     <div class="container" style="padding-top: 6.5rem !important; padding-bottom: 1rem !important;">
         <h1 class="display-3 text-white pt-5 animated slideInDown" style="font-weight: 600; font-size: 55px;">
-        <?= $data['blog']['titre_' . (strtoupper($data['lang']))]; ?>
+            <?= $data['blog']['titre_' . (strtoupper($data['lang']))]; ?>
         </h1>
     </div>
 </div>
@@ -27,7 +27,7 @@
                     </b>
                 </h4>
                 <p class="fs-5 text-dark">
-                <?php if(isset($data['blog']['detail_' . (strtoupper($data['lang']))])) { ?> 
+                    <?php if (isset($data['blog']['detail_' . (strtoupper($data['lang']))])) { ?>
                         <?= $data['blog']['detail_' . (strtoupper($data['lang']))] ?>
                     <?php } ?>
                 </p>
