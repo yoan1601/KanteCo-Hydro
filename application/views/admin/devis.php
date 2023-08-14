@@ -32,15 +32,15 @@
                                 <p class="fw-normal fs-5 mb-0"><?= $data['devis'][$i]['montant_estime'] ?> Ar</p>
                             </td>
                             <td class="py-3">
-                                <a href="" class="me-4" data-bs-toggle="modal" data-bs-target="#ModalInfo">
+                                <a href="" class="me-4" data-bs-toggle="modal" data-bs-target="#ModalInfo-<?= $data['devis'][$i]['id'] ?>">
                                     <i class="fas fa-info-circle text-info" style="font-size: 1.5em"></i>
                                 </a>
-                                <a href="" data-bs-toggle="modal" data-bs-target="#monModal" class="ms-4">
+                                <a href="" data-bs-toggle="modal" data-bs-target="#monModal-<?= $data['devis'][$i]['id'] ?>" class="ms-4">
                                     <i class="fas fa-trash text-danger" style="font-size: 1.5em"></i>
                                 </a>
                             </td>
                             <!-- Modal Supp -->
-                            <div class="modal fade" id="monModal">
+                            <div class="modal fade" id="monModal-<?= $data['devis'][$i]['id'] ?>">
                                 <div class="modal-dialog modal-md">
                                     <div class="modal-content position-relative">
                                         <!-- En-tête du modal -->
@@ -60,7 +60,7 @@
                             </div>
 
                             <!-- Modal Info -->
-                            <div class="modal fade" id="ModalInfo">
+                            <div class="modal fade" id="ModalInfo-<?= $data['devis'][$i]['id'] ?>">
                                 <div class="modal-dialog modal-md">
                                     <div class="modal-content position-relative">
                                         <!-- En-tête du modal -->
