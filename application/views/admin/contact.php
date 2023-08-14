@@ -2,10 +2,10 @@
 <div class="container-xxl py-5 wow fadeIn" data-wow-delay="0.1s">
     <div class="container">
         <div class="mb-3" style="max-width: 600px; visibility: visible; animation-delay: 0.1s; animation-name: fadeInUp;">
-            <h1 class="text-secondary">Liste des devis</h1>
+            <h1 class="text-secondary">Liste des contacts</h1>
         </div>
         <div class="row mt-n2">
-            <form class="row g-3" action="<?= site_url('administrationHydroGroup/devis/1'); ?>">
+            <form class="row g-3" action="<?= site_url('administrationHydroGroup/contact/1'); ?>">
                 <div class="col-lg-3 col-12">
                     <input type="text" class="form-control" name="keyword" placeholder="Mot clé" style="height: 55px;" required>
                 </div>
@@ -16,42 +16,45 @@
             <table class="table align-middle mb-0 bg-white">
                 <thead class="bg-light">
                     <tr>
-                        <th class="py-3">Type du projet</th>
-                        <th class="py-3">Montant estimé</th>
-                        <th class="py-3">Actions</th>
+                        <th class="py-3 fs-5">Date</th>
+                        <th class="py-3 fs-5">Contact</th>
+                        <th class="py-3 fs-5">Email</th>
+                        <th class="py-3 fs-5">Actions</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <?php for ($i = 0; $i < count($data['devis']); $i++) { ?>
+                    <?php for ($i = 0; $i < count($data['contact']); $i++) { ?>
                         <tr>
                             <td class="py-3">
-
-                                <p class="fw-normal fs-5 mb-0"><?= $data['devis'][$i]['type_projet'] ?></p>
+                                <p class="fw-normal fs-5 mb-0"><?= $data['contact'][$i]['date_creation'] ?></p>
                             </td>
                             <td class="py-3">
-                                <p class="fw-normal fs-5 mb-0"><?= $data['devis'][$i]['montant_estime'] ?> Ar</p>
+                                <p class="fw-normal fs-5 mb-0"><?= $data['contact'][$i]['contact'] ?></p>
                             </td>
                             <td class="py-3">
-                                <a href="" class="me-4" data-bs-toggle="modal" data-bs-target="#ModalInfo-<?= $data['devis'][$i]['id'] ?>">
+                                <p class="fw-normal fs-5 mb-0"><?= $data['contact'][$i]['email'] ?></p>
+                            </td>
+                            <td class="py-3">
+                                <a href="" class="me-4" data-bs-toggle="modal" data-bs-target="#ModalInfo-<?= $data['contact'][$i]['id'] ?>">
                                     <i class="fas fa-info-circle text-info" style="font-size: 1.5em"></i>
                                 </a>
-                                <a href="" data-bs-toggle="modal" data-bs-target="#monModal-<?= $data['devis'][$i]['id'] ?>" class="ms-4">
+                                <a href="" class="ms-4"  data-bs-toggle="modal" data-bs-target="#monModal-<?= $data['contact'][$i]['id'] ?>">
                                     <i class="fas fa-trash text-danger" style="font-size: 1.5em"></i>
                                 </a>
                             </td>
-                            <!-- Modal Supp -->
-                            <div class="modal fade" id="monModal-<?= $data['devis'][$i]['id'] ?>">
+                             <!-- Modal Supp -->
+                             <div class="modal fade" id="monModal-<?= $data['contact'][$i]['id'] ?>">
                                 <div class="modal-dialog modal-md">
                                     <div class="modal-content position-relative">
                                         <!-- En-tête du modal -->
                                         <div class="modal-header">
-                                            <h4 class="modal-title">Voulez-vous vraiment supprimer ce devis ?</h4>
+                                            <h4 class="modal-title">Voulez-vous vraiment supprimer ce contact ?</h4>
                                         </div>
 
                                         <!-- Contenu du modal -->
                                         <div class="modal-body">
                                             <div class="d-flex align-items-center justify-content-center gap-3">
-                                                <a href="<?= site_url('administrationHydroGroup/devis_delete/' . $data['devis'][$i]['id']) ?>" class="btn btn-danger px-4" style="padding-top: 0.75em;padding-bottom: 0.75em;">OUI</a>
+                                                <a href="<?= site_url('administrationHydroGroup/contact_delete/' . $data['contact'][$i]['id']) ?>" class="btn btn-danger px-4" style="padding-top: 0.75em;padding-bottom: 0.75em;">OUI</a>
                                                 <a href="" class="btn btn-primary px-4" data-bs-dismiss="modal" style="padding-top: 0.75em;padding-bottom: 0.75em;">NON</a>
                                             </div>
                                         </div>
@@ -60,21 +63,21 @@
                             </div>
 
                             <!-- Modal Info -->
-                            <div class="modal fade" id="ModalInfo-<?= $data['devis'][$i]['id'] ?>">
+                            <div class="modal fade" id="ModalInfo-<?= $data['contact'][$i]['id'] ?>">
                                 <div class="modal-dialog modal-md">
                                     <div class="modal-content position-relative">
                                         <!-- En-tête du modal -->
                                         <div class="modal-header">
-                                            <h4 class="modal-title"><?= $data['devis'][$i]['type_projet'] ?></h4>
+                                            <h4 class="modal-title">Détail du Contact</h4>
                                             <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                                         </div>
 
                                         <!-- Contenu du modal -->
                                         <div class="modal-body">
                                             <div class="fs-5">
-                                               <p><strong>Description : </strong><?= $data['devis'][$i]['description_projet'] ?></p>
-                                               <p><strong>Montant Estimé : </strong><?= $data['devis'][$i]['montant_estime'] ?> Ar</p>
-                                               <p><strong>Email du client : </strong><?= $data['devis'][$i]['mail'] ?></p>
+                                               <p><strong>Contact : </strong><?= $data['contact'][$i]['contact'] ?></p>
+                                               <p><strong>Message : </strong><?= $data['contact'][$i]['message'] ?></p>
+                                               <p><strong>Email : </strong><?= $data['contact'][$i]['email'] ?></p>
                                             </div>
                                         </div>
                                     </div>
@@ -96,15 +99,15 @@
                                 <span class="sr-only">Previous</span>
                             </a>
                         </li>
-                        <li class="page-item"><a class="page-link" href="<?= site_url('administrationHydroGroup/devis/' . $data['is_search'] . '/' . $data['page_en_cours'] - 1); ?>"><?= $data['page_en_cours'] - 1 ?></a></li>
+                        <li class="page-item"><a class="page-link" href="<?= site_url('administrationHydroGroup/contact/' . $data['is_search'] . '/' . $data['page_en_cours'] - 1); ?>"><?= $data['page_en_cours'] - 1 ?></a></li>
                     <?php } ?>
 
                     <li class="page-item"><button class="page-link" style="color:white; background-color:#32c36c;"><?= $data['page_en_cours'] ?></button></li>
 
                     <?php if ($data['page_en_cours'] < $data['nbPages']) { ?>
-                        <li class="page-item"><a class="page-link" href="<?= site_url('administrationHydroGroup/devis/' . $data['is_search'] . '/' . $data['page_en_cours'] + 1); ?>"><?= $data['page_en_cours'] + 1 ?></a></li>
+                        <li class="page-item"><a class="page-link" href="<?= site_url('administrationHydroGroup/contact/' . $data['is_search'] . '/' . $data['page_en_cours'] + 1); ?>"><?= $data['page_en_cours'] + 1 ?></a></li>
                         <li class="page-item">
-                            <a class="page-link" href="<?= site_url('administrationHydroGroup/devis/' . $data['is_search'] . '/' . $data['page_en_cours'] + 1); ?>" aria-label="Next">
+                            <a class="page-link" href="<?= site_url('administrationHydroGroup/contact/' . $data['is_search'] . '/' . $data['page_en_cours'] + 1); ?>" aria-label="Next">
                                 <span aria-hidden="true">&raquo;</span>
                                 <span class="sr-only">Next</span>
                             </a>
