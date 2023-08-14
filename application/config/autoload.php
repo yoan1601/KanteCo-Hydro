@@ -139,5 +139,6 @@ $autoload['model'] = array(
     'Realisation_model' => 'realisation',
     'Utilisateur_model' => 'user',
     'Contact_model' => 'contact',
-    'Blog_model' => 'blog'
+    'Blog_model' => 'blog',
+    'Devis_model' => 'devis'
 );

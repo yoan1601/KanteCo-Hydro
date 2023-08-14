@@ -25,6 +25,20 @@ class Blog_model extends CI_Model {
     parent::__construct();
   }
 
+  public function setAllImages_one_blog($blog) {
+    $this->db->where('idBlog', $blog['id']);
+    $blog['images'] = json_decode(json_encode($this->db->get("blogs_images")->result()), true);
+    return $blog;
+  }
+
+  public function getById($id = 1) {
+    $this->db->where('id', $id); 
+    $query = $this->db->get("v_blogs");
+    $tab = json_decode(json_encode($query->result()), true);
+    return $tab[0];
+  }
+  
+
   public function format_to_full_date($data){
     for ($i=0; $i < count($data) ; $i++) { 
       // Date au format '2023-07-01' depuis MySQL
