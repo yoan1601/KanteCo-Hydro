@@ -52,7 +52,7 @@ class AdministrationHydroGroup extends CI_Controller
     public function devis($is_search = 0, $num_page = 1)
     {
 
-        $data['page'] = 'devis';
+        $data['active'] = 'devis';
 
 		if ($this->session->has_userdata('user') == false) {
 			$data['session'] = false;
@@ -93,5 +93,17 @@ class AdministrationHydroGroup extends CI_Controller
 
 
 		$this->load->view('admin/devis', ['data' => $data]);
+    }
+
+    public function contact()
+    {
+        $data["active"] = "contact";
+        $this->load->view("admin/contact", ['data' => $data]);
+    }
+
+    public function mails()
+    {
+        $data["active"] = "mails";
+        $this->load->view("admin/mails", ['data' => $data]);
     }
 }
