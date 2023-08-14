@@ -299,7 +299,7 @@ class Front extends CI_Controller
 		$data['blog'] = $this->blog->getById($id);
 		$data['blog'] = $this->blog->setAllImages_one_blog($data['blog']);
 
-				// ========== FORMATTAGE DATE ==========
+		// ========== FORMATTAGE DATE ==========
 		// Créer un objet DateTime à partir de la date MySQL
 		$date = new DateTime($data['blog']['date_publication']);
 
@@ -329,5 +329,26 @@ class Front extends CI_Controller
 			$data['session'] = $this->session->user;
 		}
 		$this->load->view('pages/detail_blog', ['data' => $data]);
+	}
+
+	public function espace()
+	{
+		if ($this->session->has_userdata('lang') == false) {
+			$this->session->set_userdata('lang', 'fr');
+		}
+
+		$lang = $this->session->lang;
+
+		$data = $this->data->getData();
+
+		if ($this->session->has_userdata('user') == false) {
+			$data['session'] = false;
+		} else {
+			$data['session'] = $this->session->user;
+		}
+
+		$data['lang'] = $lang;
+		$data['page'] = 'espace';
+		$this->load->view('pages/espace', ['data' => $data]);
 	}
 }
