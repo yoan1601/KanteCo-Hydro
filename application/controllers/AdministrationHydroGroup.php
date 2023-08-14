@@ -17,4 +17,14 @@ class AdministrationHydroGroup extends CI_Controller
     {
         $this->load->view('admin/login');
     }
+
+    public function achievements()
+    {
+        $this->load->view("admin/achievements");
+    }
+
+    public function devis()
+    {
+        $this->load->view("admin/devis");
+    }
 }
