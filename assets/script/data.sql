@@ -228,4 +228,23 @@ insert into achievements_images values
     (default,5,'achiev5_1.jpg');
 
 
+INSERT INTO devis (idUser, type_projet, description_projet, montant_estime, etat, date_creation)
+VALUES
+    (1, "Site Web", "Développement d'un site web pour une entreprise", 1500.00*10000, 1, NOW()),
+    (2, "Application Mobile", "Création d'une application mobile de suivi de fitness", 2000.00*10000, 1, NOW()),
+    (1, "Logo Design", "Conception d'un logo pour une nouvelle marque", 300.00*10000, 0, NOW()),
+    (3, "Réparation PC", "Réparation et entretien d'ordinateurs", 500.00*10000, 1, NOW()),
+    (2, "Consultation Marketing", "Consultation pour une stratégie de marketing en ligne", 800.00*10000, 0, NOW());
+
+ INSERT INTO devis (idUser, type_projet, description_projet, montant_estime, etat, date_creation)
+VALUES
+    (1, "Conception Graphique", "Création de visuels pour une campagne publicitaire", 800.00*10000, 1, NOW()),
+    (4, "Développement Application", "Développement d'une application de gestion des stocks", 2500.00*10000, 1, NOW()),
+    (3, "Traduction Document", "Traduction d'un document technique en anglais", 400.00*10000, 1, NOW()),
+    (5, "Consultation Juridique", "Consultation pour des questions juridiques liées à une entreprise", 600.00*10000, 1, NOW()),
+    (2, "Optimisation SEO", "Optimisation du référencement pour un site web", 350.00*10000, 1, NOW()),
+    (4, "Création de Contenu", "Création d'articles de blog sur divers sujets", 180.00*10000, 1, NOW());
+
+
+
 
