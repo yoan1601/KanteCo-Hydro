@@ -2,12 +2,12 @@
 <div class="container-xxl py-5 wow fadeIn" data-wow-delay="0.1s">
     <div class="container">
         <div class="mb-3" style="max-width: 600px; visibility: visible; animation-delay: 0.1s; animation-name: fadeInUp;">
-            <h1 class="text-secondary">Liste de vos devis</h1>
+            <h1 class="text-secondary"><?= $data['espace_' . $data['lang']]['titre'] ?></h1>
         </div>
         <div class="row mt-n2">
             <form class="row g-3" action="<?= site_url('front/espace/1'); ?>">
                 <div class="col-lg-3 col-12">
-                    <input type="text" class="form-control" name="keyword" placeholder="Mot clé" style="height: 55px;" required>
+                    <input type="text" class="form-control" name="keyword" placeholder="<?= $data['espace_' . $data['lang']]['keyWord'] ?>" style="height: 55px;" required>
                 </div>
                 <button class="btn btn-lg btn-primary btn-lg-square rounded-circle"><i class="bi bi-search"></i></button>
             </form>
@@ -16,8 +16,8 @@
             <table class="table align-middle mb-0 bg-white">
                 <thead class="bg-light">
                     <tr>
-                        <th class="py-3">Type du projet</th>
-                        <th class="py-3">Montant estimé</th>
+                        <th class="py-3"><?= $data['devis_' . $data['lang']]['item9'] ?></th>
+                        <th class="py-3"><?= $data['devis_' . $data['lang']]['item11'] ?></th>
                         <th class="py-3">Actions</th>
                     </tr>
                 </thead>
@@ -89,7 +89,7 @@
                     <?php } ?>
                 </ul>
             </nav>
-            <p class="fw-bold text-center">Résultats : <?= $data['nb_resultat'] ?></p>
+            <p class="fw-bold text-center"><?= $data['realisation_' . $data['lang']]['item4'] ?> : <?= $data['nb_resultat'] ?></p>
         </div>
     </div>
 </div>
