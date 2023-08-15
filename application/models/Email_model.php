@@ -3,7 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 /**
  *
- * Model Contact_model
+ * Model Email_model
  *
  * This Model for ...
  * 
@@ -16,16 +16,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  *
  */
 
-class Contact_model extends CI_Model {
+class Email_model extends CI_Model {
 
   // ------------------------------------------------------------------------
 
   public function __construct()
   {
     parent::__construct();
-  }
-
-  public function search($numero_page = 1,$nombre_resultat_affiche = 3, $keyword = ''){
+  }public function search($numero_page = 1,$nombre_resultat_affiche = 3, $keyword = ''){
     $this->db->where('etat >', 0);
     $keyword = trim($keyword);
     $calcul_limite = ($numero_page-1)*$nombre_resultat_affiche;
@@ -45,7 +43,7 @@ class Contact_model extends CI_Model {
       }
       $this->db->group_end(); 
     }
-    $query = $this->db->get('contacts');
+    $query = $this->db->get('emails');
     return $query->result();
 }
 
@@ -67,7 +65,7 @@ class Contact_model extends CI_Model {
       $this->db->group_end(); 
     }
     $this->db->where('etat >', 0);
-    $query = $this->db->get('contacts');
+    $query = $this->db->get('emails');
     return $query->result();
   }
 
@@ -76,13 +74,13 @@ class Contact_model extends CI_Model {
     $this->db->where('etat >', 0);
     $this->db->limit($nombre_resultat_affiche,$calcul_limite);
     $this->db->order_by("date_creation", "desc");
-    $query = $this->db->get("contacts");
+    $query = $this->db->get("emails");
     return $query->result();
   }
 
   public function getNombrePage($nombre_resultat_affiche = 2){
     $this->db->where('etat >', 0);
-    $query = $this->db->get('contacts');
+    $query = $this->db->get('emails');
     $rows = count(($query->result()));
     return ceil($rows/$nombre_resultat_affiche);
   }
@@ -92,30 +90,21 @@ class Contact_model extends CI_Model {
     return ceil($rows/$nombre_resultat_affiche);
   }
   public function get_all_column_text(){
-    $query = $this->db->query("SHOW COLUMNS FROM contacts WHERE Type = 'text'");
+    $query = $this->db->query("SHOW COLUMNS FROM emails WHERE Type = 'text'");
     return $query->result();
   }
 
   public function delete($id){
     $this->db->where('id', $id);
-    $this->db->update('contacts',[
+    $this->db->update('emails',[
       "etat" => 0
-    ]);
-  }
-
-
-  public function insert($contact, $message, $email){
-    $this->db->insert('contacts',[
-      "contact" => $contact,
-      "message" => $message,
-      "email" => $email
     ]);
   }
 
 
   public function findAll(){
     $this->db->where('etat >', 0);
-    $query = $this->db->get('contacts');
+    $query = $this->db->get('emails');
     return $query->result();
   }
 
@@ -128,5 +117,5 @@ class Contact_model extends CI_Model {
 
 }
 
-/* End of file Contact_model.php */
-/* Location: ./application/models/Contact_model.php */
+/* End of file Email_model.php */
+/* Location: ./application/models/Email_model.php */

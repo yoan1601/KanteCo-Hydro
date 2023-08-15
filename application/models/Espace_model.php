@@ -3,7 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 /**
  *
- * Model Contact_model
+ * Model Devis_model
  *
  * This Model for ...
  * 
@@ -16,7 +16,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  *
  */
 
-class Contact_model extends CI_Model {
+class Espace_model extends CI_Model {
 
   // ------------------------------------------------------------------------
 
@@ -25,8 +25,10 @@ class Contact_model extends CI_Model {
     parent::__construct();
   }
 
-  public function search($numero_page = 1,$nombre_resultat_affiche = 3, $keyword = ''){
+
+  public function search($numero_page = 1,$nombre_resultat_affiche = 3, $keyword = '',$idUser = 1){
     $this->db->where('etat >', 0);
+    $this->db->where('idUser ', $idUser);
     $keyword = trim($keyword);
     $calcul_limite = ($numero_page-1)*$nombre_resultat_affiche;
     $this->db->limit($nombre_resultat_affiche,$calcul_limite);
@@ -45,11 +47,11 @@ class Contact_model extends CI_Model {
       }
       $this->db->group_end(); 
     }
-    $query = $this->db->get('contacts');
+    $query = $this->db->get('v_devis');
     return $query->result();
 }
 
-  public function all_resultat_search($keyword = ''){
+  public function all_resultat_search($keyword = '',$idUser = 1){
     $keyword = trim($keyword);
     $columns = $this->get_all_column_text();
     $i = 0;
@@ -67,22 +69,25 @@ class Contact_model extends CI_Model {
       $this->db->group_end(); 
     }
     $this->db->where('etat >', 0);
-    $query = $this->db->get('contacts');
+    $this->db->where('idUser ', $idUser);
+    $query = $this->db->get('v_devis');
     return $query->result();
   }
 
-  public function findAllPagination($numero_page,$nombre_resultat_affiche){
+  public function findAllPagination($numero_page,$nombre_resultat_affiche,$idUser = 1){
     $calcul_limite = ($numero_page-1)*$nombre_resultat_affiche;
     $this->db->where('etat >', 0);
+    $this->db->where('idUser ', $idUser);
     $this->db->limit($nombre_resultat_affiche,$calcul_limite);
     $this->db->order_by("date_creation", "desc");
-    $query = $this->db->get("contacts");
+    $query = $this->db->get("v_devis");
     return $query->result();
   }
 
-  public function getNombrePage($nombre_resultat_affiche = 2){
+  public function getNombrePage($nombre_resultat_affiche = 2, $idUser = 1){
     $this->db->where('etat >', 0);
-    $query = $this->db->get('contacts');
+    $this->db->where('idUser ', $idUser);
+    $query = $this->db->get('v_devis');
     $rows = count(($query->result()));
     return ceil($rows/$nombre_resultat_affiche);
   }
@@ -92,30 +97,32 @@ class Contact_model extends CI_Model {
     return ceil($rows/$nombre_resultat_affiche);
   }
   public function get_all_column_text(){
-    $query = $this->db->query("SHOW COLUMNS FROM contacts WHERE Type = 'text'");
+    $query = $this->db->query("SHOW COLUMNS FROM v_devis WHERE Type = 'text'");
     return $query->result();
   }
 
   public function delete($id){
     $this->db->where('id', $id);
-    $this->db->update('contacts',[
+    $this->db->update('v_devis',[
       "etat" => 0
     ]);
   }
 
-
-  public function insert($contact, $message, $email){
-    $this->db->insert('contacts',[
-      "contact" => $contact,
-      "message" => $message,
-      "email" => $email
+  public function insert($idUser,$type_projet, $description_projet, $montant){
+    $this->db->insert('v_devis',[
+      "idUser" => $idUser,
+      "type_projet" => $type_projet,
+      "description_projet" => $description_projet,
+      "montant_estime" => $montant
     ]);
   }
 
 
-  public function findAll(){
+  public function findAll($idUser = 1){
     $this->db->where('etat >', 0);
-    $query = $this->db->get('contacts');
+    $this->db->where('idUser ', $idUser);
+    $this->db->order_by('date_creation','desc');
+    $query = $this->db->get('v_devis');
     return $query->result();
   }
 
@@ -128,5 +135,5 @@ class Contact_model extends CI_Model {
 
 }
 
-/* End of file Contact_model.php */
-/* Location: ./application/models/Contact_model.php */
+/* End of file v_Devis_model.php */
+/* Location: ./application/models/Devis_model.php */

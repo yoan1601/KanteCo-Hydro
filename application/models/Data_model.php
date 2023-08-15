@@ -288,6 +288,14 @@ class Data_model extends CI_Model {
         'item10' => 'Brief description of the project',
         'item11' => 'Estimated value',
         'item12' => 'Validate'
+      ),
+      'espace_fr' => array (
+        'titre' => 'Liste de vos devis',
+        'keyWord' => 'Mot clé'
+      ),
+      'espace_en' => array (
+        'titre' => 'List of your quotes',
+        'keyWord' => 'keyWord'
       )
     );
       return $data;

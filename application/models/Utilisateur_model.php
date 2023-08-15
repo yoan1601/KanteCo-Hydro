@@ -44,6 +44,8 @@ class Utilisateur_model extends CI_Model {
 
   public function check_login($email, $password){
     $this->db->where(["mail" => trim($email), "mot_de_passe" => md5($password)]);
+    $this->db->where("is_admin !=", 111);
+    $this->db->where("is_admin !=", 11);
     $query = $this->db->get("users");
     if (count($query->result()) <= 0) return false;
     else return $query->result()[0];

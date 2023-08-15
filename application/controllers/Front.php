@@ -299,7 +299,7 @@ class Front extends CI_Controller
 		$data['blog'] = $this->blog->getById($id);
 		$data['blog'] = $this->blog->setAllImages_one_blog($data['blog']);
 
-				// ========== FORMATTAGE DATE ==========
+		// ========== FORMATTAGE DATE ==========
 		// Créer un objet DateTime à partir de la date MySQL
 		$date = new DateTime($data['blog']['date_publication']);
 
@@ -329,5 +329,55 @@ class Front extends CI_Controller
 			$data['session'] = $this->session->user;
 		}
 		$this->load->view('pages/detail_blog', ['data' => $data]);
+	}
+
+	public function espace($is_search = 0, $num_page = 1)
+	{
+		if ($this->session->has_userdata('lang') == false) {
+			$this->session->set_userdata('lang', 'fr');
+		}
+
+		$lang = $this->session->lang;
+
+		$data = $this->data->getData();
+
+		if ($this->session->has_userdata('user') == false) {
+			$data['session'] = false;
+		} else {
+			$data['session'] = $this->session->user;
+		}
+
+		$idUser = $data['session']->id;
+
+		$nbAffiche = 3;
+		$data['page_en_cours'] = $num_page;
+
+		$data['nb_resultat'] = count($this->espace->findAll($idUser = $idUser));
+		$data['devis'] = $this->espace->findAllPagination($numero_page = $num_page, $nombre_resultat_affiche = $nbAffiche, $idUser = $idUser);
+		// objet -> tableau
+		$data['devis'] = json_decode(json_encode($data['devis']), true);
+		$data['nbPages'] = $this->espace->getNombrePage($nombre_resultat_affiche = $nbAffiche);
+
+		if ($is_search == 1) {
+			$keyword = $this->input->get('keyword');
+            if ($keyword == NULL){
+                $keyword = $this->session->keyword;
+            }
+            $this->session->set_userdata('keyword',$keyword);
+			$data['nb_resultat'] = count($this->espace->all_resultat_search($keyword = $keyword, $idUser = $idUser));
+			$data['devis'] = $this->espace->search($numero_page = $num_page, $nombre_resultat_affiche = $nbAffiche, $keyword = $keyword, $idUser = $idUser);
+			// objet -> tableau
+			$data['devis'] = json_decode(json_encode($data['devis']), true);
+			$data['nbPages'] = $this->espace->getNombrePageSearch($data['nb_resultat'], $nombre_resultat_affiche = $nbAffiche);
+		}else{
+            $this->session->unset_userdata('keyword');
+        }
+
+		//set all images 
+		$data['is_search'] = $is_search;
+
+		$data['lang'] = $lang;
+		$data['page'] = 'espace';
+		$this->load->view('pages/espace', ['data' => $data]);
 	}
 }

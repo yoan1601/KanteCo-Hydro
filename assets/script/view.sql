@@ -21,3 +21,8 @@ CREATE OR REPLACE VIEW v_blogs_all_year AS (
     select annee_publication from v_blogs group by annee_publication
 );
 
+CREATE OR REPLACE VIEW v_devis AS (
+    select d.*, u.mail from devis d
+    JOIN users u ON d.idUser = u.id
+);
+
