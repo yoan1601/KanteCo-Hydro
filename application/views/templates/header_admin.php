@@ -63,8 +63,8 @@
                 <a href="<?= site_url('AdministrationHydroGroup/mails'); ?>" class="nav-item nav-link <?php if ($data['active'] === 'mails') echo 'active'; ?>">Mails</a>
                 <a href="<?= site_url('AdministrationHydroGroup/contact'); ?>" class="nav-item nav-link <?php if ($data['active'] === 'contact') echo 'active'; ?>">Contact</a>
                 <a href="<?= site_url('AdministrationHydroGroup/devis'); ?>" class="nav-item nav-link <?php if ($data['active'] === 'devis') echo 'active'; ?>">Devis</a>
+                <a href="<?= site_url("administrationHydroGroup/log_out") ?>" class="my-lg-0 my-3 btn btn-warning rounded-0 py-4 px-lg-5 d-lg-block ms-lg-3">Se déconnecter<i class="fa fa-arrow-right ms-3"></i></a>
             </div>
-            <a href="<?= site_url("administrationHydroGroup/log_out") ?>" class="btn btn-warning rounded-0 py-4 px-lg-5 d-none d-lg-block ms-3">Se déconnecter<i class="fa fa-arrow-right ms-3"></i></a>
         </div>
     </nav>
     <!-- Navbar End -->

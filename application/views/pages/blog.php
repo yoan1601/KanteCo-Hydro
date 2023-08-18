@@ -30,7 +30,7 @@
             <?php for ($i = 0; $i < count($data['blogs']); $i++) { ?>
                 <div class="col-lg-4 col-md-6 portfolio-item">
                     <div class="portfolio-img rounded overflow-hidden">
-                        <div class="couverture" style="height: 36vh; width: 26vw;">
+                        <div class="couverture" style="height: 36vh;">
                             <img class="img-fluid" style="height: 100%; width: 100%;object-fit: cover;" src="<?= base_url("assets/") ?>img/<?= $data['blogs'][$i]['image_couverture']; ?>" alt="">
                             <img class="img-fluid" style="height: 100%; width: 100%;object-fit: cover;" src="<?= base_url("assets/") ?>img/<?= $data['blogs'][$i]['image_couverture']; ?>" alt="">
                         </div>
