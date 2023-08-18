@@ -13,13 +13,13 @@
         <div class="row mt-n2 wow fadeInUp" data-wow-delay="0.3s">
             <form class="row g-3" action="<?= site_url('front/achievements/1'); ?>">
                 <div class="col-lg-3 col-12 offset-lg-3">
-                    <input type="text" class="form-control" name="keyword" placeholder="<?= $data['realisation_'.$data['lang']]['item2'] ?>" style="height: 55px;">
+                    <input type="text" class="form-control" name="keyword" placeholder="<?= $data['realisation_' . $data['lang']]['item2'] ?>" style="height: 55px;">
                 </div>
                 <div class="col-lg-3 col-12">
                     <select class="form-select" style="height: 55px;" name="year" required>
-                        <option selected><?= $data['realisation_'.$data['lang']]['item3'] ?></option>
-                        <?php for($i = 0; $i < count($data['allYears']); $i++) { ?>
-                        <option value="<?= $data['allYears'][$i]->annee_demarrage ?>"><?= $data['allYears'][$i]->annee_demarrage ?></option>
+                        <option selected><?= $data['realisation_' . $data['lang']]['item3'] ?></option>
+                        <?php for ($i = 0; $i < count($data['allYears']); $i++) { ?>
+                            <option value="<?= $data['allYears'][$i]->annee_demarrage ?>"><?= $data['allYears'][$i]->annee_demarrage ?></option>
                         <?php } ?>
                     </select>
                 </div>
@@ -30,7 +30,7 @@
             <?php for ($i = 0; $i < count($data['achievements']); $i++) { ?>
                 <div class="col-lg-4 col-md-6 portfolio-item">
                     <div class="portfolio-img rounded overflow-hidden">
-                        <div class="couverture" style="height: 36vh; width: 26vw;">
+                        <div class="couverture" style="height: 36vh;">
                             <img class="img-fluid" style="height: 100%; width: 100%;object-fit: cover;" src="<?= base_url("assets/") ?>img/<?= $data['achievements'][$i]['image_couverture']; ?>" alt="">
                             <img class="img-fluid" style="height: 100%; width: 100%;object-fit: cover;" src="<?= base_url("assets/") ?>img/<?= $data['achievements'][$i]['image_couverture']; ?>" alt="">
                             <?php foreach ($data['achievements'][$i]['images'] as $key => $image) { ?>
@@ -39,7 +39,7 @@
                         </div>
                         <div class="portfolio-btn">
                             <a class="btn btn-lg-square btn-outline-light rounded-circle mx-1" href="<?= base_url("assets/") ?>img/<?= $data['achievements'][$i]['image_couverture']; ?>" data-lightbox="portfolio"><i class="fa fa-eye"></i></a>
-                            <a class="btn btn-lg-square btn-outline-light rounded-circle mx-1" href="<?= site_url("front/detail_achievements/". $data['achievements'][$i]['id']) ?>"><i class="fa fa-arrow-right"></i></a>
+                            <a class="btn btn-lg-square btn-outline-light rounded-circle mx-1" href="<?= site_url("front/detail_achievements/" . $data['achievements'][$i]['id']) ?>"><i class="fa fa-arrow-right"></i></a>
                         </div>
                     </div>
                     <div class="pt-3">
@@ -48,8 +48,8 @@
                             <?= $data['achievements'][$i]['nom_mission_' . (strtoupper($data['lang']))]; ?>
                         </p>
                         <div>
-                            <span class="fw-bold text-dark"><?= $data['realisation_'.$data['lang']]['item6'] ?> : </span>
-                            <?= $data['achievements'][$i]['nom_pays_'.(strtoupper($data['lang']))]; ?>
+                            <span class="fw-bold text-dark"><?= $data['realisation_' . $data['lang']]['item6'] ?> : </span>
+                            <?= $data['achievements'][$i]['nom_pays_' . (strtoupper($data['lang']))]; ?>
                         </div>
                         <div>
                             <span class="fw-bold text-dark"><?= $data['realisation_' . $data['lang']]['item7'] ?> : </span>
