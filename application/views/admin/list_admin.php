@@ -10,7 +10,7 @@
                 <button class="btn btn-lg btn-primary btn-lg-square rounded-circle"><i class="bi bi-search"></i></button>
             </form>
             <div>
-                <button class="btn btn-primary py-3 px-5">Ajouter</button>
+                <a href="<?= site_url('administrationHydroGroup/new_admin/'); ?>" class="btn btn-primary py-3 px-5">Ajouter</a>
             </div>
         </div>
         <div class="py-5">
