@@ -4,11 +4,9 @@
         <div class="mb-3" style="max-width: 600px; visibility: visible; animation-delay: 0.1s; animation-name: fadeInUp;">
             <h1 class="text-secondary">Liste des mails</h1>
         </div>
-        <div class="row mt-n2">
-            <form class="row g-3" action="<?= site_url('administrationHydroGroup/mails/1'); ?>">
-                <div class="col-lg-3 col-12">
-                    <input type="text" class="form-control" name="keyword" placeholder="Mot clé" style="height: 55px;" required>
-                </div>
+        <div class="d-flex flex-wrap mt-4">
+            <form class="d-flex mb-3 me-auto" style="gap: 0.5rem" action="<?= site_url('administrationHydroGroup/mails/1'); ?>">
+                <input type="text" class="form-control" name="keyword" placeholder="Mot clé" style="height: 55px; width: 300px;" required>
                 <button class="btn btn-lg btn-primary btn-lg-square rounded-circle"><i class="bi bi-search"></i></button>
             </form>
         </div>
@@ -31,7 +29,7 @@
                                 <p class="fw-normal fs-5 mb-0"><?= $data['email'][$i]['mail'] ?></p>
                             </td>
                             <td class="py-3">
-                                <a href="" class="ms-4"  data-bs-toggle="modal" data-bs-target="#monModal-<?= $data['email'][$i]['id'] ?>">
+                                <a href="" class="ms-4" data-bs-toggle="modal" data-bs-target="#monModal-<?= $data['email'][$i]['id'] ?>">
                                     <i class="fas fa-trash text-danger" style="font-size: 1.5em"></i>
                                 </a>
                             </td>

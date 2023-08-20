@@ -4,15 +4,13 @@
         <div class="mb-3" style="max-width: 600px; visibility: visible; animation-delay: 0.1s; animation-name: fadeInUp;">
             <h1 class="text-secondary">Liste des admins</h1>
         </div>
-        <div class="row mt-n2 d-flex">
-            <form class="row g-3 mb-3" action="<?= site_url(''); ?>">
-                <div class="col-lg-3 col-12">
-                    <input type="text" class="form-control" name="keyword" placeholder="Mot clé" style="height: 55px;" required>
-                </div>
+        <div class="d-flex flex-wrap mt-4">
+            <form class="d-flex mb-3 me-auto" style="gap: 0.5rem" action="<?= site_url(''); ?>">
+                <input type="text" class="form-control" name="keyword" placeholder="Mot clé" style="height: 55px; width: 300px;" required>
                 <button class="btn btn-lg btn-primary btn-lg-square rounded-circle"><i class="bi bi-search"></i></button>
             </form>
-            <div class="">
-                <button class="btn btn-primary py-3 px-5 ms-auto">Ajouter</button>
+            <div>
+                <button class="btn btn-primary py-3 px-5">Ajouter</button>
             </div>
         </div>
         <div class="py-5">
