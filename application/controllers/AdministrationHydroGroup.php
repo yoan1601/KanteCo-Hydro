@@ -200,10 +200,22 @@ class AdministrationHydroGroup extends CI_Controller
         $this->load->view("admin/blog", ['data' => $data]);
     }
 
+    public function new_blog()
+    {
+        $data["active"] = "blog";
+        $this->load->view("admin/new_blog", ['data' => $data]);
+    }
+
 
     public function achievements()
     {
         $data["active"] = "achievements";
         $this->load->view("admin/achievements", ['data' => $data]);
+    }
+
+    public function new_achievements()
+    {
+        $data["active"] = "achievements";
+        $this->load->view("admin/new_achievements", ['data' => $data]);
     }
 }

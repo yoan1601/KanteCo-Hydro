@@ -9,25 +9,25 @@
                 <div class="row g-3">
                     <div class="col-12">
                         <div class="form-floating">
-                            <input type="text" class="form-control" name="" placeholder="Nom">
+                            <input required type="text" class="form-control" name="" placeholder="Nom">
                             <label for="">Nom (*)</label>
                         </div>
                     </div>
                     <div class="col-12">
                         <div class="form-floating">
-                            <input type="text" class="form-control" name="" placeholder="Téléphone">
+                            <input required type="text" class="form-control" name="" placeholder="Téléphone">
                             <label for="">Téléphone (*)</label>
                         </div>
                     </div>
                     <div class="col-12">
                         <div class="form-floating">
-                            <input type="email" class="form-control" name="" placeholder="Mail">
+                            <input required type="email" class="form-control" name="" placeholder="Mail">
                             <label for="">Mail (*)</label>
                         </div>
                     </div>
                     <div class="col-12">
                         <div class="form-floating">
-                            <input type="password" class="form-control" name="" placeholder="Mot de passe">
+                            <input required type="password" class="form-control" name="" placeholder="Mot de passe">
                             <label for="">Mot de passe (*)</label>
                         </div>
                     </div>

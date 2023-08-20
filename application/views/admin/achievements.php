@@ -10,7 +10,7 @@
                 <button class="btn btn-lg btn-primary btn-lg-square rounded-circle"><i class="bi bi-search"></i></button>
             </form>
             <div>
-                <a href="<?= site_url('administrationHydroGroup/new_blog/'); ?>" class="btn btn-primary py-3 px-5">Ajouter</a>
+                <a href="<?= site_url('administrationHydroGroup/new_achievements/'); ?>" class="btn btn-primary py-3 px-5">Ajouter</a>
             </div>
         </div>
         <div class="py-5">
@@ -19,7 +19,7 @@
                     <tr>
                         <th class="py-3 fs-5">Année</th>
                         <th class="py-3 fs-5">Nom de la mission</th>
-                        <th class="py-3 fs-5">Autorite contractante</th>
+                        <th class="py-3 fs-5">Autorité contractante</th>
                         <th class="py-3 fs-5">Actions</th>
                     </tr>
                 </thead>
