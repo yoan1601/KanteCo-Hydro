@@ -40,12 +40,6 @@ class AdministrationHydroGroup extends CI_Controller
         redirect('AdministrationHydroGroup/login/1');
     }
 
-
-    public function achievements()
-    {
-        $this->load->view("admin/achievements");
-    }
-
     public function email_delete($id)
     {
         $this->email->delete($id);
@@ -204,5 +198,12 @@ class AdministrationHydroGroup extends CI_Controller
     {
         $data["active"] = "blog";
         $this->load->view("admin/blog", ['data' => $data]);
+    }
+
+
+    public function achievements()
+    {
+        $data["active"] = "achievements";
+        $this->load->view("admin/achievements", ['data' => $data]);
     }
 }

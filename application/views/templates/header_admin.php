@@ -58,7 +58,7 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav ms-auto p-4 p-lg-0">
-                <a href="<?= site_url(''); ?>" class="nav-item nav-link ">Realisations</a>
+                <a href="<?= site_url('AdministrationHydroGroup/achievements'); ?>" class="nav-item nav-link <?php if ($data['active'] === 'achievements') echo 'active'; ?>">Realisations</a>
                 <a href="<?= site_url('AdministrationHydroGroup/blog'); ?>" class="nav-item nav-link <?php if ($data['active'] === 'blog') echo 'active'; ?>">Blog</a>
                 <a href="<?= site_url('AdministrationHydroGroup/mails'); ?>" class="nav-item nav-link <?php if ($data['active'] === 'mails') echo 'active'; ?>">Mails</a>
                 <a href="<?= site_url('AdministrationHydroGroup/contact'); ?>" class="nav-item nav-link <?php if ($data['active'] === 'contact') echo 'active'; ?>">Contact</a>
