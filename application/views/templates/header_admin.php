@@ -51,7 +51,7 @@
             <a href="index.html" class=" d-flex align-items-center border-end px-4 px-lg-5">
                 <img src="<?= base_url("assets/") ?>img/HYDROCAMP LOGO FINAL.PNG" alt="" width="70">
             </a>
-            <h5 class="ms-4 text-primary">Admin backoffice</h5>
+            <h5 class="ms-4 text-primary">Admin</h5>
         </div>
         <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
             <span class="navbar-toggler-icon"></span>
@@ -59,7 +59,7 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav ms-auto p-4 p-lg-0">
                 <a href="<?= site_url(''); ?>" class="nav-item nav-link ">Realisations</a>
-                <a href="<?= site_url(''); ?>" class="nav-item nav-link">Blog</a>
+                <a href="<?= site_url('AdministrationHydroGroup/blog'); ?>" class="nav-item nav-link <?php if ($data['active'] === 'blog') echo 'active'; ?>">Blog</a>
                 <a href="<?= site_url('AdministrationHydroGroup/mails'); ?>" class="nav-item nav-link <?php if ($data['active'] === 'mails') echo 'active'; ?>">Mails</a>
                 <a href="<?= site_url('AdministrationHydroGroup/contact'); ?>" class="nav-item nav-link <?php if ($data['active'] === 'contact') echo 'active'; ?>">Contact</a>
                 <a href="<?= site_url('AdministrationHydroGroup/devis'); ?>" class="nav-item nav-link <?php if ($data['active'] === 'devis') echo 'active'; ?>">Devis</a>

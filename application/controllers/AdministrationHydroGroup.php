@@ -199,4 +199,10 @@ class AdministrationHydroGroup extends CI_Controller
         $data["active"] = "admin";
         $this->load->view("admin/new_admin", ['data' => $data]);
     }
+
+    public function blog()
+    {
+        $data["active"] = "blog";
+        $this->load->view("admin/blog", ['data' => $data]);
+    }
 }
