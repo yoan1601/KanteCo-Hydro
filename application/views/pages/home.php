@@ -59,9 +59,6 @@
                 <p><?= $data['accueil_' . $data['lang']]['accueil_droite2'] ?></p>
             </div>
         </div>
-        <!-- <div class="col-lg-6 ps-lg-0 d-flex align-item-center justify-content-center wow fadeIn" data-wow-delay="0.5s">
-                <img class="" src="<?= base_url("assets/") ?>img/HYDROCAMP LOGO FINAL.PNG" style="object-fit: contain; width: 350px;" alt="">
-            </div> -->
         <div class="col-lg-6">
             <div class="row p-lg-5 align-items-center">
                 <div class="col-md-6 col-lg-6 wow fadeIn mb-5 " data-wow-delay="0.5s">
@@ -188,8 +185,8 @@
     <div class="container about px-lg-0">
         <div class="row g-0 mx-lg-0">
             <div class="col-lg-6 ps-lg-0 wow fadeIn" data-wow-delay="0.1s" style="min-height: 400px;">
-                <div class="position-relative h-100">
-                    <img class="position-absolute img-fluid w-100 h-100" src="<?= base_url("assets/") ?>img/HYDROCAMP LOGO FINAL.PNG" alt="">
+                <div class="position-relative h-100 d-flex justify-content-center align-items-center">
+                    <img class="position-absolute img-fluid" src="<?= base_url("assets/") ?>img/HYDROCAMP_LOGO_FINAL-removebg-preview.png" alt="">
                 </div>
             </div>
             <div class="col-lg-6 about-text py-5 wow fadeIn" data-wow-delay="0.5s">

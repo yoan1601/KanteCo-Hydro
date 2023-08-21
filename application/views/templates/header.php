@@ -46,10 +46,15 @@
 	<!-- Spinner End -->
 
 	<!-- Navbar Start -->
-	<nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top p-0 shadow-sm">
-		<a href="index.html" class="navbar-brand d-flex align-items-center border-end px-4 px-lg-5">
-			<img src="<?= base_url("assets/") ?>img/HYDROCAMP LOGO FINAL.PNG" alt="" width="70">
-		</a>
+	<nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top p-0 shadow-sm" style="<?php if ($data['page'] === 'espace') echo 'box-shadow: 0 0.125rem 0.25rem rgba(0,0,0,0.075) !important;'; ?>">
+		<div class="navbar-brand d-flex align-items-center">
+			<a href="index.html" class=" d-flex align-items-center border-end px-4 px-lg-5">
+				<img src="<?= base_url("assets/") ?>img/HYDROCAMP LOGO FINAL.PNG" alt="" width="70">
+			</a>
+			<?php if ($data['session']) { ?>
+				<h5 class="ms-4 text-primary"><a href="<?= site_url('front/espace'); ?>">Espace client</a></h5>
+			<?php } ?>
+		</div>
 		<button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
 			<span class="navbar-toggler-icon"></span>
 		</button>
@@ -75,12 +80,12 @@
 						</span>
 					</a>
 				<?php } ?>
+				<?php if (!$data['session']) { ?>
+					<a href="<?= site_url("front/sign_in") ?>" class="my-lg-0 my-3 btn btn-primary rounded-0 py-4 px-lg-5 d-lg-block ms-lg-3"><?= $data['header_' . $data['lang']]['item7'] ?><i class="fa fa-arrow-right ms-3"></i></a>
+				<?php } else { ?>
+					<a href="<?= site_url("utilisateur/log_out") ?>" class="my-lg-0 my-3 btn btn-warning rounded-0 py-4 px-lg-5 d-lg-block ms-lg-3"><?= $data['header_' . $data['lang']]['item8'] ?><i class="fa fa-arrow-right ms-3"></i></a>
+				<?php } ?>
 			</div>
-			<?php if (!$data['session']){ ?>
-				<a href="<?= site_url("front/sign_in") ?>" class="btn btn-primary rounded-0 py-4 px-lg-5 d-none d-lg-block ms-3"><?= $data['header_' . $data['lang']]['item7'] ?><i class="fa fa-arrow-right ms-3"></i></a>
-			<?php } else { ?>
-				<a href="<?= site_url("utilisateur/log_out") ?>" class="btn btn-warning rounded-0 py-4 px-lg-5 d-none d-lg-block ms-3"><?= $data['header_' . $data['lang']]['item8'] ?><i class="fa fa-arrow-right ms-3"></i></a>
-			<?php } ?>
 		</div>
 	</nav>
 	<!-- Navbar End -->

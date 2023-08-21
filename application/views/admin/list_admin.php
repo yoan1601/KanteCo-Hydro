@@ -2,7 +2,7 @@
 <div class="container-xxl py-5 wow fadeIn" data-wow-delay="0.1s">
     <div class="container">
         <div class="mb-3" style="max-width: 600px; visibility: visible; animation-delay: 0.1s; animation-name: fadeInUp;">
-            <h1 class="text-secondary">Liste des réalisations</h1>
+            <h1 class="text-secondary">Liste des admins</h1>
         </div>
         <div class="d-flex flex-wrap mt-4">
             <form class="d-flex mb-3 me-auto" style="gap: 0.5rem" action="<?= site_url(''); ?>">
@@ -10,16 +10,15 @@
                 <button class="btn btn-lg btn-primary btn-lg-square rounded-circle"><i class="bi bi-search"></i></button>
             </form>
             <div>
-                <a href="<?= site_url('administrationHydroGroup/new_achievements/'); ?>" class="btn btn-primary py-3 px-5">Ajouter</a>
+                <a href="<?= site_url('administrationHydroGroup/new_admin/'); ?>" class="btn btn-primary py-3 px-5">Ajouter</a>
             </div>
         </div>
         <div class="py-5">
             <table class="table align-middle mb-0 bg-white">
                 <thead class="bg-light">
                     <tr>
-                        <th class="py-3 fs-5">Année</th>
-                        <th class="py-3 fs-5">Nom de la mission</th>
-                        <th class="py-3 fs-5">Autorité contractante</th>
+                        <th class="py-3 fs-5">Nom</th>
+                        <th class="py-3 fs-5">Mails</th>
                         <th class="py-3 fs-5">Actions</th>
                     </tr>
                 </thead>
@@ -27,13 +26,10 @@
                     <?php for ($i = 0; $i < 5; $i++) { ?>
                         <tr>
                             <td class="py-3">
-                                <p class="fw-normal fs-5 mb-0">2023</p>
+                                <p class="fw-normal fs-5 mb-0">RAKOTOARIVONY Judichaël Tokiniaina</p>
                             </td>
                             <td class="py-3">
-                                <p class="fw-normal fs-5 mb-0">Construction d'aire d'assainissement</p>
-                            </td>
-                            <td class="py-3">
-                                <p class="fw-normal fs-5 mb-0">Commune Ejeda</p>
+                                <p class="fw-normal fs-5 mb-0">rjtoky@kanteco.com</p>
                             </td>
                             <td class="py-3">
                                 <a href="" class="ms-4">
