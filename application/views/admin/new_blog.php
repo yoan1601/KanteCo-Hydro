@@ -50,9 +50,17 @@
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <div class="form-floating">
-                            <input type="file" class="form-control" name="" placeholder="Images de publication">
-                            <label for="">Images de publication</label>
+                        <div class="form-floating mb-3">
+                            <input type="file" class="form-control" name="image_publication1" placeholder="Images de publication 1">
+                            <label for="">Images de publication 1</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="file" class="form-control" name="image_publication2" placeholder="Images de publication 2">
+                            <label for="">Images de publication 2</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="file" class="form-control" name="image_publication3" placeholder="Images de publication 3">
+                            <label for="">Images de publication 3</label>
                         </div>
                     </div>
                     <div class="col-12 mt-5 d-flex">

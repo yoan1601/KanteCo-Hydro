@@ -52,10 +52,22 @@ class AdministrationHydroGroup extends CI_Controller
         redirect('AdministrationHydroGroup/contact');
     }
 
+    public function realisation_delete($id)
+    {
+        $this->realisation->delete($id);
+        redirect('AdministrationHydroGroup/achievements');
+    }
+
     public function devis_delete($id)
     {
         $this->devis->delete($id);
         redirect('AdministrationHydroGroup/devis');
+    }
+
+    public function blog_delete($id)
+    {
+        $this->blog->delete($id);
+        redirect('AdministrationHydroGroup/blog');
     }
 
     public function devis($is_search = 0, $num_page = 1)
@@ -182,40 +194,313 @@ class AdministrationHydroGroup extends CI_Controller
         $this->load->view("admin/mails", ['data' => $data]);
     }
 
-    public function list_admin()
+    public function list_admin($is_search = 0, $num_page = 1)
     {
+        if ($this->session->has_userdata('user') == false) {
+            $data['session'] = false;
+        } else {
+            $data['session'] = $this->session->user;
+        }
+
+        if ($this->session->flashdata('errors') != null){
+            $data['errors']= $this->session->flashdata('errors');
+        }else{
+            $data['errors'] = false;
+        }
+        
         $data["active"] = "admin";
+
+        $nbAffiche = 3;
+        $data['page_en_cours'] = $num_page;
+
+        $data['nb_resultat'] = count($this->admin->find_all_admin());
+        $data['admin'] = $this->admin->findAllPagination($numero_page = $num_page, $nombre_resultat_affiche = $nbAffiche);
+        // objet -> tableau
+        $data['admin'] = json_decode(json_encode($data['admin']), true);
+        $data['nbPages'] = $this->admin->getNombrePage($nombre_resultat_affiche = $nbAffiche);
+
+        if ($is_search == 1) {
+            $keyword = $this->input->get('keyword');
+            if ($keyword == NULL) {
+                $keyword = $this->session->keyword;
+            }
+            $this->session->set_userdata('keyword', $keyword);
+            $data['nb_resultat'] = count($this->admin->all_resultat_search($keyword));
+            $data['admin'] = $this->admin->search($numero_page = $num_page, $nombre_resultat_affiche = $nbAffiche, $keyword = $keyword);
+            // objet -> tableau
+            $data['admin'] = json_decode(json_encode($data['admin']), true);
+            $data['nbPages'] = $this->admin->getNombrePageSearch($data['nb_resultat'], $nombre_resultat_affiche = $nbAffiche);
+        } else {
+            $this->session->unset_userdata('keyword');
+        }
+
+        //set all images 
+        $data['is_search'] = $is_search;
         $this->load->view("admin/list_admin", ['data' => $data]);
     }
 
     public function new_admin()
     {
+        if ($this->session->has_userdata('user') == false) {
+            $data['session'] = false;
+        } else {
+            $data['session'] = $this->session->user;
+        }
+
+        if ($this->session->flashdata('errors') != null){
+            $data['errors']= $this->session->flashdata('errors');
+        }else{
+            $data['errors'] = false;
+        }
+
         $data["active"] = "admin";
         $this->load->view("admin/new_admin", ['data' => $data]);
     }
 
-    public function blog()
+    public function inserer_admin(){
+        $nom = $this->input->post('Nom');
+        $telephone = $this->input->post('Telephone');
+        $mail = $this->input->post('Mail');
+        $mdp = $this->input->post('mdp');
+        require APPPATH.'constant/validation_msg.php';
+        $this->validation->set_rules(
+            "Nom", "nom de l'administrateur",
+            'trim|required',
+            $error_msg
+        );
+        $this->validation->set_rules(
+            "Telephone", "telephone de l'administrateur",
+            'trim|required|alpha_numeric',
+            $error_msg
+        );
+        $this->validation->set_rules(
+            "Mail", "email de l'administrateur",
+            'required|trim',
+            $error_msg
+        );
+        $this->validation->set_rules(
+            "mdp", "mot de passe",
+            'required|min_length[6]',
+            $error_msg
+        );
+
+        if ($this->validation->run() == false){
+        $errors =array();
+        foreach ($this->input->post() as $key => $value) {
+            $errors[$key]= form_error($key);
+        }
+        $this->session->set_flashdata('errors', $this->validation->error_array());
+        redirect('administrationhydrogroup/new_admin');
+        }else{
+        $this->admin->insert($nom, $telephone, $mail, $mdp);
+        redirect('administrationhydrogroup/list_admin');
+        }
+    }
+
+    public function modifier_admin(){
+        $nom = $this->input->post('Nom');
+        $id = $this->input->post('id');
+        $telephone = $this->input->post('Telephone');
+        $mail = $this->input->post('Mail');
+        $mdp = $this->input->post('mdp');
+        require APPPATH.'constant/validation_msg.php';
+        $this->validation->set_rules(
+            "Nom", "nom de l'administrateur",
+            'trim|required',
+            $error_msg
+        );
+        $this->validation->set_rules(
+            "Telephone", "telephone de l'administrateur",
+            'trim|required|alpha_numeric',
+            $error_msg
+        );
+        $this->validation->set_rules(
+            "Mail", "email de l'administrateur",
+            'required|trim',
+            $error_msg
+        );
+        $this->validation->set_rules(
+            "mdp", "mot de passe",
+            'required|min_length[6]',
+            $error_msg
+        );
+
+        if ($this->validation->run() == false){
+        $errors =array();
+        foreach ($this->input->post() as $key => $value) {
+            $errors[$key]= form_error($key);
+        }
+        $this->session->set_flashdata('errors', $this->validation->error_array());
+        redirect('administrationhydrogroup/list_admin');
+        }else{
+        $this->admin->update_admin($id,$nom, $telephone, $mail, $mdp);
+        redirect('administrationhydrogroup/list_admin');
+        }
+    }
+
+    public function admin_delete($id){
+        $this->admin->delete($id);
+        redirect('AdministrationHydroGroup/list_admin');
+    }
+
+    public function blog($is_search = 0, $num_page = 1)
     {
+        if ($this->session->has_userdata('user') == false) {
+            $data['session'] = false;
+        } else {
+            $data['session'] = $this->session->user;
+        }
         $data["active"] = "blog";
+        $nbAffiche = 3;
+        $data['page_en_cours'] = $num_page;
+
+        $data['nb_resultat'] = count($this->blog->findAll());
+        $data['blog'] = $this->blog->findAllPagination($numero_page = $num_page, $nombre_resultat_affiche = $nbAffiche);
+        // objet -> tableau
+        $data['blog'] = json_decode(json_encode($data['blog']), true);
+        $data['nbPages'] = $this->blog->getNombrePage($nombre_resultat_affiche = $nbAffiche);
+
+        if ($is_search == 1) {
+            $keyword = $this->input->get('keyword');
+            if ($keyword == NULL) {
+                $keyword = $this->session->keyword;
+            }
+            $this->session->set_userdata('keyword', $keyword);
+            $data['nb_resultat'] = count($this->blog->all_resultat_search($keyword));
+            $data['blog'] = $this->blog->search($numero_page = $num_page, $nombre_resultat_affiche = $nbAffiche, $keyword = $keyword);
+            // objet -> tableau
+            $data['blog'] = json_decode(json_encode($data['blog']), true);
+            $data['nbPages'] = $this->blog->getNombrePageSearch($data['nb_resultat'], $nombre_resultat_affiche = $nbAffiche);
+        } else {
+            $this->session->unset_userdata('keyword');
+        }
+
+        //set all images 
+        $data['is_search'] = $is_search;
         $this->load->view("admin/blog", ['data' => $data]);
     }
 
     public function new_blog()
     {
+        if ($this->session->has_userdata('user') == false) {
+            $data['session'] = false;
+        } else {
+            $data['session'] = $this->session->user;
+        }
         $data["active"] = "blog";
         $this->load->view("admin/new_blog", ['data' => $data]);
     }
 
 
-    public function achievements()
+    public function achievements($is_search = 0, $num_page = 1)
     {
+        if ($this->session->has_userdata('user') == false) {
+            $data['session'] = false;
+        } else {
+            $data['session'] = $this->session->user;
+        }
         $data["active"] = "achievements";
+        $nbAffiche = 3;
+        $data['page_en_cours'] = $num_page;
+
+        $data['nb_resultat'] = count($this->realisation->findAll());
+        $data['realisation'] = $this->realisation->findAllPagination($numero_page = $num_page, $nombre_resultat_affiche = $nbAffiche);
+        // objet -> tableau
+        $data['realisation'] = json_decode(json_encode($data['realisation']), true);
+        $data['nbPages'] = $this->realisation->getNombrePage($nombre_resultat_affiche = $nbAffiche);
+
+        if ($is_search == 1) {
+            $keyword = $this->input->get('keyword');
+            if ($keyword == NULL) {
+                $keyword = $this->session->keyword;
+            }
+            $this->session->set_userdata('keyword', $keyword);
+            $data['nb_resultat'] = count($this->realisation->all_resultat_search($keyword));
+            $data['realisation'] = $this->realisation->search($numero_page = $num_page, $nombre_resultat_affiche = $nbAffiche, $keyword = $keyword);
+            // objet -> tableau
+            $data['realisation'] = json_decode(json_encode($data['realisation']), true);
+            $data['nbPages'] = $this->realisation->getNombrePageSearch($data['nb_resultat'], $nombre_resultat_affiche = $nbAffiche);
+        } else {
+            $this->session->unset_userdata('keyword');
+        }
+
+        //set all images 
+        $data['is_search'] = $is_search;
         $this->load->view("admin/achievements", ['data' => $data]);
     }
 
     public function new_achievements()
     {
+        if ($this->session->has_userdata('user') == false) {
+            $data['session'] = false;
+        } else {
+            $data['session'] = $this->session->user;
+        }
+        $data["pays"] = $this->realisation->findAllPays();
         $data["active"] = "achievements";
         $this->load->view("admin/new_achievements", ['data' => $data]);
+    }
+
+    public function creer_achievement() {
+        $auteur = $this->input->post('auteur');
+        $pays = $this->input->post('pays');
+        $nom_mission_fr = $this->input->post('nom_mission_fr');
+        $nom_mission_en = $this->input->post('nom_mission_en');
+        $lieu = $this->input->post('lieu');
+        $autorite = $this->input->post('autorite');
+        $reference = $this->input->post('reference');
+        $adresse = $this->input->post('adresse');
+        $demarrage = $this->input->post('demarrage');
+        $achevement = $this->input->post('achevement');
+        $duree = $this->input->post('duree');
+        $publication = $this->input->post('publication');
+        $numero_reference = $this->input->post('numero_reference');
+        $email_reference = $this->input->post('email_reference');
+        $commentaire_fr = $this->input->post('commentaire_fr');
+        $commentaire_en = $this->input->post('commentaire_en');
+        $descri_fr = $this->input->post('descri_fr');
+        $descri_en = $this->input->post('descri_en');
+
+        $this->load->helper('upload');
+        var_dump(upload_file('logo_autorite'));
+        $logo_autorite = upload_file('logo_autorite')[1]['file_name'];
+        $image_couverture = upload_file('image_couverture')[1]['file_name'];
+        $image_publication1 = upload_file('image_publication1')[1]['file_name'];
+        $image_publication2 = upload_file('image_publication2')[1]['file_name'];
+        $image_publication3 = upload_file('image_publication3')[1]['file_name'];
+
+        $user = $this->session->user;
+        
+        $data = [
+            'idUser' => $user->id,
+            'idPays' => $pays,
+            'nom_mission_FR' => $nom_mission_fr,
+            'nom_mission_EN' => $nom_mission_en,
+            'lieu' => $lieu,
+            'autorite_contractante' => $autorite,
+            'reference' => $reference,
+            'adresse' => $adresse,
+            'date_achevement' => $demarrage,
+            'date_achevement' => $achevement,
+            'duree' => $duree,
+            'date_publication' => $publication,
+            'numero_reference' => $numero_reference,
+            'email_reference' => $email_reference,
+            'commentaire_FR' => $commentaire_fr,
+            'commentaire_EN' => $commentaire_en,
+            'description_FR' => $descri_fr,
+            'description_EN' => $descri_en,
+            'logo_autorite_contractante' => $logo_autorite,
+            'image_couverture' => $image_couverture,
+            'etat' => 1
+        ];
+
+        $imgs_pub = [$image_publication1, $image_publication2, $image_publication3];
+
+        // $this->realisation->inserer($data, $imgs_pub);
+
+        var_dump($data);
+        var_dump($imgs_pub);
+        // redirect('AdministrationHydroGroup/achievements');
     }
 }

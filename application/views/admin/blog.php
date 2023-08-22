@@ -5,7 +5,7 @@
             <h1 class="text-secondary">Liste blogs</h1>
         </div>
         <div class="d-flex flex-wrap mt-4">
-            <form class="d-flex mb-3 me-auto" style="gap: 0.5rem" action="<?= site_url(''); ?>">
+            <form class="d-flex mb-3 me-auto" style="gap: 0.5rem" action="<?= site_url('administrationHydroGroup/blog/1'); ?>">
                 <input type="text" class="form-control" name="keyword" placeholder="Mot clé" style="height: 55px; width: 300px;" required>
                 <button class="btn btn-lg btn-primary btn-lg-square rounded-circle"><i class="bi bi-search"></i></button>
             </form>
@@ -24,25 +24,45 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <?php for ($i = 0; $i < 5; $i++) { ?>
+                    <?php for ($i = 0; $i < count($data['blog']); $i++) { ?>
                         <tr>
                             <td class="py-3">
-                                <p class="fw-normal fs-5 mb-0">2023-07-01</p>
+                                <p class="fw-normal fs-5 mb-0"><?= $data['blog'][$i]['date_publication'] ?></p>
                             </td>
                             <td class="py-3">
-                                <p class="fw-normal fs-5 mb-0">L'importance de la biodiversité</p>
+                                <p class="fw-normal fs-5 mb-0"><?= $data['blog'][$i]['titre_FR'] ?></p>
                             </td>
                             <td class="py-3">
-                                <p class="fw-normal fs-5 mb-0">Jane Doe</p>
+                                <p class="fw-normal fs-5 mb-0"><?= $data['blog'][$i]['auteur'] ?></p>
                             </td>
                             <td class="py-3">
                                 <a href="" class="ms-4">
                                     <i class="fas fa-edit text-secondary" style="font-size: 1.5em"></i>
                                 </a>
-                                <a href="" class="ms-4">
+                                <a href="" class="ms-4" data-bs-toggle="modal" data-bs-target="#monModal-<?= $data['blog'][$i]['id'] ?>">
                                     <i class="fas fa-trash text-danger" style="font-size: 1.5em"></i>
                                 </a>
                             </td>
+
+                            <!-- Modal Supp -->
+                            <div class="modal fade" id="monModal-<?= $data['blog'][$i]['id'] ?>">
+                                <div class="modal-dialog modal-md">
+                                    <div class="modal-content position-relative">
+                                        <!-- En-tête du modal -->
+                                        <div class="modal-header">
+                                            <h4 class="modal-title">Voulez-vous vraiment supprimer ce blog ?</h4>
+                                        </div>
+
+                                        <!-- Contenu du modal -->
+                                        <div class="modal-body">
+                                            <div class="d-flex align-items-center justify-content-center gap-3">
+                                                <a href="<?= site_url('administrationHydroGroup/blog_delete/' . $data['blog'][$i]['id']) ?>" class="btn btn-danger px-4" style="padding-top: 0.75em;padding-bottom: 0.75em;">OUI</a>
+                                                <a href="" class="btn btn-primary px-4" data-bs-dismiss="modal" style="padding-top: 0.75em;padding-bottom: 0.75em;">NON</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </tr>
                     <?php } ?>
                 </tbody>
@@ -52,24 +72,30 @@
         <div class="row mt-5">
             <nav>
                 <ul class="pagination justify-content-center pagination-lg">
-                    <li class="page-item">
-                        <a class="page-link" href="#" aria-label="Previous">
-                            <span aria-hidden="true">&laquo;</span>
-                            <span class="sr-only">Previous</span>
-                        </a>
-                    </li>
-                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                    <li class="page-item">
-                        <a class="page-link" href="#" aria-label="Next">
-                            <span aria-hidden="true">&raquo;</span>
-                            <span class="sr-only">Next</span>
-                        </a>
-                    </li>
+                    <?php if ($data['page_en_cours'] > 1) { ?>
+                        <li class="page-item">
+                            <a class="page-link" href="<?= $data['page_en_cours'] - 1 ?>" aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                        </li>
+                        <li class="page-item"><a class="page-link" href="<?= site_url('administrationHydroGroup/blog/' . $data['is_search'] . '/' . $data['page_en_cours'] - 1); ?>"><?= $data['page_en_cours'] - 1 ?></a></li>
+                    <?php } ?>
+
+                    <li class="page-item"><button class="page-link" style="color:white; background-color:#32c36c;"><?= $data['page_en_cours'] ?></button></li>
+
+                    <?php if ($data['page_en_cours'] < $data['nbPages']) { ?>
+                        <li class="page-item"><a class="page-link" href="<?= site_url('administrationHydroGroup/blog/' . $data['is_search'] . '/' . $data['page_en_cours'] + 1); ?>"><?= $data['page_en_cours'] + 1 ?></a></li>
+                        <li class="page-item">
+                            <a class="page-link" href="<?= site_url('administrationHydroGroup/blog/' . $data['is_search'] . '/' . $data['page_en_cours'] + 1); ?>" aria-label="Next">
+                                <span aria-hidden="true">&raquo;</span>
+                                <span class="sr-only">Next</span>
+                            </a>
+                        </li>
+                    <?php } ?>
                 </ul>
             </nav>
-            <p class="fw-bold text-center">Résultats : 12</p>
+            <p class="fw-bold text-center">Résultats : <?= $data['nb_resultat'] ?></p>
         </div>
     </div>
 </div>

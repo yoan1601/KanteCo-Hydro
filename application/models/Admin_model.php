@@ -52,6 +52,7 @@ class Admin_model extends CI_Model {
       }
       $this->db->group_end(); 
     }
+    $this->db->where('is_admin', 11);
     $query = $this->db->get('users');
     return $query->result();
 }
@@ -74,6 +75,7 @@ class Admin_model extends CI_Model {
       $this->db->group_end(); 
     }
     $this->db->where('etat >', 0);
+    $this->db->where('is_admin', 11);
     $query = $this->db->get('users');
     return $query->result();
   }
@@ -81,6 +83,7 @@ class Admin_model extends CI_Model {
   public function findAllPagination($numero_page,$nombre_resultat_affiche){
     $calcul_limite = ($numero_page-1)*$nombre_resultat_affiche;
     $this->db->where('etat >', 0);
+    $this->db->where('is_admin', 11);
     $this->db->limit($nombre_resultat_affiche,$calcul_limite);
     $query = $this->db->get("users");
     return $query->result();
@@ -88,6 +91,7 @@ class Admin_model extends CI_Model {
 
   public function getNombrePage($nombre_resultat_affiche = 2){
     $this->db->where('etat >', 0);
+    $this->db->where('is_admin', 11);
     $query = $this->db->get('users');
     $rows = count(($query->result()));
     return ceil($rows/$nombre_resultat_affiche);
@@ -130,6 +134,16 @@ class Admin_model extends CI_Model {
   public function find_all_mails(){
     $query = $this->db->get('emails');
     return $query->result();
+  }
+
+  public function update_admin($id, $nom, $tel, $email, $mdp){
+    $this->db->where('id', $id);
+    $this->db->update('users', [
+      'nom'=>$nom,
+      'telephone'=>$tel,
+      'mail' => $email,
+      'mot_de_passe'=> md5($mdp) 
+    ]);
   }
 
   
