@@ -2,14 +2,14 @@
 <div class="container-xxl py-5 wow fadeIn" data-wow-delay="0.1s">
     <div class="container">
         <div class="mb-3" style="max-width: 600px; visibility: visible; animation-delay: 0.1s; animation-name: fadeInUp;">
-            <h1 class="text-secondary">Nouvelle réalisation</h1>
+            <h1 class="text-secondary">Modification réalisation</h1>
         </div>
         <div class="py-5 row">
-            <form class="col-lg-8 col-12" action="<?= site_url('administrationHydroGroup/creer_achievement/') ?>" method="POST" enctype="multipart/form-data">
+            <form class="col-lg-8 col-12" action="<?= site_url('administrationHydroGroup/') ?>" method="POST" enctype="multipart/form-data">
                 <div class="row g-3">
                     <div class="col-md-6">
                         <div class="form-floating">
-                            <input required type="text" class="form-control" name="auteur" placeholder="Auteur">
+                            <input required value="" type="text" class="form-control" name="auteur" placeholder="Auteur">
                             <label for="">Auteur (*)</label>
                         </div>
                     </div>
@@ -23,79 +23,79 @@
                     </div>
                     <div class="col-md-6">
                         <div class="form-floating">
-                            <input required type="text" class="form-control" name="nom_mission_fr" placeholder="Nom de la mission FR">
+                            <input required value="" type="text" class="form-control" name="nom_mission_fr" placeholder="Nom de la mission FR">
                             <label for="">Nom de la mission FR (*)</label>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-floating">
-                            <input required type="text" class="form-control" name="nom_mission_en" placeholder="Nom de la mission EN">
+                            <input required value="" type="text" class="form-control" name="nom_mission_en" placeholder="Nom de la mission EN">
                             <label for="">Nom de la mission EN (*)</label>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-floating">
-                            <input required type="text" class="form-control" name="lieu" placeholder="Lieu">
+                            <input required value="" type="text" class="form-control" name="lieu" placeholder="Lieu">
                             <label for="">Lieu (*)</label>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-floating">
-                            <input required type="text" class="form-control" name="autorite" placeholder="Autorité contractante">
+                            <input required value="" type="text" class="form-control" name="autorite" placeholder="Autorité contractante">
                             <label for="">Autorité contractante (*)</label>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-floating">
-                            <input required type="text" class="form-control" name="reference" placeholder="Référence">
+                            <input required value="" type="text" class="form-control" name="reference" placeholder="Référence">
                             <label for="">Référence (*)</label>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-floating">
-                            <input required type="text" class="form-control" name="adresse" placeholder="Adresse">
+                            <input required value="" type="text" class="form-control" name="adresse" placeholder="Adresse">
                             <label for="">Adresse (*)</label>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-floating">
-                            <input required type="date" class="form-control" name="demarrage" placeholder="Date de demarrage du projet">
+                            <input required value="" type="date" class="form-control" name="demarrage" placeholder="Date de demarrage du projet">
                             <label for="">Date de démarrage du projet (*)</label>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-floating">
-                            <input required type="date" class="form-control" name="achevement" placeholder="Date d’achèvement du projet">
+                            <input required value="" type="date" class="form-control" name="achevement" placeholder="Date d’achèvement du projet">
                             <label for="">Date d’achèvement du projet (*)</label>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-floating">
-                            <input required type="number" class="form-control" name="duree" placeholder="Durée du projet">
+                            <input required value="" type="number" class="form-control" name="duree" placeholder="Durée du projet">
                             <label for="">Durée du projet (*)</label>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-floating">
-                            <input required type="date" class="form-control" name="publication" placeholder="Date de publication">
+                            <input required value="" type="date" class="form-control" name="publication" placeholder="Date de publication">
                             <label for="">Date de publication (*)</label>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-floating">
-                            <input type="text" class="form-control" name="numero_reference" placeholder="Numero de la référence">
+                            <input type="text" value="" class="form-control" name="numero_reference" placeholder="Numero de la référence">
                             <label for="">Numero de la référence</label>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-floating">
-                            <input type="email" class="form-control" name="email_reference" placeholder="Email de la référence">
+                            <input type="email" value="" class="form-control" name="email_reference" placeholder="Email de la référence">
                             <label for="">Email de la référence</label>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-floating">
-                            <textarea required class="form-control" name="commentaire_fr" placeholder="Commentaire FR" style="height: 150px"></textarea>
+                            <textarea required id="monTextarea" class="form-control" name="commentaire_fr" placeholder="Commentaire FR" style="height: 150px">                            </textarea>
                             <label for="">Commentaire FR (*)</label>
                         </div>
                     </div>
@@ -111,7 +111,7 @@
                             <label for="">Description FR (*)</label>
                         </div>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-6 mb-5">
                         <div class="form-floating">
                             <textarea required class="form-control" name="descri_en" placeholder="Description EN" style="height: 150px"></textarea>
                             <label for="">Description EN (*)</label>
@@ -128,33 +128,33 @@
                         <div class="form-floating">
                             <input required type="file" class="form-control mb-3" name="image_couverture" data-preview="preview2" placeholder="Image de couverture (*)">
                             <label for="">Image de couverture (*)</label>
-                            <img class="img-fluid" style="width: 100%; height: 40vh; object-fit: cover;" id="preview2" src="<?= base_url("assets/") ?>img/Image upload-bro.png" alt="">
+                            <img class="img-fluid" style="width: 100%; height: 40vh; object-fit: cover;" id="preview2" src="<?= base_url("assets/") ?>img/carousel-1.jpg" alt="">
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-floating mb-5">
                             <input type="file" class="form-control mb-3" name="image_publication1" data-preview="preview3" placeholder="Images de publication 1">
                             <label for="">Images de publication 1</label>
-                            <img class="img-fluid" style="width: 100%; height: 40vh; object-fit: cover;" id="preview3" src="<?= base_url("assets/") ?>img/Image upload-bro.png" alt="">
+                            <img class="img-fluid" style="width: 100%; height: 40vh; object-fit: cover;" id="preview3" src="<?= base_url("assets/") ?>img/carousel-2.jpg" alt="">
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-floating mb-5">
                             <input type="file" class="form-control mb-3" name="image_publication2" data-preview="preview4" placeholder="Images de publication 2">
                             <label for="">Images de publication 2</label>
-                            <img class="img-fluid" style="width: 100%; height: 40vh; object-fit: cover;" id="preview4" src="<?= base_url("assets/") ?>img/Image upload-bro.png" alt="">
+                            <img class="img-fluid" style="width: 100%; height: 40vh; object-fit: cover;" id="preview4" src="<?= base_url("assets/") ?>img/carousel-3.jpg" alt="">
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <div class="form-floating mb-5">
+                        <div class="form-floating">
                             <input type="file" class="form-control mb-3" name="image_publication3" data-preview="preview5" placeholder="Images de publication 3">
                             <label for="">Images de publication 3</label>
                             <img class="img-fluid" style="width: 100%; height: 40vh; object-fit: cover;" id="preview5" src="<?= base_url("assets/") ?>img/Image upload-bro.png" alt="">
                         </div>
                     </div>
-                    <div class="col-12 mt-5 d-flex">
-                        <button class="btn btn-primary py-3 px-5" type="submit">Valider</button>
-                    </div>
+                </div>
+                <div class="col-12 mt-5 d-flex">
+                    <button class="btn btn-primary py-3 px-5" type="submit">Valider</button>
                 </div>
             </form>
         </div>
@@ -183,4 +183,5 @@
         });
     });
 </script>
+
 <?php $this->load->view("templates/footer_admin"); ?>

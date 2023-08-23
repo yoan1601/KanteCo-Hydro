@@ -202,12 +202,12 @@ class AdministrationHydroGroup extends CI_Controller
             $data['session'] = $this->session->user;
         }
 
-        if ($this->session->flashdata('errors') != null){
-            $data['errors']= $this->session->flashdata('errors');
-        }else{
+        if ($this->session->flashdata('errors') != null) {
+            $data['errors'] = $this->session->flashdata('errors');
+        } else {
             $data['errors'] = false;
         }
-        
+
         $data["active"] = "admin";
 
         $nbAffiche = 3;
@@ -247,9 +247,9 @@ class AdministrationHydroGroup extends CI_Controller
             $data['session'] = $this->session->user;
         }
 
-        if ($this->session->flashdata('errors') != null){
-            $data['errors']= $this->session->flashdata('errors');
-        }else{
+        if ($this->session->flashdata('errors') != null) {
+            $data['errors'] = $this->session->flashdata('errors');
+        } else {
             $data['errors'] = false;
         }
 
@@ -257,88 +257,99 @@ class AdministrationHydroGroup extends CI_Controller
         $this->load->view("admin/new_admin", ['data' => $data]);
     }
 
-    public function inserer_admin(){
+    public function inserer_admin()
+    {
         $nom = $this->input->post('Nom');
         $telephone = $this->input->post('Telephone');
         $mail = $this->input->post('Mail');
         $mdp = $this->input->post('mdp');
-        require APPPATH.'constant/validation_msg.php';
+        require APPPATH . 'constant/validation_msg.php';
         $this->validation->set_rules(
-            "Nom", "nom de l'administrateur",
+            "Nom",
+            "nom de l'administrateur",
             'trim|required',
             $error_msg
         );
         $this->validation->set_rules(
-            "Telephone", "telephone de l'administrateur",
+            "Telephone",
+            "telephone de l'administrateur",
             'trim|required|alpha_numeric',
             $error_msg
         );
         $this->validation->set_rules(
-            "Mail", "email de l'administrateur",
+            "Mail",
+            "email de l'administrateur",
             'required|trim',
             $error_msg
         );
         $this->validation->set_rules(
-            "mdp", "mot de passe",
+            "mdp",
+            "mot de passe",
             'required|min_length[6]',
             $error_msg
         );
 
-        if ($this->validation->run() == false){
-        $errors =array();
-        foreach ($this->input->post() as $key => $value) {
-            $errors[$key]= form_error($key);
-        }
-        $this->session->set_flashdata('errors', $this->validation->error_array());
-        redirect('administrationhydrogroup/new_admin');
-        }else{
-        $this->admin->insert($nom, $telephone, $mail, $mdp);
-        redirect('administrationhydrogroup/list_admin');
+        if ($this->validation->run() == false) {
+            $errors = array();
+            foreach ($this->input->post() as $key => $value) {
+                $errors[$key] = form_error($key);
+            }
+            $this->session->set_flashdata('errors', $this->validation->error_array());
+            redirect('administrationhydrogroup/new_admin');
+        } else {
+            $this->admin->insert($nom, $telephone, $mail, $mdp);
+            redirect('administrationhydrogroup/list_admin');
         }
     }
 
-    public function modifier_admin(){
+    public function modifier_admin()
+    {
         $nom = $this->input->post('Nom');
         $id = $this->input->post('id');
         $telephone = $this->input->post('Telephone');
         $mail = $this->input->post('Mail');
         $mdp = $this->input->post('mdp');
-        require APPPATH.'constant/validation_msg.php';
+        require APPPATH . 'constant/validation_msg.php';
         $this->validation->set_rules(
-            "Nom", "nom de l'administrateur",
+            "Nom",
+            "nom de l'administrateur",
             'trim|required',
             $error_msg
         );
         $this->validation->set_rules(
-            "Telephone", "telephone de l'administrateur",
+            "Telephone",
+            "telephone de l'administrateur",
             'trim|required|alpha_numeric',
             $error_msg
         );
         $this->validation->set_rules(
-            "Mail", "email de l'administrateur",
+            "Mail",
+            "email de l'administrateur",
             'required|trim',
             $error_msg
         );
         $this->validation->set_rules(
-            "mdp", "mot de passe",
+            "mdp",
+            "mot de passe",
             'required|min_length[6]',
             $error_msg
         );
 
-        if ($this->validation->run() == false){
-        $errors =array();
-        foreach ($this->input->post() as $key => $value) {
-            $errors[$key]= form_error($key);
-        }
-        $this->session->set_flashdata('errors', $this->validation->error_array());
-        redirect('administrationhydrogroup/list_admin');
-        }else{
-        $this->admin->update_admin($id,$nom, $telephone, $mail, $mdp);
-        redirect('administrationhydrogroup/list_admin');
+        if ($this->validation->run() == false) {
+            $errors = array();
+            foreach ($this->input->post() as $key => $value) {
+                $errors[$key] = form_error($key);
+            }
+            $this->session->set_flashdata('errors', $this->validation->error_array());
+            redirect('administrationhydrogroup/list_admin');
+        } else {
+            $this->admin->update_admin($id, $nom, $telephone, $mail, $mdp);
+            redirect('administrationhydrogroup/list_admin');
         }
     }
 
-    public function admin_delete($id){
+    public function admin_delete($id)
+    {
         $this->admin->delete($id);
         redirect('AdministrationHydroGroup/list_admin');
     }
@@ -441,7 +452,8 @@ class AdministrationHydroGroup extends CI_Controller
         $this->load->view("admin/new_achievements", ['data' => $data]);
     }
 
-    public function creer_achievement() {
+    public function creer_achievement()
+    {
         $auteur = $this->input->post('auteur');
         $pays = $this->input->post('pays');
         $nom_mission_fr = $this->input->post('nom_mission_fr');
@@ -470,7 +482,7 @@ class AdministrationHydroGroup extends CI_Controller
         $image_publication3 = upload_file('image_publication3')[1]['file_name'];
 
         $user = $this->session->user;
-        
+
         $data = [
             'idUser' => $user->id,
             'idPays' => $pays,
@@ -502,5 +514,28 @@ class AdministrationHydroGroup extends CI_Controller
         var_dump($data);
         var_dump($imgs_pub);
         // redirect('AdministrationHydroGroup/achievements');
+    }
+
+    public function modif_achievements()
+    {
+        if ($this->session->has_userdata('user') == false) {
+            $data['session'] = false;
+        } else {
+            $data['session'] = $this->session->user;
+        }
+        $data["pays"] = $this->realisation->findAllPays();
+        $data["active"] = "achievements";
+        $this->load->view("admin/modif_achievements", ['data' => $data]);
+    }
+
+    public function modif_blog()
+    {
+        if ($this->session->has_userdata('user') == false) {
+            $data['session'] = false;
+        } else {
+            $data['session'] = $this->session->user;
+        }
+        $data["active"] = "blog";
+        $this->load->view("admin/modif_blog", ['data' => $data]);
     }
 }
