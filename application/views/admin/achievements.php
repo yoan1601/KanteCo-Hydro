@@ -36,15 +36,15 @@
                                 <p class="fw-normal fs-5 mb-0"><?= $data['realisation'][$i]['autorite_contractante'] ?></p>
                             </td>
                             <td class="py-3">
-                                <a href="" class="ms-4">
+                                <a href="<?= site_url('administrationHydroGroup/modif_achievements/') ?>" class="ms-4">
                                     <i class="fas fa-edit text-secondary" style="font-size: 1.5em"></i>
                                 </a>
-                                <a href="" class="ms-4"  data-bs-toggle="modal" data-bs-target="#monModal-<?= $data['realisation'][$i]['id'] ?>">
+                                <a href="" class="ms-4" data-bs-toggle="modal" data-bs-target="#monModal-<?= $data['realisation'][$i]['id'] ?>">
                                     <i class="fas fa-trash text-danger" style="font-size: 1.5em"></i>
                                 </a>
                             </td>
-                             <!-- Modal Supp -->
-                             <div class="modal fade" id="monModal-<?= $data['realisation'][$i]['id'] ?>">
+                            <!-- Modal Supp -->
+                            <div class="modal fade" id="monModal-<?= $data['realisation'][$i]['id'] ?>">
                                 <div class="modal-dialog modal-md">
                                     <div class="modal-content position-relative">
                                         <!-- En-tête du modal -->

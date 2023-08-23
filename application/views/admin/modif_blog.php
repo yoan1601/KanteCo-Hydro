@@ -2,32 +2,32 @@
 <div class="container-xxl py-5 wow fadeIn" data-wow-delay="0.1s">
     <div class="container">
         <div class="mb-3" style="max-width: 600px; visibility: visible; animation-delay: 0.1s; animation-name: fadeInUp;">
-            <h1 class="text-secondary">Nouveau blog</h1>
+            <h1 class="text-secondary">Modification blog</h1>
         </div>
         <div class="py-5 row">
             <form class="col-lg-8 col-12" action="<?= site_url('') ?>" method="POST">
                 <div class="row g-3">
                     <div class="col-md-6">
                         <div class="form-floating">
-                            <input required type="text" class="form-control" name="" placeholder="Auteur">
+                            <input required value="" type="text" class="form-control" name="" placeholder="Auteur">
                             <label for="">Auteur (*)</label>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-floating">
-                            <input required type="date" class="form-control" name="" placeholder="Date de publication">
+                            <input required value="" type="date" class="form-control" name="" placeholder="Date de publication">
                             <label for="">Date de publication (*)</label>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-floating">
-                            <input required type="text" class="form-control" name="" placeholder="Titre du blog FR">
+                            <input required value="" type="text" class="form-control" name="" placeholder="Titre du blog FR">
                             <label for="">Titre du blog FR (*)</label>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-floating">
-                            <input required type="text" class="form-control" name="" placeholder="Titre du blog EN">
+                            <input required value="" type="text" class="form-control" name="" placeholder="Titre du blog EN">
                             <label for="">Titre du blog EN (*)</label>
                         </div>
                     </div>
@@ -47,21 +47,21 @@
                         <div class="form-floating">
                             <input required type="file" class="form-control mb-3" name="image_couverture" data-preview="preview2" placeholder="Image de couverture (*)">
                             <label for="">Image de couverture (*)</label>
-                            <img class="img-fluid" style="width: 100%; height: 40vh; object-fit: cover;" id="preview2" src="<?= base_url("assets/") ?>img/Image upload-bro.png" alt="">
+                            <img class="img-fluid" style="width: 100%; height: 40vh; object-fit: cover;" id="preview2" src="<?= base_url("assets/") ?>img/carousel-1.jpg" alt="">
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-floating mb-5">
                             <input type="file" class="form-control mb-3" name="image_publication1" data-preview="preview3" placeholder="Images de publication 1">
                             <label for="">Images de publication 1</label>
-                            <img class="img-fluid" style="width: 100%; height: 40vh; object-fit: cover;" id="preview3" src="<?= base_url("assets/") ?>img/Image upload-bro.png" alt="">
+                            <img class="img-fluid" style="width: 100%; height: 40vh; object-fit: cover;" id="preview3" src="<?= base_url("assets/") ?>img/carousel-3.jpg" alt="">
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-floating mb-5">
                             <input type="file" class="form-control mb-3" name="image_publication2" data-preview="preview4" placeholder="Images de publication 2">
                             <label for="">Images de publication 2</label>
-                            <img class="img-fluid" style="width: 100%; height: 40vh; object-fit: cover;" id="preview4" src="<?= base_url("assets/") ?>img/Image upload-bro.png" alt="">
+                            <img class="img-fluid" style="width: 100%; height: 40vh; object-fit: cover;" id="preview4" src="<?= base_url("assets/") ?>img/carousel-2.jpg" alt="">
                         </div>
                     </div>
                     <div class="col-md-6">
