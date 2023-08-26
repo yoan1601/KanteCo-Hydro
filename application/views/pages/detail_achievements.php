@@ -42,7 +42,7 @@
             <div class="col-lg-10 col-12">
                 <p class="fs-5 text-dark">
                     <?= $data['realisation']['description_' . (strtoupper($data['lang']))] ?>
-                    <!-- <b><?= $data['detail_achievements_' . $data['lang']]['item2'] ?> </b> -->
+                    <b><?= $data['detail_achievements_' . $data['lang']]['item2'] ?> </b>
                 </p>
             </div>
         </div>

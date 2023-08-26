@@ -28,7 +28,7 @@
 
     <!-- Customized Bootstrap Stylesheet -->
     <link href="<?= base_url("assets/") ?>css/bootstrap.min.css" rel="stylesheet" />
-    <link href="<?= base_url("assets/") ?>ckeditor/sample/css/sample.css" rel="stylesheet" />
+    <!-- <link href="<?= base_url("assets/") ?>ckeditor/sample/css/sample.css" rel="stylesheet" /> -->
 
     <!-- Template Stylesheet -->
     <link href="<?= base_url("assets/") ?>css/style.css" rel="stylesheet" />
