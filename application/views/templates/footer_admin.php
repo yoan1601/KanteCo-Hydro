@@ -8,9 +8,33 @@
 <script src="<?= base_url("assets/") ?>lib/owlcarousel/owl.carousel.min.js"></script>
 <script src="<?= base_url("assets/") ?>lib/isotope/isotope.pkgd.min.js"></script>
 <script src="<?= base_url("assets/") ?>lib/lightbox/js/lightbox.min.js"></script>
+<script src="<?php echo base_url('assets/ckeditor/ckeditor.js'); ?>"></script>
 
 <!-- Template Javascript -->
 <script src="<?= base_url("assets/") ?>js/main.js"></script>
+<!-- Inclure le code JavaScript qui initialise CKEditor -->
+    <script>
+        ClassicEditor
+            .create( document.querySelector( '#editor1' ) )
+            .catch( error => {
+                console.error( error );
+            } );
+        ClassicEditor
+            .create( document.querySelector( '#editor2' ) )
+            .catch( error => {
+                console.error( error );
+            } );
+        ClassicEditor
+            .create( document.querySelector( '#editor3' ) )
+            .catch( error => {
+                console.error( error );
+            } );
+        ClassicEditor
+            .create( document.querySelector( '#editor4' ) )
+            .catch( error => {
+                console.error( error );
+            } );
+    </script>
 </body>
 
 </html>

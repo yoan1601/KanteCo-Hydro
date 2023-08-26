@@ -95,26 +95,23 @@
                     </div>
                     <div class="col-md-6">
                         <div class="form-floating">
-                            <textarea required class="form-control" name="commentaire_fr" placeholder="Commentaire FR" style="height: 150px"></textarea>
-                            <label for="">Commentaire FR (*)</label>
+                            <textarea id="editor3" class="form-control" name="commentaire_fr" placeholder="Commentaire FR" style="height: 150px"></textarea>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-floating">
-                            <textarea required class="form-control" name="commentaire_en" placeholder="Commentaire EN" style="height: 150px"></textarea>
-                            <label for="">Commentaire EN (*)</label>
+                            <textarea id="editor4" class="form-control" name="commentaire_en" placeholder="Commentaire EN" style="height: 150px"></textarea>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-floating">
-                            <textarea required class="form-control" name="descri_fr" placeholder="Description FR" style="height: 150px"></textarea>
-                            <label for="">Description FR (*)</label>
+                            <textarea id="editor1" required class="form-control" name="descri_fr" placeholder="Description FR (*)" style="height: 150px"></textarea>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-floating">
-                            <textarea required class="form-control" name="descri_en" placeholder="Description EN" style="height: 150px"></textarea>
-                            <label for="">Description EN (*)</label>
+                            <textarea id="editor2" required class="form-control" name="descri_en" placeholder="Description EN (*)" style="height: 150px"></textarea>
+                            <!-- <label for="">Description EN (*)</label> -->
                         </div>
                     </div>
                     <div class="col-12">

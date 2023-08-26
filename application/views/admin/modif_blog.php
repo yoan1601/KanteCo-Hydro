@@ -5,52 +5,64 @@
             <h1 class="text-secondary">Modification blog</h1>
         </div>
         <div class="py-5 row">
-            <form class="col-lg-8 col-12" action="<?= site_url('') ?>" method="POST">
+            <form class="col-lg-8 col-12" action="<?= site_url('administrationHydroGroup/update_blog/') ?>" method="POST" enctype="multipart/form-data">
+                <input type="hidden" value="<?= $data['one_blog']['id'] ?>" name="id">
                 <div class="row g-3">
-                    <div class="col-md-6">
+                <div class="col-md-6">
                         <div class="form-floating">
-                            <input required value="" type="text" class="form-control" name="" placeholder="Auteur">
+                            <input required type="text" class="form-control" value="<?= $data['one_blog']['auteur'] ?>" name="auteur" placeholder="Auteur">
                             <label for="">Auteur (*)</label>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-floating">
-                            <input required value="" type="date" class="form-control" name="" placeholder="Date de publication">
+                            <input required type="date" class="form-control" value="<?= $data['one_blog']['date_publication'] ?>" name="date_publication" placeholder="Date de publication">
                             <label for="">Date de publication (*)</label>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-floating">
-                            <input required value="" type="text" class="form-control" name="" placeholder="Titre du blog FR">
-                            <label for="">Titre du blog FR (*)</label>
+                            <input type="text" class="form-control" value="<?= $data['one_blog']['titre_FR'] ?>" name="titre_fr" placeholder="Titre du blog FR">
+                            <label for="">Titre du blog FR</label>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-floating">
-                            <input required value="" type="text" class="form-control" name="" placeholder="Titre du blog EN">
-                            <label for="">Titre du blog EN (*)</label>
+                            <input type="text" class="form-control" value="<?= $data['one_blog']['titre_EN'] ?>" name="titre_en" placeholder="Titre du blog EN">
+                            <label for="">Titre du blog EN</label>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-floating">
-                            <textarea required class="form-control" name="" placeholder="Texte de publication FR" style="height: 150px"></textarea>
+                            <textarea required class="form-control" name="detail_fr" placeholder="Texte de publication FR" style="height: 150px"><?= $data['one_blog']['detail_FR'] ?></textarea>
                             <label for="">Texte de publication FR (*)</label>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-floating mb-5">
-                            <textarea required class="form-control" name="" placeholder="Texte de publication EN" style="height: 150px"></textarea>
+                            <textarea required class="form-control" name="detail_en" placeholder="Texte de publication EN" style="height: 150px"><?= $data['one_blog']['detail_EN'] ?></textarea>
                             <label for="">Texte de publication EN (*)</label>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-floating">
                             <input required type="file" class="form-control mb-3" name="image_couverture" data-preview="preview2" placeholder="Image de couverture (*)">
+                            <input type="hidden" value="<?= $data['one_blog_images'][0]->id ?>" name="image_0">
                             <label for="">Image de couverture (*)</label>
-                            <img class="img-fluid" style="width: 100%; height: 40vh; object-fit: cover;" id="preview2" src="<?= base_url("assets/") ?>img/carousel-1.jpg" alt="">
+                            <img class="img-fluid" style="width: 100%; height: 40vh; object-fit: cover;" id="preview2" src="<?= base_url("assets/") ?>img/<?= $data['one_blog']['image_couverture'] ?>" alt="">
                         </div>
                     </div>
-                    <div class="col-md-6">
+                    <?php for ($i = 1; $i <count($data['one_blog_images']); $i ++){ ?>
+                        <div class="col-md-6">
+                        <div class="form-floating mb-5">
+                            <input type="file" class="form-control mb-3" name="image_publication<?= $i ?>" data-preview="preview3" placeholder="Images de publication <?= $i ?>">
+                            <input type="hidden" value="<?= $data['one_blog_images'][$i]->id ?>" name="image_<?= $i ?>">
+                            <label for="">Images de publication <?= $i ?></label>
+                            <img class="img-fluid" style="width: 100%; height: 40vh; object-fit: cover;" id="preview3" src="<?= base_url("assets/") ?>img/<?= $data['one_blog_images'][$i]->image ?>" alt="">
+                        </div>
+                    </div>
+                    <?php } ?>
+                    <!-- <div class="col-md-6">
                         <div class="form-floating mb-5">
                             <input type="file" class="form-control mb-3" name="image_publication1" data-preview="preview3" placeholder="Images de publication 1">
                             <label for="">Images de publication 1</label>
@@ -70,7 +82,7 @@
                             <label for="">Images de publication 3</label>
                             <img class="img-fluid" style="width: 100%; height: 40vh; object-fit: cover;" id="preview5" src="<?= base_url("assets/") ?>img/Image upload-bro.png" alt="">
                         </div>
-                    </div>
+                    </div> -->
                     <div class="col-12 mt-5 d-flex">
                         <button class="btn btn-primary py-3 px-5" type="submit">Valider</button>
                     </div>

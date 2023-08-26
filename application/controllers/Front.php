@@ -298,6 +298,7 @@ class Front extends CI_Controller
 
 		$data['blog'] = $this->blog->getById($id);
 		$data['blog'] = $this->blog->setAllImages_one_blog($data['blog']);
+		$data['one_blog_images']= $this->blog->get_all_images($id);
 
 		// ========== FORMATTAGE DATE ==========
 		// Créer un objet DateTime à partir de la date MySQL

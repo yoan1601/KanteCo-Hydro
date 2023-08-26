@@ -5,42 +5,40 @@
             <h1 class="text-secondary">Nouveau blog</h1>
         </div>
         <div class="py-5 row">
-            <form class="col-lg-8 col-12" action="<?= site_url('') ?>" method="POST">
+            <form class="col-lg-8 col-12" action="<?= site_url('administrationHydroGroup/creer_blog/') ?>" method="POST" enctype="multipart/form-data">
                 <div class="row g-3">
                     <div class="col-md-6">
                         <div class="form-floating">
-                            <input required type="text" class="form-control" name="" placeholder="Auteur">
+                            <input required type="text" class="form-control" name="auteur" placeholder="Auteur">
                             <label for="">Auteur (*)</label>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-floating">
-                            <input required type="date" class="form-control" name="" placeholder="Date de publication">
+                            <input required type="date" class="form-control" name="date_publication" placeholder="Date de publication">
                             <label for="">Date de publication (*)</label>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-floating">
-                            <input required type="text" class="form-control" name="" placeholder="Titre du blog FR">
+                            <input required type="text" class="form-control" name="titre_fr" placeholder="Titre du blog FR">
                             <label for="">Titre du blog FR (*)</label>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-floating">
-                            <input required type="text" class="form-control" name="" placeholder="Titre du blog EN">
+                            <input required type="text" class="form-control" name="titre_en" placeholder="Titre du blog EN">
                             <label for="">Titre du blog EN (*)</label>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-floating">
-                            <textarea required class="form-control" name="" placeholder="Texte de publication FR" style="height: 150px"></textarea>
-                            <label for="">Texte de publication FR (*)</label>
+                            <textarea id="editor1" required class="form-control" name="detail_fr" placeholder="Texte de publication FR (*)" style="height: 150px"></textarea>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-floating mb-5">
-                            <textarea required class="form-control" name="" placeholder="Texte de publication EN" style="height: 150px"></textarea>
-                            <label for="">Texte de publication EN (*)</label>
+                            <textarea id="editor2" required class="form-control" name="detail_en" placeholder="Texte de publication EN (*)" style="height: 150px"></textarea>
                         </div>
                     </div>
                     <div class="col-md-6">
@@ -52,22 +50,22 @@
                     </div>
                     <div class="col-md-6">
                         <div class="form-floating mb-5">
-                            <input type="file" class="form-control mb-3" name="image_publication1" data-preview="preview3" placeholder="Images de publication 1">
-                            <label for="">Images de publication 1</label>
+                            <input required type="file" class="form-control mb-3" name="image_publication1" data-preview="preview3" placeholder="Images de publication 1">
+                            <label for="">Images de publication 1 (*)</label>
                             <img class="img-fluid" style="width: 100%; height: 40vh; object-fit: cover;" id="preview3" src="<?= base_url("assets/") ?>img/Image upload-bro.png" alt="">
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-floating mb-5">
-                            <input type="file" class="form-control mb-3" name="image_publication2" data-preview="preview4" placeholder="Images de publication 2">
-                            <label for="">Images de publication 2</label>
+                            <input required type="file" class="form-control mb-3" name="image_publication2" data-preview="preview4" placeholder="Images de publication 2">
+                            <label for="">Images de publication 2 (*)</label>
                             <img class="img-fluid" style="width: 100%; height: 40vh; object-fit: cover;" id="preview4" src="<?= base_url("assets/") ?>img/Image upload-bro.png" alt="">
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-floating mb-5">
-                            <input type="file" class="form-control mb-3" name="image_publication3" data-preview="preview5" placeholder="Images de publication 3">
-                            <label for="">Images de publication 3</label>
+                            <input required type="file" class="form-control mb-3" name="image_publication3" data-preview="preview5" placeholder="Images de publication 3">
+                            <label for="">Images de publication 3 (*)</label>
                             <img class="img-fluid" style="width: 100%; height: 40vh; object-fit: cover;" id="preview5" src="<?= base_url("assets/") ?>img/Image upload-bro.png" alt="">
                         </div>
                     </div>

@@ -5,17 +5,18 @@
             <h1 class="text-secondary">Modification réalisation</h1>
         </div>
         <div class="py-5 row">
-            <form class="col-lg-8 col-12" action="<?= site_url('administrationHydroGroup/') ?>" method="POST" enctype="multipart/form-data">
+            <form class="col-lg-8 col-12" action="<?= site_url('administrationHydroGroup/update_achievements') ?>" method="POST" enctype="multipart/form-data">
+                <input type="hidden" value="<?= $data['one_realisation']['id'] ?>" name="id">
                 <div class="row g-3">
                     <div class="col-md-6">
                         <div class="form-floating">
-                            <input required value="" type="text" class="form-control" name="auteur" placeholder="Auteur">
+                            <input value="<?= $data['one_realisation']['auteur'] ?>" type="text" class="form-control" name="auteur" placeholder="Auteur">
                             <label for="">Auteur (*)</label>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <select class="form-select" style="height: 55px;" name="pays" id="">
-                            <option value="">Pays</option>
+                            <option value="<?= $data['one_realisation']['idPays'] ?>"><?= $data['one_realisation']['nom_pays_FR'] ?></option>
                             <?php for ($i = 0; $i < count($data["pays"]); $i++) { ?>
                                 <option value="<?= $data["pays"][$i]->id ?>"><?= $data["pays"][$i]->nom_FR ?></option>
                             <?php } ?>
@@ -23,98 +24,98 @@
                     </div>
                     <div class="col-md-6">
                         <div class="form-floating">
-                            <input required value="" type="text" class="form-control" name="nom_mission_fr" placeholder="Nom de la mission FR">
+                            <input required value="<?= $data['one_realisation']['nom_mission_FR'] ?>" type="text" class="form-control" name="nom_mission_fr" placeholder="Nom de la mission FR">
                             <label for="">Nom de la mission FR (*)</label>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-floating">
-                            <input required value="" type="text" class="form-control" name="nom_mission_en" placeholder="Nom de la mission EN">
+                            <input required value="<?= $data['one_realisation']['nom_mission_EN'] ?>" type="text" class="form-control" name="nom_mission_en" placeholder="Nom de la mission EN">
                             <label for="">Nom de la mission EN (*)</label>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-floating">
-                            <input required value="" type="text" class="form-control" name="lieu" placeholder="Lieu">
+                            <input required value="<?= $data['one_realisation']['lieu'] ?>" type="text" class="form-control" name="lieu" placeholder="Lieu">
                             <label for="">Lieu (*)</label>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-floating">
-                            <input required value="" type="text" class="form-control" name="autorite" placeholder="Autorité contractante">
+                            <input required value="<?= $data['one_realisation']['autorite_contractante'] ?>" type="text" class="form-control" name="autorite" placeholder="Autorité contractante">
                             <label for="">Autorité contractante (*)</label>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-floating">
-                            <input required value="" type="text" class="form-control" name="reference" placeholder="Référence">
+                            <input required value="<?= $data['one_realisation']['reference'] ?>" type="text" class="form-control" name="reference" placeholder="Référence">
                             <label for="">Référence (*)</label>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-floating">
-                            <input required value="" type="text" class="form-control" name="adresse" placeholder="Adresse">
+                            <input required value="<?= $data['one_realisation']['adresse'] ?>" type="text" class="form-control" name="adresse" placeholder="Adresse">
                             <label for="">Adresse (*)</label>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-floating">
-                            <input required value="" type="date" class="form-control" name="demarrage" placeholder="Date de demarrage du projet">
+                            <input required value="<?= $data['one_realisation']['date_demarrage'] ?>" type="date" class="form-control" name="demarrage" placeholder="Date de demarrage du projet">
                             <label for="">Date de démarrage du projet (*)</label>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-floating">
-                            <input required value="" type="date" class="form-control" name="achevement" placeholder="Date d’achèvement du projet">
+                            <input required value="<?= $data['one_realisation']['date_achevement'] ?>" type="date" class="form-control" name="achevement" placeholder="Date d’achèvement du projet">
                             <label for="">Date d’achèvement du projet (*)</label>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-floating">
-                            <input required value="" type="number" class="form-control" name="duree" placeholder="Durée du projet">
+                            <input required value="<?= $data['one_realisation']['duree'] ?>" type="number" class="form-control" name="duree" placeholder="Durée du projet">
                             <label for="">Durée du projet (*)</label>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-floating">
-                            <input required value="" type="date" class="form-control" name="publication" placeholder="Date de publication">
+                            <input required value="<?= $data['one_realisation']['date_publication'] ?>" type="date" class="form-control" name="publication" placeholder="Date de publication">
                             <label for="">Date de publication (*)</label>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-floating">
-                            <input type="text" value="" class="form-control" name="numero_reference" placeholder="Numero de la référence">
+                            <input type="text" value="<?= $data['one_realisation']['numero_reference'] ?>" class="form-control" name="numero_reference" placeholder="Numero de la référence">
                             <label for="">Numero de la référence</label>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-floating">
-                            <input type="email" value="" class="form-control" name="email_reference" placeholder="Email de la référence">
+                            <input type="email" value="<?= $data['one_realisation']['email_reference'] ?>" class="form-control" name="email_reference" placeholder="Email de la référence">
                             <label for="">Email de la référence</label>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-floating">
-                            <textarea required id="monTextarea" class="form-control" name="commentaire_fr" placeholder="Commentaire FR" style="height: 150px">                            </textarea>
-                            <label for="">Commentaire FR (*)</label>
+                            <textarea id="monTextarea" class="form-control" name="commentaire_fr" placeholder="Commentaire FR" style="height: 150px"><?= $data['one_realisation']['commentaire_FR'] ?></textarea>
+                            <label for="">Commentaire FR</label>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-floating">
-                            <textarea required class="form-control" name="commentaire_en" placeholder="Commentaire EN" style="height: 150px"></textarea>
-                            <label for="">Commentaire EN (*)</label>
+                            <textarea class="form-control" name="commentaire_en" placeholder="Commentaire EN" style="height: 150px"><?= $data['one_realisation']['commentaire_EN'] ?></textarea>
+                            <label for="">Commentaire EN</label>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-floating">
-                            <textarea required class="form-control" name="descri_fr" placeholder="Description FR" style="height: 150px"></textarea>
-                            <label for="">Description FR (*)</label>
+                            <p style="color: #0000008f;"> Description FR (*)</p>
+                            <textarea id="editor1" required class="form-control" name="descri_fr" placeholder="Description FR" style="height: 150px"><?= $data['one_realisation']['description_FR'] ?></textarea>
                         </div>
                     </div>
                     <div class="col-md-6 mb-5">
                         <div class="form-floating">
-                            <textarea required class="form-control" name="descri_en" placeholder="Description EN" style="height: 150px"></textarea>
-                            <label for="">Description EN (*)</label>
+                            <p style="color: #0000008f;"> Description EN (*)</p>
+                            <textarea id="editor2" required class="form-control" name="descri_en" placeholder="Description EN" style="height: 150px"><?= $data['one_realisation']['description_EN'] ?></textarea>
                         </div>
                     </div>
                     <div class="col-12">
@@ -126,32 +127,22 @@
                     </div>
                     <div class="col-md-6">
                         <div class="form-floating">
-                            <input required type="file" class="form-control mb-3" name="image_couverture" data-preview="preview2" placeholder="Image de couverture (*)">
+                            <input type="file" class="form-control mb-3" name="image_couverture" data-preview="preview2" placeholder="Image de couverture (*)">
+                            <input type="hidden" value="<?= $data['one_realisation_images'][0]->id ?>" name="image_0">
                             <label for="">Image de couverture (*)</label>
-                            <img class="img-fluid" style="width: 100%; height: 40vh; object-fit: cover;" id="preview2" src="<?= base_url("assets/") ?>img/carousel-1.jpg" alt="">
+                            <img class="img-fluid" style="width: 100%; height: 40vh; object-fit: cover;" id="preview2" src="<?= base_url("assets/") ?>img/<?= $data['one_realisation']['image_couverture'] ?>" alt="">
                         </div>
                     </div>
-                    <div class="col-md-6">
+                    <?php for ($i = 1; $i <count($data['one_realisation_images']); $i ++){ ?>
+                        <div class="col-md-6">
                         <div class="form-floating mb-5">
-                            <input type="file" class="form-control mb-3" name="image_publication1" data-preview="preview3" placeholder="Images de publication 1">
-                            <label for="">Images de publication 1</label>
-                            <img class="img-fluid" style="width: 100%; height: 40vh; object-fit: cover;" id="preview3" src="<?= base_url("assets/") ?>img/carousel-2.jpg" alt="">
+                            <input type="file" class="form-control mb-3" name="image_publication<?= $i ?>" data-preview="preview3" placeholder="Images de publication <?= $i ?>">
+                            <input type="hidden" value="<?= $data['one_realisation_images'][$i]->id ?>" name="image_<?= $i ?>">
+                            <label for="">Images de publication <?= $i ?></label>
+                            <img class="img-fluid" style="width: 100%; height: 40vh; object-fit: cover;" id="preview3" src="<?= base_url("assets/") ?>img/<?= $data['one_realisation_images'][$i]->image ?>" alt="">
                         </div>
                     </div>
-                    <div class="col-md-6">
-                        <div class="form-floating mb-5">
-                            <input type="file" class="form-control mb-3" name="image_publication2" data-preview="preview4" placeholder="Images de publication 2">
-                            <label for="">Images de publication 2</label>
-                            <img class="img-fluid" style="width: 100%; height: 40vh; object-fit: cover;" id="preview4" src="<?= base_url("assets/") ?>img/carousel-3.jpg" alt="">
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-floating">
-                            <input type="file" class="form-control mb-3" name="image_publication3" data-preview="preview5" placeholder="Images de publication 3">
-                            <label for="">Images de publication 3</label>
-                            <img class="img-fluid" style="width: 100%; height: 40vh; object-fit: cover;" id="preview5" src="<?= base_url("assets/") ?>img/Image upload-bro.png" alt="">
-                        </div>
-                    </div>
+                    <?php } ?>
                 </div>
                 <div class="col-12 mt-5 d-flex">
                     <button class="btn btn-primary py-3 px-5" type="submit">Valider</button>

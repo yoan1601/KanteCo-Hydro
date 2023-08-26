@@ -7,7 +7,7 @@ if (!function_exists('upload_file')) {
     function upload_file($input_name) {
         $CI = &get_instance();
         
-        $config['upload_path'] = './uploads/';
+        $config['upload_path'] = './assets/img/';
         $config['allowed_types'] = 'gif|jpg|png|JPG|PNG|jpeg|JPEG';
         $config['max_size'] = 100000;
         

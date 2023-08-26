@@ -454,6 +454,7 @@ class AdministrationHydroGroup extends CI_Controller
 
     public function creer_achievement()
     {
+        $imgs_pub= array();
         $auteur = $this->input->post('auteur');
         $pays = $this->input->post('pays');
         $nom_mission_fr = $this->input->post('nom_mission_fr');
@@ -474,17 +475,114 @@ class AdministrationHydroGroup extends CI_Controller
         $descri_en = $this->input->post('descri_en');
 
         $this->load->helper('upload');
-        var_dump(upload_file('logo_autorite'));
-        $logo_autorite = upload_file('logo_autorite')[1]['file_name'];
-        $image_couverture = upload_file('image_couverture')[1]['file_name'];
-        $image_publication1 = upload_file('image_publication1')[1]['file_name'];
-        $image_publication2 = upload_file('image_publication2')[1]['file_name'];
-        $image_publication3 = upload_file('image_publication3')[1]['file_name'];
+        $logo_autorite = upload_file('logo_autorite');
+        $image_couverture = upload_file('image_couverture');
+        $image_publication1 = upload_file('image_publication1');
+        $image_publication2 = upload_file('image_publication2');
+        $image_publication3 = upload_file('image_publication3');
+
 
         $user = $this->session->user;
 
         $data = [
             'idUser' => $user->id,
+            'idPays' => $pays,
+            'auteur' => $auteur,
+            'nom_mission_FR' => $nom_mission_fr,
+            'nom_mission_EN' => $nom_mission_en,
+            'lieu' => $lieu,
+            'autorite_contractante' => $autorite,
+            'reference' => $reference,
+            'adresse' => $adresse,
+            'date_demarrage' => $demarrage,
+            'date_achevement' => $achevement,
+            'duree' => $duree,
+            'date_publication' => $publication,
+            'numero_reference' => $numero_reference,
+            'email_reference' => $email_reference,
+            'commentaire_FR' => $commentaire_fr,
+            'commentaire_EN' => $commentaire_en,
+            'description_FR' => $descri_fr,
+            'description_EN' => $descri_en,
+            'etat' => 1
+        ];
+        if ($logo_autorite[0] === 1){
+            $data['logo_autorite_contractante'] = $logo_autorite[1]['file_name'];
+        }
+        if ($image_couverture[0] === 1){
+            $data['image_couverture'] = $image_couverture[1]['file_name'];
+            array_push($imgs_pub, $image_couverture[1]['file_name']);
+        }
+
+        if ($image_publication1[0] == 1){
+            array_push($imgs_pub,  $image_publication1[1]['file_name']);
+        }
+        if ($image_publication2[0] == 1){
+            array_push($imgs_pub,  $image_publication2[1]['file_name']);
+            
+        }
+        if ($image_publication3[0] == 1){
+            array_push($imgs_pub,  $image_publication3[1]['file_name']);
+            
+        }
+
+        $this->realisation->inserer($data, $imgs_pub);
+
+        redirect('AdministrationHydroGroup/achievements');
+    }
+
+    public function modif_achievements($id=1)
+    {
+        if ($this->session->has_userdata('user') == false) {
+            $data['session'] = false;
+        } else {
+            $data['session'] = $this->session->user;
+        }
+        $data['one_realisation_images']=  $this->realisation->get_all_images($id);
+        $data['one_realisation']= $this->realisation->getById($id);
+        $data["pays"] = $this->realisation->findAllPays();
+        $data["active"] = "achievements";
+        $this->load->view("admin/modif_achievements", ['data' => $data]);
+    }
+
+    public function update_achievements(){
+        $id = $this->input->post('id');
+        $auteur = $this->input->post('auteur');
+        $pays = $this->input->post('pays');
+        $nom_mission_fr = $this->input->post('nom_mission_fr');
+        $nom_mission_en = $this->input->post('nom_mission_en');
+        $lieu = $this->input->post('lieu');
+        $autorite = $this->input->post('autorite');
+        $reference = $this->input->post('reference');
+        $adresse = $this->input->post('adresse');
+        $demarrage = $this->input->post('demarrage');
+        $achevement = $this->input->post('achevement');
+        $duree = $this->input->post('duree');
+        $publication = $this->input->post('publication');
+        $numero_reference = $this->input->post('numero_reference');
+        $email_reference = $this->input->post('email_reference');
+        $commentaire_fr = $this->input->post('commentaire_fr');
+        $commentaire_en = $this->input->post('commentaire_en');
+        $descri_fr = $this->input->post('descri_fr');
+        $descri_en = $this->input->post('descri_en');
+
+        $this->load->helper('upload');
+        $logo_autorite = upload_file('logo_autorite');
+        $image_couverture = upload_file('image_couverture');
+        $image_publication1 = upload_file('image_publication1');
+        $image_publication2 = upload_file('image_publication2');
+        $image_publication3 = upload_file('image_publication3');
+        $image_0= $this->input->post('image_0'); 
+        $image_1= $this->input->post('image_1');
+        $image_2= $this->input->post('image_2'); 
+        $image_3= $this->input->post('image_3'); 
+
+
+        $user = $this->session->user;
+
+        $data = [
+            'idUser' => $user->id,
+            'auteur' => $auteur,
             'idPays' => $pays,
             'nom_mission_FR' => $nom_mission_fr,
             'nom_mission_EN' => $nom_mission_en,
@@ -502,33 +600,98 @@ class AdministrationHydroGroup extends CI_Controller
             'commentaire_EN' => $commentaire_en,
             'description_FR' => $descri_fr,
             'description_EN' => $descri_en,
-            'logo_autorite_contractante' => $logo_autorite,
-            'image_couverture' => $image_couverture,
+            'etat' => 1
+        ];
+        if ($logo_autorite[0] === 1){
+            $data['logo_autorite_contractante'] = $logo_autorite[1]['file_name'];
+        }
+        if ($image_couverture[0] === 1){
+            $data['image_couverture'] = $image_couverture[1]['file_name'];
+            $this->db->where('id', $image_0);
+            $this->db->update('achievements_images',['image' =>  $image_couverture[1]['file_name']]);
+        }
+
+        if ($image_publication1[0] == 1){
+            $this->db->where('id', $image_1);
+            $this->db->update('achievements_images',['image' => $image_publication1[1]['file_name']]);
+        }
+        if ($image_publication2[0] == 1){
+            $this->db->where('id', $image_2);
+            $this->db->update('achievements_images',['image' => $image_publication2[1]['file_name']]);
+        }
+        if ($image_publication3[0] == 1){
+            $this->db->where('id', $image_3);
+            $this->db->update('achievements_images',['image' => $image_publication3[1]['file_name']]);
+        }
+        $this->db->where('id', $id);
+        $this->db->update('achievements',$data);
+        redirect('AdministrationHydroGroup/achievements');
+       
+        
+
+        // var_dump($data);
+
+    }
+
+    public function update_blog(){
+        $id = $this->input->post('id');
+        $auteur = $this->input->post('auteur');
+        $date_publication = $this->input->post('date_publication');
+        $titre_fr = $this->input->post('titre_fr');
+        $titre_en = $this->input->post('titre_en');
+        $detail_en = $this->input->post('detail_en');
+        $detail_fr = $this->input->post('detail_fr');
+        
+
+        $this->load->helper('upload');
+        $image_couverture = upload_file('image_couverture');
+        $image_publication1 = upload_file('image_publication1');
+        $image_publication2 = upload_file('image_publication2');
+        $image_publication3 = upload_file('image_publication3');
+
+        $image_0= $this->input->post('image_0'); 
+        $image_1= $this->input->post('image_1');
+        $image_2= $this->input->post('image_2'); 
+        $image_3= $this->input->post('image_3'); 
+
+
+        $user = $this->session->user;
+
+        $data = [
+            'idUser'=> $user->id,
+            'titre_FR'=>$titre_fr ,
+            'titre_EN'=> $titre_en,
+            'detail_FR'=> $detail_fr,
+            'detail_EN'=> $detail_en,
+            'date_publication'=> $date_publication,
+            'auteur'=> $auteur,
             'etat' => 1
         ];
 
-        $imgs_pub = [$image_publication1, $image_publication2, $image_publication3];
-
-        // $this->realisation->inserer($data, $imgs_pub);
-
-        var_dump($data);
-        var_dump($imgs_pub);
-        // redirect('AdministrationHydroGroup/achievements');
-    }
-
-    public function modif_achievements()
-    {
-        if ($this->session->has_userdata('user') == false) {
-            $data['session'] = false;
-        } else {
-            $data['session'] = $this->session->user;
+        if ($image_couverture[0] === 1){
+            $data['image_couverture'] = $image_couverture[1]['file_name'];
+            $this->db->where('id', $image_0);
+            $this->db->update('blogs_images',['image' =>  $image_couverture[1]['file_name']]);
         }
-        $data["pays"] = $this->realisation->findAllPays();
-        $data["active"] = "achievements";
-        $this->load->view("admin/modif_achievements", ['data' => $data]);
+
+        if ($image_publication1[0] == 1){
+            $this->db->where('id', $image_1);
+            $this->db->update('blogs_images',['image' => $image_publication1[1]['file_name']]);
+        }
+        if ($image_publication2[0] == 1){
+            $this->db->where('id', $image_2);
+            $this->db->update('blogs_images',['image' => $image_publication2[1]['file_name']]);
+        }
+        if ($image_publication3[0] == 1){
+            $this->db->where('id', $image_3);
+            $this->db->update('blogs_images',['image' => $image_publication3[1]['file_name']]);
+        }
+        $this->db->where('id', $id);
+        $this->db->update('blogs',$data);
+        redirect('AdministrationHydroGroup/blog');
     }
 
-    public function modif_blog()
+    public function modif_blog($id = 1)
     {
         if ($this->session->has_userdata('user') == false) {
             $data['session'] = false;
@@ -536,6 +699,60 @@ class AdministrationHydroGroup extends CI_Controller
             $data['session'] = $this->session->user;
         }
         $data["active"] = "blog";
+        $data['one_blog_images']=  $this->blog->get_all_images($id);
+        $data['one_blog']= $this->blog->getById($id);
         $this->load->view("admin/modif_blog", ['data' => $data]);
+    }
+
+    public function creer_blog()
+    {
+        $imgs_pub= array();
+        $auteur = $this->input->post('auteur');
+        $date_publication = $this->input->post('date_publication');
+        $titre_fr = $this->input->post('titre_fr');
+        $titre_en = $this->input->post('titre_en');
+        $detail_en = $this->input->post('detail_en');
+        $detail_fr = $this->input->post('detail_fr');
+        
+
+        $this->load->helper('upload');
+        $image_couverture = upload_file('image_couverture');
+        $image_publication1 = upload_file('image_publication1');
+        $image_publication2 = upload_file('image_publication2');
+        $image_publication3 = upload_file('image_publication3');
+
+
+        $user = $this->session->user;
+
+        $data = [
+            'idUser'=> $user->id,
+            'titre_FR'=>$titre_fr ,
+            'titre_EN'=> $titre_en,
+            'detail_FR'=> $detail_fr,
+            'detail_EN'=> $detail_en,
+            'date_publication'=> $date_publication,
+            'auteur'=> $auteur,
+            'etat' => 1
+        ];
+        if ($image_couverture[0] === 1){
+            $data['image_couverture'] = $image_couverture[1]['file_name'];
+            array_push($imgs_pub, $image_couverture[1]['file_name']);
+        }
+
+        if ($image_publication1[0] == 1){
+            array_push($imgs_pub,  $image_publication1[1]['file_name']);
+        }
+        if ($image_publication2[0] == 1){
+            array_push($imgs_pub,  $image_publication2[1]['file_name']);
+            
+        }
+        if ($image_publication3[0] == 1){
+            array_push($imgs_pub,  $image_publication3[1]['file_name']);
+            
+        }
+
+        $this->blog->inserer($data, $imgs_pub);
+
+        redirect('AdministrationHydroGroup/blog');
     }
 }
