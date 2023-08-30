@@ -6,7 +6,7 @@
         </div>
         <div class="d-flex flex-wrap mt-4">
             <form class="d-flex mb-3 me-auto" style="gap: 0.5rem" action="<?= site_url('administrationHydroGroup/blog/1'); ?>">
-                <input type="text" class="form-control" name="keyword" placeholder="Mot clé" style="height: 55px; width: 300px;" required>
+                <input type="text" class="form-control" value="<?= $data['keyword'] ?>" name="keyword" placeholder="Mot clé" style="height: 55px; width: 300px;" required>
                 <button class="btn btn-lg btn-primary btn-lg-square rounded-circle"><i class="bi bi-search"></i></button>
             </form>
             <div>

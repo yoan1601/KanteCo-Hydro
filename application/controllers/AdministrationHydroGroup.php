@@ -15,7 +15,7 @@ class AdministrationHydroGroup extends CI_Controller
 
     public function log_out()
     {
-        $this->session->unset_userdata('user');
+        $this->session->unset_userdata('user_admin');
         redirect('AdministrationHydroGroup');
     }
 
@@ -33,7 +33,7 @@ class AdministrationHydroGroup extends CI_Controller
         $mot_de_passe = $this->input->post("password");
         $object = $this->admin->check_login($email, $mot_de_passe);
         if ($object != false) {
-            $this->session->set_userdata('user', $object);
+            $this->session->set_userdata('user_admin', $object);
             var_dump($object);
             redirect('AdministrationHydroGroup/devis');
         }
@@ -75,10 +75,10 @@ class AdministrationHydroGroup extends CI_Controller
 
         $data['active'] = 'devis';
 
-        if ($this->session->has_userdata('user') == false) {
+        if ($this->session->has_userdata('user_admin') == false) {
             $data['session'] = false;
         } else {
-            $data['session'] = $this->session->user;
+            $data['session'] = $this->session->user_admin;
         }
 
 
@@ -119,10 +119,10 @@ class AdministrationHydroGroup extends CI_Controller
     public function contact($is_search = 0, $num_page = 1)
     {
         $data["active"] = "contact";
-        if ($this->session->has_userdata('user') == false) {
+        if ($this->session->has_userdata('user_admin') == false) {
             $data['session'] = false;
         } else {
-            $data['session'] = $this->session->user;
+            $data['session'] = $this->session->user_admin;
         }
 
 
@@ -134,12 +134,14 @@ class AdministrationHydroGroup extends CI_Controller
         // objet -> tableau
         $data['contact'] = json_decode(json_encode($data['contact']), true);
         $data['nbPages'] = $this->contact->getNombrePage($nombre_resultat_affiche = $nbAffiche);
+        $data['keyword'] ='';
 
         if ($is_search == 1) {
             $keyword = $this->input->get('keyword');
             if ($keyword == NULL) {
                 $keyword = $this->session->keyword;
             }
+            $data['keyword'] =$keyword;
             $this->session->set_userdata('keyword', $keyword);
             $data['nb_resultat'] = count($this->contact->all_resultat_search($keyword));
             $data['contact'] = $this->contact->search($numero_page = $num_page, $nombre_resultat_affiche = $nbAffiche, $keyword = $keyword);
@@ -158,10 +160,10 @@ class AdministrationHydroGroup extends CI_Controller
     public function mails($is_search = 0, $num_page = 1)
     {
         $data["active"] = "mails";
-        if ($this->session->has_userdata('user') == false) {
+        if ($this->session->has_userdata('user_admin') == false) {
             $data['session'] = false;
         } else {
-            $data['session'] = $this->session->user;
+            $data['session'] = $this->session->user_admin;
         }
 
 
@@ -173,12 +175,14 @@ class AdministrationHydroGroup extends CI_Controller
         // objet -> tableau
         $data['email'] = json_decode(json_encode($data['email']), true);
         $data['nbPages'] = $this->email->getNombrePage($nombre_resultat_affiche = $nbAffiche);
+        $data['keyword'] = '';
 
         if ($is_search == 1) {
             $keyword = $this->input->get('keyword');
             if ($keyword == NULL) {
                 $keyword = $this->session->keyword;
             }
+            $data['keyword'] = $keyword;
             $this->session->set_userdata('keyword', $keyword);
             $data['nb_resultat'] = count($this->email->all_resultat_search($keyword));
             $data['email'] = $this->email->search($numero_page = $num_page, $nombre_resultat_affiche = $nbAffiche, $keyword = $keyword);
@@ -196,10 +200,10 @@ class AdministrationHydroGroup extends CI_Controller
 
     public function list_admin($is_search = 0, $num_page = 1)
     {
-        if ($this->session->has_userdata('user') == false) {
+        if ($this->session->has_userdata('user_admin') == false) {
             $data['session'] = false;
         } else {
-            $data['session'] = $this->session->user;
+            $data['session'] = $this->session->user_admin;
         }
 
         if ($this->session->flashdata('errors') != null) {
@@ -218,12 +222,14 @@ class AdministrationHydroGroup extends CI_Controller
         // objet -> tableau
         $data['admin'] = json_decode(json_encode($data['admin']), true);
         $data['nbPages'] = $this->admin->getNombrePage($nombre_resultat_affiche = $nbAffiche);
+        $data['keyword']= '';
 
         if ($is_search == 1) {
             $keyword = $this->input->get('keyword');
             if ($keyword == NULL) {
                 $keyword = $this->session->keyword;
             }
+            $data['keyword'] = $keyword;
             $this->session->set_userdata('keyword', $keyword);
             $data['nb_resultat'] = count($this->admin->all_resultat_search($keyword));
             $data['admin'] = $this->admin->search($numero_page = $num_page, $nombre_resultat_affiche = $nbAffiche, $keyword = $keyword);
@@ -241,10 +247,10 @@ class AdministrationHydroGroup extends CI_Controller
 
     public function new_admin()
     {
-        if ($this->session->has_userdata('user') == false) {
+        if ($this->session->has_userdata('user_admin') == false) {
             $data['session'] = false;
         } else {
-            $data['session'] = $this->session->user;
+            $data['session'] = $this->session->user_admin;
         }
 
         if ($this->session->flashdata('errors') != null) {
@@ -356,10 +362,10 @@ class AdministrationHydroGroup extends CI_Controller
 
     public function blog($is_search = 0, $num_page = 1)
     {
-        if ($this->session->has_userdata('user') == false) {
+        if ($this->session->has_userdata('user_admin') == false) {
             $data['session'] = false;
         } else {
-            $data['session'] = $this->session->user;
+            $data['session'] = $this->session->user_admin;
         }
         $data["active"] = "blog";
         $nbAffiche = 3;
@@ -370,12 +376,14 @@ class AdministrationHydroGroup extends CI_Controller
         // objet -> tableau
         $data['blog'] = json_decode(json_encode($data['blog']), true);
         $data['nbPages'] = $this->blog->getNombrePage($nombre_resultat_affiche = $nbAffiche);
+        $data['keyword']= "";
 
         if ($is_search == 1) {
             $keyword = $this->input->get('keyword');
             if ($keyword == NULL) {
                 $keyword = $this->session->keyword;
             }
+            $data['keyword']= $keyword;
             $this->session->set_userdata('keyword', $keyword);
             $data['nb_resultat'] = count($this->blog->all_resultat_search($keyword));
             $data['blog'] = $this->blog->search($numero_page = $num_page, $nombre_resultat_affiche = $nbAffiche, $keyword = $keyword);
@@ -393,10 +401,10 @@ class AdministrationHydroGroup extends CI_Controller
 
     public function new_blog()
     {
-        if ($this->session->has_userdata('user') == false) {
+        if ($this->session->has_userdata('user_admin') == false) {
             $data['session'] = false;
         } else {
-            $data['session'] = $this->session->user;
+            $data['session'] = $this->session->user_admin;
         }
         $data["active"] = "blog";
         $this->load->view("admin/new_blog", ['data' => $data]);
@@ -405,10 +413,10 @@ class AdministrationHydroGroup extends CI_Controller
 
     public function achievements($is_search = 0, $num_page = 1)
     {
-        if ($this->session->has_userdata('user') == false) {
+        if ($this->session->has_userdata('user_admin') == false) {
             $data['session'] = false;
         } else {
-            $data['session'] = $this->session->user;
+            $data['session'] = $this->session->user_admin;
         }
         $data["active"] = "achievements";
         $nbAffiche = 3;
@@ -419,12 +427,14 @@ class AdministrationHydroGroup extends CI_Controller
         // objet -> tableau
         $data['realisation'] = json_decode(json_encode($data['realisation']), true);
         $data['nbPages'] = $this->realisation->getNombrePage($nombre_resultat_affiche = $nbAffiche);
+        $data['keyword']= "";
 
         if ($is_search == 1) {
             $keyword = $this->input->get('keyword');
             if ($keyword == NULL) {
                 $keyword = $this->session->keyword;
             }
+            $data['keyword']= $keyword;
             $this->session->set_userdata('keyword', $keyword);
             $data['nb_resultat'] = count($this->realisation->all_resultat_search($keyword));
             $data['realisation'] = $this->realisation->search($numero_page = $num_page, $nombre_resultat_affiche = $nbAffiche, $keyword = $keyword);
@@ -442,10 +452,10 @@ class AdministrationHydroGroup extends CI_Controller
 
     public function new_achievements()
     {
-        if ($this->session->has_userdata('user') == false) {
+        if ($this->session->has_userdata('user_admin') == false) {
             $data['session'] = false;
         } else {
-            $data['session'] = $this->session->user;
+            $data['session'] = $this->session->user_admin;
         }
         $data["pays"] = $this->realisation->findAllPays();
         $data["active"] = "achievements";
@@ -482,7 +492,7 @@ class AdministrationHydroGroup extends CI_Controller
         $image_publication3 = upload_file('image_publication3');
 
 
-        $user = $this->session->user;
+        $user = $this->session->user_admin;
 
         $data = [
             'idUser' => $user->id,
@@ -533,10 +543,10 @@ class AdministrationHydroGroup extends CI_Controller
 
     public function modif_achievements($id=1)
     {
-        if ($this->session->has_userdata('user') == false) {
+        if ($this->session->has_userdata('user_admin') == false) {
             $data['session'] = false;
         } else {
-            $data['session'] = $this->session->user;
+            $data['session'] = $this->session->user_admin;
         }
         $data['one_realisation_images']=  $this->realisation->get_all_images($id);
         $data['one_realisation']= $this->realisation->getById($id);
@@ -578,7 +588,7 @@ class AdministrationHydroGroup extends CI_Controller
         $image_3= $this->input->post('image_3'); 
 
 
-        $user = $this->session->user;
+        $user = $this->session->user_admin;
 
         $data = [
             'idUser' => $user->id,
@@ -655,7 +665,7 @@ class AdministrationHydroGroup extends CI_Controller
         $image_3= $this->input->post('image_3'); 
 
 
-        $user = $this->session->user;
+        $user = $this->session->user_admin;
 
         $data = [
             'idUser'=> $user->id,
@@ -693,10 +703,10 @@ class AdministrationHydroGroup extends CI_Controller
 
     public function modif_blog($id = 1)
     {
-        if ($this->session->has_userdata('user') == false) {
+        if ($this->session->has_userdata('user_admin') == false) {
             $data['session'] = false;
         } else {
-            $data['session'] = $this->session->user;
+            $data['session'] = $this->session->user_admin;
         }
         $data["active"] = "blog";
         $data['one_blog_images']=  $this->blog->get_all_images($id);
@@ -722,7 +732,7 @@ class AdministrationHydroGroup extends CI_Controller
         $image_publication3 = upload_file('image_publication3');
 
 
-        $user = $this->session->user;
+        $user = $this->session->user_admin;
 
         $data = [
             'idUser'=> $user->id,

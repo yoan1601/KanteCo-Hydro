@@ -84,6 +84,7 @@ public function search($numero_page = 1,$nombre_resultat_affiche = 3, $keyword =
       $columns = $this->get_all_column_text();
       $i = 0;
       if ($keyword != ''){
+        $this->db->group_start(); 
         foreach($columns as $column){
           if ($i == 0){
             $this->db->like($column->Field, $keyword, 'both');
@@ -93,6 +94,7 @@ public function search($numero_page = 1,$nombre_resultat_affiche = 3, $keyword =
           }
           $i+=1;
         }
+        $this->db->group_end(); 
       }
       $this->db->where('etat >', 0);
       $query = $this->db->get('v_realisations');
@@ -108,6 +110,7 @@ public function search($numero_page = 1,$nombre_resultat_affiche = 3, $keyword =
     $columns = $this->get_all_column_text();
     $i = 0;
     if ($keyword != ''){
+      $this->db->group_start(); 
       foreach($columns as $column){
         if ($i == 0){
           $this->db->like($column->Field, $keyword, 'both');
@@ -117,6 +120,7 @@ public function search($numero_page = 1,$nombre_resultat_affiche = 3, $keyword =
         }
         $i+=1;
       }
+      $this->db->group_end(); 
     }
     $this->db->where('etat >', 0);
     $query = $this->db->get('v_realisations');

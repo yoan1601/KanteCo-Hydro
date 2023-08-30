@@ -112,6 +112,7 @@ class Blog_model extends CI_Model {
     $columns = $this->get_all_column_text();
     $i = 0;
     if ($keyword != ''){
+      $this->db->group_start(); 
       foreach($columns as $column){
         if ($i == 0){
           $this->db->like($column->Field, $keyword, 'both');
@@ -121,6 +122,7 @@ class Blog_model extends CI_Model {
         }
         $i+=1;
       }
+      $this->db->group_end(); 
     }
     $this->db->where('etat >', 0);
     $query = $this->db->get('v_blogs');
@@ -136,6 +138,7 @@ class Blog_model extends CI_Model {
     $columns = $this->get_all_column_text();
     $i = 0;
     if ($keyword != ''){
+      $this->db->group_start(); 
       foreach($columns as $column){
         if ($i == 0){
           $this->db->like($column->Field, $keyword, 'both');
@@ -145,6 +148,7 @@ class Blog_model extends CI_Model {
         }
         $i+=1;
       }
+      $this->db->group_end(); 
     }
     $this->db->where('etat >', 0);
     $query = $this->db->get('v_blogs');
