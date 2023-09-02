@@ -32,11 +32,13 @@
                         </div>
                     </div>
                     <div class="col-md-6">
+                        <p>Details Français</p>
                         <div class="form-floating">
                             <textarea id="editor1" class="form-control" name="detail_fr" placeholder="Texte de publication FR (*)" style="height: 150px"></textarea>
                         </div>
                     </div>
                     <div class="col-md-6">
+                        <p>Details Anglais</p>
                         <div class="form-floating mb-5">
                             <textarea id="editor2" class="form-control" name="detail_en" placeholder="Texte de publication EN (*)" style="height: 150px"></textarea>
                         </div>

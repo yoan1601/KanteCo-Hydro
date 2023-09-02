@@ -33,15 +33,15 @@
                         </div>
                     </div>
                     <div class="col-md-6">
+                        <p>Texte de publication Français</p>
                         <div class="form-floating">
-                            <textarea required class="form-control" name="detail_fr" placeholder="Texte de publication FR" style="height: 150px"><?= $data['one_blog']['detail_FR'] ?></textarea>
-                            <label for="">Texte de publication FR (*)</label>
+                            <textarea id="editor1" class="form-control" name="detail_fr" placeholder="Texte de publication FR (*)" style="height: 150px"><?= $data['one_blog']['detail_FR'] ?></textarea>
                         </div>
                     </div>
                     <div class="col-md-6">
+                        <p>Texte de publication Anglais</p>
                         <div class="form-floating mb-5">
-                            <textarea required class="form-control" name="detail_en" placeholder="Texte de publication EN" style="height: 150px"><?= $data['one_blog']['detail_EN'] ?></textarea>
-                            <label for="">Texte de publication EN (*)</label>
+                            <textarea id="editor2" class="form-control" name="detail_en" placeholder="Texte de publication EN (*)" style="height: 150px"><?= $data['one_blog']['detail_EN'] ?></textarea>
                         </div>
                     </div>
                     <div class="col-md-6">

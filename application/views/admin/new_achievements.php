@@ -94,25 +94,25 @@
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <p>Commentaire fr</p>
+                        <p>Commentaire Français</p>
                         <div class="form-floating">
                             <textarea id="editor3" class="form-control" name="commentaire_fr" placeholder="Commentaire FR" style="height: 150px"></textarea>
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <p>Commentaire en</p>
+                        <p>Commentaire Anglais</p>
                         <div class="form-floating">
                             <textarea id="editor4" class="form-control" name="commentaire_en" placeholder="Commentaire EN" style="height: 150px"></textarea>
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <p>Description fr</p>
+                        <p>Description Français</p>
                         <div class="form-floating">
                             <textarea id="editor1" required class="form-control" name="descri_fr" placeholder="Description FR (*)" style="height: 150px"></textarea>
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <p>Description en</p>
+                        <p>Description Anglais</p>
                         <div class="form-floating">
                             <textarea id="editor2" required class="form-control" name="descri_en" placeholder="Description EN (*)" style="height: 150px"></textarea>
                             <!-- <label for="">Description EN (*)</label> -->
