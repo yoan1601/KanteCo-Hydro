@@ -15,12 +15,9 @@
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <select class="form-select" style="height: 55px;" name="pays" id="">
+                        <select class="form-select pays_style" style="height: 55px;" name="pays" id="pays">
                             <option value="<?= $data['one_realisation']['idPays'] ?>"><?= $data['one_realisation']['nom_pays_FR'] ?></option>
-                            <?php for ($i = 0; $i < count($data["pays"]); $i++) { ?>
-                                <option value="<?= $data["pays"][$i]->id ?>"><?= $data["pays"][$i]->nom_FR ?></option>
-                            <?php } ?>
-                        </select>
+                       </select>
                     </div>
                     <div class="col-md-6">
                         <div class="form-floating">
@@ -152,6 +149,34 @@
         </div>
     </div>
 </div>
+<style>
+    .select2-container .select2-selection--single {
+        height: 57px !important;
+        border: 1px solid #ced4da;
+        border-radius: 8px;
+    }
+
+    .select2-container--default .select2-selection--single .select2-selection__arrow b{
+        left: -20%;
+        border-width: 14px 9px 0px 9px;
+        top: 87%;
+        color: #9B9B9B;
+    }
+
+    .select2-container--default.select2-container--open .select2-selection--single .select2-selection__arrow b{
+        border-width: 14px 9px 14px 9px;
+        top: 38%;
+        color: #9B9B9B;
+    }
+
+    .select2-container--default .select2-selection--single .select2-selection__rendered {
+        color: #9B9B9B;
+        line-height: 54px;
+    }
+    .select2-container .select2-selection--single .select2-selection__rendered {
+        padding-left: 12px;
+    }
+</style>
 <script>
     // Sélectionnez tous les champs de fichier par leur attribut "data-preview"
     var fileInputs = document.querySelectorAll('input[type="file"][data-preview]');

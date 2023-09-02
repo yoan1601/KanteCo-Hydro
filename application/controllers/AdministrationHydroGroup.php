@@ -13,6 +13,15 @@ class AdministrationHydroGroup extends CI_Controller
         redirect('AdministrationHydroGroup/login');
     }
 
+    public function get_pays(){
+        if ($this->input->get('search') != null){
+            $pays = $this->realisation->find_all_pays($this->input->get('search'));
+        }else{
+            $pays = $this->realisation->find_all_pays('');
+        }
+        // $pays = $this->realisation->findAllPays();
+        echo json_encode($pays);
+    }
 
     public function sendmail(){
         $this->email->envoyer_email();
