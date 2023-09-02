@@ -43,7 +43,7 @@
                                         <div class="modal-header">
                                             <h4 class="modal-title">Voulez-vous vraiment supprimer ce mail ?</h4>
                                         </div>
-
+                                        <div><p class="fw-normal fs-5 my-3 text-center"><?= $data['email'][$i]['mail'] ?></p></div>
                                         <!-- Contenu du modal -->
                                         <div class="modal-body">
                                             <div class="d-flex align-items-center justify-content-center gap-3">

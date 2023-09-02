@@ -17,7 +17,10 @@
             </p>
             <p class="ms-auto">
                 <span class="fw-bold text-dark"><?= $data['detail_achievements_' . $data['lang']]['item3'] ?>  :</span>
-                <?= $data['realisation']['auteur']; ?>
+                
+                <?php if($data['realisation']['auteur'] != '') {echo $data['realisation']['auteur'];} else { ?>
+                    <?= $data['detail_achievements_' . $data['lang']]['item4'] ?>
+                <?php } ?>
             </p>
         </div>
         <div class="row g-5 mb-5">

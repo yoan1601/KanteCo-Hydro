@@ -10,7 +10,7 @@
                         <div class="col-10 col-lg-8">
                             <h1 class="display-2 text-white animated slideInDown"><?= $data['accueil_' . $data['lang']]['caroussel1_titre'] ?></h1>
                             <p class="fs-5 fw-medium text-white mb-4 pb-3"><?= $data['accueil_' . $data['lang']]['caroussel1_p'] ?></p>
-                            <div class="btn btn-primary rounded-pill py-3 px-5 animated slideInLeft"><span class="m-3"><?= $data['accueil_' . $data['lang']]['button'] ?></span><i class="fa fa-arrow-down ms-2"></i></div>
+                            <a href="#about"><div class="btn btn-primary rounded-pill py-3 px-5 animated slideInLeft"><span class="m-3"><?= $data['accueil_' . $data['lang']]['button'] ?></span><i class="fa fa-arrow-down ms-2"></i></div></a>
                         </div>
                     </div>
                 </div>
@@ -24,8 +24,7 @@
                         <div class="col-10 col-lg-8">
                             <h1 class="display-2 text-white animated slideInDown"><?= $data['accueil_' . $data['lang']]['caroussel2_titre'] ?></h1>
                             <p class="fs-5 fw-medium text-white mb-4 pb-3"><?= $data['accueil_' . $data['lang']]['caroussel2_p'] ?></p>
-                            <div class="btn btn-primary rounded-pill py-3 px-5 animated slideInLeft"><span class="m-3"><?= $data['accueil_' . $data['lang']]['button'] ?></span><i class="fa fa-arrow-down ms-2"></i></div>
-                        </div>
+                            <a href="#about"><div class="btn btn-primary rounded-pill py-3 px-5 animated slideInLeft"><span class="m-3"><?= $data['accueil_' . $data['lang']]['button'] ?></span><i class="fa fa-arrow-down ms-2"></i></div></a>                        </div>
                     </div>
                 </div>
             </div>
@@ -38,7 +37,7 @@
                         <div class="col-10 col-lg-8">
                             <h1 class="display-2 text-white animated slideInDown"><?= $data['accueil_' . $data['lang']]['caroussel3_titre'] ?></h1>
                             <p class="fs-5 fw-medium text-white mb-4 pb-3"><?= $data['accueil_' . $data['lang']]['caroussel3_p'] ?></p>
-                            <div class="btn btn-primary rounded-pill py-3 px-5 animated slideInLeft"><span class="m-3"><?= $data['accueil_' . $data['lang']]['button'] ?></span><i class="fa fa-arrow-down ms-2"></i></div>
+                            <a href="#about"><div class="btn btn-primary rounded-pill py-3 px-5 animated slideInLeft"><span class="m-3"><?= $data['accueil_' . $data['lang']]['button'] ?></span><i class="fa fa-arrow-down ms-2"></i></div></a>
                         </div>
                     </div>
                 </div>
@@ -49,7 +48,7 @@
 <!-- Carousel End -->
 
 <!-- About Start -->
-<div class="container-xxl">
+<div id="about" class="container-xxl">
     <div class="row g-0 mx-lg-0">
         <div class="col-lg-6 d-flex align-items-center about-text wow fadeIn mb-4" data-wow-delay="0.5s">
             <div class="p-lg-5 pe-lg-0">
