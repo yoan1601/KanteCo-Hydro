@@ -17,7 +17,7 @@
                 </div>
                 <div class="col-lg-3 col-12">
                     <select class="form-select" style="height: 55px;" name="year">
-                        <option value="<?= $data['annee'] ?>"><?= $data['annee_' .  $data['lang']]?></option>
+                        <option value="<?= $data['annee'] ?>"><?= $data['annee_' .  $data['lang']] ?></option>
                         <?php for ($i = 0; $i < count($data['allYears']); $i++) { ?>
                             <option value="<?= $data['allYears'][$i]->annee_demarrage ?>"><?= $data['allYears'][$i]->annee_demarrage ?></option>
                         <?php } ?>
@@ -39,7 +39,7 @@
                         </div>
                         <div class="portfolio-btn">
                             <a class="btn btn-lg-square btn-outline-light rounded-circle mx-1" href="<?= base_url("assets/") ?>img/<?= $data['achievements'][$i]['image_couverture']; ?>" data-lightbox="portfolio"><i class="fa fa-eye"></i></a>
-                            <a class="btn btn-lg-square btn-outline-light rounded-circle mx-1" href="<?= site_url("front/detail_achievements/" . $data['achievements'][$i]['id']) ?>"><i class="fa fa-arrow-right"></i></a>
+                            <a class="btn btn-lg-square btn-outline-light rounded-circle mx-1" href="<?= site_url("front/detail_achievements/" . $data['achievements'][$i]['id']) ?>"><i class="fa fa-info"></i></a>
                         </div>
                     </div>
                     <div class="pt-3">
@@ -67,7 +67,7 @@
                 <ul class="pagination justify-content-center pagination-lg">
                     <?php if ($data['page_en_cours'] > 1) { ?>
                         <li class="page-item">
-                            <a class="page-link" href="<?= site_url('front/achievements/' . $data['is_search'] . '/' . $data['page_en_cours'] -1 . '?keyword=' . $data['keyword'] . '&year=' . $data['annee']); ?>); ?>" aria-label="Previous">
+                            <a class="page-link" href="<?= site_url('front/achievements/' . $data['is_search'] . '/' . $data['page_en_cours'] - 1 . '?keyword=' . $data['keyword'] . '&year=' . $data['annee']); ?>); ?>" aria-label="Previous">
                                 <span aria-hidden="true">&laquo;</span>
                                 <span class="sr-only">Previous</span>
                             </a>

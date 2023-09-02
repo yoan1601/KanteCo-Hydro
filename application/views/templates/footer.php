@@ -1,16 +1,16 @@
-<div class="container-fluid" style="background-color: #f6f7f8;">
+<div class="container-fluid wow fadeIn" data-wow-delay="0.1s" style="background-color: #f6f7f8;">
     <div class="container py-5">
         <div class="row g-5 justify-content-center">
             <div class="col-lg-9 d-flex align-items-center" style="gap: 2rem;">
                 <i class="fas fa-comments-dollar fa-6x" style="color: #32c36c;"></i>
-                <h4 style="font-weight: lighter;">
+                <h5 style="font-weight: lighter;">
                     <?= $data['footer_' . $data['lang']]['item1'] ?>
-                </h4>
+                </h5>
             </div>
             <div class="col-lg-3">
-                <?php if ($data['session']!=false){ ?>
+                <?php if ($data['session'] != false) { ?>
                     <a href="<?= site_url("front/devis") ?>" class="btn btn-primary py-3 px-5"><?= $data['footer_' . $data['lang']]['button_devis'] ?><i class="fa fa-arrow-right ms-3"></i></a>
-                <?php }else{ ?>
+                <?php } else { ?>
                     <a href="<?= site_url("front/sign_in") ?>" class="btn btn-primary py-3 px-5"><?= $data['footer_' . $data['lang']]['button_devis'] ?><i class="fa fa-arrow-right ms-3"></i></a>
                 <?php } ?>
             </div>

@@ -11,7 +11,7 @@
             </form>
         </div>
         <div class="py-5">
-            <table class="table align-middle mb-0 bg-white">
+            <table class="table align-middle mb-0 bg-white table-hover">
                 <thead class="bg-light">
                     <tr>
                         <th class="py-3"><?= $data['devis_' . $data['lang']]['item9'] ?></th>

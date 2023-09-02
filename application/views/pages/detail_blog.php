@@ -32,11 +32,27 @@
                     <?php } ?>
                 </p>
             </div>
-            <?php for($i =0; $i <count($data['one_blog_images']); $i++){ ?>
-                <div class="col-lg-6 col-12 overflow-hidden" style="height: 60vh;">
-                    <img class="img-fluid w-100" src="<?= base_url('assets/') ?>img/<?= $data['one_blog_images'][$i]->image ?>" alt="">
+            <div id="carouselExampleControls" class="carousel slide col-lg-6 col-12" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <?php $active = true;
+                    for ($i = 0; $i < count($data['one_blog_images']); $i++) { ?>
+                        <div class="carousel-item <?php if ($active) {
+                                                        echo "active";
+                                                    }
+                                                    $active = false; ?>" style="height: 55vh;">
+                            <img class="d-block img-fluid w-100" src="<?= base_url('assets/') ?>img/<?= $data['one_blog_images'][$i]->image ?>" alt="">
+                        </div>
+                    <?php } ?>
                 </div>
-            <?php } ?>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
         </div>
     </div>
 </div>
