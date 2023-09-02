@@ -244,12 +244,14 @@ class Data_model extends CI_Model {
       'detail_achievements_fr' => array(
         'item1' =>'Publié le:',
         'item2' => '#équipe #environnement #approche',
-        'item3' => 'Par'
+        'item3' => 'Par',
+        'item4' => 'Inconnu'
       ),
       'detail_achievements_en' => array(
         'item1'=> 'Released on:',
         'item2' => '#team #environment #approach',
-        'item3' => 'By'
+        'item3' => 'By',
+        'item4' => 'Unknown'
       ),
       'blog_en' => array (
         'item1' => "Explore our news blogs. Keep up to date with the latest developments and discover our articles.",

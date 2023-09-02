@@ -50,7 +50,7 @@
                                         <div class="modal-header">
                                             <h4 class="modal-title">Voulez-vous vraiment supprimer ce contact ?</h4>
                                         </div>
-
+                                        <div><p class="fw-normal fs-5 my-3 text-center"><?= $data['contact'][$i]['contact'] ?> - <?= $data['contact'][$i]['email'] ?></p></div>
                                         <!-- Contenu du modal -->
                                         <div class="modal-body">
                                             <div class="d-flex align-items-center justify-content-center gap-3">
