@@ -43,7 +43,7 @@
                                     <div class="modal-content position-relative">
                                         <!-- En-tête du modal -->
                                         <div class="modal-header">
-                                            <h4 class="modal-title">Voulez-vous vraiment supprimer ce devis ?</h4>
+                                            <h4 style="font-weight:lighter;">Voulez-vous vraiment supprimer ce devis ?</h4>
                                         </div>
                                         <div><p class="fw-normal fs-5 my-3 text-center"><?= $data['devis'][$i]['type_projet'] ?></p></div>
                                         <!-- Contenu du modal -->

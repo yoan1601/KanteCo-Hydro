@@ -30,7 +30,7 @@
                                 <p class="fw-normal fs-5 mb-0"><?= $data['realisation'][$i]['annee_demarrage'] ?></p>
                             </td>
                             <td class="py-3">
-                                <p class="fw-normal fs-5 mb-0"><?= $data['realisation'][$i]['nom_mission_FR'] ?>e</p>
+                                <p class="fw-normal fs-5 mb-0"><?= $data['realisation'][$i]['nom_mission_FR'] ?></p>
                             </td>
                             <td class="py-3">
                                 <p class="fw-normal fs-5 mb-0"><?= $data['realisation'][$i]['autorite_contractante'] ?></p>
@@ -49,9 +49,9 @@
                                     <div class="modal-content position-relative">
                                         <!-- En-tête du modal -->
                                         <div class="modal-header">
-                                            <h4 class="modal-title">Voulez-vous vraiment supprimer cette realisation ?</h4>
+                                            <h4 style="font-weight:lighter;">Voulez-vous vraiment supprimer cette realisation ?</h4>
                                         </div>
-
+                                        <div><p class="fw-normal fs-5 my-3 text-center"><?= $data['realisation'][$i]['nom_mission_FR'] ?></p></div>
                                         <!-- Contenu du modal -->
                                         <div class="modal-body">
                                             <div class="d-flex align-items-center justify-content-center gap-3">
