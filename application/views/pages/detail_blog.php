@@ -32,15 +32,11 @@
                     <?php } ?>
                 </p>
             </div>
-            <div class="col-lg-6 col-12 overflow-hidden" style="height: 60vh;">
-                <img class="img-fluid w-100" src="<?= base_url('assets/') ?>img/achiev4_2.jpg" alt="">
-            </div>
-            <div class="col-lg-6 col-12 overflow-hidden" style="height: 60vh;">
-                <img class="img-fluid w-100" src="<?= base_url('assets/') ?>img/achiev3.jpg" alt="">
-            </div>
-            <div class="col-lg-6 col-12 overflow-hidden" style="height: 60vh;">
-                <img class="img-fluid w-100" src="<?= base_url('assets/') ?>img/achiev3_1.jpg" alt="">
-            </div>
+            <?php for($i =0; $i <count($data['one_blog_images']); $i++){ ?>
+                <div class="col-lg-6 col-12 overflow-hidden" style="height: 60vh;">
+                    <img class="img-fluid w-100" src="<?= base_url('assets/') ?>img/<?= $data['one_blog_images'][$i]->image ?>" alt="">
+                </div>
+            <?php } ?>
         </div>
     </div>
 </div>

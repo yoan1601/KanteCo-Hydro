@@ -8,7 +8,7 @@ JOIN users u ON u.id = a.idUser
 
 -- realisation get all year
 CREATE OR REPLACE VIEW v_realisations_all_year AS (
-    select annee_demarrage from v_realisations group by annee_demarrage
+    select annee_demarrage, etat from v_realisations group by annee_demarrage
 );
 
 -- blogs
@@ -18,7 +18,7 @@ CREATE OR REPLACE VIEW v_blogs AS (
 );
 
 CREATE OR REPLACE VIEW v_blogs_all_year AS (
-    select annee_publication from v_blogs group by annee_publication
+    select annee_publication, etat from v_blogs group by annee_publication
 );
 
 CREATE OR REPLACE VIEW v_devis AS (

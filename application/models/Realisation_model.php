@@ -25,11 +25,39 @@ class Realisation_model extends CI_Model {
     parent::__construct();
   }
 
+  public function inserer($data, $imgs_pub) {
+    try {
+      $this->db->trans_begin();
+      $this->db->insert('achievements', $data);
+      $last_inserted_id = $this->db->insert_id();
+      foreach ($imgs_pub as $key => $image) {
+        $data_img = [
+          'idAchievement' => $last_inserted_id,
+          'image' => $image
+        ];
+        $this->db->insert('achievements_images', $data_img);
+      }
+      $this->db->trans_commit();
+    } catch (Exception $ex) {
+      $this->db->trans_rollback();
+        // echo $ex;
+        throw $ex;
+    }
+  
+  }
+
 public function getById($id = 1) {
   $this->db->where('id', $id); 
   $query = $this->db->get("v_realisations");
   $tab = json_decode(json_encode($query->result()), true);
   return $tab[0];
+}
+
+public function get_all_images($id){
+  $this->db->where('idAchievement', $id);
+  $this->db->order_by('id', 'ASC');
+  $query = $this->db->get('achievements_images');
+  return $query->result();
 }
 
 public function setAllImages_oneAchievement($achievement) {
@@ -56,6 +84,7 @@ public function search($numero_page = 1,$nombre_resultat_affiche = 3, $keyword =
       $columns = $this->get_all_column_text();
       $i = 0;
       if ($keyword != ''){
+        $this->db->group_start(); 
         foreach($columns as $column){
           if ($i == 0){
             $this->db->like($column->Field, $keyword, 'both');
@@ -65,8 +94,9 @@ public function search($numero_page = 1,$nombre_resultat_affiche = 3, $keyword =
           }
           $i+=1;
         }
+        $this->db->group_end(); 
       }
-      
+      $this->db->where('etat >', 0);
       $query = $this->db->get('v_realisations');
       return $query->result();
   }
@@ -80,6 +110,7 @@ public function search($numero_page = 1,$nombre_resultat_affiche = 3, $keyword =
     $columns = $this->get_all_column_text();
     $i = 0;
     if ($keyword != ''){
+      $this->db->group_start(); 
       foreach($columns as $column){
         if ($i == 0){
           $this->db->like($column->Field, $keyword, 'both');
@@ -89,7 +120,9 @@ public function search($numero_page = 1,$nombre_resultat_affiche = 3, $keyword =
         }
         $i+=1;
       }
+      $this->db->group_end(); 
     }
+    $this->db->where('etat >', 0);
     $query = $this->db->get('v_realisations');
     return $query->result();
   }
@@ -103,11 +136,13 @@ public function search($numero_page = 1,$nombre_resultat_affiche = 3, $keyword =
     $calcul_limite = ($numero_page-1)*$nombre_resultat_affiche;
     $this->db->limit($nombre_resultat_affiche,$calcul_limite);
     // $this->db->order_by("id");
+    $this->db->where('etat >', 0);
     $query = $this->db->get("v_realisations");
     return $query->result();
   }
 
   public function getNombrePage($nombre_resultat_affiche = 2){
+    $this->db->where('etat >', 0);
     $query = $this->db->get('v_realisations');
     $rows = count(($query->result()));
     return ceil($rows/$nombre_resultat_affiche);
@@ -117,13 +152,23 @@ public function search($numero_page = 1,$nombre_resultat_affiche = 3, $keyword =
     $rows = $nbResultat_total;
     return ceil($rows/$nombre_resultat_affiche);
   }
+  
+  public function delete($id){
+    $this->db->where('id', $id);
+    $this->db->update('achievements',[
+      "etat" => 0
+    ]);
+  }
+
 
   public function findAll(){
+    $this->db->where('etat >', 0);
     $query = $this->db->get("v_realisations");
     return $query->result();
   }
 
   public function getAllYears() {
+    $this->db->where('etat >', 0);
     $query = $this->db->get("v_realisations_all_year");
     return $query->result();
   }
@@ -131,6 +176,12 @@ public function search($numero_page = 1,$nombre_resultat_affiche = 3, $keyword =
   public function index()
   {
     // 
+  }
+
+  public function findAllPays(){
+    // $this->db->where('etat >', 0);
+    $query = $this->db->get("pays");
+    return $query->result();
   }
 
   // ------------------------------------------------------------------------

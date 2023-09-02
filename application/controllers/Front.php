@@ -84,10 +84,20 @@ class Front extends CI_Controller
 		// objet -> tableau
 		$data['blogs'] = json_decode(json_encode($data['blogs']), true);
 		$data['nbPages'] = $this->blog->getNombrePage($nombre_resultat_affiche = $nbAffiche);
+		$data['keyword']= "";
+		$data['annee'] = "";
+		$data['annee_fr'] = "année";
+		$data['annee_en'] = "year";
 
 		if ($is_search == 1) {
 			$keyword = $this->input->get('keyword');
 			$year = $this->input->get('year');
+			$data['keyword']= $keyword;
+			$data['annee'] = $year;
+			if ($year != ''){
+				$data['annee_fr'] = $year;
+				$data['annee_en'] = $year;
+			}
 			$data['nb_resultat'] = count($this->blog->all_resultat_search($keyword, $year));
 			$data['blogs'] = $this->blog->search($numero_page = $num_page, $nombre_resultat_affiche = $nbAffiche, $keyword = $keyword, $year = $year);
 			// objet -> tableau
@@ -137,10 +147,20 @@ class Front extends CI_Controller
 		// objet -> tableau
 		$data['achievements'] = json_decode(json_encode($data['achievements']), true);
 		$data['nbPages'] = $this->realisation->getNombrePage($nombre_resultat_affiche = $nbAffiche);
+		$data['keyword']= "";
+		$data['annee'] = "";
+		$data['annee_fr'] = "année";
+		$data['annee_en'] = "year";
 
 		if ($is_search == 1) {
 			$keyword = $this->input->get('keyword');
 			$year = $this->input->get('year');
+			$data['keyword']= $keyword;
+			$data['annee'] = $year;
+			if ($year != ''){
+				$data['annee_fr'] = $year;
+				$data['annee_en'] = $year;
+			}
 			$data['nb_resultat'] = count($this->realisation->all_resultat_search($keyword, $year));
 			$data['achievements'] = $this->realisation->search($numero_page = $num_page, $nombre_resultat_affiche = $nbAffiche, $keyword = $keyword, $year = $year);
 			// objet -> tableau
@@ -228,6 +248,7 @@ class Front extends CI_Controller
 		$data = $this->data->getData();
 
 		$data['lang'] = $lang;
+		$data['page'] = 'achievements';
 
 		$data['realisation'] = $this->realisation->getById($id);
 		$data['realisation'] = $this->realisation->setAllImages_oneAchievement($data['realisation']);
@@ -254,7 +275,7 @@ class Front extends CI_Controller
 
 		// ========== FIN FORMATTAGE DATE ==========
 
-		$data['page'] = 'detail_achievements-' . $id;
+		// $data['page'] = 'detail_achievements-' . $id;
 		if ($this->session->has_userdata('user') == false) {
 			$data['session'] = false;
 		} else {
@@ -295,9 +316,11 @@ class Front extends CI_Controller
 		$data = $this->data->getData();
 
 		$data['lang'] = $lang;
+		$data['page'] = 'blogs';
 
 		$data['blog'] = $this->blog->getById($id);
 		$data['blog'] = $this->blog->setAllImages_one_blog($data['blog']);
+		$data['one_blog_images']= $this->blog->get_all_images($id);
 
 		// ========== FORMATTAGE DATE ==========
 		// Créer un objet DateTime à partir de la date MySQL
@@ -321,7 +344,7 @@ class Front extends CI_Controller
 
 		// ========== FIN FORMATTAGE DATE ==========
 
-		$data['page'] = 'detail_blog-' . $id;
+		// $data['page'] = 'detail_blog-' . $id;
 
 		if ($this->session->has_userdata('user') == false) {
 			$data['session'] = false;
