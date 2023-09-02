@@ -13,6 +13,12 @@ class AdministrationHydroGroup extends CI_Controller
         redirect('AdministrationHydroGroup/login');
     }
 
+
+    public function sendmail(){
+        $this->email->envoyer_email();
+        echo "success";
+    }
+
     public function log_out()
     {
         $this->session->unset_userdata('user_admin');
@@ -90,12 +96,14 @@ class AdministrationHydroGroup extends CI_Controller
         // objet -> tableau
         $data['devis'] = json_decode(json_encode($data['devis']), true);
         $data['nbPages'] = $this->devis->getNombrePage($nombre_resultat_affiche = $nbAffiche);
+        $data['keyword'] ='';
 
         if ($is_search == 1) {
             $keyword = $this->input->get('keyword');
             if ($keyword == NULL) {
                 $keyword = $this->session->keyword;
             }
+            $data['keyword'] =$keyword;
             $this->session->set_userdata('keyword', $keyword);
             $data['nb_resultat'] = count($this->devis->all_resultat_search($keyword));
             $data['devis'] = $this->devis->search($numero_page = $num_page, $nombre_resultat_affiche = $nbAffiche, $keyword = $keyword);

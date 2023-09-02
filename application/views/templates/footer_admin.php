@@ -12,6 +12,9 @@
 
 <!-- Template Javascript -->
 <script src="<?= base_url("assets/") ?>js/main.js"></script>
+<!-- Script Envoie mail -->
+
+<script src="<?= base_url("assets/") ?>js/mail.js"></script>
 <!-- Inclure le code JavaScript qui initialise CKEditor -->
     <script>
         ClassicEditor
