@@ -16,10 +16,13 @@
                     </div>
                     <div class="col-md-6">
                         <select class="form-select" style="height: 55px;" name="pays" id="">
-                            <option value="<?= $data['one_realisation']['idPays'] ?>"><?= $data['one_realisation']['nom_pays_FR'] ?></option>
-                            <?php for ($i = 0; $i < count($data["pays"]); $i++) { ?>
-                                <option value="<?= $data["pays"][$i]->id ?>"><?= $data["pays"][$i]->nom_FR ?></option>
-                            <?php } ?>
+                            <?php for ($i = 0; $i < count($data["pays"]); $i++) {
+                                if ($data["pays"][$i]->id == $data['one_realisation']['idPays']) { ?>
+                                    <option value="<?= $data["pays"][$i]->id ?>" selected><?= $data["pays"][$i]->nom_FR ?></option>
+                                <?php } else { ?>
+                                    <option value="<?= $data["pays"][$i]->id ?>"><?= $data["pays"][$i]->nom_FR ?></option>
+                            <?php }
+                            } ?>
                         </select>
                     </div>
                     <div class="col-md-6">
@@ -133,15 +136,15 @@
                             <img class="img-fluid" style="width: 100%; height: 40vh; object-fit: cover;" id="preview2" src="<?= base_url("assets/") ?>img/<?= $data['one_realisation']['image_couverture'] ?>" alt="">
                         </div>
                     </div>
-                    <?php for ($i = 1; $i <count($data['one_realisation_images']); $i ++){ ?>
+                    <?php for ($i = 1; $i < count($data['one_realisation_images']); $i++) { ?>
                         <div class="col-md-6">
-                        <div class="form-floating mb-5">
-                            <input type="file" class="form-control mb-3" name="image_publication<?= $i ?>" data-preview="preview3" placeholder="Images de publication <?= $i ?>">
-                            <input type="hidden" value="<?= $data['one_realisation_images'][$i]->id ?>" name="image_<?= $i ?>">
-                            <label for="">Images de publication <?= $i ?></label>
-                            <img class="img-fluid" style="width: 100%; height: 40vh; object-fit: cover;" id="preview3" src="<?= base_url("assets/") ?>img/<?= $data['one_realisation_images'][$i]->image ?>" alt="">
+                            <div class="form-floating mb-5">
+                                <input type="file" class="form-control mb-3" name="image_publication<?= $i ?>" data-preview="preview3" placeholder="Images de publication <?= $i ?>">
+                                <input type="hidden" value="<?= $data['one_realisation_images'][$i]->id ?>" name="image_<?= $i ?>">
+                                <label for="">Images de publication <?= $i ?></label>
+                                <img class="img-fluid" style="width: 100%; height: 40vh; object-fit: cover;" id="preview3" src="<?= base_url("assets/") ?>img/<?= $data['one_realisation_images'][$i]->image ?>" alt="">
+                            </div>
                         </div>
-                    </div>
                     <?php } ?>
                 </div>
                 <div class="col-12 mt-5 d-flex">

@@ -10,13 +10,13 @@
 </div>
 <div class="container-xxl py-5">
     <div class="container">
-        <div class="d-flex fs-5 mb-5">
-            <p>
-                <span class="fw-bold text-dark"><?= $data['detail_achievements_' . $data['lang']]['item1'] ?> </span>
+        <div class="d-flex justify-content-between flex-wrap fs-5 mb-5">
+            <p class="text-dark">
+                <span class="fw-bold"><?= $data['detail_achievements_' . $data['lang']]['item1'] ?></span>
                 <?= $data['realisation']['date_publication_formatted_' . (strtoupper($data['lang']))]; ?>
             </p>
-            <p class="ms-auto">
-                <span class="fw-bold text-dark"><?= $data['detail_achievements_' . $data['lang']]['item3'] ?> :</span>
+            <p class="text-dark">
+                <span class="fw-bold"><?= $data['detail_achievements_' . $data['lang']]['item3'] ?> :</span>
                 <?= $data['realisation']['auteur']; ?>
             </p>
         </div>
@@ -41,7 +41,7 @@
                                                         echo "active";
                                                     }
                                                     $active = false; ?>" style="height: 55vh;">
-                            <img class="d-block img-fluid w-100" src="<?= base_url('assets/') ?>img/<?= $img['image'] ?>" alt="">
+                            <img class="d-block img-fluid w-100 h-100" src="<?= base_url('assets/') ?>img/<?= $img['image'] ?>" alt="" style="object-fit: cover;">
                         </div>
                     <?php } ?>
                 </div>
@@ -56,7 +56,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-lg-10 col-12">
+            <div class="col-12">
                 <p class="fs-5 text-dark">
                     <?= $data['realisation']['description_' . (strtoupper($data['lang']))] ?>
                     <b><?= $data['detail_achievements_' . $data['lang']]['item2'] ?> </b>
