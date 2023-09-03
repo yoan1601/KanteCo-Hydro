@@ -184,6 +184,17 @@ public function search($numero_page = 1,$nombre_resultat_affiche = 3, $keyword =
     return $query->result();
   }
 
+  public function find_all_pays($motcle){
+    $this->db->limit(5);
+    $motcle = trim($motcle);
+    if ($motcle != ''){
+      $this->db->like('nom_FR', $motcle, 'after');
+      $this->db->or_like('nom_EN', $motcle, 'after');
+    }
+    $query = $this->db->get("pays");
+    return $query->result();
+  }
+
   // ------------------------------------------------------------------------
 
 }

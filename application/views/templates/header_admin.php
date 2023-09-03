@@ -33,6 +33,10 @@
     <!-- Template Stylesheet -->
     <link href="<?= base_url("assets/") ?>css/style.css" rel="stylesheet" />
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css">
+
+
+
     <!-- icone onglet -->
     <link rel="icon" href="<?= base_url("assets/") ?>img/HYDROCAMP LOGO FINAL.PNG">
 
