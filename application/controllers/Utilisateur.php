@@ -99,10 +99,10 @@ class Utilisateur extends CI_Controller
     $object = $this->user->check_login($email, $mot_de_passe);
     if ($object != false) {
       $this->session->set_userdata('user', $object);
-      redirect('front/home');
+      redirect('front/devis');
     }
     $data['error'] = 'email error';
-    redirect('front/devis');
+    redirect('front/sign_in/1');
   }
 
   public function log_out()

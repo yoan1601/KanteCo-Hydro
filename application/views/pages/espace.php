@@ -29,9 +29,16 @@
                                 <p class="fw-normal fs-5 mb-0"><?= $data['devis'][$i]['montant_estime'] ?> Ar</p>
                             </td>
                             <td class="py-3">
-                                <a href="" class="me-4" data-bs-toggle="modal" data-bs-target="#ModalInfo-<?= $data['devis'][$i]['id'] ?>">
-                                    <i class="fas fa-info-circle text-info" style="font-size: 1.5em"></i>
-                                </a>
+                                <div class="d-lg-flex d-none flex-wrap gap-2">
+                                    <a href="" class="btn btn-outline-secondary py-2 px-3" data-bs-toggle="modal" data-bs-target="#ModalInfo-<?= $data['devis'][$i]['id'] ?>">
+                                        Detail
+                                    </a>
+                                </div>
+                                <div class="d-lg-none d-flex flex-wrap" style="column-gap: 0.75rem">
+                                    <a href="" class="" data-bs-toggle="modal" data-bs-target="#ModalInfo-<?= $data['devis'][$i]['id'] ?>">
+                                        <i class="fas fa-info-circle text-secondary" style="font-size: 1.5em"></i>
+                                    </a>
+                                </div>
                             </td>
 
                             <!-- Modal Info -->

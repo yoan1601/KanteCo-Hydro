@@ -29,9 +29,16 @@
                                 <p class="fw-normal fs-5 mb-0"><?= $data['email'][$i]['mail'] ?></p>
                             </td>
                             <td class="py-3">
-                                <a href="" class="ms-4" data-bs-toggle="modal" data-bs-target="#monModal-<?= $data['email'][$i]['id'] ?>">
-                                    <i class="fas fa-trash text-danger" style="font-size: 1.5em"></i>
-                                </a>
+                                <div class="d-lg-flex d-none flex-wrap gap-2">
+                                    <a href="" class="btn btn-outline-danger py-2 px-3" data-bs-toggle="modal" data-bs-target="#monModal-<?= $data['email'][$i]['id'] ?>">
+                                        Supprimer
+                                    </a>
+                                </div>
+                                <div class="d-lg-none d-flex flex-wrap" style="column-gap: 0.75rem">
+                                    <a href="" class="" data-bs-toggle="modal" data-bs-target="#monModal-<?= $data['email'][$i]['id'] ?>">
+                                        <i class="fas fa-trash text-danger" style="font-size: 1.5em"></i>
+                                    </a>
+                                </div>
                             </td>
                             <!-- Modal Supp -->
                             <div class="modal fade" id="monModal-<?= $data['email'][$i]['id'] ?>">
