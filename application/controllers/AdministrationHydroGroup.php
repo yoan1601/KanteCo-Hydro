@@ -24,8 +24,8 @@ class AdministrationHydroGroup extends CI_Controller
     }
 
     public function sendmail(){
-        $this->email->envoyer_email();
-        echo "success";
+        $this->email->envoyer_email('Recycle', 'Tesla');
+        // redirect('AdministrationHydroGroup/mails');
     }
 
     public function log_out()
@@ -898,7 +898,7 @@ class AdministrationHydroGroup extends CI_Controller
         }
 
         $this->blog->inserer($data, $imgs_pub);
-
+        $this->email->envoyer_email($titre_fr, $titre_en);
         redirect('AdministrationHydroGroup/blog');
     }
 }
