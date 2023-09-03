@@ -20,42 +20,50 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Contact extends CI_Controller
 {
-    
+
   public function __construct()
   {
     parent::__construct();
   }
 
-  public function send_contact(){
-    $contact= $this->input->post('contact');
+  public function send_contact()
+  {
+    $contact = $this->input->post('contact');
     $message = $this->input->post('message');
     $mail = $this->input->post('mail');
 
-    require APPPATH.'constant/validation_msg.php';
+    require APPPATH . 'constant/validation_msg.php';
     $this->validation->set_rules(
-      "contact", "contact",
+      "contact",
+      "contact",
       'trim|required',
       $error_msg
     );
     $this->validation->set_rules(
-      "message", "message",
+      "message",
+      "message",
       'trim|required',
       $error_msg
     );
     $this->validation->set_rules(
-      "mail", "adresse email",
+      "mail",
+      "adresse email",
       'trim|required',
       $error_msg
     );
-    if ($this->validation->run() == false){
-      $errors =array();
+    if ($this->validation->run() == false) {
+      $errors = array();
       foreach ($this->input->post() as $key => $value) {
-        $errors[$key]= form_error($key);
+        $errors[$key] = form_error($key);
       }
       var_dump(validation_errors());
-    }else{
+    } else {
       $this->contact->insert($contact, $message, $mail);
-      redirect('front/contact');
+      $resp = array(
+        "state" => "success",
+      );
+      echo json_encode($resp);
+      // redirect('front/contact');
     }
   }
 
@@ -63,7 +71,6 @@ class Contact extends CI_Controller
   {
     // 
   }
-
 }
 
 

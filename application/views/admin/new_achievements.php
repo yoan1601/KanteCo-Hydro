@@ -14,11 +14,17 @@
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <select class="form-select" style="height: 55px;" name="pays" id="pays">
-                            <option value="" selected>Pays</option>
-                       </select>
+                        <select class="form-select" style="height: 55px;" name="pays" id="">
+                            <option value="">Pays</option>
+                            <?php for ($i = 0; $i < count($data["pays"]); $i++) {
 
-
+                                if ($data["pays"][$i]->nom_FR == "Madagascar") { ?>
+                                    <option value="<?= $data["pays"][$i]->id ?>" selected><?= $data["pays"][$i]->nom_FR ?></option>
+                                <?php } else { ?>
+                                    <option value="<?= $data["pays"][$i]->id ?>"><?= $data["pays"][$i]->nom_FR ?></option>
+                            <?php }
+                            } ?>
+                        </select>
                     </div>
                     <div class="col-md-6">
                         <div class="form-floating">
