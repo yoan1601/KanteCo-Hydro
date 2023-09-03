@@ -26,8 +26,8 @@
         <div class="row g-5 mb-5">
             <div class="col-lg-6 col-12 my-auto">
                 <h4 class="fs-3">
-                    <b class="text-dark fw-bold"><?= $data['realisation']['nom_mission_' . (strtoupper($data['lang']))]; ?>
-                    </b>
+                    <!-- <b class="text-dark fw-bold"><?= $data['realisation']['nom_mission_' . (strtoupper($data['lang']))]; ?>
+                    </b> -->
                 </h4>
                 <p class="fs-5 text-dark">
                     <?php if(isset($data['realisation']['commentaire_' . (strtoupper($data['lang']))])) { ?> 

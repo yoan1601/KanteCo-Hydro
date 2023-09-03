@@ -47,11 +47,10 @@
                             <p class="ms-auto text-dark fw-bold">
                                 <?= $data['detail_achievements_' . $data['lang']]['item3'] ?> :
                                 <span class="text-dark fw-light"><?= $data['blogs'][$i]['auteur'] ?></span>
-
                             </p>
                         </div>
                         <h4><?= $data['blogs'][$i]['titre_' . strtoupper($data['lang'])] ?></h4>
-                        <p><?= $data['blogs'][$i]['detail_' . strtoupper($data['lang'])] ?></p>
+                        <p class="text-truncate" style="max-height: 100vw;"><?= $data['blogs'][$i]['detail_' . strtoupper($data['lang'])] ?></p>
                     </div>
                 </div>
             <?php } ?>

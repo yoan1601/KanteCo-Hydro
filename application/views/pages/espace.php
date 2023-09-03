@@ -26,7 +26,7 @@
                                 <p class="fw-normal fs-5 mb-0"><?= $data['devis'][$i]['type_projet'] ?></p>
                             </td>
                             <td class="py-3">
-                                <p class="fw-normal fs-5 mb-0"><?= $data['devis'][$i]['montant_estime'] ?> Ar</p>
+                                <p class="fw-normal fs-5 mb-0"><?= number_format($data['devis'][$i]['montant_estime'], 2, ',', ' ') ?> Ar</p>
                             </td>
                             <td class="py-3">
                                 <a href="" class="me-4" data-bs-toggle="modal" data-bs-target="#ModalInfo-<?= $data['devis'][$i]['id'] ?>">
@@ -48,7 +48,7 @@
                                         <div class="modal-body">
                                             <div class="fs-5">
                                                 <p><strong>Description : </strong><?= $data['devis'][$i]['description_projet'] ?></p>
-                                                <p><strong>Montant Estimé : </strong><?= $data['devis'][$i]['montant_estime'] ?> Ar</p>
+                                                <p><strong>Montant Estimé : </strong><?= number_format($data['devis'][$i]['montant_estime'], 2, ',', ' ') ?> Ar</p>
                                                 <p><strong>Email du client : </strong><?= $data['devis'][$i]['mail'] ?></p>
                                             </div>
                                         </div>
