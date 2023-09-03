@@ -4,11 +4,9 @@
         <div class="mb-3" style="max-width: 600px; visibility: visible; animation-delay: 0.1s; animation-name: fadeInUp;">
             <h1 class="text-secondary">Liste des contacts</h1>
         </div>
-        <div class="row mt-n2">
-            <form class="row g-3" action="<?= site_url('administrationHydroGroup/contact/1'); ?>">
-                <div class="col-lg-3 col-12">
-                    <input type="text" class="form-control" name="keyword" placeholder="Mot clé" style="height: 55px;" required>
-                </div>
+        <div class="d-flex flex-wrap mt-4">
+            <form class="d-flex mb-3 me-auto" style="gap: 0.5rem" action="<?= site_url('administrationHydroGroup/contact/1'); ?>">
+                <input type="text" class="form-control" value="<?= $data['keyword'] ?>" name="keyword" placeholder="Mot clé" style="height: 55px; width: 300px;" required>
                 <button class="btn btn-lg btn-primary btn-lg-square rounded-circle"><i class="bi bi-search"></i></button>
             </form>
         </div>
@@ -38,19 +36,19 @@
                                 <a href="" class="me-4" data-bs-toggle="modal" data-bs-target="#ModalInfo-<?= $data['contact'][$i]['id'] ?>">
                                     <i class="fas fa-info-circle text-info" style="font-size: 1.5em"></i>
                                 </a>
-                                <a href="" class="ms-4"  data-bs-toggle="modal" data-bs-target="#monModal-<?= $data['contact'][$i]['id'] ?>">
+                                <a href="" class="ms-4" data-bs-toggle="modal" data-bs-target="#monModal-<?= $data['contact'][$i]['id'] ?>">
                                     <i class="fas fa-trash text-danger" style="font-size: 1.5em"></i>
                                 </a>
                             </td>
-                             <!-- Modal Supp -->
-                             <div class="modal fade" id="monModal-<?= $data['contact'][$i]['id'] ?>">
+                            <!-- Modal Supp -->
+                            <div class="modal fade" id="monModal-<?= $data['contact'][$i]['id'] ?>">
                                 <div class="modal-dialog modal-md">
                                     <div class="modal-content position-relative">
                                         <!-- En-tête du modal -->
                                         <div class="modal-header">
-                                            <h4 class="modal-title">Voulez-vous vraiment supprimer ce contact ?</h4>
+                                            <h4 style="font-weight:lighter;">Voulez-vous vraiment supprimer ce contact ?</h4>
                                         </div>
-
+                                        <div><p class="fw-normal fs-5 my-3 text-center"><?= $data['contact'][$i]['contact'] ?> - <?= $data['contact'][$i]['email'] ?></p></div>
                                         <!-- Contenu du modal -->
                                         <div class="modal-body">
                                             <div class="d-flex align-items-center justify-content-center gap-3">
@@ -75,9 +73,9 @@
                                         <!-- Contenu du modal -->
                                         <div class="modal-body">
                                             <div class="fs-5">
-                                               <p><strong>Contact : </strong><?= $data['contact'][$i]['contact'] ?></p>
-                                               <p><strong>Message : </strong><?= $data['contact'][$i]['message'] ?></p>
-                                               <p><strong>Email : </strong><?= $data['contact'][$i]['email'] ?></p>
+                                                <p><strong>Contact : </strong><?= $data['contact'][$i]['contact'] ?></p>
+                                                <p><strong>Message : </strong><?= $data['contact'][$i]['message'] ?></p>
+                                                <p><strong>Email : </strong><?= $data['contact'][$i]['email'] ?></p>
                                             </div>
                                         </div>
                                     </div>

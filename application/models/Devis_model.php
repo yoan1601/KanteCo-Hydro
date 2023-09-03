@@ -99,13 +99,13 @@ class Devis_model extends CI_Model {
 
   public function delete($id){
     $this->db->where('id', $id);
-    $this->db->update('v_devis',[
+    $this->db->update('devis',[
       "etat" => 0
     ]);
   }
 
   public function insert($idUser,$type_projet, $description_projet, $montant){
-    $this->db->insert('v_devis',[
+    $this->db->insert('devis',[
       "idUser" => $idUser,
       "type_projet" => $type_projet,
       "description_projet" => $description_projet,
