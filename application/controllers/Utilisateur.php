@@ -44,7 +44,11 @@ class Utilisateur extends CI_Controller
       var_dump(validation_errors());
     } else {
       $this->user->insert_email($email);
-      redirect('front');
+      $resp = array(
+        "state" => "success",
+      );
+      echo json_encode($resp);
+      // redirect('front');
     }
   }
 

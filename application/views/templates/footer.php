@@ -55,7 +55,7 @@
                 <h5 class="text-white mb-4">Newsletter</h5>
                 <p><?= $data['footer_' . $data['lang']]['item4'] ?></p>
                 <div class="position-relative mx-auto" style="max-width: 400px;">
-                    <form action="<?= site_url("utilisateur/send_news_letter") ?>" method="post">
+                    <form action="" method="post" id="newsLetter">
                         <input class="form-control border-0 w-100 py-3 ps-4 pe-5" type="text" name="email" placeholder="<?= $data['footer_' . $data['lang']]['mail'] ?>">
                         <button type="submit" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2"><?= $data['footer_' . $data['lang']]['inscription'] ?></button>
                     </form>
@@ -79,11 +79,39 @@
         </div>
     </div>
 </div>
+
+<!-- <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+    <div class="toast align-items-center text-white bg-primary border-0" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="d-flex">
+            <div class="toast-body">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae voluptatem quae nihil modi autem nulla? Corporis enim, id fugiat distinctio laborum aliquam cumque aspernatur qui molestiae ea quod similique veniam.
+            </div>
+            <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+    </div>
+</div> -->
+
+<div class="position-fixed top-0 end-0 p-3" style="z-index: 9999">
+    <div id="newsletterToast" class="toast bg-white hide" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header">
+            <strong class="me-auto fs-6">Newsletter</strong>
+            <small class="text-muted fs-6">Maintenant</small>
+            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+        <div class="toast-body fs-6 text-success">
+            Vous êtes maintenant inscrit à notre newsletter.
+        </div>
+    </div>
+</div>
+
+
 <!-- Footer End -->
 
 
 <!-- Back to Top -->
 <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+
 
 
 <!-- JavaScript Libraries -->
@@ -99,6 +127,38 @@
 
 <!-- Template Javascript -->
 <script src="<?= base_url("assets/") ?>js/main.js"></script>
+
+<script>
+    $(document).ready(function() {
+        $('#newsLetter').submit(function(e) {
+            e.preventDefault();
+
+            // Récupérez les données du formulaire
+            var formData = $(this).serialize();
+
+            $.ajax({
+                type: 'POST',
+                url: '<?= site_url("utilisateur/send_news_letter") ?>', // Remplacez par l'URL de votre script de traitement
+                data: formData,
+                success: function(response) {
+                    let msg = JSON.parse(response);
+                    console.log(msg);
+                    console.log(msg["state"] === 'success');
+                    if (msg["state"] === 'success') {
+                        // Affichez le toast en cas de succès
+                        var newsletterToast = new bootstrap.Toast(document.getElementById('newsletterToast'));
+                        newsletterToast.show();
+
+                        // Réinitialisez le formulaire
+                        $('#newsLetter')[0].reset();
+                    } else {
+                        // Gérez les erreurs ici
+                    }
+                }
+            });
+        });
+    });
+</script>
 </body>
 
 </html>
