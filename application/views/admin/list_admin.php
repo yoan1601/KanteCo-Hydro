@@ -58,7 +58,9 @@
                                         <div class="modal-header">
                                             <h4 style="font-weight:lighter;">Voulez-vous vraiment supprimer cet admin ?</h4>
                                         </div>
-                                        <div><p class="fw-normal fs-5 my-3 text-center"><?= $data['admin'][$i]['nom'] ?></p></div>
+                                        <div>
+                                            <p class="fw-normal fs-5 my-3 text-center"><?= $data['admin'][$i]['nom'] ?></p>
+                                        </div>
                                         <!-- Contenu du modal -->
                                         <div class="modal-body">
                                             <div class="d-flex align-items-center justify-content-center gap-3">
@@ -91,7 +93,7 @@
                                                 <div class="fs-5">
                                                     <form class="col-12 col-lg-6" action="<?= site_url('administrationhydrogroup/modifier_admin') ?>" method="POST">
                                                         <input type="hidden" value="<?= $data['admin'][$i]['id'] ?>" name="id">
-                                                        <div class="row g-3">
+                                                        <div class="row" style="row-gap: 1rem;">
                                                             <div class="col-12">
                                                                 <?php if ($data['errors'] != false && isset($data['errors']['Nom'])) { ?>
                                                                     <p style="color: red;"> <?= $data['errors']['Nom'] ?></p>
@@ -128,7 +130,7 @@
                                                                     <label for="">Mot de passe (*)</label>
                                                                 </div>
                                                             </div>
-                                                            <div class="col-12 mt-5 d-flex">
+                                                            <div class="col-12 d-flex justify-content-center">
                                                                 <button class="btn btn-primary py-3 px-5" type="submit">Valider</button>
                                                             </div>
                                                         </div>

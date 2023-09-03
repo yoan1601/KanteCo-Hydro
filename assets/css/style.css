@@ -602,7 +602,8 @@
 	color: var(--primary);
 }
 
-
+input[type="file"]:not(:placeholder-shown) {
+	padding-top: 1rem !important;
+}
 
 /* ____________________________________________________________ */
-
