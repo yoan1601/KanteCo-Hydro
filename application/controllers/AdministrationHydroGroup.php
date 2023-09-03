@@ -40,6 +40,124 @@ class AdministrationHydroGroup extends CI_Controller
         redirect('AdministrationHydroGroup/login/1');
     }
 
+    //reference
+    public function reference($is_search = 0, $num_page = 1)
+    {
+        if ($this->session->has_userdata('user_admin') == false) {
+            $data['session'] = false;
+        } else {
+            $data['session'] = $this->session->user_admin;
+        }
+        $data["active"] = "reference";
+        $nbAffiche = 3;
+        $data['page_en_cours'] = $num_page;
+
+        $data['nb_resultat'] = count($this->reference->findAll());
+        $data['reference'] = $this->reference->findAllPagination($numero_page = $num_page, $nombre_resultat_affiche = $nbAffiche);
+        // objet -> tableau
+        $data['reference'] = json_decode(json_encode($data['reference']), true);
+        $data['nbPages'] = $this->reference->getNombrePage($nombre_resultat_affiche = $nbAffiche);
+        $data['keyword']= "";
+
+        if ($is_search == 1) {
+            $keyword = $this->input->get('keyword');
+            if ($keyword == NULL) {
+                $keyword = $this->session->keyword;
+            }
+            $data['keyword']= $keyword;
+            $this->session->set_userdata('keyword', $keyword);
+            $data['nb_resultat'] = count($this->reference->all_resultat_search($keyword));
+            $data['reference'] = $this->reference->search($numero_page = $num_page, $nombre_resultat_affiche = $nbAffiche, $keyword = $keyword);
+            // objet -> tableau
+            $data['reference'] = json_decode(json_encode($data['reference']), true);
+            $data['nbPages'] = $this->reference->getNombrePageSearch($data['nb_resultat'], $nombre_resultat_affiche = $nbAffiche);
+        } else {
+            $this->session->unset_userdata('keyword');
+        }
+
+        //set all images 
+        $data['is_search'] = $is_search;
+        $this->load->view("admin/reference", ['data' => $data]);
+    }
+
+    public function new_reference()
+    {
+        if ($this->session->has_userdata('user_admin') == false) {
+            $data['session'] = false;
+        } else {
+            $data['session'] = $this->session->user_admin;
+        }
+        $data["active"] = "reference";
+        $this->load->view("admin/new_reference", ['data' => $data]);
+    }
+
+    public function creer_reference()
+    {
+        $imgs_pub= array();
+        $nom = $this->input->post('nom');
+        
+        $this->load->helper('upload');
+        $logo = upload_file('logo');
+
+
+        $user = $this->session->user_admin;
+
+        $data = [
+            'nom'=>$nom ,
+            'logo'=> $logo,
+            'etat' => 1
+        ];
+        if ($logo[0] === 1){
+            $data['logo'] = $logo[1]['file_name'];
+            array_push($imgs_pub, $logo[1]['file_name']);
+        }
+
+        $this->reference->inserer($data, $imgs_pub);
+
+        redirect('AdministrationHydroGroup/reference');
+    }
+
+    public function reference_delete($id)
+    {
+        $this->reference->delete($id);
+        redirect('AdministrationHydroGroup/reference');
+    }
+
+    public function modif_reference($id = 1)
+    {
+        if ($this->session->has_userdata('user_admin') == false) {
+            $data['session'] = false;
+        } else {
+            $data['session'] = $this->session->user_admin;
+        }
+        $data["active"] = "reference";
+        $data['one_reference']= $this->reference->getById($id);
+        $this->load->view("admin/modif_reference", ['data' => $data]);
+    }
+
+    public function update_reference(){
+        $id = $this->input->post('id');
+        $nom = $this->input->post('nom');
+
+        $this->load->helper('upload');
+        $logo = upload_file('logo');
+
+        $user = $this->session->user_admin;
+
+        $data = [
+            'nom'=> $nom,
+            'etat' => 1
+        ];
+
+        if ($logo[0] === 1){
+            $data['logo'] = $logo[1]['file_name'];
+        }
+
+        $this->db->where('id', $id);
+        $this->db->update('compagnies',$data);
+        redirect('AdministrationHydroGroup/reference');
+    }
+
     public function email_delete($id)
     {
         $this->email->delete($id);
