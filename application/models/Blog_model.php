@@ -25,6 +25,34 @@ class Blog_model extends CI_Model {
     parent::__construct();
   }
 
+  public function inserer($data, $imgs_pub) {
+    try {
+      $this->db->trans_begin();
+      $this->db->insert('blogs', $data);
+      $last_inserted_id = $this->db->insert_id();
+      foreach ($imgs_pub as $key => $image) {
+        $data_img = [
+          'idBlog' => $last_inserted_id,
+          'image' => $image
+        ];
+        $this->db->insert('blogs_images', $data_img);
+      }
+      $this->db->trans_commit();
+    } catch (Exception $ex) {
+      $this->db->trans_rollback();
+        // echo $ex;
+        throw $ex;
+    }
+  
+  }
+
+  public function get_all_images($id){
+    $this->db->where('idBlog', $id);
+    $this->db->order_by('id', 'ASC');
+    $query = $this->db->get('blogs_images');
+    return $query->result();
+  }
+
   public function setAllImages_one_blog($blog) {
     $this->db->where('idBlog', $blog['id']);
     $blog['images'] = json_decode(json_encode($this->db->get("blogs_images")->result()), true);
@@ -84,6 +112,7 @@ class Blog_model extends CI_Model {
     $columns = $this->get_all_column_text();
     $i = 0;
     if ($keyword != ''){
+      $this->db->group_start(); 
       foreach($columns as $column){
         if ($i == 0){
           $this->db->like($column->Field, $keyword, 'both');
@@ -93,8 +122,9 @@ class Blog_model extends CI_Model {
         }
         $i+=1;
       }
+      $this->db->group_end(); 
     }
-    
+    $this->db->where('etat >', 0);
     $query = $this->db->get('v_blogs');
     return $query->result();
 }
@@ -108,6 +138,7 @@ class Blog_model extends CI_Model {
     $columns = $this->get_all_column_text();
     $i = 0;
     if ($keyword != ''){
+      $this->db->group_start(); 
       foreach($columns as $column){
         if ($i == 0){
           $this->db->like($column->Field, $keyword, 'both');
@@ -117,7 +148,9 @@ class Blog_model extends CI_Model {
         }
         $i+=1;
       }
+      $this->db->group_end(); 
     }
+    $this->db->where('etat >', 0);
     $query = $this->db->get('v_blogs');
     return $query->result();
   }
@@ -131,11 +164,13 @@ class Blog_model extends CI_Model {
     $calcul_limite = ($numero_page-1)*$nombre_resultat_affiche;
     $this->db->limit($nombre_resultat_affiche,$calcul_limite);
     // $this->db->order_by("id");
+    $this->db->where('etat >', 0);
     $query = $this->db->get("v_blogs");
     return $query->result();
   }
 
   public function getNombrePage($nombre_resultat_affiche = 2){
+    $this->db->where('etat >', 0);
     $query = $this->db->get('v_blogs');
     $rows = count(($query->result()));
     return ceil($rows/$nombre_resultat_affiche);
@@ -146,12 +181,21 @@ class Blog_model extends CI_Model {
     return ceil($rows/$nombre_resultat_affiche);
   }
 
+  public function delete($id){
+    $this->db->where('id', $id);
+    $this->db->update('blogs',[
+      "etat" => 0
+    ]);
+  }
+
   public function findAll(){
+    $this->db->where('etat >', 0);
     $query = $this->db->get("v_blogs");
     return $query->result();
   }
 
   public function getAllYears() {
+    $this->db->where('etat >', 0);
     $query = $this->db->get("v_blogs_all_year");
     return $query->result();
   }

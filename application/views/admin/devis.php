@@ -4,11 +4,9 @@
         <div class="mb-3" style="max-width: 600px; visibility: visible; animation-delay: 0.1s; animation-name: fadeInUp;">
             <h1 class="text-secondary">Liste des devis</h1>
         </div>
-        <div class="row mt-n2">
-            <form class="row g-3" action="<?= site_url('administrationHydroGroup/devis/1'); ?>">
-                <div class="col-lg-3 col-12">
-                    <input type="text" class="form-control" name="keyword" placeholder="Mot clé" style="height: 55px;" required>
-                </div>
+        <div class="d-flex flex-wrap mt-4">
+            <form class="d-flex mb-3 me-auto" style="gap: 0.5rem" action="<?= site_url('administrationHydroGroup/devis/1'); ?>">
+                <input type="text" class="form-control" value="<?= $data['keyword'] ?>" name="keyword" placeholder="Mot clé" style="height: 55px; width: 300px;" required>
                 <button class="btn btn-lg btn-primary btn-lg-square rounded-circle"><i class="bi bi-search"></i></button>
             </form>
         </div>
@@ -29,7 +27,7 @@
                                 <p class="fw-normal fs-5 mb-0"><?= $data['devis'][$i]['type_projet'] ?></p>
                             </td>
                             <td class="py-3">
-                                <p class="fw-normal fs-5 mb-0"><?= $data['devis'][$i]['montant_estime'] ?> Ar</p>
+                                <p class="fw-normal fs-5 mb-0"><?= number_format($data['devis'][$i]['montant_estime'], 2, ',', ' ') ?> Ar</p>
                             </td>
                             <td class="py-3">
                                 <a href="" class="me-4" data-bs-toggle="modal" data-bs-target="#ModalInfo-<?= $data['devis'][$i]['id'] ?>">
@@ -45,9 +43,9 @@
                                     <div class="modal-content position-relative">
                                         <!-- En-tête du modal -->
                                         <div class="modal-header">
-                                            <h4 class="modal-title">Voulez-vous vraiment supprimer ce devis ?</h4>
+                                            <h4 style="font-weight:lighter;">Voulez-vous vraiment supprimer ce devis ?</h4>
                                         </div>
-
+                                        <div><p class="fw-normal fs-5 my-3 text-center"><?= $data['devis'][$i]['type_projet'] ?></p></div>
                                         <!-- Contenu du modal -->
                                         <div class="modal-body">
                                             <div class="d-flex align-items-center justify-content-center gap-3">
@@ -72,9 +70,9 @@
                                         <!-- Contenu du modal -->
                                         <div class="modal-body">
                                             <div class="fs-5">
-                                               <p><strong>Description : </strong><?= $data['devis'][$i]['description_projet'] ?></p>
-                                               <p><strong>Montant Estimé : </strong><?= $data['devis'][$i]['montant_estime'] ?> Ar</p>
-                                               <p><strong>Email du client : </strong><?= $data['devis'][$i]['mail'] ?></p>
+                                                <p><strong>Description : </strong><?= $data['devis'][$i]['description_projet'] ?></p>
+                                                <p><strong>Montant Estimé : </strong><?= number_format($data['devis'][$i]['montant_estime'], 2, ',', ' ') ?> Ar</p>
+                                                <p><strong>Email du client : </strong><?= $data['devis'][$i]['mail'] ?></p>
                                             </div>
                                         </div>
                                     </div>

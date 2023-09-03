@@ -43,7 +43,7 @@ class Contact extends CI_Controller
       $error_msg
     );
     $this->validation->set_rules(
-      "email", "adresse email",
+      "mail", "adresse email",
       'trim|required',
       $error_msg
     );
