@@ -17,14 +17,17 @@
             </p>
             <p class="ms-auto">
                 <span class="fw-bold text-dark"><?= $data['detail_achievements_' . $data['lang']]['item3'] ?>  :</span>
-                <?= $data['realisation']['auteur']; ?>
+                
+                <?php if($data['realisation']['auteur'] != '') {echo $data['realisation']['auteur'];} else { ?>
+                    <?= $data['detail_achievements_' . $data['lang']]['item4'] ?>
+                <?php } ?>
             </p>
         </div>
         <div class="row g-5 mb-5">
             <div class="col-lg-6 col-12 my-auto">
                 <h4 class="fs-3">
-                    <b class="text-dark fw-bold"><?= $data['realisation']['nom_mission_' . (strtoupper($data['lang']))]; ?>
-                    </b>
+                    <!-- <b class="text-dark fw-bold"><?= $data['realisation']['nom_mission_' . (strtoupper($data['lang']))]; ?>
+                    </b> -->
                 </h4>
                 <p class="fs-5 text-dark">
                     <?php if(isset($data['realisation']['commentaire_' . (strtoupper($data['lang']))])) { ?> 
@@ -42,7 +45,7 @@
             <div class="col-lg-10 col-12">
                 <p class="fs-5 text-dark">
                     <?= $data['realisation']['description_' . (strtoupper($data['lang']))] ?>
-                    <!-- <b><?= $data['detail_achievements_' . $data['lang']]['item2'] ?> </b> -->
+                    <b><?= $data['detail_achievements_' . $data['lang']]['item2'] ?> </b>
                 </p>
             </div>
         </div>

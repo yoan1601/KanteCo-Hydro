@@ -13,11 +13,11 @@
         <div class="row mt-n2 wow fadeInUp" data-wow-delay="0.3s">
             <form class="row g-3" action="<?= site_url('front/blogs/1'); ?>">
                 <div class="col-lg-3 col-12 offset-lg-3">
-                    <input type="text" class="form-control" name="keyword" placeholder="<?= $data['realisation_' . $data['lang']]['item2'] ?>" style="height: 55px;" required>
+                    <input type="text" class="form-control" value="<?php if (isset($data['keyword'])) echo $data['keyword'] ?>" name="keyword" placeholder="<?= $data['realisation_' . $data['lang']]['item2'] ?>" style="height: 55px;" required>
                 </div>
                 <div class="col-lg-3 col-12">
-                    <select class="form-select" style="height: 55px;" name="year" required>
-                        <option selected><?= $data['realisation_' . $data['lang']]['item3'] ?></option>
+                    <select class="form-select" style="height: 55px;" name="year">
+                        <option value="<?= $data['annee'] ?>"><?= $data['annee_' .  $data['lang']]?></option>
                         <?php for ($i = 0; $i < count($data['allYears']); $i++) { ?>
                             <option value="<?= $data['allYears'][$i]->annee_publication ?>"><?= $data['allYears'][$i]->annee_publication ?></option>
                         <?php } ?>
@@ -47,11 +47,10 @@
                             <p class="ms-auto text-dark fw-bold">
                                 <?= $data['detail_achievements_' . $data['lang']]['item3'] ?> :
                                 <span class="text-dark fw-light"><?= $data['blogs'][$i]['auteur'] ?></span>
-
                             </p>
                         </div>
                         <h4><?= $data['blogs'][$i]['titre_' . strtoupper($data['lang'])] ?></h4>
-                        <p><?= $data['blogs'][$i]['detail_' . strtoupper($data['lang'])] ?></p>
+                        <p class="text-truncate" style="max-height: 100vw;"><?= $data['blogs'][$i]['detail_' . strtoupper($data['lang'])] ?></p>
                     </div>
                 </div>
             <?php } ?>
@@ -65,20 +64,20 @@
                 <ul class="pagination justify-content-center pagination-lg">
                     <?php if ($data['page_en_cours'] > 1) { ?>
                         <li class="page-item">
-                            <a class="page-link" href="<?= $data['page_en_cours'] - 1 ?>" aria-label="Previous">
+                            <a class="page-link" href="<?= site_url('front/blogs/' . $data['is_search'] . '/' . $data['page_en_cours'] - 1 . '?keyword=' . $data['keyword'] . '&year=' . $data['annee']); ?>" aria-label="Previous">
                                 <span aria-hidden="true">&laquo;</span>
                                 <span class="sr-only">Previous</span>
                             </a>
                         </li>
-                        <li class="page-item"><a class="page-link" href="<?= site_url('front/blogs/' . $data['is_search'] . '/' . $data['page_en_cours'] - 1); ?>"><?= $data['page_en_cours'] - 1 ?></a></li>
+                        <li class="page-item"><a class="page-link" href="<?= site_url('front/blogs/' . $data['is_search'] . '/' . $data['page_en_cours'] - 1 . '?keyword=' . $data['keyword'] . '&year=' . $data['annee']); ?>"><?= $data['page_en_cours'] - 1 ?></a></li>
                     <?php } ?>
 
                     <li class="page-item"><button class="page-link" style="color:white; background-color:#32c36c;"><?= $data['page_en_cours'] ?></button></li>
 
                     <?php if ($data['page_en_cours'] < $data['nbPages']) { ?>
-                        <li class="page-item"><a class="page-link" href="<?= site_url('front/blogs/' . $data['is_search'] . '/' . $data['page_en_cours'] + 1); ?>"><?= $data['page_en_cours'] + 1 ?></a></li>
+                        <li class="page-item"><a class="page-link" href="<?= site_url('front/blogs/' . $data['is_search'] . '/' . $data['page_en_cours'] + 1 . '?keyword=' . $data['keyword'] . '&year=' . $data['annee']); ?>"><?= $data['page_en_cours'] + 1 ?></a></li>
                         <li class="page-item">
-                            <a class="page-link" href="<?= site_url('front/blogs/' . $data['is_search'] . '/' . $data['page_en_cours'] + 1); ?>" aria-label="Next">
+                            <a class="page-link" href="<?= site_url('front/blogs/' . $data['is_search'] . '/' . $data['page_en_cours'] + 1 . '?keyword=' . $data['keyword'] . '&year=' . $data['annee']); ?>" aria-label="Next">
                                 <span aria-hidden="true">&raquo;</span>
                                 <span class="sr-only">Next</span>
                             </a>

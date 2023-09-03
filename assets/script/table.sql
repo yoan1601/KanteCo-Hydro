@@ -25,8 +25,7 @@ create table devis(
     idUser integer references users(id),
     type_projet text not null,
     description_projet text not null,
-    montant_estime decimal not null,
-    etat integer not null default 1
+    montant_estime decimal not null
 );
 
 create table blogs(
