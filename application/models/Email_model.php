@@ -27,23 +27,32 @@ class Email_model extends CI_Model {
 
   public function envoyer_email() {
     $emails = $this->findAll();
-    foreach ($emails as $email) {
-      $this->mail->from('mirijarazafimbelo30@gmail.com', 'HydroGroup');
-      $this->mail->to($email->mail);
-      $this->mail->subject('Sujet de l\'e-mail');
-      $message= '<h2>Nouveau blog </h2>';
-      $message.= '<p> HydroCamp a publié une nouvelle blog. </p>';
-      $message.= "<a href='#'>Notre site Web</a>";
-      $this->mail->message($message);
+    // foreach ($emails as $email) {
+    //   $this->mail->from('mirijarazafimbelo30@gmail.com', 'HydroGroup');
+    //   $this->mail->to($email->mail);
+    //   $this->mail->subject('Sujet de l\'e-mail');
+    //   $message= '<h2>Nouveau blog </h2>';
+    //   $message.= '<p> HydroCamp a publié une nouvelle blog. </p>';
+    //   $message.= "<a href='#'>Notre site Web</a>";
+    //   $this->mail->message($message);
 
-      // var_dump($this->mail->send());
-      if ($this->mail->send()) {
-          echo 'L\'e-mail a été envoyé avec succès.';
-      } else {
-          echo $this->mail->print_debugger();
-          // echo 'Une erreur s\'est produite lors de l\'envoi de l\'e-mail.';
-      }
-      // $this->mail->clear();
+    //   // var_dump($this->mail->send());
+    //   if ($this->mail->send()) {
+    //       echo 'L\'e-mail a été envoyé avec succès.';
+    //   } else {
+    //       echo $this->mail->print_debugger();
+    //       // echo 'Une erreur s\'est produite lors de l\'envoi de l\'e-mail.';
+    //   }
+    //   // $this->mail->clear();
+    // }
+    foreach ($emails as $email) {
+      $to = $email->mail;
+      $subject = "My subject";
+      $txt = "Hello world!";
+      $headers = "From: mirijarazafimbelo30@gmail.com" . "\r\n" .
+      "CC: somebodyelse@example.com";
+
+      mail($to,$subject,$txt,$headers);
     }
     
 }
