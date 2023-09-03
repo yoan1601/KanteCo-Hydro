@@ -227,6 +227,16 @@ insert into achievements_images values
     (default,4,'achiev4_4.jpg'),
     (default,5,'achiev5_1.jpg');
 
+insert into blogs_images VALUES
+    (default,1,'biodiversite.jpg'),
+    (default,2,'energie-renouvelable.jpg'),
+    (default,3,'recyclage.jpg'),
+    (default,4,'ressource.jpg'),
+    (default,5,'foret.jpg'),
+    (default,6,'plastique.jpg'),
+    (default,7,'education.jpg'),
+    (default,8,'especes.jpg');
+
 
 INSERT INTO devis (idUser, type_projet, description_projet, montant_estime, etat, date_creation)
 VALUES

@@ -5,7 +5,7 @@
             <h1 class="text-secondary">Nouveau blog</h1>
         </div>
         <div class="py-5 row">
-            <form class="col-lg-8 col-12" action="<?= site_url('administrationHydroGroup/creer_blog/') ?>" method="POST" enctype="multipart/form-data">
+            <form class="col-lg-8 col-12" id="envoyer_blog" action="<?= site_url('administrationHydroGroup/creer_blog/') ?>" method="POST" enctype="multipart/form-data">
                 <div class="row g-3">
                     <div class="col-md-6">
                         <div class="form-floating">
@@ -32,13 +32,15 @@
                         </div>
                     </div>
                     <div class="col-md-6">
+                        <p>Details Français</p>
                         <div class="form-floating">
-                            <textarea id="editor1" required class="form-control" name="detail_fr" placeholder="Texte de publication FR (*)" style="height: 150px"></textarea>
+                            <textarea id="editor1" class="form-control" name="detail_fr" placeholder="Texte de publication FR (*)" style="height: 150px"></textarea>
                         </div>
                     </div>
                     <div class="col-md-6">
+                        <p>Details Anglais</p>
                         <div class="form-floating mb-5">
-                            <textarea id="editor2" required class="form-control" name="detail_en" placeholder="Texte de publication EN (*)" style="height: 150px"></textarea>
+                            <textarea id="editor2" class="form-control" name="detail_en" placeholder="Texte de publication EN (*)" style="height: 150px"></textarea>
                         </div>
                     </div>
                     <div class="col-md-6">

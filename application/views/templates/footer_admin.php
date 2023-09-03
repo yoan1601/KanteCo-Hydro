@@ -1,5 +1,6 @@
 <!-- JavaScript Libraries -->
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
 <script src="<?= base_url("assets/") ?>lib/wow/wow.min.js"></script>
 <script src="<?= base_url("assets/") ?>lib/easing/easing.min.js"></script>
@@ -12,8 +13,44 @@
 
 <!-- Template Javascript -->
 <script src="<?= base_url("assets/") ?>js/main.js"></script>
+<!-- Script Envoie mail -->
+
+<script src="<?= base_url("assets/") ?>js/mail.js"></script>
 <!-- Inclure le code JavaScript qui initialise CKEditor -->
     <script>
+
+$(document).ready(function() {
+        $('#pays').select2({
+            allowClear : true,
+            ajax: {
+                url: "http://localhost/KanteCo-Hydro/index.php/administrationHydroGroup/get_pays",
+                type: 'get',
+                dataType: 'json',
+                data: (params) => {
+                    return {
+                        search: params.term,
+                    }
+                },
+                processResults: (data, params) => {
+                    const results = data.map(item => {
+                    return {
+                        id: item.id,
+                        text: item.nom_FR,
+                    };
+                    });
+                    return {
+                    results: results,
+                    }
+                }
+            }
+        });
+
+});
+
+            
+     
+
+
         ClassicEditor
             .create( document.querySelector( '#editor1' ) )
             .catch( error => {

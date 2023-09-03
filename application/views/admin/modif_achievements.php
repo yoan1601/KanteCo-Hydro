@@ -15,12 +15,9 @@
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <select class="form-select" style="height: 55px;" name="pays" id="">
+                        <select class="form-select pays_style" style="height: 55px;" name="pays" id="pays">
                             <option value="<?= $data['one_realisation']['idPays'] ?>"><?= $data['one_realisation']['nom_pays_FR'] ?></option>
-                            <?php for ($i = 0; $i < count($data["pays"]); $i++) { ?>
-                                <option value="<?= $data["pays"][$i]->id ?>"><?= $data["pays"][$i]->nom_FR ?></option>
-                            <?php } ?>
-                        </select>
+                       </select>
                     </div>
                     <div class="col-md-6">
                         <div class="form-floating">
@@ -95,27 +92,28 @@
                         </div>
                     </div>
                     <div class="col-md-6">
+                        <p>Commentaire Français</p>
                         <div class="form-floating">
-                            <textarea id="monTextarea" class="form-control" name="commentaire_fr" placeholder="Commentaire FR" style="height: 150px"><?= $data['one_realisation']['commentaire_FR'] ?></textarea>
-                            <label for="">Commentaire FR</label>
+                            <textarea id="editor3"  class="form-control" name="commentaire_fr" placeholder="Commentaire FR" style="height: 150px"><?= $data['one_realisation']['commentaire_FR'] ?></textarea>
                         </div>
                     </div>
                     <div class="col-md-6">
+                        <p>Commentaire Anglais</p>
                         <div class="form-floating">
-                            <textarea class="form-control" name="commentaire_en" placeholder="Commentaire EN" style="height: 150px"><?= $data['one_realisation']['commentaire_EN'] ?></textarea>
-                            <label for="">Commentaire EN</label>
+                            <textarea id="editor4"  class="form-control" name="commentaire_en" placeholder="Commentaire EN" style="height: 150px"><?= $data['one_realisation']['commentaire_FR'] ?></textarea>
                         </div>
                     </div>
                     <div class="col-md-6">
+                        <p>Description Français</p>
                         <div class="form-floating">
-                            <p style="color: #0000008f;"> Description FR (*)</p>
-                            <textarea id="editor1" required class="form-control" name="descri_fr" placeholder="Description FR" style="height: 150px"><?= $data['one_realisation']['description_FR'] ?></textarea>
+                            <textarea id="editor1"  required class="form-control" name="descri_fr" placeholder="Description FR (*)" style="height: 150px"><?= $data['one_realisation']['description_FR'] ?></textarea>
                         </div>
                     </div>
-                    <div class="col-md-6 mb-5">
+                    <div class="col-md-6">
+                        <p>Description Anglais</p>
                         <div class="form-floating">
-                            <p style="color: #0000008f;"> Description EN (*)</p>
-                            <textarea id="editor2" required class="form-control" name="descri_en" placeholder="Description EN" style="height: 150px"><?= $data['one_realisation']['description_EN'] ?></textarea>
+                            <textarea id="editor2"  required class="form-control" name="descri_en" placeholder="Description EN (*)" style="height: 150px"><?= $data['one_realisation']['description_EN'] ?></textarea>
+                            <!-- <label for="">Description EN (*)</label> -->
                         </div>
                     </div>
                     <div class="col-12">
@@ -133,15 +131,15 @@
                             <img class="img-fluid" style="width: 100%; height: 40vh; object-fit: cover;" id="preview2" src="<?= base_url("assets/") ?>img/<?= $data['one_realisation']['image_couverture'] ?>" alt="">
                         </div>
                     </div>
-                    <?php for ($i = 1; $i <count($data['one_realisation_images']); $i ++){ ?>
+                    <?php for ($i = 1; $i < count($data['one_realisation_images']); $i++) { ?>
                         <div class="col-md-6">
-                        <div class="form-floating mb-5">
-                            <input type="file" class="form-control mb-3" name="image_publication<?= $i ?>" data-preview="preview3" placeholder="Images de publication <?= $i ?>">
-                            <input type="hidden" value="<?= $data['one_realisation_images'][$i]->id ?>" name="image_<?= $i ?>">
-                            <label for="">Images de publication <?= $i ?></label>
-                            <img class="img-fluid" style="width: 100%; height: 40vh; object-fit: cover;" id="preview3" src="<?= base_url("assets/") ?>img/<?= $data['one_realisation_images'][$i]->image ?>" alt="">
+                            <div class="form-floating mb-5">
+                                <input type="file" class="form-control mb-3" name="image_publication<?= $i ?>" data-preview="preview3" placeholder="Images de publication <?= $i ?>">
+                                <input type="hidden" value="<?= $data['one_realisation_images'][$i]->id ?>" name="image_<?= $i ?>">
+                                <label for="">Images de publication <?= $i ?></label>
+                                <img class="img-fluid" style="width: 100%; height: 40vh; object-fit: cover;" id="preview3" src="<?= base_url("assets/") ?>img/<?= $data['one_realisation_images'][$i]->image ?>" alt="">
+                            </div>
                         </div>
-                    </div>
                     <?php } ?>
                 </div>
                 <div class="col-12 mt-5 d-flex">
@@ -151,6 +149,34 @@
         </div>
     </div>
 </div>
+<style>
+    .select2-container .select2-selection--single {
+        height: 57px !important;
+        border: 1px solid #ced4da;
+        border-radius: 8px;
+    }
+
+    .select2-container--default .select2-selection--single .select2-selection__arrow b{
+        left: -20%;
+        border-width: 14px 9px 0px 9px;
+        top: 87%;
+        color: #9B9B9B;
+    }
+
+    .select2-container--default.select2-container--open .select2-selection--single .select2-selection__arrow b{
+        border-width: 14px 9px 14px 9px;
+        top: 38%;
+        color: #9B9B9B;
+    }
+
+    .select2-container--default .select2-selection--single .select2-selection__rendered {
+        color: #9B9B9B;
+        line-height: 54px;
+    }
+    .select2-container .select2-selection--single .select2-selection__rendered {
+        padding-left: 12px;
+    }
+</style>
 <script>
     // Sélectionnez tous les champs de fichier par leur attribut "data-preview"
     var fileInputs = document.querySelectorAll('input[type="file"][data-preview]');
