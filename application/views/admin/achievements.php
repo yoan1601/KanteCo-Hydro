@@ -33,7 +33,7 @@
                                 <p class="fw-normal fs-5 mb-0"><?= $data['realisation'][$i]['nom_mission_FR'] ?></p>
                             </td>
                             <td class="py-3">
-                                <p class="fw-normal fs-5 mb-0"><?= $data['realisation'][$i]['autorite_contractante'] ?></p>
+                                <p class="service-text fw-normal fs-5 mb-0"><?= $data['realisation'][$i]['autorite_contractante'] ?></p>
                             </td>
                             <td class="py-3">
                                 <a href="<?= site_url('administrationHydroGroup/modif_achievements/'. $data['realisation'][$i]['id']) ?>" class="ms-4">
@@ -98,4 +98,18 @@
         </div>
     </div>
 </div>
+<script>
+
+    function couperTexte(texte, longueurMax = 50) {
+        if (texte.length <= longueurMax) {
+            return texte;
+        } else {
+            return texte.slice(0, longueurMax) + "...";
+        }
+    }
+    const serviceText = document.querySelectorAll("p.service-text");
+    serviceText.forEach(item => {
+        item.textContent = couperTexte(item.textContent);
+    });
+</script>
 <?php $this->load->view("templates/footer_admin"); ?>
