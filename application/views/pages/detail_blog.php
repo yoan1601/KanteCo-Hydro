@@ -10,17 +10,17 @@
 </div>
 <div class="container-xxl py-5">
     <div class="container">
-        <div class="d-flex fs-5 mb-5">
-            <p>
-                <span class="fw-bold text-dark"><?= $data['detail_achievements_' . $data['lang']]['item1'] ?></span>
+        <div class="d-flex justify-content-between flex-wrap fs-5 mb-5">
+            <p class="text-dark">
+                <span class="fw-bold"><?= $data['detail_achievements_' . $data['lang']]['item1'] ?></span>
                 <?= $data['blog']['date_publication_formatted_' . (strtoupper($data['lang']))]; ?>
             </p>
-            <p class="ms-auto">
-                <span class="fw-bold text-dark"><?= $data['detail_achievements_' . $data['lang']]['item3'] ?> :</span>
+            <p class="text-dark">
+                <span class="fw-bold"><?= $data['detail_achievements_' . $data['lang']]['item3'] ?> :</span>
                 <?= $data['blog']['auteur']; ?>
             </p>
         </div>
-        <div class="row g-5 mb-5">
+        <div class="row g-5">
             <div class="col-lg-6 col-12 my-auto">
                 <h4 class="fs-3">
                 </h4>
@@ -30,11 +30,27 @@
                     <?php } ?>
                 </p>
             </div>
-            <?php for($i =0; $i <count($data['one_blog_images']); $i++){ ?>
-                <div class="col-lg-6 col-12 overflow-hidden" style="height: 60vh;">
-                    <img class="img-fluid w-100" src="<?= base_url('assets/') ?>img/<?= $data['one_blog_images'][$i]->image ?>" alt="">
+            <div id="carouselExampleControls" class="carousel slide col-lg-6 col-12" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <?php $active = true;
+                    for ($i = 0; $i < count($data['one_blog_images']); $i++) { ?>
+                        <div class="carousel-item <?php if ($active) {
+                                                        echo "active";
+                                                    }
+                                                    $active = false; ?>" style="height: 55vh;">
+                            <img class="d-block img-fluid w-100 h-100" src="<?= base_url('assets/') ?>img/<?= $data['one_blog_images'][$i]->image ?>" alt="" style="object-fit: cover;">
+                        </div>
+                    <?php } ?>
                 </div>
-            <?php } ?>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
         </div>
     </div>
 </div>

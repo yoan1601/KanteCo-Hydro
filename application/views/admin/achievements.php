@@ -14,7 +14,7 @@
             </div>
         </div>
         <div class="py-5">
-            <table class="table align-middle mb-0 bg-white">
+            <table class="table align-middle mb-0 bg-white table-hover">
                 <thead class="bg-light">
                     <tr>
                         <th class="py-3 fs-5">Année</th>
@@ -36,12 +36,22 @@
                                 <p class="service-text fw-normal fs-5 mb-0"><?= $data['realisation'][$i]['autorite_contractante'] ?></p>
                             </td>
                             <td class="py-3">
-                                <a href="<?= site_url('administrationHydroGroup/modif_achievements/'. $data['realisation'][$i]['id']) ?>" class="ms-4">
-                                    <i class="fas fa-edit text-secondary" style="font-size: 1.5em"></i>
-                                </a>
-                                <a href="" class="ms-4" data-bs-toggle="modal" data-bs-target="#monModal-<?= $data['realisation'][$i]['id'] ?>">
-                                    <i class="fas fa-trash text-danger" style="font-size: 1.5em"></i>
-                                </a>
+                                <div class="d-lg-flex d-none flex-wrap gap-2">
+                                    <a href="<?= site_url('administrationHydroGroup/modif_achievements/' . $data['realisation'][$i]['id']) ?>" class="btn btn-outline-secondary py-2 px-3">
+                                        Modifier
+                                    </a>
+                                    <a href="" class="btn btn-outline-danger py-2 px-3" data-bs-toggle="modal" data-bs-target="#monModal-<?= $data['realisation'][$i]['id'] ?>">
+                                        Supprimer
+                                    </a>
+                                </div>
+                                <div class="d-lg-none d-flex flex-wrap" style="column-gap: 0.75rem">
+                                    <a href="<?= site_url('administrationHydroGroup/modif_achievements/' . $data['realisation'][$i]['id']) ?>" class="">
+                                        <i class="fas fa-edit text-secondary" style="font-size: 1.5em"></i>
+                                    </a>
+                                    <a href="" class="" data-bs-toggle="modal" data-bs-target="#monModal-<?= $data['realisation'][$i]['id'] ?>">
+                                        <i class="fas fa-trash text-danger" style="font-size: 1.5em"></i>
+                                    </a>
+                                </div>
                             </td>
                             <!-- Modal Supp -->
                             <div class="modal fade" id="monModal-<?= $data['realisation'][$i]['id'] ?>">
