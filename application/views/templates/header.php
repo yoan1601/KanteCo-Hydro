@@ -48,7 +48,7 @@
 	<!-- Navbar Start -->
 	<nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top p-0 shadow-sm" style="<?php if ($data['page'] === 'espace') echo 'box-shadow: 0 0.125rem 0.25rem rgba(0,0,0,0.075) !important;'; ?>">
 		<div class="navbar-brand d-flex align-items-center">
-			<a href="index.html" class=" d-flex align-items-center border-end px-4 px-lg-5">
+			<a href="<?= site_url('front'); ?>" class=" d-flex align-items-center border-end px-4 px-lg-5">
 				<img src="<?= base_url("assets/") ?>img/HYDROCAMP LOGO FINAL.PNG" alt="" width="70">
 			</a>
 			<?php if ($data['session']) { ?>
