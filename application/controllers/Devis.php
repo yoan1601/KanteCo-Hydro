@@ -26,45 +26,43 @@ class Devis extends CI_Controller
     parent::__construct();
   }
 
-  public function send_devis()
-  {
+  public function send_devis(){
     $user = $this->session->user;
     $type_projet = $this->input->post('type_projet');
     $description_projet = $this->input->post('description_projet');
     $montant = $this->input->post('montant');
-    require APPPATH . 'constant/validation_msg.php';
+    require APPPATH.'constant/validation_msg.php';
     $this->validation->set_rules(
-      "type_projet",
-      "type de projet",
+      "type_projet", "type de projet",
       'trim|required',
       $error_msg
     );
     $this->validation->set_rules(
-      "description_projet",
-      "description du projet",
+      "description_projet", "description du projet",
       'trim|required',
       $error_msg
     );
     $this->validation->set_rules(
-      "montant",
-      "montant estimé",
+      "montant", "montant estimé",
       'required|greater_than[0]',
       $error_msg
     );
-    if ($this->validation->run() == false) {
-      $errors = array();
+    if ($this->validation->run() == false){
+      $errors =array();
       foreach ($this->input->post() as $key => $value) {
-        $errors[$key] = form_error($key);
+        $errors[$key]= form_error($key);
       }
       var_dump(validation_errors());
-    } else {
+    }else{
       $this->devis->insert($user->id, $type_projet, $description_projet, $montant);
+      $this->email->envoyer_email_devis($user, $type_projet, $description_projet, $montant);
       $resp = array(
         "state" => "success",
       );
       echo json_encode($resp);
-      // redirect('front/devis');
     }
+
+    
   }
 
   public function index()
