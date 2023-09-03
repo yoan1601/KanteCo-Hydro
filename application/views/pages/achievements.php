@@ -43,7 +43,7 @@
                         </div>
                     </div>
                     <div class="pt-3">
-                        <p>
+                        <p class="text-truncate" style="max-height: 100vw;">
                             <span class="fw-bold text-dark"><?= $data['realisation_' . $data['lang']]['item5'] ?> : <br /></span>
                             <?= $data['achievements'][$i]['nom_mission_' . (strtoupper($data['lang']))]; ?>
                         </p>
