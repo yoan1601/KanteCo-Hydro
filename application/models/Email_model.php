@@ -46,15 +46,15 @@ class Email_model extends CI_Model {
       $this->mail->clear();
     }
 
-  public function envoyer_email() {
+  public function envoyer_email($titrefr, $titreen) {
     $emails = $this->findAll();
     foreach ($emails as $email) {
       $this->mail->from('mirijarazafimbelo30@gmail.com', 'HydroGroup');
       $this->mail->to($email->mail);
-      $this->mail->subject('Sujet de l\'e-mail');
-      $message= '<h2>Nouveau blog </h2>';
-      $message.= '<p> HydroCamp a publié une nouvelle blog. </p>';
-      $message.= "<a href='#'>Notre site Web</a>";
+      $this->mail->subject($titrefr . '/'. $titreen);
+      $message= '<h2>Nouveau blog de HydroCamp </h2>';
+      $message.= '<p> HydroCamp a publié un nouveau blog. </p>';
+      $message.= "<a href='#'>Notre site Web</a>"; // hydrocamp lien
       $this->mail->message($message);
 
       // var_dump($this->mail->send());
@@ -62,7 +62,7 @@ class Email_model extends CI_Model {
           echo 'L\'e-mail a été envoyé avec succès.';
       } else {
           echo $this->mail->print_debugger();
-          // echo 'Une erreur s\'est produite lors de l\'envoi de l\'e-mail.';
+          echo 'Une erreur s\'est produite lors de l\'envoi de l\'e-mail.';
       }
       $this->mail->clear();
     }
