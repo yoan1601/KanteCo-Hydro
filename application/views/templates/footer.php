@@ -57,7 +57,14 @@
                 <div class="position-relative mx-auto" style="max-width: 400px;">
                     <form action="" method="post" id="newsLetter">
                         <input class="form-control border-0 w-100 py-3 ps-4 pe-5" type="text" name="email" placeholder="<?= $data['footer_' . $data['lang']]['mail'] ?>">
-                        <button type="submit" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2"><?= $data['footer_' . $data['lang']]['inscription'] ?></button>
+                        <button type="submit" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">
+                            <span class="">
+                                <?= $data['footer_' . $data['lang']]['inscription'] ?>
+                            </span>
+                            <div class="spinner-border spinner-border-sm text-light ms-2 d-none" role="status" id="loadNewsLetter">
+                                <span class="visually-hidden">Loading...</span>
+                            </div>
+                        </button>
                     </form>
                 </div>
             </div>
@@ -80,17 +87,6 @@
     </div>
 </div>
 
-<!-- <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
-    <div class="toast align-items-center text-white bg-primary border-0" role="alert" aria-live="assertive" aria-atomic="true">
-        <div class="d-flex">
-            <div class="toast-body">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae voluptatem quae nihil modi autem nulla? Corporis enim, id fugiat distinctio laborum aliquam cumque aspernatur qui molestiae ea quod similique veniam.
-            </div>
-            <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
-        </div>
-    </div>
-</div> -->
-
 <div class="position-fixed top-0 end-0 p-3" style="z-index: 9999">
     <div id="newsletterToast" class="toast bg-white hide" role="alert" aria-live="assertive" aria-atomic="true">
         <div class="toast-header">
@@ -104,6 +100,31 @@
     </div>
 </div>
 
+<div class="position-fixed top-0 end-0 p-3" style="z-index: 9999">
+    <div id="devisToast" class="toast bg-white hide" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header">
+            <strong class="me-auto fs-6">Devis</strong>
+            <small class="text-muted fs-6">Maintenant</small>
+            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+        <div class="toast-body fs-6 text-success">
+            Enregistrement du devis avec succès.
+        </div>
+    </div>
+</div>
+
+<div class="position-fixed top-0 end-0 p-3" style="z-index: 9999">
+    <div id="contactToast" class="toast bg-white hide" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header">
+            <strong class="me-auto fs-6">Contact</strong>
+            <small class="text-muted fs-6">Maintenant</small>
+            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+        <div class="toast-body fs-6 text-success">
+            Enregistrement avec succès.
+        </div>
+    </div>
+</div>
 
 <!-- Footer End -->
 
@@ -130,8 +151,11 @@
 
 <script>
     $(document).ready(function() {
+
+        // Formulaire newsLetter
         $('#newsLetter').submit(function(e) {
             e.preventDefault();
+            $('#loadNewsLetter').removeClass("d-none");
 
             // Récupérez les données du formulaire
             var formData = $(this).serialize();
@@ -142,8 +166,6 @@
                 data: formData,
                 success: function(response) {
                     let msg = JSON.parse(response);
-                    console.log(msg);
-                    console.log(msg["state"] === 'success');
                     if (msg["state"] === 'success') {
                         // Affichez le toast en cas de succès
                         var newsletterToast = new bootstrap.Toast(document.getElementById('newsletterToast'));
@@ -151,6 +173,72 @@
 
                         // Réinitialisez le formulaire
                         $('#newsLetter')[0].reset();
+                        $('#loadNewsLetter').addClass("d-none");
+
+                    } else {
+                        // Gérez les erreurs ici
+                    }
+                }
+            });
+        });
+
+        // Formulaire devis
+        $('#devis').submit(function(e) {
+            e.preventDefault();
+            $('#loadDevis').removeClass("d-none");
+
+            // Récupérez les données du formulaire
+            var formData = $(this).serialize();
+
+            $.ajax({
+                type: 'POST',
+                url: '<?= site_url('devis/send_devis') ?>', // Remplacez par l'URL de votre script de traitement
+                data: formData,
+                success: function(response) {
+                    let msg = JSON.parse(response);
+                    console.log(msg);
+                    console.log(msg["state"] === 'success');
+                    if (msg["state"] === 'success') {
+                        // Affichez le toast en cas de succès
+                        var devisToast = new bootstrap.Toast(document.getElementById('devisToast'));
+                        devisToast.show();
+
+                        // Réinitialisez le formulaire
+                        $('#devis')[0].reset();
+                        $('#loadDevis').addClass("d-none");
+
+                    } else {
+                        // Gérez les erreurs ici
+                    }
+                }
+            });
+        });
+
+        // Formulaire contact
+        $('#contact').submit(function(e) {
+            e.preventDefault();
+            $('#loadContact').removeClass("d-none");
+
+            // Récupérez les données du formulaire
+            var formData = $(this).serialize();
+
+            $.ajax({
+                type: 'POST',
+                url: '<?= site_url("contact/send_contact") ?>', // Remplacez par l'URL de votre script de traitement
+                data: formData,
+                success: function(response) {
+                    let msg = JSON.parse(response);
+                    console.log(msg);
+                    console.log(msg["state"] === 'success');
+                    if (msg["state"] === 'success') {
+                        // Affichez le toast en cas de succès
+                        var contactToast = new bootstrap.Toast(document.getElementById('contactToast'));
+                        contactToast.show();
+
+                        // Réinitialisez le formulaire
+                        $('#contact')[0].reset();
+                        $('#loadContact').addClass("d-none");
+
                     } else {
                         // Gérez les erreurs ici
                     }
