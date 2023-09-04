@@ -56,7 +56,10 @@ class Devis extends CI_Controller
     }else{
       $this->devis->insert($user->id, $type_projet, $description_projet, $montant);
       $this->email->envoyer_email_devis($user, $type_projet, $description_projet, $montant);
-      redirect('front/devis');
+      $resp = array(
+        "state" => "success",
+      );
+      echo json_encode($resp);
     }
 
     
