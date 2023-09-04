@@ -26,22 +26,30 @@
                     <?php for ($i = 0; $i < count($data['reference']); $i++) { ?>
                         <tr>
                             <td class="py-3">
-                                <p class="fw-normal fs-5 mb-0">
-                                    <div class="" style="height: 10vh; width:5vw;">
-                                        <img class="img-fluid" style="height: 100%; width:100%;" src="<?= base_url("assets/") ?>img/<?= $data['reference'][$i]['logo'] ?>" alt="N/A">
-                                    </div>
-                                </p>
+                                <div class="" style="height: 5vh; width: 2.5vw;">
+                                    <img class="img-fluid" style="height: 100%; width:100%; object-fit: cover;" src="<?= base_url("assets/") ?>img/<?= $data['reference'][$i]['logo'] ?>" alt="N/A">
+                                </div>
                             </td>
                             <td class="py-3">
                                 <p class="fw-normal fs-5 mb-0"><?= $data['reference'][$i]['nom'] ?></p>
                             </td>
                             <td class="py-3">
-                                <a href="<?= site_url('administrationHydroGroup/modif_reference/'. $data['reference'][$i]['id']) ?>" class="ms-4">
-                                    <i class="fas fa-edit text-secondary" style="font-size: 1.5em"></i>
-                                </a>
-                                <a href="" class="ms-4" data-bs-toggle="modal" data-bs-target="#monModal-<?= $data['reference'][$i]['id'] ?>">
-                                    <i class="fas fa-trash text-danger" style="font-size: 1.5em"></i>
-                                </a>
+                                <div class="d-lg-flex d-none flex-wrap gap-2">
+                                    <a href="<?= site_url('administrationHydroGroup/modif_reference/' . $data['reference'][$i]['id']) ?>" class="btn btn-outline-secondary py-2 px-3">
+                                        Modifier
+                                    </a>
+                                    <a href="" class="btn btn-outline-danger py-2 px-3" data-bs-toggle="modal" data-bs-target="#monModal-<?= $data['reference'][$i]['id'] ?>">
+                                        Supprimer
+                                    </a>
+                                </div>
+                                <div class="d-lg-none d-flex flex-wrap" style="column-gap: 0.75rem">
+                                    <a href="<?= site_url('administrationHydroGroup/modif_reference/' . $data['reference'][$i]['id']) ?>" class="">
+                                        <i class="fas fa-edit text-secondary" style="font-size: 1.5em"></i>
+                                    </a>
+                                    <a href="" class="" data-bs-toggle="modal" data-bs-target="#monModal-<?= $data['reference'][$i]['id'] ?>">
+                                        <i class="fas fa-trash text-danger" style="font-size: 1.5em"></i>
+                                    </a>
+                                </div>
                             </td>
 
                             <!-- Modal Supp -->
@@ -52,7 +60,9 @@
                                         <div class="modal-header">
                                             <h4 style="font-weight:lighter;">Voulez-vous vraiment supprimer cette reference ?</h4>
                                         </div>
-                                        <div><p class="fw-normal fs-5 my-3 text-center"><?= $data['reference'][$i]['nom'] ?></p></div>
+                                        <div>
+                                            <p class="fw-normal fs-5 my-3 text-center"><?= $data['reference'][$i]['nom'] ?></p>
+                                        </div>
                                         <!-- Contenu du modal -->
                                         <div class="modal-body">
                                             <div class="d-flex align-items-center justify-content-center gap-3">
