@@ -30,7 +30,7 @@
                                 <p class="fw-normal fs-5 mb-0"><?= $data['realisation'][$i]['annee_demarrage'] ?></p>
                             </td>
                             <td class="py-3">
-                                <p class="fw-normal fs-5 mb-0"><?= $data['realisation'][$i]['nom_mission_FR'] ?></p>
+                                <p class="service-text fw-normal fs-5 mb-0"><?= $data['realisation'][$i]['nom_mission_FR'] ?></p>
                             </td>
                             <td class="py-3">
                                 <p class="service-text fw-normal fs-5 mb-0"><?= $data['realisation'][$i]['autorite_contractante'] ?></p>
