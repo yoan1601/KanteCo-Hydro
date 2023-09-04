@@ -47,28 +47,29 @@
                     <div class="col-md-6">
                         <div class="form-floating">
                             <p class="mb-1">Image de couverture (*)</p>
-                            <input required type="file" class="form-control mb-3" name="image_couverture" data-preview="preview1" placeholder="Image de couverture (*)">
-                            <input type="hidden" value="<?= $data['one_blog_images'][0]->id ?>" name="image_0">
+                            <input type="file" class="form-control mb-3" name="image_couverture" data-preview="preview1" placeholder="Image de couverture (*)">
+                            <input id="image_couverture_supp" type="hidden" value="" name="image_couverture_supp">
 
                             <div class="position-relative" style="width: 100%; height: 40vh;">
-                                <img class="img-fluid w-100 h-100" style="object-fit: cover;" id="preview1" src="<?= base_url("assets/") ?>img/<?= $data['one_blog']['image_couverture'] ?>" alt="">
+                                <img class="img-fluid w-100 h-100" style="object-fit: cover;" id="preview1" src="<?= base_url("assets/") ?>img/<?= $data['one_blog']['image_couverture'] ?>" alt="Image couverture">
                                 <div class="position-absolute top-0 w-100 h-100 d-flex align-items-center justify-content-center" style="background-color: #0000008f;">
-                                    <button class="btn btn-outline-light px-3 py-2 delete-button" data-preview="preview1">Supprimer</button>
+                                    <button class="btn btn-outline-light px-3 py-2 delete-button" data-php-value="<?= $data['one_blog']['image_couverture'] ?>" data-preview="preview1">Supprimer</button>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <?php for ($i = 1; $i < count($data['one_blog_images']); $i++) { ?>
+                    <?php for ($i = 0; $i < count($data['one_blog_images']); $i++) { ?>
                         <div class="col-md-6">
                             <div class="form-floating">
-                                <p class="mb-1">Images de publication <?= $i ?></p>
-                                <input type="file" class="form-control mb-3" name="image_publication<?= $i ?>" data-preview="preview<?= $i + 1 ?>" placeholder="Images de publication <?= $i ?>">
+                                <p class="mb-1">Images de publication <?= $i + 1?></p>
+                                <input type="file" class="form-control mb-3" name="image_publication<?= $i ?>" data-preview="preview<?= $i + 2 ?>" placeholder="Images de publication <?= $i ?>">
                                 <input type="hidden" value="<?= $data['one_blog_images'][$i]->id ?>" name="image_<?= $i ?>">
 
                                 <div class="position-relative" style="width: 100%; height: 40vh;">
-                                    <img class="img-fluid w-100 h-100" style="object-fit: cover;" id="preview<?= $i + 1 ?>" src="<?= base_url("assets/") ?>img/<?= $data['one_blog_images'][$i]->image ?>" alt="">
+                                    <img class="img-fluid w-100 h-100" style="object-fit: cover;" id="preview<?= $i + 2 ?>" src="<?= base_url("assets/") ?>img/<?= $data['one_blog_images'][$i]->image ?>" alt="">
                                     <div class="position-absolute top-0 w-100 h-100 d-flex align-items-center justify-content-center" style="background-color: #0000008f;">
-                                        <button class="btn btn-outline-light px-3 py-2 delete-button" data-preview="preview<?= $i + 1 ?>">Supprimer</button>
+                                        <input type="hidden" id ="image_<?= $i ?>_supp" name="image_<?= $i ?>_supp" value="">
+                                        <button class="btn btn-outline-light px-3 py-2 delete-button"  data-php-value="<?= $data['one_blog_images'][$i]->id ?>" data-preview="preview<?= $i + 2 ?>">Supprimer</button>
                                     </div>
                                 </div>
                             </div>
@@ -118,12 +119,20 @@
 
     // Ajoutez un gestionnaire d'événements "click" aux boutons "Supprimer"
     var deleteButtons = document.querySelectorAll('.delete-button');
-    deleteButtons.forEach(function(button) {
+    deleteButtons.forEach(function(button, index) {
         button.addEventListener("click", function(e) {
             e.preventDefault();
 
             var previewId = button.getAttribute("data-preview");
             var imagePreview = document.getElementById(previewId);
+            var image_id = button.getAttribute("data-php-value");
+            if ( index > 0){
+                console.log('image_'+(index-1)+'_supp');
+                document.getElementById('image_'+(index-1)+'_supp').value = image_id;
+            }else{
+                document.getElementById('image_couverture_supp').value = image_id;
+                
+            }
 
             // Réinitialisez l'image à sa source par défaut
             imagePreview.src = "<?= base_url("assets/") ?>img/Image upload-bro.png";
