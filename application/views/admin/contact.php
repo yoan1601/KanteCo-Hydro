@@ -11,7 +11,7 @@
             </form>
         </div>
         <div class="py-5">
-            <table class="table align-middle mb-0 bg-white">
+            <table class="table align-middle mb-0 bg-white table-hover">
                 <thead class="bg-light">
                     <tr>
                         <th class="py-3 fs-5">Date</th>
@@ -33,12 +33,22 @@
                                 <p class="fw-normal fs-5 mb-0"><?= $data['contact'][$i]['email'] ?></p>
                             </td>
                             <td class="py-3">
-                                <a href="" class="me-4" data-bs-toggle="modal" data-bs-target="#ModalInfo-<?= $data['contact'][$i]['id'] ?>">
-                                    <i class="fas fa-info-circle text-info" style="font-size: 1.5em"></i>
-                                </a>
-                                <a href="" class="ms-4" data-bs-toggle="modal" data-bs-target="#monModal-<?= $data['contact'][$i]['id'] ?>">
-                                    <i class="fas fa-trash text-danger" style="font-size: 1.5em"></i>
-                                </a>
+                                <div class="d-lg-flex d-none flex-wrap gap-2">
+                                    <a href="" class="btn btn-outline-secondary py-2 px-3" data-bs-toggle="modal" data-bs-target="#ModalInfo-<?= $data['contact'][$i]['id'] ?>">
+                                        Detail
+                                    </a>
+                                    <a href="" class="btn btn-outline-danger py-2 px-3" data-bs-toggle="modal" data-bs-target="#monModal-<?= $data['contact'][$i]['id'] ?>">
+                                        Supprimer
+                                    </a>
+                                </div>
+                                <div class="d-lg-none d-flex flex-wrap" style="column-gap: 0.75rem">
+                                    <a href="" class="" data-bs-toggle="modal" data-bs-target="#ModalInfo-<?= $data['contact'][$i]['id'] ?>">
+                                        <i class="fas fa-info-circle text-secondary" style="font-size: 1.5em"></i>
+                                    </a>
+                                    <a href="" class="" data-bs-toggle="modal" data-bs-target="#monModal-<?= $data['contact'][$i]['id'] ?>">
+                                        <i class="fas fa-trash text-danger" style="font-size: 1.5em"></i>
+                                    </a>
+                                </div>
                             </td>
                             <!-- Modal Supp -->
                             <div class="modal fade" id="monModal-<?= $data['contact'][$i]['id'] ?>">
@@ -46,9 +56,9 @@
                                     <div class="modal-content position-relative">
                                         <!-- En-tête du modal -->
                                         <div class="modal-header">
-                                            <h4 class="modal-title">Voulez-vous vraiment supprimer ce contact ?</h4>
+                                            <h4 style="font-weight:lighter;">Voulez-vous vraiment supprimer ce contact ?</h4>
                                         </div>
-
+                                        <div><p class="fw-normal fs-5 my-3 text-center"><?= $data['contact'][$i]['contact'] ?> - <?= $data['contact'][$i]['email'] ?></p></div>
                                         <!-- Contenu du modal -->
                                         <div class="modal-body">
                                             <div class="d-flex align-items-center justify-content-center gap-3">

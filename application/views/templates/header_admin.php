@@ -54,22 +54,22 @@
     <!-- Navbar Start -->
     <nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top p-0 shadow-sm" style="box-shadow: 0 0.125rem 0.25rem rgba(0,0,0,0.075) !important;">
         <div class="navbar-brand d-flex align-items-center">
-            <a href="index.html" class=" d-flex align-items-center border-end px-4 px-lg-5">
+            <a href="" class=" d-flex align-items-center border-end px-4 px-lg-5">
                 <img src="<?= base_url("assets/") ?>img/HYDROCAMP LOGO FINAL.PNG" alt="" width="70">
             </a>
-            <?php if ($data['session']->is_admin >= 111){ ?>
+            <?php if ($data['session']->is_admin >= 111) { ?>
                 <h5 class="ms-4 text-primary">Super Administrateur</h5>
             <?php } else { ?>
                 <h5 class="ms-4 text-primary">Administrateur</h5>
             <?php } ?>
-            
+
         </div>
         <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav ms-auto p-4 p-lg-0">
-                <?php if ($data['session']->is_admin >= 111){ ?>
+                <?php if ($data['session']->is_admin >= 111) { ?>
                     <a href="<?= site_url('AdministrationHydroGroup/list_admin'); ?>" style="text-decoration: underline;" class="nav-item nav-link <?php if ($data['active'] === 'admin') echo 'active'; ?>">Gestion Admin</a>
                 <?php } ?>
                 <a href="<?= site_url('AdministrationHydroGroup/achievements'); ?>" class="nav-item nav-link <?php if ($data['active'] === 'achievements') echo 'active'; ?>">Realisations</a>
@@ -77,6 +77,7 @@
                 <a href="<?= site_url('AdministrationHydroGroup/mails'); ?>" class="nav-item nav-link <?php if ($data['active'] === 'mails') echo 'active'; ?>">Mails</a>
                 <a href="<?= site_url('AdministrationHydroGroup/contact'); ?>" class="nav-item nav-link <?php if ($data['active'] === 'contact') echo 'active'; ?>">Contact</a>
                 <a href="<?= site_url('AdministrationHydroGroup/devis'); ?>" class="nav-item nav-link <?php if ($data['active'] === 'devis') echo 'active'; ?>">Devis</a>
+                <a href="<?= site_url('AdministrationHydroGroup/reference'); ?>" class="nav-item nav-link <?php if ($data['active'] === 'reference') echo 'active'; ?>">Reference</a>
                 <a href="<?= site_url("administrationHydroGroup/log_out") ?>" class="my-lg-0 my-3 btn btn-warning rounded-0 py-4 px-lg-5 d-lg-block ms-lg-3">Se déconnecter<i class="fa fa-arrow-right ms-3"></i></a>
             </div>
         </div>

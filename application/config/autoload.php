@@ -143,5 +143,6 @@ $autoload['model'] = array(
     'Devis_model' => 'devis',
     'Admin_model' => 'admin',
     'Email_model' => 'email',
-    'Espace_model' => 'espace'
+    'Espace_model' => 'espace',
+    'Reference_model' => 'reference'
 );
