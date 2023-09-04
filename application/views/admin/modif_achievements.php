@@ -129,6 +129,7 @@
                         <div class="form-floating">
                             <p class="mb-1">Logo de l’autorité contractante</p>
                             <input type="file" class="form-control mb-3" name="logo_autorite" data-preview="preview1" placeholder="Logo de l’autorité contractante">
+
                             <div class="position-relative" style="width: 100%; height: 40vh;">
                                 <img class="img-fluid w-100 h-100" style="object-fit: cover;" id="preview1" src="<?= base_url("assets/") ?>img/Image upload-bro.png" alt="">
                                 <div class="position-absolute d-none top-0 w-100 h-100 d-flex align-items-center justify-content-center" style="background-color: #0000008f;">
@@ -142,6 +143,7 @@
                             <p class="mb-1">Image de couverture (*)</p>
                             <input type="file" class="form-control mb-3" name="image_couverture" data-preview="preview2" placeholder="Image de couverture (*)">
                             <input type="hidden" value="<?= $data['one_realisation_images'][0]->id ?>" name="image_0">
+
                             <div class="position-relative" style="width: 100%; height: 40vh;">
                                 <img class="img-fluid w-100 h-100" style="object-fit: cover;" id="preview2" src="<?= base_url("assets/") ?>img/<?= $data['one_realisation']['image_couverture'] ?>" alt="">
                                 <div class="position-absolute top-0 w-100 h-100 d-flex align-items-center justify-content-center" style="background: #0000008f;">
@@ -156,6 +158,7 @@
                                 <p class="mb-1">Images de publication <?= $i ?></p>
                                 <input type="file" class="form-control mb-3" name="image_publication<?= $i ?>" data-preview="preview<?= $i + 2 ?>" placeholder="Images de publication <?= $i ?>">
                                 <input type="hidden" value="<?= $data['one_realisation_images'][$i]->id ?>" name="image_<?= $i ?>">
+
                                 <div class="position-relative" style="width: 100%; height: 40vh;">
                                     <img class="img-fluid w-100 h-100" style="object-fit: cover;" id="preview<?= $i + 2 ?>" src="<?= base_url("assets/") ?>img/<?= $data['one_realisation_images'][$i]->image ?>" alt="">
                                     <div class="position-absolute top-0 w-100 h-100 d-flex align-items-center justify-content-center" style="background: #0000008f;">
@@ -202,30 +205,6 @@
         padding-left: 12px;
     }
 </style>
-<!-- <script>
-    // Sélectionnez tous les champs de fichier par leur attribut "data-preview"
-    var fileInputs = document.querySelectorAll('input[type="file"][data-preview]');
-
-    // Parcourez chaque champ de fichier et ajoutez un gestionnaire d'événements "change"
-    fileInputs.forEach(function(fileInput) {
-        fileInput.addEventListener("change", function() {
-            var previewId = fileInput.getAttribute("data-preview");
-            var imagePreview = document.getElementById(previewId);
-
-            // Vérifiez si un fichier a été sélectionné
-            console.log(fileInput.files);
-            if (fileInput.files.length > 0) {
-                // Mettez à jour l'attribut src de l'image avec le fichier choisi
-                var selectedFile = fileInput.files[0];
-                var objectURL = URL.createObjectURL(selectedFile);
-                imagePreview.src = objectURL;
-            } else {
-                // Si aucun fichier n'est sélectionné, réinitialisez l'image à sa source par défaut
-                imagePreview.src = "<?= base_url("assets/") ?>img/Image upload-bro.png";
-            }
-        });
-    });
-</script> -->
 
 <script>
     // Sélectionnez tous les champs de fichier par leur attribut "data-preview"
