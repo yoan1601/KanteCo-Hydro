@@ -14,10 +14,16 @@
                         </div>
                     </div>
                     <div class="col-12">
-                        <div class="form-floating mb-5">
+                        <div class="form-floating">
                             <p class="mb-1">Logo (*)</p>
-                            <input required type="file" class="form-control mb-3" name="logo" data-preview="preview3" placeholder="logo">
-                            <img class="img-fluid d-none" style="width: 100%; height: 40vh; object-fit: cover;" id="preview3" src="<?= base_url("assets/") ?>img/Image upload-bro.png" alt="">
+                            <input required type="file" class="form-control mb-3" name="logo" data-preview="preview1" placeholder="logo">
+
+                            <div class="position-relative" style="width: 100%; height: 40vh;">
+                                <img class="img-fluid w-100 h-100" style="object-fit: cover;" id="preview1" src="<?= base_url("assets/") ?>img/Image upload-bro.png" alt="">
+                                <div class="position-absolute d-none top-0 w-100 h-100 d-flex align-items-center justify-content-center" style="background-color: #0000008f;">
+                                    <button class="btn btn-outline-light px-3 py-2 delete-button" data-preview="preview1">Supprimer</button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="col-12 d-flex justify-content-center">
@@ -28,6 +34,7 @@
         </div>
     </div>
 </div>
+
 <script>
     // Sélectionnez tous les champs de fichier par leur attribut "data-preview"
     var fileInputs = document.querySelectorAll('input[type="file"][data-preview]');
@@ -38,19 +45,50 @@
             var previewId = fileInput.getAttribute("data-preview");
             var imagePreview = document.getElementById(previewId);
 
+            // Récupérez le bouton "Supprimer" correspondant
+            var deleteButton = document.querySelector('.delete-button[data-preview="' + previewId + '"]');
+            var deleteButtonContainer = deleteButton.parentElement; // Récupérez le conteneur du bouton "Supprimer"
+
             // Vérifiez si un fichier a été sélectionné
             if (fileInput.files.length > 0) {
                 // Mettez à jour l'attribut src de l'image avec le fichier choisi
                 var selectedFile = fileInput.files[0];
                 var objectURL = URL.createObjectURL(selectedFile);
                 imagePreview.src = objectURL;
-                imagePreview.classList.toggle("d-none");
+
+                // Affichez le bouton "Supprimer"
+                deleteButtonContainer.classList.remove("d-none");
             } else {
                 // Si aucun fichier n'est sélectionné, réinitialisez l'image à sa source par défaut
                 imagePreview.src = "<?= base_url("assets/") ?>img/Image upload-bro.png";
-                imagePreview.classList.toggle("d-none");
+
+                // Masquez seulement le conteneur du bouton "Supprimer" (l'arrière-plan restera visible)
+                deleteButtonContainer.classList.add("d-none");
             }
         });
     });
+
+    // Ajoutez un gestionnaire d'événements "click" aux boutons "Supprimer"
+    var deleteButtons = document.querySelectorAll('.delete-button');
+    deleteButtons.forEach(function(button) {
+        button.addEventListener("click", function(e) {
+            e.preventDefault();
+
+            var previewId = button.getAttribute("data-preview");
+            var imagePreview = document.getElementById(previewId);
+
+            // Réinitialisez l'image à sa source par défaut
+            imagePreview.src = "<?= base_url("assets/") ?>img/Image upload-bro.png";
+
+            // Réinitialisez également le champ de fichier correspondant
+            var fileInput = document.querySelector('input[type="file"][data-preview="' + previewId + '"]');
+            fileInput.value = "";
+
+            // Masquez seulement le conteneur du bouton "Supprimer" (l'arrière-plan restera visible)
+            var deleteButtonContainer = button.parentElement;
+            deleteButtonContainer.classList.add("d-none");
+        });
+    });
 </script>
+
 <?php $this->load->view("templates/footer_admin"); ?>

@@ -715,14 +715,21 @@ class AdministrationHydroGroup extends CI_Controller
         $this->load->helper('upload');
         $logo_autorite = upload_file('logo_autorite');
         $image_couverture = upload_file('image_couverture');
-        $image_publication1 = upload_file('image_publication1');
-        $image_publication2 = upload_file('image_publication2');
-        $image_publication3 = upload_file('image_publication3');
-        $image_0= $this->input->post('image_0'); 
-        $image_1= $this->input->post('image_1');
-        $image_2= $this->input->post('image_2'); 
-        $image_3= $this->input->post('image_3'); 
+        $image_publication1 = upload_file('image_publication0');
+        $image_publication2 = upload_file('image_publication1');
+        $image_publication3 = upload_file('image_publication2');
 
+
+        $image_0= $this->input->post('image_0');
+        $image_1= $this->input->post('image_1'); 
+        $image_2= $this->input->post('image_2'); 
+
+        $image_couverture_supp= $this->input->post('image_couverture_supp'); 
+        $image_1_supp= $this->input->post('image_0_supp');
+        $image_2_supp= $this->input->post('image_1_supp'); 
+        $image_3_supp= $this->input->post('image_2_supp'); 
+         
+        
 
         $user = $this->session->user_admin;
 
@@ -748,25 +755,50 @@ class AdministrationHydroGroup extends CI_Controller
             'description_EN' => $descri_en,
             'etat' => 1
         ];
+
+        if ($image_couverture_supp != ""){
+            echo 'miditra0';
+
+            $this->db->where('id', $id);
+            $this->db->update('achievements',['image_couverture' => null]);
+        }
+        if ($image_1_supp != ""){
+            echo 'miditra1';
+
+            $this->db->where('id', $image_1_supp);
+            $this->db->delete('achievements_images');
+        }
+        if ($image_2_supp != ""){
+            echo 'miditra2';
+
+            $this->db->where('id', $image_2_supp);
+            $this->db->delete('achievements_images');
+        }
+        if ($image_3_supp != ""){
+            echo 'miditra3';
+            $this->db->where('id', $image_3_supp);
+            $this->db->delete('achievements_images');
+        }
+        
+
         if ($logo_autorite[0] === 1){
             $data['logo_autorite_contractante'] = $logo_autorite[1]['file_name'];
         }
         if ($image_couverture[0] === 1){
+            echo 'miditra';
             $data['image_couverture'] = $image_couverture[1]['file_name'];
-            $this->db->where('id', $image_0);
-            $this->db->update('achievements_images',['image' =>  $image_couverture[1]['file_name']]);
         }
 
         if ($image_publication1[0] == 1){
-            $this->db->where('id', $image_1);
+            $this->db->where('id', $image_0);
             $this->db->update('achievements_images',['image' => $image_publication1[1]['file_name']]);
         }
         if ($image_publication2[0] == 1){
-            $this->db->where('id', $image_2);
+            $this->db->where('id', $image_1);
             $this->db->update('achievements_images',['image' => $image_publication2[1]['file_name']]);
         }
         if ($image_publication3[0] == 1){
-            $this->db->where('id', $image_3);
+            $this->db->where('id', $image_1);
             $this->db->update('achievements_images',['image' => $image_publication3[1]['file_name']]);
         }
         $this->db->where('id', $id);
@@ -791,14 +823,18 @@ class AdministrationHydroGroup extends CI_Controller
 
         $this->load->helper('upload');
         $image_couverture = upload_file('image_couverture');
-        $image_publication1 = upload_file('image_publication1');
-        $image_publication2 = upload_file('image_publication2');
-        $image_publication3 = upload_file('image_publication3');
+        $image_publication1 = upload_file('image_publication0');
+        $image_publication2 = upload_file('image_publication1');
+        $image_publication3 = upload_file('image_publication2');
 
         $image_0= $this->input->post('image_0'); 
         $image_1= $this->input->post('image_1');
         $image_2= $this->input->post('image_2'); 
-        $image_3= $this->input->post('image_3'); 
+
+        $image_couverture_supp= $this->input->post('image_couverture_supp'); 
+        $image_0_supp= $this->input->post('image_0_supp');
+        $image_1_supp= $this->input->post('image_1_supp'); 
+        $image_2_supp= $this->input->post('image_2_supp'); 
 
 
         $user = $this->session->user_admin;
@@ -814,22 +850,43 @@ class AdministrationHydroGroup extends CI_Controller
             'etat' => 1
         ];
 
+        if ($image_couverture_supp != ""){
+
+            $this->db->where('id', $id);
+            $this->db->update('blogs',['image_couverture' => null]);
+        }
+        if ($image_0_supp != ""){
+            echo 'miditra1';
+
+            $this->db->where('id', $image_0_supp);
+            $this->db->delete('blogs_images');
+        }
+        if ($image_1_supp != ""){
+            echo 'miditra2';
+
+            $this->db->where('id', $image_1_supp);
+            $this->db->delete('blogs_images');
+        }
+        if ($image_2_supp != ""){
+            echo 'miditra3';
+            $this->db->where('id', $image_2_supp);
+            $this->db->delete('blogs_images');
+        }
+
         if ($image_couverture[0] === 1){
             $data['image_couverture'] = $image_couverture[1]['file_name'];
-            $this->db->where('id', $image_0);
-            $this->db->update('blogs_images',['image' =>  $image_couverture[1]['file_name']]);
         }
 
         if ($image_publication1[0] == 1){
-            $this->db->where('id', $image_1);
+            $this->db->where('id', $image_0);
             $this->db->update('blogs_images',['image' => $image_publication1[1]['file_name']]);
         }
         if ($image_publication2[0] == 1){
-            $this->db->where('id', $image_2);
+            $this->db->where('id', $image_1);
             $this->db->update('blogs_images',['image' => $image_publication2[1]['file_name']]);
         }
         if ($image_publication3[0] == 1){
-            $this->db->where('id', $image_3);
+            $this->db->where('id', $image_2);
             $this->db->update('blogs_images',['image' => $image_publication3[1]['file_name']]);
         }
         $this->db->where('id', $id);
