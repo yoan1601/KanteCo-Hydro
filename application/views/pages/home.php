@@ -2,7 +2,7 @@
 <!-- Carousel Start -->
 <div class="container-fluid p-0 pb-5 wow fadeIn" data-wow-delay="0.1s">
     <div class="owl-carousel header-carousel position-relative">
-        <div class="owl-carousel-item position-relative" data-dot="<img src='<?= base_url("assets/") ?>img/carousel-1.jpg'>">
+        <div class="owl-carousel-item position-relative" data-dot="<img src='<?= base_url("assets/") ?>img/carousel-1.jpg' alt=''>">
             <img class="img-fluid mh-100" style="height: 100vh; object-fit: cover;" src="<?= base_url("assets/") ?>img/carousel-1.jpg" alt="">
             <div class="owl-carousel-inner">
                 <div class="container">
@@ -10,13 +10,15 @@
                         <div class="col-10 col-lg-8">
                             <h1 class="display-2 text-white animated slideInDown"><?= $data['accueil_' . $data['lang']]['caroussel1_titre'] ?></h1>
                             <p class="fs-5 fw-medium text-white mb-4 pb-3"><?= $data['accueil_' . $data['lang']]['caroussel1_p'] ?></p>
-                            <a href="#about"><div class="btn btn-primary rounded-pill py-3 px-5 animated slideInLeft"><span class="m-3"><?= $data['accueil_' . $data['lang']]['button'] ?></span><i class="fa fa-arrow-down ms-2"></i></div></a>
+                            <a href="#about">
+                                <div class="btn btn-primary rounded-pill py-3 px-5 animated slideInLeft"><span class="m-3"><?= $data['accueil_' . $data['lang']]['button'] ?></span><i class="fa fa-arrow-down ms-2"></i></div>
+                            </a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="owl-carousel-item position-relative" data-dot="<img src='<?= base_url("assets/") ?>img/carousel-2.jpg'>">
+        <div class="owl-carousel-item position-relative" data-dot="<img src='<?= base_url("assets/") ?>img/carousel-2.jpg' alt=''>">
             <img class="img-fluid mh-100" style="height: 100vh; object-fit: cover;" src="<?= base_url("assets/") ?>img/carousel-2.jpg" alt="">
             <div class="owl-carousel-inner">
                 <div class="container">
@@ -24,12 +26,15 @@
                         <div class="col-10 col-lg-8">
                             <h1 class="display-2 text-white animated slideInDown"><?= $data['accueil_' . $data['lang']]['caroussel2_titre'] ?></h1>
                             <p class="fs-5 fw-medium text-white mb-4 pb-3"><?= $data['accueil_' . $data['lang']]['caroussel2_p'] ?></p>
-                            <a href="#about"><div class="btn btn-primary rounded-pill py-3 px-5 animated slideInLeft"><span class="m-3"><?= $data['accueil_' . $data['lang']]['button'] ?></span><i class="fa fa-arrow-down ms-2"></i></div></a>                        </div>
+                            <a href="#about">
+                                <div class="btn btn-primary rounded-pill py-3 px-5 animated slideInLeft"><span class="m-3"><?= $data['accueil_' . $data['lang']]['button'] ?></span><i class="fa fa-arrow-down ms-2"></i></div>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="owl-carousel-item position-relative" data-dot="<img src='<?= base_url("assets/") ?>img/carousel-3.jpg'>">
+        <div class="owl-carousel-item position-relative" data-dot="<img src='<?= base_url("assets/") ?>img/carousel-3.jpg' alt=''>">
             <img class="img-fluid mh-100" style="height: 100vh; object-fit: cover;" src="<?= base_url("assets/") ?>img/carousel-3.jpg" alt="">
             <div class="owl-carousel-inner">
                 <div class="container">
@@ -37,7 +42,9 @@
                         <div class="col-10 col-lg-8">
                             <h1 class="display-2 text-white animated slideInDown"><?= $data['accueil_' . $data['lang']]['caroussel3_titre'] ?></h1>
                             <p class="fs-5 fw-medium text-white mb-4 pb-3"><?= $data['accueil_' . $data['lang']]['caroussel3_p'] ?></p>
-                            <a href="#about"><div class="btn btn-primary rounded-pill py-3 px-5 animated slideInLeft"><span class="m-3"><?= $data['accueil_' . $data['lang']]['button'] ?></span><i class="fa fa-arrow-down ms-2"></i></div></a>
+                            <a href="#about">
+                                <div class="btn btn-primary rounded-pill py-3 px-5 animated slideInLeft"><span class="m-3"><?= $data['accueil_' . $data['lang']]['button'] ?></span><i class="fa fa-arrow-down ms-2"></i></div>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -218,7 +225,7 @@
                         </div>
                         <h4 class="mb-3"><?= $data['accueil_' . $data['lang']]['eau'] ?></h4>
                         <p class="service-text"><?= $data['accueil_' . $data['lang']]['detail_eau'] ?></p>
-                        <a class="small fw-medium" href="" data-bs-toggle="modal" data-bs-target="#monModal"><?= $data['accueil_' . $data['lang']]['button2'] ?><i class="fa fa-arrow-right ms-2"></i></a>
+                        <a class="small fw-medium" href="#" role="button" data-bs-toggle="modal" data-bs-target="#monModal"><?= $data['accueil_' . $data['lang']]['button2'] ?><i class="fa fa-arrow-right ms-2"></i></a>
                         <!-- Modal EAU -->
                         <div class="modal fade" id="monModal">
                             <div class="modal-dialog modal-lg">
@@ -254,7 +261,7 @@
                         </div>
                         <h4 class="mb-3"><?= $data['accueil_' . $data['lang']]['infrastructure'] ?></h4>
                         <p class="service-text"><?= $data['accueil_' . $data['lang']]['detail_infrastructure'] ?></p>
-                        <a class="small fw-medium" href="" data-bs-toggle="modal" data-bs-target="#monModal2"><?= $data['accueil_' . $data['lang']]['button2'] ?><i class="fa fa-arrow-right ms-2"></i></a>
+                        <a class="small fw-medium" href="#" role="button" data-bs-toggle="modal" data-bs-target="#monModal2"><?= $data['accueil_' . $data['lang']]['button2'] ?><i class="fa fa-arrow-right ms-2"></i></a>
                         <!-- Modal INFRA -->
                         <div class="modal fade" id="monModal2">
                             <div class="modal-dialog modal-lg">
@@ -289,7 +296,7 @@
                         </div>
                         <h4 class="mb-3"><?= $data['accueil_' . $data['lang']]['env'] ?></h4>
                         <p class="service-text"><?= $data['accueil_' . $data['lang']]['detail_env'] ?></p>
-                        <a class="small fw-medium" href="" data-bs-toggle="modal" data-bs-target="#monModal3"><?= $data['accueil_' . $data['lang']]['button2'] ?><i class="fa fa-arrow-right ms-2"></i></a>
+                        <a class="small fw-medium" href="#" role="button" data-bs-toggle="modal" data-bs-target="#monModal3"><?= $data['accueil_' . $data['lang']]['button2'] ?><i class="fa fa-arrow-right ms-2"></i></a>
                         <!-- Modal ENV -->
                         <div class="modal fade" id="monModal3">
                             <div class="modal-dialog modal-lg">
