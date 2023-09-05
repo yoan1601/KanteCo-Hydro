@@ -1,16 +1,16 @@
-<div class="container-fluid" style="background-color: #f6f7f8;">
+<div class="container-fluid wow fadeIn" data-wow-delay="0.1s" style="background-color: #f6f7f8;">
     <div class="container py-5">
         <div class="row g-5 justify-content-center">
             <div class="col-lg-9 d-flex align-items-center" style="gap: 2rem;">
                 <i class="fas fa-comments-dollar fa-6x" style="color: #32c36c;"></i>
-                <h4 style="font-weight: lighter;">
+                <h5 style="font-weight: lighter;">
                     <?= $data['footer_' . $data['lang']]['item1'] ?>
-                </h4>
+                </h5>
             </div>
             <div class="col-lg-3">
-                <?php if ($data['session']!=false){ ?>
+                <?php if ($data['session'] != false) { ?>
                     <a href="<?= site_url("front/devis") ?>" class="btn btn-primary py-3 px-5"><?= $data['footer_' . $data['lang']]['button_devis'] ?><i class="fa fa-arrow-right ms-3"></i></a>
-                <?php }else{ ?>
+                <?php } else { ?>
                     <a href="<?= site_url("front/sign_in") ?>" class="btn btn-primary py-3 px-5"><?= $data['footer_' . $data['lang']]['button_devis'] ?><i class="fa fa-arrow-right ms-3"></i></a>
                 <?php } ?>
             </div>
@@ -28,7 +28,7 @@
                 <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+261 34 97 802 31 / +261 34 59 708 76</p>
                 <p class="mb-2"><i class="fa fa-envelope me-3"></i>hydrocampgroup@gmail.com</p>
                 <div class="d-flex pt-2">
-                    <a class="btn btn-square btn-outline-light btn-social" href=""><i class="fab fa-facebook-f"></i></a>
+                    <a class="btn btn-square btn-outline-light btn-social" href="https://www.facebook.com/profile.php?id=100083307903911"><i class="fab fa-facebook-f"></i></a>
                     <a class="btn btn-square btn-outline-light btn-social" href=""><i class="fab fa-instagram"></i></a>
                     <a class="btn btn-square btn-outline-light btn-social" href=""><i class="fab fa-twitter"></i></a>
                     <a class="btn btn-square btn-outline-light btn-social" href=""><i class="fab fa-linkedin-in"></i></a>
@@ -55,9 +55,16 @@
                 <h5 class="text-white mb-4">Newsletter</h5>
                 <p><?= $data['footer_' . $data['lang']]['item4'] ?></p>
                 <div class="position-relative mx-auto" style="max-width: 400px;">
-                    <form action="<?= site_url("utilisateur/send_news_letter") ?>" method="post">
+                    <form action="" method="post" id="newsLetter">
                         <input class="form-control border-0 w-100 py-3 ps-4 pe-5" type="text" name="email" placeholder="<?= $data['footer_' . $data['lang']]['mail'] ?>">
-                        <button type="submit" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2"><?= $data['footer_' . $data['lang']]['inscription'] ?></button>
+                        <button type="submit" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">
+                            <span class="">
+                                <?= $data['footer_' . $data['lang']]['inscription'] ?>
+                            </span>
+                            <div class="spinner-border spinner-border-sm text-light ms-2 d-none" role="status" id="loadNewsLetter">
+                                <span class="visually-hidden">Loading...</span>
+                            </div>
+                        </button>
                     </form>
                 </div>
             </div>
@@ -79,11 +86,53 @@
         </div>
     </div>
 </div>
+
+<div class="position-fixed top-0 end-0 p-3" style="z-index: 9999">
+    <div id="newsletterToast" class="toast bg-white hide" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header">
+            <strong class="me-auto fs-6">Newsletter</strong>
+            <small class="text-muted fs-6">Maintenant</small>
+            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+        <div class="toast-body fs-6 text-success">
+            Vous êtes maintenant inscrit à notre newsletter.
+        </div>
+    </div>
+</div>
+
+<div class="position-fixed top-0 end-0 p-3" style="z-index: 9999">
+    <div id="devisToast" class="toast bg-white hide" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header">
+            <strong class="me-auto fs-6">Devis</strong>
+            <small class="text-muted fs-6">Maintenant</small>
+            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+        <div class="toast-body fs-6 text-success">
+            Enregistrement du devis avec succès.
+        </div>
+    </div>
+</div>
+
+<div class="position-fixed top-0 end-0 p-3" style="z-index: 9999">
+    <div id="contactToast" class="toast bg-white hide" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header">
+            <strong class="me-auto fs-6">Contact</strong>
+            <small class="text-muted fs-6">Maintenant</small>
+            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+        <div class="toast-body fs-6 text-success">
+            Enregistrement avec succès.
+        </div>
+    </div>
+</div>
+
 <!-- Footer End -->
 
 
 <!-- Back to Top -->
 <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+
 
 
 <!-- JavaScript Libraries -->
@@ -99,6 +148,105 @@
 
 <!-- Template Javascript -->
 <script src="<?= base_url("assets/") ?>js/main.js"></script>
+
+<script>
+    $(document).ready(function() {
+
+        // Formulaire newsLetter
+        $('#newsLetter').submit(function(e) {
+            e.preventDefault();
+            $('#loadNewsLetter').removeClass("d-none");
+
+            // Récupérez les données du formulaire
+            var formData = $(this).serialize();
+
+            $.ajax({
+                type: 'POST',
+                url: '<?= site_url("utilisateur/send_news_letter") ?>', // Remplacez par l'URL de votre script de traitement
+                data: formData,
+                success: function(response) {
+                    let msg = JSON.parse(response);
+                    if (msg["state"] === 'success') {
+                        // Affichez le toast en cas de succès
+                        var newsletterToast = new bootstrap.Toast(document.getElementById('newsletterToast'));
+                        newsletterToast.show();
+
+                        // Réinitialisez le formulaire
+                        $('#newsLetter')[0].reset();
+                        $('#loadNewsLetter').addClass("d-none");
+
+                    } else {
+                        // Gérez les erreurs ici
+                    }
+                }
+            });
+        });
+
+        // Formulaire devis
+        $('#devis').submit(function(e) {
+            e.preventDefault();
+            $('#loadDevis').removeClass("d-none");
+
+            // Récupérez les données du formulaire
+            var formData = $(this).serialize();
+
+            $.ajax({
+                type: 'POST',
+                url: '<?= site_url('devis/send_devis') ?>', // Remplacez par l'URL de votre script de traitement
+                data: formData,
+                success: function(response) {
+                    let msg = JSON.parse(response);
+                    console.log(msg);
+                    console.log(msg["state"] === 'success');
+                    if (msg["state"] === 'success') {
+                        // Affichez le toast en cas de succès
+                        var devisToast = new bootstrap.Toast(document.getElementById('devisToast'));
+                        devisToast.show();
+
+                        // Réinitialisez le formulaire
+                        $('#devis')[0].reset();
+                        $('#loadDevis').addClass("d-none");
+
+                    } else {
+                        // Gérez les erreurs ici
+                    }
+                }
+            });
+        });
+
+        // Formulaire contact
+        $('#contact').submit(function(e) {
+            e.preventDefault();
+            $('#loadContact').removeClass("d-none");
+
+            // Récupérez les données du formulaire
+            var formData = $(this).serialize();
+
+            $.ajax({
+                type: 'POST',
+                url: '<?= site_url("contact/send_contact") ?>', // Remplacez par l'URL de votre script de traitement
+                data: formData,
+                success: function(response) {
+                    let msg = JSON.parse(response);
+                    console.log(msg);
+                    console.log(msg["state"] === 'success');
+                    if (msg["state"] === 'success') {
+                        // Affichez le toast en cas de succès
+                        var contactToast = new bootstrap.Toast(document.getElementById('contactToast'));
+                        contactToast.show();
+
+                        // Réinitialisez le formulaire
+                        $('#contact')[0].reset();
+                        $('#loadContact').addClass("d-none");
+
+                    } else {
+                        // Gérez les erreurs ici
+                    }
+                }
+            });
+        });
+    });
+</script>
 </body>
 
 </html>

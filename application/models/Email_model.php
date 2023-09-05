@@ -23,7 +23,56 @@ class Email_model extends CI_Model {
   public function __construct()
   {
     parent::__construct();
-  }public function search($numero_page = 1,$nombre_resultat_affiche = 3, $keyword = ''){
+  }
+
+  public function envoyer_email_devis($user,$type_projet, $description_projet, $montant) {
+      $email = 'Dossiermih@gmail.com'; //email de hydrocamp
+      $this->mail->from('mirijarazafimbelo30@gmail.com', 'HydroGroup');
+      $this->mail->to($email);
+      $this->mail->subject('Notification d\'une nouvelle devis');
+      $titre= '<h2>Nouvelle devis de '.$user->nom . ' </h2>';
+      $type= '<h4>Type du projet: </h4><p>'. $type_projet .'</p>';
+      $description='<h4>Descripiton du projet: </h4><p>'. $description_projet .'</p>';
+      $montant ='<h4>Montant du projet: </h4><p>'. $montant .' Ar</p>';
+      $contact ='<h4>Contact du client: </h4><p>'. $user->telephone .'</p> <p>'. $user->mail.'</p>';
+      $message = $titre . $contact . $type . $description . $montant;
+      $this->mail->message($message);
+      if ($this->mail->send()) {
+          echo 'L\'e-mail a été envoyé avec succès.';
+      } else {
+          echo $this->mail->print_debugger();
+          echo 'Une erreur s\'est produite lors de l\'envoi de l\'e-mail.';
+      }
+      $this->mail->clear();
+    }
+
+  public function envoyer_email($titrefr, $titreen) {
+    $emails = $this->findAll();
+    foreach ($emails as $email) {
+      $this->mail->from('mirijarazafimbelo30@gmail.com', 'HydroGroup');
+      $this->mail->to($email->mail);
+      $this->mail->subject($titrefr . '/'. $titreen);
+      $message= '<h2>Nouveau blog de HydroCamp </h2>';
+      $message.= '<p> HydroCamp a publié un nouveau blog. </p>';
+      $message.= "<a href='#'>Notre site Web</a>"; // hydrocamp lien
+      $this->mail->message($message);
+
+      // var_dump($this->mail->send());
+      if ($this->mail->send()) {
+          echo 'L\'e-mail a été envoyé avec succès.';
+      } else {
+          echo $this->mail->print_debugger();
+          echo 'Une erreur s\'est produite lors de l\'envoi de l\'e-mail.';
+      }
+      $this->mail->clear();
+    }
+    
+    
+}
+  
+  
+  
+  public function search($numero_page = 1,$nombre_resultat_affiche = 3, $keyword = ''){
     $this->db->where('etat >', 0);
     $keyword = trim($keyword);
     $calcul_limite = ($numero_page-1)*$nombre_resultat_affiche;

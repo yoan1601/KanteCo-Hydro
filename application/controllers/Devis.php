@@ -20,7 +20,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Devis extends CI_Controller
 {
-    
+
   public function __construct()
   {
     parent::__construct();
@@ -55,7 +55,11 @@ class Devis extends CI_Controller
       var_dump(validation_errors());
     }else{
       $this->devis->insert($user->id, $type_projet, $description_projet, $montant);
-      redirect('front/devis');
+      $this->email->envoyer_email_devis($user, $type_projet, $description_projet, $montant);
+      $resp = array(
+        "state" => "success",
+      );
+      echo json_encode($resp);
     }
 
     
@@ -65,7 +69,6 @@ class Devis extends CI_Controller
   {
     // 
   }
-
 }
 
 
