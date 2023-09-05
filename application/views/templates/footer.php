@@ -29,9 +29,9 @@
                 <p class="mb-2"><i class="fa fa-envelope me-3"></i>hydrocampgroup@gmail.com</p>
                 <div class="d-flex pt-2">
                     <a class="btn btn-square btn-outline-light btn-social" href="https://www.facebook.com/profile.php?id=100083307903911"><i class="fab fa-facebook-f"></i></a>
-                    <a class="btn btn-square btn-outline-light btn-social" href=""><i class="fab fa-instagram"></i></a>
-                    <a class="btn btn-square btn-outline-light btn-social" href=""><i class="fab fa-twitter"></i></a>
-                    <a class="btn btn-square btn-outline-light btn-social" href=""><i class="fab fa-linkedin-in"></i></a>
+                    <a class="btn btn-square btn-outline-light btn-social" href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a>
+                    <a class="btn btn-square btn-outline-light btn-social" href="https://twitter.com/"><i class="fab fa-twitter"></i></a>
+                    <a class="btn btn-square btn-outline-light btn-social" href="https://www.linkedin.com/"><i class="fab fa-linkedin-in"></i></a>
                 </div>
             </div>
             <div class="col-lg-5 col-md-6">
@@ -130,7 +130,7 @@
 
 
 <!-- Back to Top -->
-<a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"><i class="bi bi-arrow-up"></i></a>
+<a href="#" role="button" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"><i class="bi bi-arrow-up"></i></a>
 
 
 
