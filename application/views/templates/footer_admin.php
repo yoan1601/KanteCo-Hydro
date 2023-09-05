@@ -15,7 +15,6 @@
 <script src="<?= base_url("assets/") ?>js/main.js"></script>
 <!-- Script Envoie mail -->
 
-<script src="<?= base_url("assets/") ?>js/mail.js"></script>
 <!-- Inclure le code JavaScript qui initialise CKEditor -->
     <script>
 
@@ -48,29 +47,45 @@ $(document).ready(function() {
 });
 
             
-     
+const editor1= document.querySelector( '#editor1' );
+const editor2= document.querySelector( '#editor2' );
+const editor3= document.querySelector( '#editor3' );
+const editor4= document.querySelector( '#editor4' );
 
 
-        ClassicEditor
+        if (editor1){
+            ClassicEditor
             .create( document.querySelector( '#editor1' ) )
             .catch( error => {
                 console.error( error );
             } );
-        ClassicEditor
+        }
+        if (editor2){
+            ClassicEditor
             .create( document.querySelector( '#editor2' ) )
             .catch( error => {
                 console.error( error );
             } );
-        ClassicEditor
+        }
+        if (editor3){
+            ClassicEditor
             .create( document.querySelector( '#editor3' ) )
             .catch( error => {
                 console.error( error );
             } );
-        ClassicEditor
+        }
+        if (editor4){
+            ClassicEditor
             .create( document.querySelector( '#editor4' ) )
             .catch( error => {
                 console.error( error );
             } );
+        }
+        
+
+       
+        
+        
 
     </script>
 </body>

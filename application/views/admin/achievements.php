@@ -110,7 +110,7 @@
 </div>
 <script>
 
-    function couperTexte(texte, longueurMax = 50) {
+    function couperTexte(texte, longueurMax = 30) {
         if (texte.length <= longueurMax) {
             return texte;
         } else {
