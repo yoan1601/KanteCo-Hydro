@@ -5,8 +5,7 @@
 	<meta charset="utf-8" />
 	<title>HydroCamp</title>
 	<meta content="width=device-width, initial-scale=1.0" name="viewport" />
-	<meta content="" name="keywords" />
-	<meta content="" name="description" />
+	<meta content="Mettez votre confiance dans HYDROCAMP GROUP, une équipe passionnée et expérimentée dédiée à la promotion du développement durable. De l'étude à la réalisation, nous nous engageons envers l'eau, l'environnement et les infrastructures à chaque étape de notre mission. Découvrez comment nous faisons la différence aujourd'hui." name="description" />
 
 	<!-- Favicon -->
 	<link href="img/favicon.ico" rel="icon" />
