@@ -1,10 +1,10 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
 
 $config['protocol'] = 'smtp';
-$config['smtp_host'] = 'smtp.gmail.com';
+$config['smtp_host'] = 'mail.hydrocamp-group.com';
 $config['smtp_port'] = 587;
-$config['smtp_user'] = 'mirijarazafimbelo30@gmail.com';
-$config['smtp_pass'] = 'zzauiiwamftklvme';
+$config['smtp_user'] = 'contact@hydrocamp-group.com';
+$config['smtp_pass'] = 'ContactHydroCampGroup';
 $config['smtp_crypto'] = 'tls';
 $config['mailtype'] = 'html';
 $config['charset'] = 'utf-8';
