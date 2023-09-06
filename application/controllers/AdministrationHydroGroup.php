@@ -24,7 +24,7 @@ class AdministrationHydroGroup extends CI_Controller
     }
 
     public function sendmail(){
-        $this->email->envoyer_email('Recycle', 'Tesla');
+        $this->email->envoyer_email_devis2();
         // redirect('AdministrationHydroGroup/mails');
     }
 

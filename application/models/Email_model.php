@@ -25,9 +25,31 @@ class Email_model extends CI_Model {
     parent::__construct();
   }
 
+
+  public function envoyer_email_devis2(){
+    $email = 'mirijarazafimbelo30@gmail.com'; //email de hydrocamp
+      $this->mail->from('contact@hydrocamp-group.com', 'HydroGroup');
+      $this->mail->to($email);
+      $this->mail->subject('Notification d\'une nouvelle devis');
+      $titre= '<h2>Nouvelle devis de  </h2>';
+      $type= '<h4>Type du projet: </h4><p></p>';
+      $description='<h4>Descripiton du projet: </h4><p></p>';
+      $montant ='<h4>Montant du projet: </h4><p>Ar</p>';
+      $contact ='<h4>Contact du client: </h4><p></p>';
+      $message = $titre . $contact . $type . $description . $montant;
+      $this->mail->message($message);
+      if ($this->mail->send()) {
+          echo 'L\'e-mail a été envoyé avec succès.';
+      } else {
+          echo $this->mail->print_debugger();
+          echo 'Une erreur s\'est produite lors de l\'envoi de l\'e-mail.';
+      }
+      $this->mail->clear();
+  }
+
   public function envoyer_email_devis($user,$type_projet, $description_projet, $montant) {
-      $email = 'Dossiermih@gmail.com'; //email de hydrocamp
-      $this->mail->from('mirijarazafimbelo30@gmail.com', 'HydroGroup');
+      $email = 'contact@hydrocamp-group.com'; //email de hydrocamp
+      $this->mail->from('contact@hydrocamp-group.com', 'HydroGroup');
       $this->mail->to($email);
       $this->mail->subject('Notification d\'une nouvelle devis');
       $titre= '<h2>Nouvelle devis de '.$user->nom . ' </h2>';
@@ -49,7 +71,7 @@ class Email_model extends CI_Model {
   public function envoyer_email($titrefr, $titreen) {
     $emails = $this->findAll();
     foreach ($emails as $email) {
-      $this->mail->from('mirijarazafimbelo30@gmail.com', 'HydroGroup');
+      $this->mail->from('contact@hydrocamp-group.com', 'HydroGroup');
       $this->mail->to($email->mail);
       $this->mail->subject($titrefr . '/'. $titreen);
       $message= '<h2>Nouveau blog de HydroCamp </h2>';
