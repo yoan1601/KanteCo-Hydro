@@ -55,9 +55,9 @@ class Devis extends CI_Controller
       var_dump(validation_errors());
     }else{
       $this->devis->insert($user->id, $type_projet, $description_projet, $montant);
-      $this->email->envoyer_email_devis($user, $type_projet, $description_projet, $montant);
+      $state  =  $this->email->envoyer_email_devis($user, $type_projet, $description_projet, $montant);
       $resp = array(
-        "state" => "success",
+        "state" => $state,
       );
       echo json_encode($resp);
     }
