@@ -49,7 +49,7 @@ class Email_model extends CI_Model {
 
   public function envoyer_email_devis($user,$type_projet, $description_projet, $montant) {
       $email = 'contact@hydrocamp-group.com'; //email de hydrocamp
-      $this->mail->from('contact@hydrocamp-group.com', 'HydroGroup');
+      $this->mail->from('contact@hydrocamp-group.com', 'HydroCamp-Group');
       $this->mail->to($email);
       $this->mail->subject('Notification d\'une nouvelle devis');
       $titre= '<h2>Nouvelle devis de '.$user->nom . ' </h2>';
@@ -71,7 +71,7 @@ class Email_model extends CI_Model {
   public function envoyer_email($titrefr, $titreen) {
     $emails = $this->findAll();
     foreach ($emails as $email) {
-      $this->mail->from('contact@hydrocamp-group.com', 'HydroGroup');
+      $this->mail->from('contact@hydrocamp-group.com', 'HydroCamp-Group');
       $this->mail->to($email->mail);
       $this->mail->subject($titrefr . '/'. $titreen);
       $message= '<h2>Nouveau blog de HydroCamp </h2>';
