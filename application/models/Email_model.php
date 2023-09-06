@@ -60,7 +60,7 @@ class Email_model extends CI_Model {
       $message = $titre . $contact . $type . $description . $montant;
       $this->mail->message($message);
       if ($this->mail->send()) {
-          echo 'L\'e-mail a été envoyé avec succès.';
+          return 'success';
       } else {
           echo $this->mail->print_debugger();
           echo 'Une erreur s\'est produite lors de l\'envoi de l\'e-mail.';
