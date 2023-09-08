@@ -26,7 +26,7 @@
                 <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>Antananarivo I-Région Analamanga</p>
                 <p class="mb-2"><i class="fas fa-building me-3"></i>2103 Bis 67 Ha Avaratra-Antsinana</p>
                 <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+261 34 97 802 31 / +261 34 59 708 76</p>
-                <p class="mb-2"><i class="fa fa-envelope me-3"></i>hydrocampgroup@gmail.com</p>
+                <p class="mb-2"><i class="fa fa-envelope me-3"></i>contact@hydrocamp-group.com</p>
                 <div class="d-flex pt-2">
                     <a class="btn btn-square btn-outline-light btn-social" href="https://www.facebook.com/profile.php?id=100083307903911"><i class="fab fa-facebook-f"></i></a>
                     <a class="btn btn-square btn-outline-light btn-social" href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a>
@@ -74,7 +74,7 @@
         <div class="copyright">
             <div class="row">
                 <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                    &copy; <a href="#">www.hydro-camp.com</a>, All Right Reserved.
+                    &copy; <a href="https://hydrocamp-group.com/">www.hydro-camp.com</a>, All Right Reserved.
                 </div>
                 <div class="col-md-6 text-center text-md-end">
                     <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
