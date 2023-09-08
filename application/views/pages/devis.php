@@ -5,7 +5,7 @@
     </div>
 </div>
 <div class="text-center mx-auto mb-3 wow fadeInUp pt-5" data-wow-delay="0.1s" style="max-width: 600px; visibility: visible; animation-delay: 0.1s; animation-name: fadeInUp;">
-    <h1 class="text-primary"><?= $data['footer_' . $data['lang']]['button_devis'] ?></h1>
+    <h1 class="text-primary" style="font-weight: lighter;"><?= $data['footer_' . $data['lang']]['button_devis'] ?></h1>
     <p class="mb-4"><?= $data['devis_' . $data['lang']]['item1'] ?></p>
 </div>
 <div class="container-fluid bg-light overflow-hidden px-lg-0 my-5">
