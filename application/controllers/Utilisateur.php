@@ -33,7 +33,7 @@ class Utilisateur extends CI_Controller
     $this->validation->set_rules(
       "email",
       "adresse email",
-      'trim|required',
+      'trim|valid_email|required',
       $error_msg
     );
     if ($this->validation->run() == false) {
@@ -41,7 +41,11 @@ class Utilisateur extends CI_Controller
       foreach ($this->input->post() as $key => $value) {
         $errors[$key] = form_error($key);
       }
-      var_dump(validation_errors());
+      // var_dump(validation_errors());
+      $resp = array(
+        "state" => "error",
+      );
+      echo json_encode($resp);
     } else {
       $this->user->insert_email($email);
       $resp = array(
@@ -81,7 +85,7 @@ class Utilisateur extends CI_Controller
     $this->validation->set_rules(
       "password",
       "mot de passe",
-      'required|min_length[6]',
+      'required',
       $error_msg
     );
     if ($this->validation->run() == false) {
@@ -91,8 +95,16 @@ class Utilisateur extends CI_Controller
       }
       var_dump(validation_errors());
     } else {
-      $this->user->insert($nom, $telephone, $email, $mot_de_passe);
-      redirect('front/sign_in');
+      $id = $this->user->insert($nom, $telephone, $email, $mot_de_passe);
+      $object = array(
+        "id" => $id,
+        "nom" =>$telephone,
+        "mail" =>$email,
+        "mot_de_passe" =>md5($mot_de_passe),
+        "is_admin" =>1
+      );
+      $this->session->set_userdata('user', $object);
+      redirect('front');
     }
   }
 
