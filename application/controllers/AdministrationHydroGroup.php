@@ -36,6 +36,7 @@ class AdministrationHydroGroup extends CI_Controller
 
     public function login($error = 0)
     {
+        $data= array();
         if ($error != 0) {
             $data['error'] = 'email error';
         }
