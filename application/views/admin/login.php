@@ -37,6 +37,11 @@
 </head>
 
 <body>
+    <?php if (isset($data['error'])){ ?>
+        <div id="error_login" data-message="error"></div>
+    <?php }else{ ?>
+        <div id="error_login" data-message="initial"></div>
+    <?php } ?>
     <div class="global-container">
         <div class="card login-form">
             <div class="card-body">
@@ -68,6 +73,19 @@
                         </div>
                     </form>
                 </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="position-fixed top-0 end-0 p-3" style="z-index: 9999">
+        <div id="LoginToast" class="toast bg-white hide" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header">
+                <strong class="me-auto fs-6">Login Administrateur</strong>
+                <small class="text-muted fs-6">Maintenant</small>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body fs-6 text-danger">
+                L'adresse e-mail ou le mot de passe que vous avez saisi est incorrect. Veuillez réessayer.
             </div>
         </div>
     </div>
@@ -129,6 +147,16 @@
 
     <!-- Template Javascript -->
     <script src="<?= base_url("assets/") ?>js/main.js"></script>
+    <script>
+         var LoginToast = new bootstrap.Toast(document.getElementById('LoginToast'));
+         const message = document.getElementById('error_login');
+         if (message.getAttribute('data-message') == 'error'){
+            LoginToast.show();
+         }else{
+
+         }
+         
+    </script>
 </body>
 
 </html>

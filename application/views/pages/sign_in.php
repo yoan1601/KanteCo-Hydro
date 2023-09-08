@@ -49,7 +49,9 @@
                         <div class="row g-3">
                             <div class="col-12">
                                 <?php if(isset($data['error'])) { ?>
-                                <p style="color:red;"><?= $data['error'] ?></p>
+                                    <div id="error_login" data-message="error"></div>
+                                <?php }else{ ?>
+                                    <div id="error_login" data-message="initial"></div>
                                 <?php } ?>
                                 <div class="form-floating">
                                     <input type="email" class="form-control" name="email" placeholder="example@gmail.com">
@@ -69,6 +71,19 @@
                     </form>
                     <p><?= $data['sign_in_' . $data['lang']]['item4'] ?> <a class="" href="<?= site_url('front/sign_up'); ?>"><?= $data['sign_in_' . $data['lang']]['item5'] ?></a></p>
                 </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="position-fixed top-0 end-0 p-3" style="z-index: 9999">
+        <div id="LoginToast" class="toast bg-white hide" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header">
+                <strong class="me-auto fs-6">Login</strong>
+                <small class="text-muted fs-6">Maintenant</small>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body fs-6 text-danger">
+                L'adresse e-mail ou le mot de passe que vous avez saisi est incorrect. Veuillez réessayer.
             </div>
         </div>
     </div>
@@ -130,6 +145,17 @@
 
     <!-- Template Javascript -->
     <script src="<?= base_url("assets/") ?>js/main.js"></script>
+
+    <script>
+         var LoginToast = new bootstrap.Toast(document.getElementById('LoginToast'));
+         const message = document.getElementById('error_login');
+         if (message.getAttribute('data-message') == 'error'){
+            LoginToast.show();
+         }else{
+
+         }
+         
+    </script>
 </body>
 
 </html>
