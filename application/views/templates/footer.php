@@ -26,7 +26,7 @@
                 <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>Antananarivo I-Région Analamanga</p>
                 <p class="mb-2"><i class="fas fa-building me-3"></i>2103 Bis 67 Ha Avaratra-Antsinana</p>
                 <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+261 34 97 802 31 / +261 34 59 708 76</p>
-                <p class="mb-2"><i class="fa fa-envelope me-3"></i>hydrocampgroup@gmail.com</p>
+                <p class="mb-2"><i class="fa fa-envelope me-3"></i>contact@hydrocamp-group.com</p>
                 <div class="d-flex pt-2">
                     <a class="btn btn-square btn-outline-light btn-social" href="https://www.facebook.com/profile.php?id=100083307903911"><i class="fab fa-facebook-f"></i></a>
                     <a class="btn btn-square btn-outline-light btn-social" href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a>
