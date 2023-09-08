@@ -40,6 +40,7 @@ class Utilisateur_model extends CI_Model {
       "is_admin" => 1,
       "etat"=> 1
     ]);
+    return $this->db->insert_id();
   }
 
   public function check_login($email, $password){

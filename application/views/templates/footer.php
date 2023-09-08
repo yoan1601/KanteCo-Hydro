@@ -87,6 +87,8 @@
     </div>
 </div>
 
+
+
 <div class="position-fixed top-0 end-0 p-3" style="z-index: 9999">
     <div id="newsletterToast" class="toast bg-white hide" role="alert" aria-live="assertive" aria-atomic="true">
         <div class="toast-header">
@@ -96,6 +98,17 @@
         </div>
         <div class="toast-body fs-6 text-success">
             Vous êtes maintenant inscrit à notre newsletter.
+        </div>
+    </div>
+
+    <div id="newsletterToastError" class="toast bg-white hide" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header">
+            <strong class="me-auto fs-6">Newsletter</strong>
+            <small class="text-muted fs-6">Maintenant</small>
+            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+        <div class="toast-body fs-6 text-danger">
+            Email non valide. Veuillez réessayer.
         </div>
     </div>
 </div>
@@ -152,6 +165,9 @@
 <script>
     $(document).ready(function() {
 
+       
+        
+
         // Formulaire newsLetter
         $('#newsLetter').submit(function(e) {
             e.preventDefault();
@@ -176,7 +192,13 @@
                         $('#loadNewsLetter').addClass("d-none");
 
                     } else {
-                        // Gérez les erreurs ici
+                        // Affichez le toast en cas d'erreur
+                        var newsletterToastError = new bootstrap.Toast(document.getElementById('newsletterToastError'));
+                        newsletterToastError.show();
+
+                        // Réinitialisez le formulaire
+                        $('#newsLetter')[0].reset();
+                        $('#loadNewsLetter').addClass("d-none");
                     }
                 }
             });
@@ -208,7 +230,7 @@
                         $('#loadDevis').addClass("d-none");
 
                     } else {
-                        // Gérez les erreurs ici
+                        
                     }
                 }
             });
@@ -240,7 +262,7 @@
                         $('#loadContact').addClass("d-none");
 
                     } else {
-                        // Gérez les erreurs ici
+                       
                     }
                 }
             });

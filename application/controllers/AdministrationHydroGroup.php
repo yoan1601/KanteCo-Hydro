@@ -39,7 +39,7 @@ class AdministrationHydroGroup extends CI_Controller
         if ($error != 0) {
             $data['error'] = 'email error';
         }
-        $this->load->view('admin/login');
+        $this->load->view('admin/login', ['data' => $data]);
     }
 
     public function check_login()
