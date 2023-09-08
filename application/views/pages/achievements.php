@@ -7,7 +7,7 @@
 <div class="container-xxl py-5">
     <div class="container">
         <div class="text-center mx-auto mb-3 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px; visibility: visible; animation-delay: 0.1s; animation-name: fadeInUp;">
-            <h1 class="text-primary"><?= $data['header_' . $data['lang']]['item3'] ?></h1>
+            <h1 class="text-primary" style="font-weight: lighter;"><?= $data['header_' . $data['lang']]['item3'] ?></h1>
             <p class="mb-4"><?= $data['realisation_' . $data['lang']]['item1'] ?></p>
         </div>
         <div class="row mt-n2 wow fadeInUp" data-wow-delay="0.3s">
