@@ -32,7 +32,6 @@
 
 	<!-- icone onglet -->
 	<link rel="icon" href="<?= base_url("assets/") ?>img/HYDROCAMP LOGO FINAL.PNG">
-
 </head>
 
 <body>
