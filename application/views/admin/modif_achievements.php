@@ -130,9 +130,9 @@
                     </div>
                     <div class="col-md-6">
                         <label for="ilogoautorite">Logo de l’autorité contractante</label>
-                        <input type="file" id="ilogoautorite" class="form-control mb-3" name="logo_autorite" data-preview="preview1" placeholder="Logo de l’autorité contractante" style="height: 3.5rem;">
+                        <input type="file" id="ilogoautorite" class="form-control" name="logo_autorite" data-preview="preview1" placeholder="Logo de l’autorité contractante" style="height: 3.5rem;">
 
-                        <div class="position-relative" style="width: 100%; height: 40vh;">
+                        <div class="position-relative mt-3" style="width: 100%; height: 40vh;">
                             <img class="img-fluid w-100 h-100" style="object-fit: cover;" id="preview1" src="<?= base_url("assets/") ?>img/Image upload-bro.png" alt="">
                             <div class="position-absolute d-none top-0 w-100 h-100 d-flex align-items-center justify-content-center" style="background-color: #0000008f;">
                                 <button class="btn btn-outline-light px-3 py-2 delete-button" data-preview="preview1">Supprimer</button>
@@ -141,12 +141,12 @@
                     </div>
                     <div class="col-md-6">
                         <label for="iimgcouverture">Image de couverture (*)</label>
-                        <input required type="file" id="iimgcouverture" class="form-control mb-3" name="image_couverture" data-preview="preview2" placeholder="Image de couverture (*)" style="height: 3.5rem;">
+                        <input required type="file" id="iimgcouverture" class="form-control" name="image_couverture" data-preview="preview2" placeholder="Image de couverture (*)" style="height: 3.5rem;">
                         <div class="invalid-feedback">
                             Veuillez entrer une image de couverture.
                         </div>
 
-                        <div class="position-relative" style="width: 100%; height: 40vh;">
+                        <div class="position-relative mt-3" style="width: 100%; height: 40vh;">
                             <img class="img-fluid w-100 h-100" style="object-fit: cover;" id="preview2" src="<?= base_url("assets/") ?>img/<?= $data['one_realisation']['image_couverture'] ?>" alt="">
                             <div class="position-absolute d-none top-0 w-100 h-100 d-flex align-items-center justify-content-center" style="background-color: #0000008f;">
                                 <button class="btn btn-outline-light px-3 py-2 delete-button" data-php-value="<?= $data['one_realisation']['image_couverture'] ?>" data-preview="preview2">Supprimer</button>
@@ -157,10 +157,10 @@
                     <?php for ($i = 0; $i < count($data['one_realisation_images']); $i++) { ?>
                         <div class="col-md-6">
                             <label for="iimgpublication<?= $i + 1 ?>">Images de publication <?= $i + 1 ?></label>
-                            <input type="file" id="iimgpublication<?= $i + 1 ?>" class="form-control mb-3" name="image_publication<?= $i ?>" data-preview="preview<?= $i + 3 ?>" placeholder="Images de publication <?= $i ?>">
-
+                            <input type="file" id="iimgpublication<?= $i + 1 ?>" class="form-control" name="image_publication<?= $i ?>" data-preview="preview<?= $i + 3 ?>" placeholder="Images de publication <?= $i ?>">
                             <input type="hidden" value="<?= $data['one_realisation_images'][$i]->id ?>" name="image_<?= $i ?>">
-                            <div class="position-relative" style="width: 100%; height: 40vh;">
+
+                            <div class="position-relative mt-3" style="width: 100%; height: 40vh;">
                                 <img class="img-fluid w-100 h-100" style="object-fit: cover;" id="preview<?= $i + 3 ?>" src="<?= base_url("assets/") ?>img/<?= $data['one_realisation_images'][$i]->image ?>" alt="">
                                 <div class="position-absolute top-0 w-100 h-100 d-flex align-items-center justify-content-center" style="background: #0000008f;">
                                     <input type="hidden" id="image_<?= $i ?>_supp" name="image_<?= $i ?>_supp" value="">

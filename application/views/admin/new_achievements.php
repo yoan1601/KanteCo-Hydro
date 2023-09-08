@@ -128,9 +128,9 @@
                     </div>
                     <div class="col-md-6">
                         <label for="ilogoautorite">Logo de l’autorité contractante</label>
-                        <input type="file" id="ilogoautorite" class="form-control mb-3" name="logo_autorite" data-preview="preview1" placeholder="Logo de l’autorité contractante" style="height: 3.5rem;">
+                        <input type="file" id="ilogoautorite" class="form-control" name="logo_autorite" data-preview="preview1" placeholder="Logo de l’autorité contractante" style="height: 3.5rem;">
 
-                        <div class="position-relative" style="width: 100%; height: 40vh;">
+                        <div class="position-relative mt-3" style="width: 100%; height: 40vh;">
                             <img class="img-fluid w-100 h-100" style="object-fit: cover;" id="preview1" src="<?= base_url("assets/") ?>img/Image upload-bro.png" alt="">
                             <div class="position-absolute d-none top-0 w-100 h-100 d-flex align-items-center justify-content-center" style="background-color: #0000008f;">
                                 <button class="btn btn-outline-light px-3 py-2 delete-button" data-preview="preview1">Supprimer</button>
@@ -139,12 +139,12 @@
                     </div>
                     <div class="col-md-6">
                         <label for="iimgcouverture">Image de couverture (*)</label>
-                        <input required type="file" id="iimgcouverture" class="form-control mb-3" name="image_couverture" data-preview="preview2" placeholder="Image de couverture (*)" style="height: 3.5rem;">
+                        <input required type="file" id="iimgcouverture" class="form-control" name="image_couverture" data-preview="preview2" placeholder="Image de couverture (*)" style="height: 3.5rem;">
                         <div class="invalid-feedback">
                             Veuillez entrer une image de couverture.
                         </div>
 
-                        <div class="position-relative" style="width: 100%; height: 40vh;">
+                        <div class="position-relative mt-3" style="width: 100%; height: 40vh;">
                             <img class="img-fluid w-100 h-100" style="object-fit: cover;" id="preview2" src="<?= base_url("assets/") ?>img/Image upload-bro.png" alt="">
                             <div class="position-absolute d-none top-0 w-100 h-100 d-flex align-items-center justify-content-center" style="background-color: #0000008f;">
                                 <button class="btn btn-outline-light px-3 py-2 delete-button" data-preview="preview2">Supprimer</button>
@@ -153,9 +153,9 @@
                     </div>
                     <div class="col-md-6">
                         <label for="iimgpublication1">Images de publication 1</label>
-                        <input type="file" id="iimgpublication1" class="form-control mb-3" name="image_publication1" data-preview="preview3" placeholder="Images de publication 1" style="height: 3.5rem;">
+                        <input type="file" id="iimgpublication1" class="form-control" name="image_publication1" data-preview="preview3" placeholder="Images de publication 1" style="height: 3.5rem;">
 
-                        <div class="position-relative" style="width: 100%; height: 40vh;">
+                        <div class="position-relative mt-3" style="width: 100%; height: 40vh;">
                             <img class="img-fluid w-100 h-100" style="object-fit: cover;" id="preview3" src="<?= base_url("assets/") ?>img/Image upload-bro.png" alt="">
                             <div class="position-absolute d-none top-0 w-100 h-100 d-flex align-items-center justify-content-center" style="background-color: #0000008f;">
                                 <button class="btn btn-outline-light px-3 py-2 delete-button" data-preview="preview3">Supprimer</button>
@@ -164,9 +164,9 @@
                     </div>
                     <div class="col-md-6">
                         <label for="iimgpublication2">Images de publication 2</label>
-                        <input type="file" id="iimgpublication2" class="form-control mb-3" name="image_publication2" data-preview="preview4" placeholder="Images de publication 2" style="height: 3.5rem;">
+                        <input type="file" id="iimgpublication2" class="form-control" name="image_publication2" data-preview="preview4" placeholder="Images de publication 2" style="height: 3.5rem;">
 
-                        <div class="position-relative" style="width: 100%; height: 40vh;">
+                        <div class="position-relative mt-3" style="width: 100%; height: 40vh;">
                             <img class="img-fluid w-100 h-100" style="object-fit: cover;" id="preview4" src="<?= base_url("assets/") ?>img/Image upload-bro.png" alt="">
                             <div class="position-absolute d-none top-0 w-100 h-100 d-flex align-items-center justify-content-center" style="background-color: #0000008f;">
                                 <button class="btn btn-outline-light px-3 py-2 delete-button" data-preview="preview4">Supprimer</button>
@@ -176,9 +176,9 @@
                     </div>
                     <div class="col-md-6">
                         <label for="iimgpublication3">Images de publication 3</label>
-                        <input type="file" id="iimgpublication3" class="form-control mb-3" name="image_publication3" data-preview="preview5" placeholder="Images de publication 3" style="height: 3.5rem;">
+                        <input type="file" id="iimgpublication3" class="form-control" name="image_publication3" data-preview="preview5" placeholder="Images de publication 3" style="height: 3.5rem;">
 
-                        <div class="position-relative" style="width: 100%; height: 40vh;">
+                        <div class="position-relative mt-3" style="width: 100%; height: 40vh;">
                             <img class="img-fluid w-100 h-100" style="object-fit: cover;" id="preview5" src="<?= base_url("assets/") ?>img/Image upload-bro.png" alt="">
                             <div class="position-absolute d-none top-0 w-100 h-100 d-flex align-items-center justify-content-center" style="background-color: #0000008f;">
                                 <button class="btn btn-outline-light px-3 py-2 delete-button" data-preview="preview5">Supprimer</button>
