@@ -45,29 +45,31 @@
                 </div>
                 <div class="card-text">
 
-                    <form action="<?= site_url("utilisateur/login")?>" class="mb-4" action="#" method="POST">
+                    <form action="<?= site_url("utilisateur/login") ?>" class="needs-validation" action="#" method="POST" novalidate>
                         <div class="row g-3">
                             <div class="col-12">
-                                <?php if(isset($data['error'])) { ?>
-                                <p style="color:red;"><?= $data['error'] ?></p>
+                                <?php if (isset($data['error'])) { ?>
+                                    <p style="color:red;"><?= $data['error'] ?></p>
                                 <?php } ?>
-                                <div class="form-floating">
-                                    <input type="email" class="form-control" name="email" placeholder="example@gmail.com">
-                                    <label for=""><?= $data['sign_in_' . $data['lang']]['item2'] ?></label>
+                                <label for="iemail"><?= $data['sign_in_' . $data['lang']]['item2'] ?></label>
+                                <input type="email" class="form-control" style="height: 3.5rem;" id="iemail" name="email" placeholder="example@example.com" required>
+                                <div class="invalid-feedback">
+                                    Veuillez entrer une adresse e-mail.
                                 </div>
                             </div>
                             <div class="col-12">
-                                <div class="form-floating">
-                                    <input type="password" class="form-control" name="password" placeholder="<?= $data['sign_in_' . $data['lang']]['item6'] ?>">
-                                    <label for=""><?= $data['sign_in_' . $data['lang']]['item6'] ?></label>
+                                <label for="ipassword"><?= $data['sign_in_' . $data['lang']]['item6'] ?></label>
+                                <input type="password" class="form-control" style="height: 3.5rem;" id="ipassword" name="password" placeholder="<?= $data['sign_in_' . $data['lang']]['item6'] ?>" required>
+                                <div class="invalid-feedback">
+                                    Veuillez entrer un mot de passe.
                                 </div>
                             </div>
                             <div class="col-12 d-flex justify-content-center">
                                 <button class="btn btn-primary py-3 px-5 w-100" type="submit"><?= $data['sign_in_' . $data['lang']]['item3'] ?></button>
                             </div>
+                            <p><?= $data['sign_in_' . $data['lang']]['item4'] ?> <a class="" href="<?= site_url('front/sign_up'); ?>"><?= $data['sign_in_' . $data['lang']]['item5'] ?></a></p>
                         </div>
                     </form>
-                    <p><?= $data['sign_in_' . $data['lang']]['item4'] ?> <a class="" href="<?= site_url('front/sign_up'); ?>"><?= $data['sign_in_' . $data['lang']]['item5'] ?></a></p>
                 </div>
             </div>
         </div>
@@ -130,6 +132,27 @@
 
     <!-- Template Javascript -->
     <script src="<?= base_url("assets/") ?>js/main.js"></script>
+    <script>
+        (function() {
+            'use strict'
+
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            var forms = document.querySelectorAll('.needs-validation')
+
+            // Loop over them and prevent submission
+            Array.prototype.slice.call(forms)
+                .forEach(function(form) {
+                    form.addEventListener('submit', function(event) {
+                        if (!form.checkValidity()) {
+                            event.preventDefault()
+                            event.stopPropagation()
+                        }
+
+                        form.classList.add('was-validated')
+                    }, false)
+                })
+        })()
+    </script>
 </body>
 
 </html>

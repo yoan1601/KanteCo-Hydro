@@ -13,24 +13,27 @@
         <div class="row g-0 mx-lg-0 d-flex align-items-center">
             <div class="col-lg-6 contact-text py-5 wow fadeIn" data-wow-delay="0.5s">
                 <div class="p-lg-5 ps-lg-0">
-                    <form action="" method="POST" id="devis">
+                    <form action="" method="POST" class="needs-validation" id="devis" novalidate>
                         <div class="row g-3">
                             <div class="col-12">
-                                <div class="form-floating">
-                                    <input type="text" class="form-control" name="type_projet" placeholder="<?= $data['devis_' . $data['lang']]['item9'] ?>">
-                                    <label for=""><?= $data['devis_' . $data['lang']]['item9'] ?> (*)</label>
+                                <label for="iprojet"><?= $data['devis_' . $data['lang']]['item9'] ?> (*)</label>
+                                <input type="text" class="form-control" style="height: 3.5rem;" id="iprojet" name="type_projet" placeholder="<?= $data['devis_' . $data['lang']]['item9'] ?>" required>
+                                <div class="invalid-feedback">
+                                    Veuillez entrer un type de projet.
                                 </div>
                             </div>
                             <div class="col-12">
-                                <div class="form-floating">
-                                    <textarea class="form-control" name="description_projet" placeholder="Lorem ipsum" style="height: 150px"></textarea>
-                                    <label for=""><?= $data['devis_' . $data['lang']]['item10'] ?> (*)</label>
+                                <label for="idesc"><?= $data['devis_' . $data['lang']]['item10'] ?> (*)</label>
+                                <textarea class="form-control" name="description_projet" id="idesc" placeholder="Lorem ipsum" style="height: 150px" required></textarea>
+                                <div class="invalid-feedback">
+                                    Veuillez entrer une description du projet.
                                 </div>
                             </div>
                             <div class="col-12">
-                                <div class="form-floating">
-                                    <input type="number" class="form-control" name="montant" placeholder="Montant estimé">
-                                    <label for=""><?= $data['devis_' . $data['lang']]['item11'] ?></label>
+                                <label for="imontant"><?= $data['devis_' . $data['lang']]['item11'] ?></label>
+                                <input type="number" class="form-control" style="height: 3.5rem;" id="imontant" name="montant" placeholder="Montant estimé" required>
+                                <div class="invalid-feedback">
+                                    Veuillez entrer un montant.
                                 </div>
                             </div>
                             <div class="col-12 mt-5 d-flex justify-content-center">
