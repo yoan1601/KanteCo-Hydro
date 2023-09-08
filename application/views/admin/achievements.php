@@ -10,46 +10,51 @@
                 <button class="btn btn-lg btn-primary btn-lg-square rounded-circle"><i class="bi bi-search"></i></button>
             </form>
             <div>
-                <a href="<?= site_url('administrationHydroGroup/new_achievements/'); ?>" class="btn btn-primary py-3 px-5">Ajouter</a>
+                <a href="<?= site_url('administrationHydroGroup/new_achievements/'); ?>" class="btn btn-primary py-3 px-5">
+                    Ajouter
+                    <i class="fas fa-plus ms-2"></i>
+                </a>
             </div>
         </div>
         <div class="py-5">
-            <table class="table align-middle mb-0 bg-white table-hover">
+            <table class="table table-bordered align-middle mb-0 bg-white table-hover text-dark hover-text-dark">
                 <thead class="bg-light">
                     <tr>
-                        <th class="py-3 fs-5">Année</th>
-                        <th class="py-3 fs-5">Nom de la mission</th>
-                        <th class="py-3 fs-5">Autorité contractante</th>
-                        <th class="py-3 fs-5">Actions</th>
+                        <th class="py-3">Année</th>
+                        <th class="py-3">Nom de la mission</th>
+                        <th class="py-3">Autorité contractante</th>
+                        <th class="py-3">Actions</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php for ($i = 0; $i < count($data['realisation']); $i++) { ?>
                         <tr>
                             <td class="py-3">
-                                <p class="fw-normal fs-5 mb-0"><?= $data['realisation'][$i]['annee_demarrage'] ?></p>
+                                <?= $data['realisation'][$i]['annee_demarrage'] ?>
                             </td>
                             <td class="py-3">
-                                <p class="service-text fw-normal fs-5 mb-0"><?= $data['realisation'][$i]['nom_mission_FR'] ?></p>
+                                <span class="service-text"><?= $data['realisation'][$i]['nom_mission_FR'] ?></span>
                             </td>
                             <td class="py-3">
-                                <p class="service-text fw-normal fs-5 mb-0"><?= $data['realisation'][$i]['autorite_contractante'] ?></p>
+                                <span class="service-text"><?= $data['realisation'][$i]['autorite_contractante'] ?></span>
                             </td>
                             <td class="py-3">
                                 <div class="d-lg-flex d-none flex-wrap gap-2">
                                     <a href="<?= site_url('administrationHydroGroup/modif_achievements/' . $data['realisation'][$i]['id']) ?>" class="btn btn-outline-secondary py-2 px-3">
                                         Modifier
+                                        <i class="fas fa-edit text-secondary ms-2 hover-light"></i>
                                     </a>
                                     <a href="" class="btn btn-outline-danger py-2 px-3" data-bs-toggle="modal" data-bs-target="#monModal-<?= $data['realisation'][$i]['id'] ?>">
                                         Supprimer
+                                        <i class="fas fa-trash text-danger ms-2 hover-light"></i>
                                     </a>
                                 </div>
                                 <div class="d-lg-none d-flex flex-wrap" style="column-gap: 0.75rem">
                                     <a href="<?= site_url('administrationHydroGroup/modif_achievements/' . $data['realisation'][$i]['id']) ?>" class="">
-                                        <i class="fas fa-edit text-secondary" style="font-size: 1.5em"></i>
+                                        <i class="fas fa-edit text-secondary" style="font-size: 1.25em"></i>
                                     </a>
                                     <a href="" class="" data-bs-toggle="modal" data-bs-target="#monModal-<?= $data['realisation'][$i]['id'] ?>">
-                                        <i class="fas fa-trash text-danger" style="font-size: 1.5em"></i>
+                                        <i class="fas fa-trash text-danger" style="font-size: 1.25em"></i>
                                     </a>
                                 </div>
                             </td>
@@ -61,7 +66,9 @@
                                         <div class="modal-header">
                                             <h4 style="font-weight:lighter;">Voulez-vous vraiment supprimer cette realisation ?</h4>
                                         </div>
-                                        <div><p class="fw-normal fs-5 my-3 text-center"><?= $data['realisation'][$i]['nom_mission_FR'] ?></p></div>
+                                        <div>
+                                            <p class="fw-normal fs-5 my-3 text-center"><?= $data['realisation'][$i]['nom_mission_FR'] ?></p>
+                                        </div>
                                         <!-- Contenu du modal -->
                                         <div class="modal-body">
                                             <div class="d-flex align-items-center justify-content-center gap-3">
@@ -109,7 +116,6 @@
     </div>
 </div>
 <script>
-
     function couperTexte(texte, longueurMax = 30) {
         if (texte.length <= longueurMax) {
             return texte;
@@ -117,7 +123,7 @@
             return texte.slice(0, longueurMax) + "...";
         }
     }
-    const serviceText = document.querySelectorAll("p.service-text");
+    const serviceText = document.querySelectorAll("span.service-text");
     serviceText.forEach(item => {
         item.textContent = couperTexte(item.textContent);
     });

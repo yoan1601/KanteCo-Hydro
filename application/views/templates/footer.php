@@ -56,7 +56,7 @@
                 <p><?= $data['footer_' . $data['lang']]['item4'] ?></p>
                 <div class="position-relative mx-auto" style="max-width: 400px;">
                     <form action="" method="post" id="newsLetter">
-                        <input class="form-control border-0 w-100 py-3 ps-4 pe-5" type="text" name="email" placeholder="<?= $data['footer_' . $data['lang']]['mail'] ?>">
+                        <input class="form-control border-0 w-100 py-3 ps-4 pe-5" type="email" name="email" placeholder="<?= $data['footer_' . $data['lang']]['mail'] ?>" required>
                         <button type="submit" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">
                             <span class="">
                                 <?= $data['footer_' . $data['lang']]['inscription'] ?>
@@ -128,11 +128,8 @@
 
 <!-- Footer End -->
 
-
 <!-- Back to Top -->
 <a href="#" role="button" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"><i class="bi bi-arrow-up"></i></a>
-
-
 
 
 <!-- JavaScript Libraries -->
@@ -150,6 +147,43 @@
 <script src="<?= base_url("assets/") ?>js/main.js"></script>
 
 <script>
+    // Example starter JavaScript for disabling form submissions if there are invalid fields
+    (function() {
+        'use strict'
+
+        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+        var forms = document.querySelectorAll('.needs-validation')
+
+        // Loop over them and prevent submission
+        Array.prototype.slice.call(forms)
+            .forEach(function(form) {
+                form.addEventListener('submit', function(event) {
+                    if (!form.checkValidity()) {
+                        event.preventDefault()
+                        event.stopPropagation()
+                    }
+
+                    form.classList.add('was-validated')
+                }, false)
+            })
+    })()
+
+    function validateForm(form) {
+        var isValid = true;
+
+        // Sélectionnez tous les champs de formulaire dans le formulaire donné
+        var formFields = form.find('input, textarea, select');
+
+        formFields.each(function() {
+            if (!this.checkValidity()) {
+                isValid = false;
+            }
+        });
+
+        return isValid;
+    }
+
+
     $(document).ready(function() {
 
         // Formulaire newsLetter
@@ -185,65 +219,70 @@
         // Formulaire devis
         $('#devis').submit(function(e) {
             e.preventDefault();
-            $('#loadDevis').removeClass("d-none");
 
-            // Récupérez les données du formulaire
-            var formData = $(this).serialize();
+            if (validateForm($('#devis'))) {
+                $('#loadDevis').removeClass("d-none");
 
-            $.ajax({
-                type: 'POST',
-                url: '<?= site_url('devis/send_devis') ?>', // Remplacez par l'URL de votre script de traitement
-                data: formData,
-                success: function(response) {
-                    let msg = JSON.parse(response);
-                    console.log(msg);
-                    console.log(msg["state"] === 'success');
-                    if (msg["state"] === 'success') {
-                        // Affichez le toast en cas de succès
-                        var devisToast = new bootstrap.Toast(document.getElementById('devisToast'));
-                        devisToast.show();
+                // Récupérez les données du formulaire
+                var formData = $(this).serialize();
 
-                        // Réinitialisez le formulaire
-                        $('#devis')[0].reset();
-                        $('#loadDevis').addClass("d-none");
+                $.ajax({
+                    type: 'POST',
+                    url: '<?= site_url('devis/send_devis') ?>', // Remplacez par l'URL de votre script de traitement
+                    data: formData,
+                    success: function(response) {
+                        let msg = JSON.parse(response);
+                        if (msg["state"] === 'success') {
+                            // Affichez le toast en cas de succès
+                            var devisToast = new bootstrap.Toast(document.getElementById('devisToast'));
+                            devisToast.show();
 
-                    } else {
-                        // Gérez les erreurs ici
+                            // Réinitialisez le formulaire
+                            $('#devis')[0].reset();
+                            $('#devis').removeClass("was-validated");
+                            $('#loadDevis').addClass("d-none");
+
+                        } else {
+                            // Gérez les erreurs ici
+                        }
                     }
-                }
-            });
+                });
+            }
         });
 
         // Formulaire contact
         $('#contact').submit(function(e) {
             e.preventDefault();
-            $('#loadContact').removeClass("d-none");
 
-            // Récupérez les données du formulaire
-            var formData = $(this).serialize();
+            if (validateForm($('#contact'))) {
+                $('#loadContact').removeClass("d-none");
 
-            $.ajax({
-                type: 'POST',
-                url: '<?= site_url("contact/send_contact") ?>', // Remplacez par l'URL de votre script de traitement
-                data: formData,
-                success: function(response) {
-                    let msg = JSON.parse(response);
-                    console.log(msg);
-                    console.log(msg["state"] === 'success');
-                    if (msg["state"] === 'success') {
-                        // Affichez le toast en cas de succès
-                        var contactToast = new bootstrap.Toast(document.getElementById('contactToast'));
-                        contactToast.show();
+                // Récupérez les données du formulaire
+                var formData = $(this).serialize();
 
-                        // Réinitialisez le formulaire
-                        $('#contact')[0].reset();
-                        $('#loadContact').addClass("d-none");
+                $.ajax({
+                    type: 'POST',
+                    url: '<?= site_url("contact/send_contact") ?>', // Remplacez par l'URL de votre script de traitement
+                    data: formData,
+                    success: function(response) {
+                        let msg = JSON.parse(response);
+                        if (msg["state"] === 'success') {
+                            // Affichez le toast en cas de succès
+                            var contactToast = new bootstrap.Toast(document.getElementById('contactToast'));
+                            contactToast.show();
 
-                    } else {
-                        // Gérez les erreurs ici
+                            // Réinitialisez le formulaire
+                            $('#contact')[0].reset();
+                            $('#contact').removeClass("was-validated");
+                            $('#loadContact').addClass("d-none");
+
+                        } else {
+                            // Gérez les erreurs ici
+                        }
+
                     }
-                }
-            });
+                });
+            }
         });
     });
 </script>

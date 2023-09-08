@@ -606,4 +606,16 @@ input[type="file"]:not(:placeholder-shown) {
 	padding-top: 1rem !important;
 }
 
+.hover-light {
+	transition: 0.5s;
+}
+
+.btn:hover .hover-light {
+	color: white !important;
+}
+
+.table-hover > tbody > tr:hover {
+	color: var(--bs-text-dark);
+}
+
 /* ____________________________________________________________ */

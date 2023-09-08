@@ -15,10 +15,12 @@
                 <span class="fw-bold"><?= $data['detail_achievements_' . $data['lang']]['item1'] ?></span>
                 <?= $data['realisation']['date_publication_formatted_' . (strtoupper($data['lang']))]; ?>
             </p>
-            <p class="ms-auto">
-                <span class="fw-bold text-dark"><?= $data['detail_achievements_' . $data['lang']]['item3'] ?>  :</span>
-                
-                <?php if($data['realisation']['auteur'] != '') {echo $data['realisation']['auteur'];} else { ?>
+            <p class="text-dark">
+                <span class="fw-bold"><?= $data['detail_achievements_' . $data['lang']]['item3'] ?> :</span>
+
+                <?php if ($data['realisation']['auteur'] != '') {
+                    echo $data['realisation']['auteur'];
+                } else { ?>
                     <?= $data['detail_achievements_' . $data['lang']]['item4'] ?>
                 <?php } ?>
             </p>

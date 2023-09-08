@@ -10,44 +10,50 @@
                 <button class="btn btn-lg btn-primary btn-lg-square rounded-circle"><i class="bi bi-search"></i></button>
             </form>
             <div>
-                <a href="<?= site_url('administrationHydroGroup/new_reference/'); ?>" class="btn btn-primary py-3 px-5">Ajouter</a>
+                <a href="<?= site_url('administrationHydroGroup/new_reference/'); ?>" class="btn btn-primary py-3 px-5">Ajouter
+                    <i class="fas fa-plus ms-2"></i>
+                </a>
             </div>
         </div>
-        <div class="py-5">
-            <table class="table align-middle mb-0 bg-white">
+        <div class="py-5 table-responsive">
+            <table class="table table-bordered align-middle mb-0 bg-white table-hover text-dark">
                 <thead class="bg-light">
                     <tr>
-                        <th class="py-3 fs-5">Logo</th>
-                        <th class="py-3 fs-5">Reference</th>
-                        <th class="py-3 fs-5">Actions</th>
+                        <th class="py-3">Logo</th>
+                        <th class="py-3">Reference</th>
+                        <th class="py-3">Actions</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php for ($i = 0; $i < count($data['reference']); $i++) { ?>
                         <tr>
                             <td class="py-3">
-                                <div class="" style="height: 5vh; width: 2.5vw;">
-                                    <img class="img-fluid" style="height: 100%; width:100%; object-fit: cover;" src="<?= base_url("assets/") ?>img/<?= $data['reference'][$i]['logo'] ?>" alt="N/A">
+                                <div class="w-100 h-100 d-flex justify-content-center">
+                                    <div style="height: 5vh; width: 2.5vw;">
+                                        <img class="img-fluid" style="height: 100%; width:100%; object-fit: cover;" src="<?= base_url("assets/") ?>img/<?= $data['reference'][$i]['logo'] ?>" alt="N/A">
+                                    </div>
                                 </div>
                             </td>
                             <td class="py-3">
-                                <p class="fw-normal fs-5 mb-0"><?= $data['reference'][$i]['nom'] ?></p>
+                                <?= $data['reference'][$i]['nom'] ?>
                             </td>
                             <td class="py-3">
                                 <div class="d-lg-flex d-none flex-wrap gap-2">
                                     <a href="<?= site_url('administrationHydroGroup/modif_reference/' . $data['reference'][$i]['id']) ?>" class="btn btn-outline-secondary py-2 px-3">
                                         Modifier
+                                        <i class="fas fa-edit text-secondary ms-2 hover-light"></i>
                                     </a>
                                     <a href="" class="btn btn-outline-danger py-2 px-3" data-bs-toggle="modal" data-bs-target="#monModal-<?= $data['reference'][$i]['id'] ?>">
                                         Supprimer
+                                        <i class="fas fa-trash text-danger ms-2 hover-light"></i>
                                     </a>
                                 </div>
                                 <div class="d-lg-none d-flex flex-wrap" style="column-gap: 0.75rem">
                                     <a href="<?= site_url('administrationHydroGroup/modif_reference/' . $data['reference'][$i]['id']) ?>" class="">
-                                        <i class="fas fa-edit text-secondary" style="font-size: 1.5em"></i>
+                                        <i class="fas fa-edit text-secondary" style="font-size: 1.25em"></i>
                                     </a>
                                     <a href="" class="" data-bs-toggle="modal" data-bs-target="#monModal-<?= $data['reference'][$i]['id'] ?>">
-                                        <i class="fas fa-trash text-danger" style="font-size: 1.5em"></i>
+                                        <i class="fas fa-trash text-danger" style="font-size: 1.25em"></i>
                                     </a>
                                 </div>
                             </td>

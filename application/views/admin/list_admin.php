@@ -10,42 +10,46 @@
                 <button class="btn btn-lg btn-primary btn-lg-square rounded-circle"><i class="bi bi-search"></i></button>
             </form>
             <div>
-                <a href="<?= site_url('administrationHydroGroup/new_admin/'); ?>" class="btn btn-primary py-3 px-5">Ajouter</a>
+                <a href="<?= site_url('administrationHydroGroup/new_admin/'); ?>" class="btn btn-primary py-3 px-5">Ajouter
+                    <i class="fas fa-plus ms-2"></i>
+                </a>
             </div>
         </div>
-        <div class="py-5">
-            <table class="table align-middle mb-0 bg-white table-hover">
+        <div class="py-5 table-responsive">
+            <table class="table table-bordered align-middle mb-0 bg-white table-hover text-dark">
                 <thead class="bg-light">
                     <tr>
-                        <th class="py-3 fs-5">Nom</th>
-                        <th class="py-3 fs-5">Mails</th>
-                        <th class="py-3 fs-5">Actions</th>
+                        <th class="py-3">Nom</th>
+                        <th class="py-3">Mails</th>
+                        <th class="py-3">Actions</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php for ($i = 0; $i < count($data['admin']); $i++) { ?>
                         <tr>
                             <td class="py-3">
-                                <p class="fw-normal fs-5 mb-0"><?= $data['admin'][$i]['nom'] ?></p>
+                                <?= $data['admin'][$i]['nom'] ?>
                             </td>
                             <td class="py-3">
-                                <p class="fw-normal fs-5 mb-0"><?= $data['admin'][$i]['mail'] ?></p>
+                                <?= $data['admin'][$i]['mail'] ?>
                             </td>
                             <td class="py-3">
                                 <div class="d-lg-flex d-none flex-wrap gap-2">
                                     <a href="" class="btn btn-outline-secondary py-2 px-3" data-bs-toggle="modal" data-bs-target="#ModalInfo-<?= $data['admin'][$i]['id'] ?>">
                                         Modifier
+                                        <i class="fas fa-edit text-secondary ms-2 hover-light"></i>
                                     </a>
                                     <a href="" class="btn btn-outline-danger py-2 px-3" data-bs-toggle="modal" data-bs-target="#monModal-<?= $data['admin'][$i]['id'] ?>">
                                         Supprimer
+                                        <i class="fas fa-trash text-danger ms-2 hover-light"></i>
                                     </a>
                                 </div>
                                 <div class="d-lg-none d-flex flex-wrap" style="column-gap: 0.75rem">
                                     <a href="" class="" data-bs-toggle="modal" data-bs-target="#ModalInfo-<?= $data['admin'][$i]['id'] ?>">
-                                        <i class="fas fa-edit text-secondary" style="font-size: 1.5em"></i>
+                                        <i class="fas fa-edit text-secondary" style="font-size: 1.25em"></i>
                                     </a>
                                     <a href="" class="" data-bs-toggle="modal" data-bs-target="#monModal-<?= $data['admin'][$i]['id'] ?>">
-                                        <i class="fas fa-trash text-danger" style="font-size: 1.5em"></i>
+                                        <i class="fas fa-trash text-danger" style="font-size: 1.25em"></i>
                                     </a>
                                 </div>
                             </td>
