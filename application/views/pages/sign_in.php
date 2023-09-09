@@ -37,7 +37,7 @@
 </head>
 
 <body>
-    <div class="global-container">
+    <div class="d-flex flex-column global-container">
         <div class="card login-form">
             <div class="card-body">
                 <div class="text-center mx-auto" style="max-width: 600px;">
@@ -73,7 +73,11 @@
                 </div>
             </div>
         </div>
+        <div class="retour">
+            <a href="<?= site_url('front/') ?>"> << Retour</a>
+        </div>
     </div>
+    
 
     <div class="position-fixed top-0 end-0 p-3" style="z-index: 9999">
         <div id="LoginToast" class="toast bg-white hide" role="alert" aria-live="assertive" aria-atomic="true">
@@ -88,10 +92,22 @@
         </div>
     </div>
 
+    
+
     <style>
         html,
         body {
             height: 100%;
+        }
+
+        .retour > a{
+            text-decoration: underline;
+        }
+
+        .retour {
+            margin-top: 1em;
+            margin-right: 65em;
+            background-color: #f5f5f5;
         }
 
         .global-container {
