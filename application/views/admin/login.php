@@ -50,21 +50,20 @@
                 </div>
                 <div class="card-text">
 
-                    <form action="<?= site_url("AdministrationHydroGroup/check_login") ?>" class="mb-4"  method="POST">
+                    <form action="<?= site_url("AdministrationHydroGroup/check_login") ?>" class="needs-validation" method="POST" novalidate>
                         <div class="row g-3">
                             <div class="col-12">
-                                <!-- <?php if (isset($data['error'])) { ?>
-                                    <p style="color:red;"><?= $data['error'] ?></p>
-                                <?php } ?> -->
-                                <div class="form-floating">
-                                    <input type="email" class="form-control" name="email" placeholder="example@gmail.com">
-                                    <label for="">Votre email</label>
+                                <label for="iemail">Votre email</label>
+                                <input type="email" class="form-control" style="height: 3.5rem;" id="iemail" name="email" placeholder="example@example.com" required>
+                                <div class="invalid-feedback">
+                                    Veuillez entrer une adresse e-mail.
                                 </div>
                             </div>
                             <div class="col-12">
-                                <div class="form-floating">
-                                    <input type="password" class="form-control" name="password" placeholder="Mot de passe">
-                                    <label for="">Mot de passe</label>
+                                <label for="ipassword">Mot de passe</label>
+                                <input type="password" class="form-control" style="height: 3.5rem;" id="ipassword" name="password" placeholder="Mot de passe" required>
+                                <div class="invalid-feedback">
+                                    Veuillez entrer un mot de passe.
                                 </div>
                             </div>
                             <div class="col-12 d-flex justify-content-center">
@@ -76,6 +75,7 @@
             </div>
         </div>
     </div>
+
 
     <div class="position-fixed top-0 end-0 p-3" style="z-index: 9999">
         <div id="LoginToast" class="toast bg-white hide" role="alert" aria-live="assertive" aria-atomic="true">
@@ -148,14 +148,25 @@
     <!-- Template Javascript -->
     <script src="<?= base_url("assets/") ?>js/main.js"></script>
     <script>
-         var LoginToast = new bootstrap.Toast(document.getElementById('LoginToast'));
-         const message = document.getElementById('error_login');
-         if (message.getAttribute('data-message') == 'error'){
-            LoginToast.show();
-         }else{
+        (function() {
+            'use strict'
 
-         }
-         
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            var forms = document.querySelectorAll('.needs-validation')
+
+            // Loop over them and prevent submission
+            Array.prototype.slice.call(forms)
+                .forEach(function(form) {
+                    form.addEventListener('submit', function(event) {
+                        if (!form.checkValidity()) {
+                            event.preventDefault()
+                            event.stopPropagation()
+                        }
+
+                        form.classList.add('was-validated')
+                    }, false)
+                })
+        })()
     </script>
 </body>
 

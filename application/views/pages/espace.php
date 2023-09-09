@@ -10,8 +10,8 @@
                 <button class="btn btn-lg btn-primary btn-lg-square rounded-circle"><i class="bi bi-search"></i></button>
             </form>
         </div>
-        <div class="py-5">
-            <table class="table align-middle mb-0 bg-white table-hover">
+        <div class="py-5 table-responsive">
+            <table class="table table-bordered align-middle mb-0 bg-white table-hover text-dark">
                 <thead class="bg-light">
                     <tr>
                         <th class="py-3"><?= $data['devis_' . $data['lang']]['item9'] ?></th>
@@ -23,20 +23,21 @@
                     <?php for ($i = 0; $i < count($data['devis']); $i++) { ?>
                         <tr>
                             <td class="py-3">
-                                <p class="fw-normal fs-5 mb-0"><?= $data['devis'][$i]['type_projet'] ?></p>
+                                <?= $data['devis'][$i]['type_projet'] ?>
                             </td>
                             <td class="py-3">
-                                <p class="fw-normal fs-5 mb-0"><?= number_format($data['devis'][$i]['montant_estime'], 2, ',', ' ') ?> Ar</p>
+                                <?= number_format($data['devis'][$i]['montant_estime'], 2, ',', ' ') ?> Ar
                             </td>
                             <td class="py-3">
                                 <div class="d-lg-flex d-none flex-wrap gap-2">
                                     <a href="" class="btn btn-outline-secondary py-2 px-3" data-bs-toggle="modal" data-bs-target="#ModalInfo-<?= $data['devis'][$i]['id'] ?>">
                                         Detail
+                                        <i class="fas fa-info-circle text-secondary ms-2 hover-light"></i>
                                     </a>
                                 </div>
                                 <div class="d-lg-none d-flex flex-wrap" style="column-gap: 0.75rem">
                                     <a href="" class="" data-bs-toggle="modal" data-bs-target="#ModalInfo-<?= $data['devis'][$i]['id'] ?>">
-                                        <i class="fas fa-info-circle text-secondary" style="font-size: 1.5em"></i>
+                                        <i class="fas fa-info-circle text-secondary" style="font-size: 1.25em"></i>
                                     </a>
                                 </div>
                             </td>

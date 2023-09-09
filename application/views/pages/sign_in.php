@@ -37,7 +37,7 @@
 </head>
 
 <body>
-    <div class="global-container">
+    <div class="d-flex flex-column global-container">
         <div class="card login-form">
             <div class="card-body">
                 <div class="text-center mx-auto" style="max-width: 600px;">
@@ -45,7 +45,7 @@
                 </div>
                 <div class="card-text">
 
-                    <form action="<?= site_url("utilisateur/login")?>" class="mb-4" action="#" method="POST">
+                    <form action="<?= site_url("utilisateur/login") ?>" class="needs-validation" action="#" method="POST" novalidate>
                         <div class="row g-3">
                             <div class="col-12">
                                 <?php if(isset($data['error'])) { ?>
@@ -53,27 +53,33 @@
                                 <?php }else{ ?>
                                     <div id="error_login" data-message="initial"></div>
                                 <?php } ?>
-                                <div class="form-floating">
-                                    <input type="email" class="form-control" name="email" placeholder="example@gmail.com">
-                                    <label for=""><?= $data['sign_in_' . $data['lang']]['item2'] ?></label>
+                                <label for="iemail"><?= $data['sign_in_' . $data['lang']]['item2'] ?></label>
+                                <input type="email" class="form-control" style="height: 3.5rem;" id="iemail" name="email" placeholder="example@example.com" required>
+                                <div class="invalid-feedback">
+                                    Veuillez entrer une adresse e-mail.
                                 </div>
                             </div>
                             <div class="col-12">
-                                <div class="form-floating">
-                                    <input type="password" class="form-control" name="password" placeholder="<?= $data['sign_in_' . $data['lang']]['item6'] ?>">
-                                    <label for=""><?= $data['sign_in_' . $data['lang']]['item6'] ?></label>
+                                <label for="ipassword"><?= $data['sign_in_' . $data['lang']]['item6'] ?></label>
+                                <input type="password" class="form-control" style="height: 3.5rem;" id="ipassword" name="password" placeholder="<?= $data['sign_in_' . $data['lang']]['item6'] ?>" required>
+                                <div class="invalid-feedback">
+                                    Veuillez entrer un mot de passe.
                                 </div>
                             </div>
                             <div class="col-12 d-flex justify-content-center">
                                 <button class="btn btn-primary py-3 px-5 w-100" type="submit"><?= $data['sign_in_' . $data['lang']]['item3'] ?></button>
                             </div>
+                            <p><?= $data['sign_in_' . $data['lang']]['item4'] ?> <a class="" href="<?= site_url('front/sign_up'); ?>"><?= $data['sign_in_' . $data['lang']]['item5'] ?></a></p>
                         </div>
                     </form>
-                    <p><?= $data['sign_in_' . $data['lang']]['item4'] ?> <a class="" href="<?= site_url('front/sign_up'); ?>"><?= $data['sign_in_' . $data['lang']]['item5'] ?></a></p>
                 </div>
             </div>
         </div>
+        <div class="retour">
+            <a href="<?= site_url('front/') ?>"> << Retour</a>
+        </div>
     </div>
+    
 
     <div class="position-fixed top-0 end-0 p-3" style="z-index: 9999">
         <div id="LoginToast" class="toast bg-white hide" role="alert" aria-live="assertive" aria-atomic="true">
@@ -88,10 +94,22 @@
         </div>
     </div>
 
+    
+
     <style>
         html,
         body {
             height: 100%;
+        }
+
+        .retour > a{
+            text-decoration: underline;
+        }
+
+        .retour {
+            margin-top: 1em;
+            margin-right: 65em;
+            background-color: #f5f5f5;
         }
 
         .global-container {
@@ -145,16 +163,26 @@
 
     <!-- Template Javascript -->
     <script src="<?= base_url("assets/") ?>js/main.js"></script>
-
     <script>
-         var LoginToast = new bootstrap.Toast(document.getElementById('LoginToast'));
-         const message = document.getElementById('error_login');
-         if (message.getAttribute('data-message') == 'error'){
-            LoginToast.show();
-         }else{
+        (function() {
+            'use strict'
 
-         }
-         
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            var forms = document.querySelectorAll('.needs-validation')
+
+            // Loop over them and prevent submission
+            Array.prototype.slice.call(forms)
+                .forEach(function(form) {
+                    form.addEventListener('submit', function(event) {
+                        if (!form.checkValidity()) {
+                            event.preventDefault()
+                            event.stopPropagation()
+                        }
+
+                        form.classList.add('was-validated')
+                    }, false)
+                })
+        })()
     </script>
 </body>
 
