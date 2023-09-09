@@ -5,24 +5,26 @@
             <h1 class="text-secondary text-center">Nouvelle reference</h1>
         </div>
         <div class="pb-5 row">
-            <form class="col-12 col-lg-6 offset-lg-3" action="<?= site_url('administrationHydroGroup/creer_reference/') ?>" method="POST" enctype="multipart/form-data">
-                <div class="row" style="row-gap: 2rem;">
+            <form class="col-12 col-lg-6 offset-lg-3 needs-validation" action="<?= site_url('administrationHydroGroup/creer_reference/') ?>" method="POST" enctype="multipart/form-data" novalidate>
+                <div class="row" style="row-gap: 1.5rem;">
                     <div class="col-12">
-                        <div class="form-floating">
-                            <input required type="text" class="form-control" name="nom" placeholder="nom">
-                            <label for="">Nom de la reference (*)</label>
+                        <label for="inomreference">Nom de la référence (*)</label>
+                        <input required id="inomreference" type="text" class="form-control" name="nom" placeholder="Nom de la référence" style="height: 3.5rem;">
+                        <div class="invalid-feedback">
+                            Veuillez entrer un nom de la référence.
                         </div>
                     </div>
                     <div class="col-12">
-                        <div class="form-floating">
-                            <p class="mb-1">Logo (*)</p>
-                            <input required type="file" class="form-control mb-3" name="logo" data-preview="preview1" placeholder="logo">
+                        <label for="ilogo">Logo (*)</label>
+                        <input required id="ilogo" type="file" class="form-control" name="logo" data-preview="preview1" placeholder="logo" style="height: 3.5rem;">
+                        <div class="invalid-feedback">
+                            Veuillez entrer un logo.
+                        </div>
 
-                            <div class="position-relative" style="width: 100%; height: 40vh;">
-                                <img class="img-fluid w-100 h-100" style="object-fit: cover;" id="preview1" src="<?= base_url("assets/") ?>img/Image upload-bro.png" alt="">
-                                <div class="position-absolute d-none top-0 w-100 h-100 d-flex align-items-center justify-content-center" style="background-color: #0000008f;">
-                                    <button class="btn btn-outline-light px-3 py-2 delete-button" data-preview="preview1">Supprimer</button>
-                                </div>
+                        <div class="position-relative mt-3" style="width: 100%; height: 40vh;">
+                            <img class="img-fluid w-100 h-100" style="object-fit: cover;" id="preview1" src="<?= base_url("assets/") ?>img/Image upload-bro.png" alt="">
+                            <div class="position-absolute d-none top-0 w-100 h-100 d-flex align-items-center justify-content-center" style="background-color: #0000008f;">
+                                <button class="btn btn-outline-light px-3 py-2 delete-button" data-preview="preview1">Supprimer</button>
                             </div>
                         </div>
                     </div>

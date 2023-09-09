@@ -5,42 +5,34 @@
             <h1 class="text-secondary text-center">Nouvel Administrateur</h1>
         </div>
         <div class="pb-5 row">
-            <form class="col-12 col-lg-6 offset-lg-3" action="<?= site_url('administrationhydrogroup/inserer_admin') ?>" method="POST">
-                <div class="row" style="row-gap: 2rem;">
+            <form class="col-12 col-lg-6 offset-lg-3 needs-validation" action="<?= site_url('administrationhydrogroup/inserer_admin') ?>" method="POST" novalidate>
+                <div class="row" style="row-gap: 1.5rem;">
                     <div class="col-12">
-                        <?php if ($data['errors'] != false && isset($data['errors']['Nom'])) { ?>
-                            <p style="color: red;"> <?= $data['errors']['Nom'] ?></p>
-                        <?php } ?>
-                        <div class="form-floating">
-                            <input required type="text" class="form-control" name="Nom" placeholder="Nom">
-                            <label for="">Nom (*)</label>
+                        <label for="inom">Nom (*)</label>
+                        <input type="text" class="form-control" id="inom" name="Nom" placeholder="Nom" style="height: 3.5rem;" required>
+                        <div class="invalid-feedback">
+                            Veuillez entrer un nom.
                         </div>
                     </div>
                     <div class="col-12">
-                        <?php if ($data['errors'] != false && isset($data['errors']['Telephone'])) { ?>
-                            <p style="color: red;"> <?= $data['errors']['Telephone'] ?></p>
-                        <?php } ?>
-                        <div class="form-floating">
-                            <input required type="text" class="form-control" name="Telephone" placeholder="Telephone">
-                            <label for="">Téléphone (*)</label>
+                        <label for="itelephone">Téléphone (*)</label>
+                        <input type="text" class="form-control" id="itelephone" name="Telephone" placeholder="+261 34 00 000 00" style="height: 3.5rem;" required>
+                        <div class="invalid-feedback">
+                            Veuillez entrer un numéro de contact.
                         </div>
                     </div>
                     <div class="col-12">
-                        <?php if ($data['errors'] != false && isset($data['errors']['Mail'])) { ?>
-                            <p style="color: red;"> <?= $data['errors']['Mail'] ?></p>
-                        <?php } ?>
-                        <div class="form-floating">
-                            <input required type="email" class="form-control" name="Mail" placeholder="Mail">
-                            <label for="">Mail (*)</label>
+                        <label for="imail">Mail (*)</label>
+                        <input type="email" class="form-control" id="imail" name="Mail" placeholder="Mail" style="height: 3.5rem;" required>
+                        <div class="invalid-feedback">
+                            Veuillez entrer une adresse e-mail.
                         </div>
                     </div>
                     <div class="col-12">
-                        <?php if ($data['errors'] != false && isset($data['errors']['mdp'])) { ?>
-                            <p style="color: red;"> <?= $data['errors']['mdp'] ?></p>
-                        <?php } ?>
-                        <div class="form-floating">
-                            <input required type="password" class="form-control" name="mdp" placeholder="mdp">
-                            <label for="">Mot de passe (*)</label>
+                        <label for="imdp">Mot de passe (*)</label>
+                        <input type="password" class="form-control" id="imdp" name="mdp" placeholder="Mot de passe" style="height: 3.5rem;" required>
+                        <div class="invalid-feedback">
+                            Veuillez entrer un mot de passe.
                         </div>
                     </div>
                     <div class="col-12 d-flex justify-content-center">

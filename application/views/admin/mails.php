@@ -10,33 +10,34 @@
                 <button class="btn btn-lg btn-primary btn-lg-square rounded-circle"><i class="bi bi-search"></i></button>
             </form>
         </div>
-        <div class="py-5">
-            <table class="table align-middle mb-0 bg-white table-hover">
+        <div class="py-5 table-responsive">
+            <table class="table table-bordered align-middle mb-0 bg-white table-hover text-dark">
                 <thead class="bg-light">
                     <tr>
-                        <th class="py-3 fs-5">Date</th>
-                        <th class="py-3 fs-5">Mails</th>
-                        <th class="py-3 fs-5">Actions</th>
+                        <th class="py-3">Date</th>
+                        <th class="py-3">Mails</th>
+                        <th class="py-3">Actions</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php for ($i = 0; $i < count($data['email']); $i++) { ?>
                         <tr>
                             <td class="py-3">
-                                <p class="fw-normal fs-5 mb-0"><?= $data['email'][$i]['date_creation'] ?></p>
+                                <?= $data['email'][$i]['date_creation'] ?>
                             </td>
                             <td class="py-3">
-                                <p class="fw-normal fs-5 mb-0"><?= $data['email'][$i]['mail'] ?></p>
+                                <?= $data['email'][$i]['mail'] ?>
                             </td>
                             <td class="py-3">
                                 <div class="d-lg-flex d-none flex-wrap gap-2">
                                     <a href="" class="btn btn-outline-danger py-2 px-3" data-bs-toggle="modal" data-bs-target="#monModal-<?= $data['email'][$i]['id'] ?>">
                                         Supprimer
+                                        <i class="fas fa-trash text-danger ms-2 hover-light"></i>
                                     </a>
                                 </div>
                                 <div class="d-lg-none d-flex flex-wrap" style="column-gap: 0.75rem">
                                     <a href="" class="" data-bs-toggle="modal" data-bs-target="#monModal-<?= $data['email'][$i]['id'] ?>">
-                                        <i class="fas fa-trash text-danger" style="font-size: 1.5em"></i>
+                                        <i class="fas fa-trash text-danger" style="font-size: 1.25em"></i>
                                     </a>
                                 </div>
                             </td>
@@ -48,7 +49,9 @@
                                         <div class="modal-header">
                                             <h4 style="font-weight:lighter;">Voulez-vous vraiment supprimer ce mail ?</h4>
                                         </div>
-                                        <div><p class="fw-normal fs-5 my-3 text-center"><?= $data['email'][$i]['mail'] ?></p></div>
+                                        <div>
+                                            <p class="fw-normal fs-5 my-3 text-center"><?= $data['email'][$i]['mail'] ?></p>
+                                        </div>
                                         <!-- Contenu du modal -->
                                         <div class="modal-body">
                                             <div class="d-flex align-items-center justify-content-center gap-3">
