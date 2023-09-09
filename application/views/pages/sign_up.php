@@ -43,34 +43,35 @@
                 <div class="text-center mx-auto" style="max-width: 600px;">
                     <h1 class="text-primary mb-4 text-dark"><?= $data['sign_up_' . $data['lang']]['item1'] ?></h1>
                 </div>
-                <!-- nom text not null,
-    telephone text not null,
-    mail -->
                 <div class="card-text">
-                    <form action= "<?=site_url('utilisateur/inscription')?>" class="mb-4" method="POST">
+                    <form action="<?= site_url('utilisateur/inscription') ?>" class="needs-validation" method="POST" novalidate>
                         <div class="row g-3">
                             <div class="col-12">
-                                <div class="form-floating">
-                                    <input type="text" class="form-control" name="nom" placeholder="Rakoto">
-                                    <label for=""><?= $data['sign_up_' . $data['lang']]['item2'] ?></label>
+                                <label for="inom"><?= $data['sign_up_' . $data['lang']]['item2'] ?></label>
+                                <input type="text" class="form-control" id="inom" style="height: 3.5rem;" name="nom" placeholder="Rakoto" required>
+                                <div class="invalid-feedback">
+                                    Veuillez entrer un nom.
                                 </div>
                             </div>
                             <div class="col-12">
-                                <div class="form-floating">
-                                    <input type="email" class="form-control" name="email" placeholder="example@gmail.com">
-                                    <label for=""><?= $data['sign_up_' . $data['lang']]['item3'] ?></label>
+                                <label for="iemail"><?= $data['sign_up_' . $data['lang']]['item3'] ?></label>
+                                <input type="email" class="form-control" id="iemail" style="height: 3.5rem;" name="email" placeholder="example@example.com" required>
+                                <div class="invalid-feedback">
+                                    Veuillez entrer une adresse e-mail.
                                 </div>
                             </div>
                             <div class="col-12">
-                                <div class="form-floating">
-                                    <input type="text" class="form-control" name="telephone" placeholder="+261 34 00 000 00">
-                                    <label for=""><?= $data['sign_up_' . $data['lang']]['item4'] ?></label>
+                                <label for="itelephone"><?= $data['sign_up_' . $data['lang']]['item4'] ?></label>
+                                <input type="text" class="form-control" id="itelephone" style="height: 3.5rem;" name="telephone" placeholder="+261 34 00 000 00" required>
+                                <div class="invalid-feedback">
+                                    Veuillez entrer un numéro de contact.
                                 </div>
                             </div>
                             <div class="col-12">
-                                <div class="form-floating">
-                                    <input type="password" class="form-control" name="password" placeholder="<?= $data['sign_in_' . $data['lang']]['item6'] ?>">
-                                    <label for=""><?= $data['sign_in_' . $data['lang']]['item6'] ?></label>
+                                <label for="ipassword"><?= $data['sign_in_' . $data['lang']]['item6'] ?></label>
+                                <input type="password" class="form-control" id="ipassword" style="height: 3.5rem;" name="password" placeholder="<?= $data['sign_in_' . $data['lang']]['item6'] ?>" required>
+                                <div class="invalid-feedback">
+                                    Veuillez entrer un mot de passe.
                                 </div>
                             </div>
                             <div class="col-12 d-flex justify-content-center">
@@ -141,6 +142,27 @@
 
     <!-- Template Javascript -->
     <script src="<?= base_url("assets/") ?>js/main.js"></script>
+    <script>
+        (function() {
+            'use strict'
+
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            var forms = document.querySelectorAll('.needs-validation')
+
+            // Loop over them and prevent submission
+            Array.prototype.slice.call(forms)
+                .forEach(function(form) {
+                    form.addEventListener('submit', function(event) {
+                        if (!form.checkValidity()) {
+                            event.preventDefault()
+                            event.stopPropagation()
+                        }
+
+                        form.classList.add('was-validated')
+                    }, false)
+                })
+        })()
+    </script>
 </body>
 
 </html>

@@ -16,11 +16,10 @@
 <!-- Script Envoie mail -->
 
 <!-- Inclure le code JavaScript qui initialise CKEditor -->
-    <script>
-
-$(document).ready(function() {
+<script>
+    $(document).ready(function() {
         $('#pays').select2({
-            allowClear : true,
+            allowClear: true,
             ajax: {
                 url: "http://localhost/KanteCo-Hydro/index.php/administrationHydroGroup/get_pays",
                 type: 'get',
@@ -32,62 +31,77 @@ $(document).ready(function() {
                 },
                 processResults: (data, params) => {
                     const results = data.map(item => {
-                    return {
-                        id: item.id,
-                        text: item.nom_FR,
-                    };
+                        return {
+                            id: item.id,
+                            text: item.nom_FR,
+                        };
                     });
                     return {
-                    results: results,
+                        results: results,
                     }
                 }
             }
         });
 
-});
-
-            
-const editor1= document.querySelector( '#editor1' );
-const editor2= document.querySelector( '#editor2' );
-const editor3= document.querySelector( '#editor3' );
-const editor4= document.querySelector( '#editor4' );
+    });
 
 
-        if (editor1){
-            ClassicEditor
-            .create( document.querySelector( '#editor1' ) )
-            .catch( error => {
-                console.error( error );
-            } );
-        }
-        if (editor2){
-            ClassicEditor
-            .create( document.querySelector( '#editor2' ) )
-            .catch( error => {
-                console.error( error );
-            } );
-        }
-        if (editor3){
-            ClassicEditor
-            .create( document.querySelector( '#editor3' ) )
-            .catch( error => {
-                console.error( error );
-            } );
-        }
-        if (editor4){
-            ClassicEditor
-            .create( document.querySelector( '#editor4' ) )
-            .catch( error => {
-                console.error( error );
-            } );
-        }
-        
+    const editor1 = document.querySelector('.editor1');
+    const editor2 = document.querySelector('.editor2');
+    const editor3 = document.querySelector('.editor3');
+    const editor4 = document.querySelector('.editor4');
 
-       
-        
-        
 
-    </script>
+    if (editor1) {
+        ClassicEditor
+            .create(document.querySelector('.editor1'))
+            .catch(error => {
+                console.error(error);
+            });
+    }
+    if (editor2) {
+        ClassicEditor
+            .create(document.querySelector('.editor2'))
+            .catch(error => {
+                console.error(error);
+            });
+    }
+    if (editor3) {
+        ClassicEditor
+            .create(document.querySelector('.editor3'))
+            .catch(error => {
+                console.error(error);
+            });
+    }
+    if (editor4) {
+        ClassicEditor
+            .create(document.querySelector('.editor4'))
+            .catch(error => {
+                console.error(error);
+            });
+    }
+
+
+    (function() {
+        'use strict'
+
+        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+        var forms = document.querySelectorAll('.needs-validation')
+
+        // Loop over them and prevent submission
+        Array.prototype.slice.call(forms)
+            .forEach(function(form) {
+                form.addEventListener('submit', function(event) {
+                    if (!form.checkValidity()) {
+                        event.preventDefault()
+                        event.stopPropagation()
+                    }
+
+                    form.classList.add('was-validated')
+                }, false)
+            })
+    })()
+</script>
 </body>
 
 </html>

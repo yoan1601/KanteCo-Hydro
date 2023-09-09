@@ -5,93 +5,103 @@
             <h1 class="text-secondary text-center">Nouveau blog</h1>
         </div>
         <div class="pb-5 row">
-            <form class="col-lg-10 offset-lg-1 col-12" id="envoyer_blog" action="<?= site_url('administrationHydroGroup/creer_blog/') ?>" method="POST" enctype="multipart/form-data">
-                <div class="row" style="row-gap: 2rem;">
+            <form class="col-lg-10 offset-lg-1 col-12 needs-validation" id="envoyer_blog" action="<?= site_url('administrationHydroGroup/creer_blog/') ?>" method="POST" enctype="multipart/form-data" novalidate>
+                <div class="row" style="row-gap: 1.5rem;">
                     <div class="col-md-6">
-                        <div class="form-floating">
-                            <input required type="text" class="form-control" name="auteur" placeholder="Auteur">
-                            <label for="">Auteur (*)</label>
+                        <label for="iauteur">Auteur (*)</label>
+                        <input required type="text" id="iauteur" class="form-control" name="auteur" placeholder="Auteur" style="height: 3.5rem;">
+                        <div class="invalid-feedback">
+                            Veuillez entrer un auteur.
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <div class="form-floating">
-                            <input required type="date" class="form-control" name="date_publication" placeholder="Date de publication">
-                            <label for="">Date de publication (*)</label>
+                        <label for="idatepublication">Date de publication (*)</label>
+                        <input required type="date" id="idatepublication" class="form-control" name="date_publication" placeholder="Date de publication" style="height: 3.5rem;">
+                        <div class="invalid-feedback">
+                            Veuillez entrer une date de publication.
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <div class="form-floating">
-                            <input required type="text" class="form-control" name="titre_fr" placeholder="Titre du blog FR">
-                            <label for="">Titre du blog FR (*)</label>
+                        <label for="ititreFR">Titre du blog FR (*)</label>
+                        <input required id="ititreFR" type="text" class="form-control" name="titre_fr" placeholder="Titre du blog FR" style="height: 3.5rem;">
+                        <div class="invalid-feedback">
+                            Veuillez entrer un titre du blog FR.
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <div class="form-floating">
-                            <input required type="text" class="form-control" name="titre_en" placeholder="Titre du blog EN">
-                            <label for="">Titre du blog EN (*)</label>
+                        <label for="ititreEN">Titre du blog EN (*)</label>
+                        <input required id="ititreEN" type="text" class="form-control" name="titre_en" placeholder="Titre du blog EN" style="height: 3.5rem;">
+                        <div class="invalid-feedback">
+                            Veuillez entrer un titre du blog EN.
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <p class="mb-1">Details Français</p>
-                        <div class="form-floating">
-                            <textarea id="editor1" class="form-control" name="detail_fr" placeholder="Texte de publication FR (*)" style="height: 150px"></textarea>
+                        <label for="itexteFR">Details Français (*)</label>
+                        <textarea required id="itexteFR" class="form-control editor1" name="detail_fr" placeholder="Texte de publication FR" style="height: 150px"></textarea>
+                        <div class="invalid-feedback">
+                            Veuillez entrer un texte de publication FR.
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <p class="mb-1">Details Anglais</p>
-                        <div class="form-floating">
-                            <textarea id="editor2" class="form-control" name="detail_en" placeholder="Texte de publication EN (*)" style="height: 150px"></textarea>
+                        <label for="itexteEN">Details Anglais (*)</label>
+                        <textarea required id="itexteEN" class="form-control editor2" name="detail_en" placeholder="Texte de publication EN" style="height: 150px"></textarea>
+                        <div class="invalid-feedback">
+                            Veuillez entrer un texte de publication EN.
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <div class="form-floating">
-                            <p class="mb-1">Image de couverture (*)</p>
-                            <input required type="file" class="form-control mb-3" name="image_couverture" data-preview="preview1" placeholder="Image de couverture (*)">
+                        <label for="iimgcouverture">Image de couverture (*)</label>
+                        <input required type="file" id="iimgcouverture" class="form-control" name="image_couverture" data-preview="preview1" placeholder="Image de couverture (*)" style="height: 3.5rem;">
+                        <div class="invalid-feedback">
+                            Veuillez entrer une image de couverture.
+                        </div>
 
-                            <div class="position-relative" style="width: 100%; height: 40vh;">
-                                <img class="img-fluid w-100 h-100" style="object-fit: cover;" id="preview1" src="<?= base_url("assets/") ?>img/Image upload-bro.png" alt="">
-                                <div class="position-absolute d-none top-0 w-100 h-100 d-flex align-items-center justify-content-center" style="background-color: #0000008f;">
-                                    <button class="btn btn-outline-light px-3 py-2 delete-button" data-preview="preview1">Supprimer</button>
-                                </div>
+                        <div class="position-relative mt-3" style="width: 100%; height: 40vh;">
+                            <img class="img-fluid w-100 h-100" style="object-fit: cover;" id="preview1" src="<?= base_url("assets/") ?>img/Image upload-bro.png" alt="">
+                            <div class="position-absolute d-none top-0 w-100 h-100 d-flex align-items-center justify-content-center" style="background-color: #0000008f;">
+                                <button class="btn btn-outline-light px-3 py-2 delete-button" data-preview="preview1">Supprimer</button>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <div class="form-floating">
-                            <p class="mb-1">Images de publication 1 (*)</p>
-                            <input required type="file" class="form-control mb-3" name="image_publication1" data-preview="preview2" placeholder="Images de publication 1">
+                        <label for="iimgpublication1">Image de publication 1 (*)</label>
+                        <input required type="file" id="iimgpublication1" class="form-control" name="image_publication1" data-preview="preview2" placeholder="Images de publication 1" style="height: 3.5rem;">
+                        <div class="invalid-feedback">
+                            Veuillez entrer une image de publication 1.
+                        </div>
 
-                            <div class="position-relative" style="width: 100%; height: 40vh;">
-                                <img class="img-fluid w-100 h-100" style="object-fit: cover;" id="preview2" src="<?= base_url("assets/") ?>img/Image upload-bro.png" alt="">
-                                <div class="position-absolute d-none top-0 w-100 h-100 d-flex align-items-center justify-content-center" style="background-color: #0000008f;">
-                                    <button class="btn btn-outline-light px-3 py-2 delete-button" data-preview="preview2">Supprimer</button>
-                                </div>
+                        <div class="position-relative mt-3" style="width: 100%; height: 40vh;">
+                            <img class="img-fluid w-100 h-100" style="object-fit: cover;" id="preview2" src="<?= base_url("assets/") ?>img/Image upload-bro.png" alt="">
+                            <div class="position-absolute d-none top-0 w-100 h-100 d-flex align-items-center justify-content-center" style="background-color: #0000008f;">
+                                <button class="btn btn-outline-light px-3 py-2 delete-button" data-preview="preview2">Supprimer</button>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <div class="form-floating">
-                            <p class="mb-1">Images de publication 2 (*)</p>
-                            <input required type="file" class="form-control mb-3" name="image_publication2" data-preview="preview3" placeholder="Images de publication 2">
+                        <label for="iimgpublication2">Image de publication 2 (*)</label>
+                        <input required type="file" id="iimgpublication2" class="form-control" name="image_publication2" data-preview="preview3" placeholder="Images de publication 2" style="height: 3.5rem;">
+                        <div class="invalid-feedback">
+                            Veuillez entrer une image de publication 2.
+                        </div>
 
-                            <div class="position-relative" style="width: 100%; height: 40vh;">
-                                <img class="img-fluid w-100 h-100" style="object-fit: cover;" id="preview3" src="<?= base_url("assets/") ?>img/Image upload-bro.png" alt="">
-                                <div class="position-absolute d-none top-0 w-100 h-100 d-flex align-items-center justify-content-center" style="background-color: #0000008f;">
-                                    <button class="btn btn-outline-light px-3 py-2 delete-button" data-preview="preview3">Supprimer</button>
-                                </div>
+                        <div class="position-relative mt-3" style="width: 100%; height: 40vh;">
+                            <img class="img-fluid w-100 h-100" style="object-fit: cover;" id="preview3" src="<?= base_url("assets/") ?>img/Image upload-bro.png" alt="">
+                            <div class="position-absolute d-none top-0 w-100 h-100 d-flex align-items-center justify-content-center" style="background-color: #0000008f;">
+                                <button class="btn btn-outline-light px-3 py-2 delete-button" data-preview="preview3">Supprimer</button>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <div class="form-floating">
-                            <p class="mb-1">Images de publication 3 (*)</p>
-                            <input required type="file" class="form-control mb-3" name="image_publication3" data-preview="preview4" placeholder="Images de publication 3">
+                        <label for="iimgpublication3">Image de publication 3 (*)</label>
+                        <input required type="file" id="iimgpublication3" class="form-control" name="image_publication3" data-preview="preview4" placeholder="Images de publication 3" style="height: 3.5rem;">
+                        <div class="invalid-feedback">
+                            Veuillez entrer une image de publication 3.
+                        </div>
 
-                            <div class="position-relative" style="width: 100%; height: 40vh;">
-                                <img class="img-fluid w-100 h-100" style=" object-fit: cover;" id="preview4" src="<?= base_url("assets/") ?>img/Image upload-bro.png" alt="">
-                                <div class="position-absolute d-none top-0 w-100 h-100 d-flex align-items-center justify-content-center" style="background-color: #0000008f;">
-                                    <button class="btn btn-outline-light px-3 py-2 delete-button" data-preview="preview4">Supprimer</button>
-                                </div>
+                        <div class="position-relative mt-3" style="width: 100%; height: 40vh;">
+                            <img class="img-fluid w-100 h-100" style=" object-fit: cover;" id="preview4" src="<?= base_url("assets/") ?>img/Image upload-bro.png" alt="">
+                            <div class="position-absolute d-none top-0 w-100 h-100 d-flex align-items-center justify-content-center" style="background-color: #0000008f;">
+                                <button class="btn btn-outline-light px-3 py-2 delete-button" data-preview="preview4">Supprimer</button>
                             </div>
                         </div>
                     </div>

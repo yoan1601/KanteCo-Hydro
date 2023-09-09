@@ -10,42 +10,46 @@
                 <button class="btn btn-lg btn-primary btn-lg-square rounded-circle"><i class="bi bi-search"></i></button>
             </form>
             <div>
-                <a href="<?= site_url('administrationHydroGroup/new_admin/'); ?>" class="btn btn-primary py-3 px-5">Ajouter</a>
+                <a href="<?= site_url('administrationHydroGroup/new_admin/'); ?>" class="btn btn-primary py-3 px-5">Ajouter
+                    <i class="fas fa-plus ms-2"></i>
+                </a>
             </div>
         </div>
-        <div class="py-5">
-            <table class="table align-middle mb-0 bg-white table-hover">
+        <div class="py-5 table-responsive">
+            <table class="table table-bordered align-middle mb-0 bg-white table-hover text-dark">
                 <thead class="bg-light">
                     <tr>
-                        <th class="py-3 fs-5">Nom</th>
-                        <th class="py-3 fs-5">Mails</th>
-                        <th class="py-3 fs-5">Actions</th>
+                        <th class="py-3">Nom</th>
+                        <th class="py-3">Mails</th>
+                        <th class="py-3">Actions</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php for ($i = 0; $i < count($data['admin']); $i++) { ?>
                         <tr>
                             <td class="py-3">
-                                <p class="fw-normal fs-5 mb-0"><?= $data['admin'][$i]['nom'] ?></p>
+                                <?= $data['admin'][$i]['nom'] ?>
                             </td>
                             <td class="py-3">
-                                <p class="fw-normal fs-5 mb-0"><?= $data['admin'][$i]['mail'] ?></p>
+                                <?= $data['admin'][$i]['mail'] ?>
                             </td>
                             <td class="py-3">
                                 <div class="d-lg-flex d-none flex-wrap gap-2">
                                     <a href="" class="btn btn-outline-secondary py-2 px-3" data-bs-toggle="modal" data-bs-target="#ModalInfo-<?= $data['admin'][$i]['id'] ?>">
                                         Modifier
+                                        <i class="fas fa-edit text-secondary ms-2 hover-light"></i>
                                     </a>
                                     <a href="" class="btn btn-outline-danger py-2 px-3" data-bs-toggle="modal" data-bs-target="#monModal-<?= $data['admin'][$i]['id'] ?>">
                                         Supprimer
+                                        <i class="fas fa-trash text-danger ms-2 hover-light"></i>
                                     </a>
                                 </div>
                                 <div class="d-lg-none d-flex flex-wrap" style="column-gap: 0.75rem">
                                     <a href="" class="" data-bs-toggle="modal" data-bs-target="#ModalInfo-<?= $data['admin'][$i]['id'] ?>">
-                                        <i class="fas fa-edit text-secondary" style="font-size: 1.5em"></i>
+                                        <i class="fas fa-edit text-secondary" style="font-size: 1.25em"></i>
                                     </a>
                                     <a href="" class="" data-bs-toggle="modal" data-bs-target="#monModal-<?= $data['admin'][$i]['id'] ?>">
-                                        <i class="fas fa-trash text-danger" style="font-size: 1.5em"></i>
+                                        <i class="fas fa-trash text-danger" style="font-size: 1.25em"></i>
                                     </a>
                                 </div>
                             </td>
@@ -74,73 +78,60 @@
 
 
                             <!-- Modal Info -->
-                            <?php
-                            if ($data['errors'] != false) { ?>
-                                <div class="modal fade show" id="ModalInfo-<?= $data['admin'][$i]['id'] ?>" style="display: block;" aria-modal="true" role="dialog">
-                                <?php } else { ?>
-                                    <div class="modal fade" id="ModalInfo-<?= $data['admin'][$i]['id'] ?>">
-                                    <?php } ?>
-                                    <div class="modal-dialog modal-md">
-                                        <div class="modal-content position-relative">
-                                            <!-- En-tête du modal -->
-                                            <div class="modal-header">
-                                                <h4 class="modal-title">Modifier cet admin</h4>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                                            </div>
+                            <div class="modal fade" id="ModalInfo-<?= $data['admin'][$i]['id'] ?>">
+                                <div class="modal-dialog modal-md">
+                                    <div class="modal-content position-relative">
+                                        <!-- En-tête du modal -->
+                                        <div class="modal-header">
+                                            <h4 class="modal-title">Modifier cet admin</h4>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                                        </div>
 
-                                            <!-- Contenu du modal -->
-                                            <div class="modal-body">
-                                                <div class="fs-5">
-                                                    <form class="col-12 col-lg-6" action="<?= site_url('administrationhydrogroup/modifier_admin') ?>" method="POST">
-                                                        <input type="hidden" value="<?= $data['admin'][$i]['id'] ?>" name="id">
-                                                        <div class="row" style="row-gap: 1rem;">
-                                                            <div class="col-12">
-                                                                <?php if ($data['errors'] != false && isset($data['errors']['Nom'])) { ?>
-                                                                    <p style="color: red;"> <?= $data['errors']['Nom'] ?></p>
-                                                                <?php } ?>
-                                                                <div class="form-floating">
-                                                                    <input required type="text" class="form-control" name="Nom" value="<?= $data['admin'][$i]['nom'] ?>" placeholder="Nom">
-                                                                    <label for="">Nom (*)</label>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-12">
-                                                                <?php if ($data['errors'] != false && isset($data['errors']['Telephone'])) { ?>
-                                                                    <p style="color: red;"> <?= $data['errors']['Telephone'] ?></p>
-                                                                <?php } ?>
-                                                                <div class="form-floating">
-                                                                    <input required type="text" class="form-control" name="Telephone" value="<?= $data['admin'][$i]['telephone'] ?>" placeholder="Telephone">
-                                                                    <label for="">Téléphone (*)</label>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-12">
-                                                                <?php if ($data['errors'] != false && isset($data['errors']['Mail'])) { ?>
-                                                                    <p style="color: red;"> <?= $data['errors']['Mail'] ?></p>
-                                                                <?php } ?>
-                                                                <div class="form-floating">
-                                                                    <input required type="email" class="form-control" name="Mail" value="<?= $data['admin'][$i]['mail'] ?>" placeholder="Mail">
-                                                                    <label for="">Mail (*)</label>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-12">
-                                                                <?php if ($data['errors'] != false && isset($data['errors']['mdp'])) { ?>
-                                                                    <p style="color: red;"> <?= $data['errors']['mdp'] ?></p>
-                                                                <?php } ?>
-                                                                <div class="form-floating">
-                                                                    <input required type="password" class="form-control" name="mdp" value="<?= $data['admin'][$i]['mot_de_passe'] ?>" placeholder="mdp">
-                                                                    <label for="">Mot de passe (*)</label>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-12 d-flex justify-content-center">
-                                                                <button class="btn btn-primary py-3 px-5" type="submit">Valider</button>
+                                        <!-- Contenu du modal -->
+                                        <div class="modal-body">
+                                            <div>
+                                                <form class="col-12 col-lg-6 needs-validation" action="<?= site_url('administrationhydrogroup/modifier_admin') ?>" method="POST" novalidate>
+                                                    <input type="hidden" value="<?= $data['admin'][$i]['id'] ?>" name="id">
+                                                    <div class="row" style="row-gap: 1rem;">
+                                                        <div class="col-12">
+                                                            <label for="inom<?= $i ?>">Nom (*)</label>
+                                                            <input style="height: 3.5rem;" id="inom<?= $i ?>" type="text" class="form-control" name="Nom" value="<?= $data['admin'][$i]['nom'] ?>" placeholder="Nom" required>
+                                                            <div class="invalid-feedback">
+                                                                Veuillez entrer un nom.
                                                             </div>
                                                         </div>
-                                                    </form>
+                                                        <div class="col-12">
+                                                            <label for="itelephone<?= $i ?>">Téléphone (*)</label>
+                                                            <input style="height: 3.5rem;" id="itelephone<?= $i ?>" type="text" class="form-control" name="Telephone" value="<?= $data['admin'][$i]['telephone'] ?>" placeholder="+261 34 00 000 00" required>
+                                                            <div class="invalid-feedback">
+                                                                Veuillez entrer un numéro de contact.
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12">
+                                                            <label for="imail<?= $i ?>">Mail (*)</label>
+                                                            <input style="height: 3.5rem;" id="imail<?= $i ?>" type="email" class="form-control" name="Mail" value="<?= $data['admin'][$i]['mail'] ?>" placeholder="Mail" required>
+                                                            <div class="invalid-feedback">
+                                                                Veuillez entrer une adresse e-mail.
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12">
+                                                            <label for="imdp<?= $i ?>">Mot de passe (*)</label>
+                                                            <input style="height: 3.5rem;" id="imdp<?= $i ?>" type="password" class="form-control" name="mdp" value="<?= $data['admin'][$i]['mot_de_passe'] ?>" placeholder="Mot de passe" required>
+                                                            <div class="invalid-feedback">
+                                                                Veuillez entrer un mot de passe.
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12 d-flex justify-content-center">
+                                                            <button class="btn btn-primary py-3 px-5" type="submit">Valider</button>
+                                                        </div>
+                                                    </div>
+                                                </form>
 
-                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                    </div>
+                                </div>
+                            </div>
                         </tr>
                     <?php } ?>
                 </tbody>
@@ -177,7 +168,4 @@
         </div>
     </div>
 </div>
-<?php if ($data['errors'] != false) { ?>
-    <div class="modal-backdrop fade show"></div>
-<?php } ?>
 <?php $this->load->view("templates/footer_admin"); ?>
