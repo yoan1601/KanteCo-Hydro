@@ -59,8 +59,9 @@ class Contact extends CI_Controller
       var_dump(validation_errors());
     } else {
       $this->contact->insert($contact, $message, $mail);
+      $state  =  $this->email->envoyer_email_contact($contact, $message, $mail);
       $resp = array(
-        "state" => "success",
+        "state" =>$state,
       );
       echo json_encode($resp);
       // redirect('front/contact');

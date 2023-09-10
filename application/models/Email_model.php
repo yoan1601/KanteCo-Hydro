@@ -47,6 +47,26 @@ class Email_model extends CI_Model {
       $this->mail->clear();
   }
 
+  public function envoyer_email_contact($contact, $message, $mail) {
+    $email = 'contact@hydrocamp-group.com'; //email de hydrocamp
+    $this->mail->from('contact@hydrocamp-group.com', 'HydroCamp-Group');
+    $this->mail->to($email);
+    $this->mail->subject('Notification d\'un nouveau contact');
+    $titre= '<h2>Nouveau contact</h2>';
+    $contact= '<h4>Contact: </h4><p>'. $contact .'</p>';
+    $message='<h4>Message: </h4><p>'. $message .'</p>';
+    $mail ='<h4>Adresse mail: </h4><p>'. $mail .'</p>';
+    $message = $titre . $contact . $mail . $message;
+    $this->mail->message($message);
+    if ($this->mail->send()) {
+        return 'success';
+    } else {
+        echo $this->mail->print_debugger();
+        echo 'Une erreur s\'est produite lors de l\'envoi de l\'e-mail.';
+    }
+    $this->mail->clear();
+  }
+
   public function envoyer_email_devis($user,$type_projet, $description_projet, $montant) {
       $email = 'contact@hydrocamp-group.com'; //email de hydrocamp
       $this->mail->from('contact@hydrocamp-group.com', 'HydroCamp-Group');
