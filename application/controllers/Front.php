@@ -27,6 +27,7 @@ class Front extends CI_Controller
 			$data['session'] = $this->session->user;
 		}
 
+		// var_dump($data['session']);
 		$this->load->view('pages/home', ['data' => $data]);
 	}
 
@@ -369,8 +370,8 @@ class Front extends CI_Controller
 		} else {
 			$data['session'] = $this->session->user;
 		}
-
-		$idUser = $data['session']->id;
+		
+		$idUser = $data['session']['id'];
 
 		$nbAffiche = 3;
 		$data['page_en_cours'] = $num_page;
